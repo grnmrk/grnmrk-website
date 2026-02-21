@@ -1,0 +1,1334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grnmrk Group — AWS Partner Growth Advisors</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;1,300&family=Barlow+Condensed:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --black:   #0A0A0A;
+    --off-white: #F0EDE6;
+    --white:   #FFFFFF;
+    --green:   #2D5A3D;
+    --green-light: #3D7A55;
+    --green-dim: #1A3825;
+    --accent:  #8FBF6F;
+    --warm:    #C8B99A;
+    --warm-dim: #7A6E5F;
+    --rule:    rgba(143,191,111,0.25);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--off-white);
+    font-family: 'Barlow', sans-serif;
+    font-weight: 300;
+    font-size: 17px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ───────────────────────────────────────────────────────── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.4rem 5vw;
+    background: rgba(10,10,10,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(143,191,111,0.12);
+  }
+
+  .nav-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.7rem;
+    letter-spacing: 0.12em;
+    color: var(--off-white);
+    text-decoration: none;
+  }
+  .nav-logo span { color: var(--accent); }
+
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 500;
+    font-size: 0.85rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--warm);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--accent); }
+
+  .nav-cta {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--black);
+    background: var(--accent);
+    padding: 0.55rem 1.4rem;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .nav-cta:hover { background: var(--green-light); color: var(--white); }
+
+  /* ── HERO ──────────────────────────────────────────────────────── */
+  .hero {
+    min-height: 100vh;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    padding: 0 5vw 7rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 70% 40%, rgba(45,90,61,0.35) 0%, transparent 65%),
+      radial-gradient(ellipse 50% 40% at 20% 80%, rgba(143,191,111,0.08) 0%, transparent 60%),
+      linear-gradient(160deg, #0A0A0A 0%, #0e1510 50%, #0A0A0A 100%);
+  }
+
+  /* Grid lines */
+  .hero-bg::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(143,191,111,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(143,191,111,0.05) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.6) 40%, rgba(0,0,0,0.3) 100%);
+  }
+
+  .hero-eyebrow {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 500;
+    font-size: 0.82rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+    position: relative;
+    display: flex; align-items: center; gap: 1rem;
+    animation: fadeUp 0.8s ease both;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    display: inline-block; width: 32px; height: 1px;
+    background: var(--accent);
+  }
+
+  .hero-headline {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(4rem, 9vw, 9rem);
+    line-height: 0.92;
+    letter-spacing: 0.02em;
+    color: var(--off-white);
+    position: relative;
+    animation: fadeUp 0.9s 0.1s ease both;
+    max-width: 900px;
+  }
+  .hero-headline .green-word { color: var(--accent); }
+
+  .hero-sub {
+    margin-top: 2rem;
+    font-size: 1.15rem;
+    font-weight: 300;
+    color: var(--warm);
+    max-width: 560px;
+    line-height: 1.65;
+    position: relative;
+    animation: fadeUp 1s 0.2s ease both;
+  }
+
+  .hero-actions {
+    margin-top: 2.5rem;
+    display: flex; gap: 1.2rem; flex-wrap: wrap;
+    position: relative;
+    animation: fadeUp 1s 0.3s ease both;
+  }
+
+  .btn-primary {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--black);
+    background: var(--accent);
+    padding: 1rem 2.2rem;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.2s, color 0.2s;
+  }
+  .btn-primary:hover { background: var(--green-light); color: var(--white); }
+
+  .btn-ghost {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 500;
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--off-white);
+    border: 1px solid rgba(240,237,230,0.3);
+    padding: 1rem 2.2rem;
+    text-decoration: none;
+    display: inline-block;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+  .hero-stats {
+    position: absolute; right: 5vw; bottom: 7rem;
+    display: flex; flex-direction: column; gap: 2rem;
+    animation: fadeIn 1.2s 0.5s ease both;
+  }
+  .hero-stat {
+    text-align: right;
+  }
+  .hero-stat-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3.2rem;
+    color: var(--accent);
+    line-height: 1;
+  }
+  .hero-stat-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--warm-dim);
+  }
+
+  /* ── TICKER STRIP ──────────────────────────────────────────────── */
+  .ticker {
+    background: var(--green);
+    padding: 0.75rem 0;
+    overflow: hidden;
+    white-space: nowrap;
+    border-top: 1px solid var(--green-light);
+    border-bottom: 1px solid var(--green-dim);
+  }
+  .ticker-inner {
+    display: inline-flex;
+    animation: ticker 30s linear infinite;
+  }
+  .ticker-item {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 500;
+    font-size: 0.82rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--off-white);
+    padding: 0 3rem;
+  }
+  .ticker-dot {
+    color: var(--accent);
+    font-size: 1.2rem;
+    vertical-align: middle;
+  }
+
+  /* ── SECTIONS ──────────────────────────────────────────────────── */
+  section { position: relative; }
+
+  .section-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 7rem 5vw;
+  }
+
+  .section-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 500;
+    font-size: 0.78rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent);
+    display: flex; align-items: center; gap: 0.8rem;
+    margin-bottom: 1.2rem;
+  }
+  .section-label::before {
+    content: '';
+    display: inline-block; width: 24px; height: 1px;
+    background: var(--accent);
+  }
+
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.8rem, 5vw, 5rem);
+    line-height: 0.95;
+    letter-spacing: 0.02em;
+    color: var(--off-white);
+    margin-bottom: 1.5rem;
+  }
+
+  .section-body {
+    font-size: 1.05rem;
+    font-weight: 300;
+    color: var(--warm);
+    max-width: 620px;
+    line-height: 1.8;
+  }
+
+  /* ── INTRO / PROBLEM ───────────────────────────────────────────── */
+  .intro { background: var(--black); }
+
+  .intro-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: start;
+    margin-top: 4rem;
+  }
+
+  .intro-left {}
+  .intro-right {}
+
+  .problem-list {
+    list-style: none;
+    margin-top: 2rem;
+  }
+  .problem-list li {
+    display: flex; align-items: flex-start; gap: 1rem;
+    padding: 1.2rem 0;
+    border-bottom: 1px solid var(--rule);
+    font-size: 1rem;
+    color: var(--warm);
+    font-weight: 300;
+  }
+  .problem-list li::before {
+    content: '→';
+    color: var(--accent);
+    font-size: 1rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+
+  .callout-block {
+    background: var(--green-dim);
+    border-left: 3px solid var(--accent);
+    padding: 2rem 2rem 2rem 2rem;
+    margin-top: 2rem;
+  }
+  .callout-block p {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 500;
+    line-height: 1.4;
+    color: var(--off-white);
+    letter-spacing: 0.01em;
+  }
+  .callout-block cite {
+    display: block;
+    margin-top: 0.8rem;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-style: normal;
+  }
+
+  /* ── SERVICES ──────────────────────────────────────────────────── */
+  .services { background: #0D0D0D; }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    margin-top: 4rem;
+  }
+
+  .service-card {
+    background: #111;
+    padding: 3rem;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.3s;
+  }
+  .service-card:hover { background: #141a11; }
+
+  .service-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+  }
+  .service-card:hover::before { transform: scaleX(1); }
+
+  .service-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 4rem;
+    color: rgba(143,191,111,0.1);
+    line-height: 1;
+    margin-bottom: 1rem;
+    transition: color 0.3s;
+  }
+  .service-card:hover .service-num { color: rgba(143,191,111,0.2); }
+
+  .service-tag {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 500;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.6rem;
+  }
+
+  .service-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.2rem;
+    letter-spacing: 0.04em;
+    color: var(--off-white);
+    line-height: 1;
+    margin-bottom: 1.2rem;
+  }
+
+  .service-desc {
+    font-size: 0.95rem;
+    font-weight: 300;
+    color: var(--warm);
+    line-height: 1.75;
+    margin-bottom: 1.5rem;
+  }
+
+  .service-items {
+    list-style: none;
+  }
+  .service-items li {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.88rem;
+    letter-spacing: 0.06em;
+    color: var(--warm-dim);
+    padding: 0.4rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    display: flex; align-items: center; gap: 0.6rem;
+  }
+  .service-items li::before {
+    content: '—';
+    color: var(--accent);
+    font-size: 0.75rem;
+  }
+
+  /* Wide card */
+  .service-card.wide {
+    grid-column: 1 / -1;
+  }
+  .wide-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 3rem;
+  }
+
+  /* ── HOW IT WORKS ──────────────────────────────────────────────── */
+  .process { background: var(--black); }
+
+  .process-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    margin-top: 4rem;
+    position: relative;
+  }
+  .process-steps::before {
+    content: '';
+    position: absolute;
+    top: 2.2rem; left: 0; right: 0;
+    height: 1px;
+    background: var(--rule);
+  }
+
+  .process-step {
+    padding: 0 2rem 0 0;
+    position: relative;
+  }
+
+  .step-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3rem;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 1.5rem;
+    position: relative;
+    display: inline-block;
+  }
+  .step-num::after {
+    content: '';
+    position: absolute;
+    bottom: -0.3rem; left: 0;
+    width: 100%; height: 2px;
+    background: var(--accent);
+  }
+
+  .step-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--off-white);
+    margin-bottom: 0.8rem;
+  }
+
+  .step-desc {
+    font-size: 0.93rem;
+    font-weight: 300;
+    color: var(--warm);
+    line-height: 1.7;
+  }
+
+  /* ── PRICING ───────────────────────────────────────────────────── */
+  .pricing { background: #0D0D0D; }
+
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-top: 4rem;
+  }
+
+  .price-card {
+    background: #111;
+    padding: 2.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .price-card.featured {
+    background: var(--green-dim);
+    border: 1px solid rgba(143,191,111,0.3);
+  }
+
+  .price-badge {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--black);
+    background: var(--accent);
+    padding: 0.3rem 0.8rem;
+    display: inline-block;
+    margin-bottom: 1.5rem;
+  }
+
+  .price-tier {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem;
+    letter-spacing: 0.06em;
+    color: var(--off-white);
+    margin-bottom: 0.3rem;
+  }
+
+  .price-amount {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3.5rem;
+    color: var(--accent);
+    line-height: 1;
+    margin: 0.8rem 0 0.3rem;
+  }
+  .price-amount span {
+    font-family: 'Barlow', sans-serif;
+    font-size: 1rem;
+    font-weight: 300;
+    color: var(--warm-dim);
+  }
+
+  .price-desc {
+    font-size: 0.9rem;
+    font-weight: 300;
+    color: var(--warm);
+    line-height: 1.6;
+    margin: 1rem 0 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--rule);
+  }
+
+  .price-features {
+    list-style: none;
+    margin-bottom: 2rem;
+  }
+  .price-features li {
+    font-size: 0.9rem;
+    font-weight: 300;
+    color: var(--warm);
+    padding: 0.5rem 0;
+    display: flex; gap: 0.7rem;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+  .price-features li::before {
+    content: '✓';
+    color: var(--accent);
+    font-size: 0.85rem;
+    flex-shrink: 0;
+  }
+
+  .price-cta {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    display: block;
+    text-align: center;
+    padding: 0.9rem;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .price-cta.outline {
+    border: 1px solid rgba(143,191,111,0.4);
+    color: var(--accent);
+  }
+  .price-cta.outline:hover {
+    background: var(--accent);
+    color: var(--black);
+    border-color: var(--accent);
+  }
+  .price-cta.solid {
+    background: var(--accent);
+    color: var(--black);
+  }
+  .price-cta.solid:hover { background: var(--green-light); color: var(--white); }
+
+  /* ── ABOUT ─────────────────────────────────────────────────────── */
+  .about { background: var(--black); }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 6rem;
+    align-items: start;
+    margin-top: 4rem;
+  }
+
+  .about-left {}
+
+  .about-photo-placeholder {
+    width: 100%;
+    aspect-ratio: 3/4;
+    background: var(--green-dim);
+    border: 1px solid rgba(143,191,111,0.15);
+    display: flex; align-items: flex-end;
+    padding: 1.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .about-photo-placeholder::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 60% 30%, rgba(45,90,61,0.6), transparent 70%);
+  }
+  .about-photo-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    position: relative;
+  }
+
+  .about-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3rem;
+    letter-spacing: 0.04em;
+    color: var(--off-white);
+    margin-bottom: 0.3rem;
+  }
+  .about-title-tag {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 500;
+    font-size: 0.85rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 2rem;
+  }
+
+  .about-body {
+    font-size: 1.05rem;
+    font-weight: 300;
+    color: var(--warm);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+  }
+
+  .cred-list {
+    list-style: none;
+    margin-top: 2rem;
+    border-top: 1px solid var(--rule);
+  }
+  .cred-list li {
+    display: flex; align-items: flex-start; gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--rule);
+    font-size: 0.95rem;
+    color: var(--warm);
+  }
+  .cred-list li strong {
+    font-weight: 500;
+    color: var(--off-white);
+  }
+  .cred-icon {
+    color: var(--accent);
+    font-size: 1.1rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+
+  /* ── WHO WE SERVE ──────────────────────────────────────────────── */
+  .audience { background: #0D0D0D; }
+
+  .audience-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px;
+    margin-top: 4rem;
+  }
+
+  .audience-card {
+    background: #111;
+    padding: 2.5rem;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.3s, background 0.3s;
+  }
+  .audience-card:hover {
+    border-color: var(--accent);
+    background: #141a11;
+  }
+
+  .audience-type {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem;
+    letter-spacing: 0.04em;
+    color: var(--off-white);
+    margin-bottom: 0.8rem;
+  }
+
+  .audience-desc {
+    font-size: 0.95rem;
+    font-weight: 300;
+    color: var(--warm);
+    line-height: 1.75;
+    margin-bottom: 1.2rem;
+  }
+
+  .audience-outcomes {
+    list-style: none;
+  }
+  .audience-outcomes li {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.88rem;
+    letter-spacing: 0.05em;
+    color: var(--accent);
+    padding: 0.3rem 0;
+    display: flex; gap: 0.6rem; align-items: center;
+  }
+  .audience-outcomes li::before {
+    content: '→';
+    font-size: 0.8rem;
+  }
+
+  /* ── CTA ───────────────────────────────────────────────────────── */
+  .cta-section {
+    background: var(--green-dim);
+    border-top: 1px solid rgba(143,191,111,0.2);
+    border-bottom: 1px solid rgba(143,191,111,0.2);
+    overflow: hidden;
+    position: relative;
+  }
+  .cta-section::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 70% 80% at 80% 50%, rgba(45,90,61,0.5), transparent 70%),
+      radial-gradient(ellipse 40% 60% at 10% 50%, rgba(143,191,111,0.06), transparent 60%);
+  }
+
+  .cta-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 7rem 5vw;
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .cta-headline {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.5rem, 4.5vw, 4.5rem);
+    line-height: 0.95;
+    letter-spacing: 0.02em;
+    color: var(--off-white);
+    margin-bottom: 1rem;
+  }
+  .cta-sub {
+    font-size: 1.05rem;
+    font-weight: 300;
+    color: var(--warm);
+    max-width: 520px;
+    line-height: 1.7;
+  }
+
+  .cta-actions {
+    display: flex; flex-direction: column; gap: 1rem;
+    min-width: 220px;
+  }
+
+  /* ── FOOTER ────────────────────────────────────────────────────── */
+  footer {
+    background: #050505;
+    padding: 3rem 5vw;
+    border-top: 1px solid rgba(143,191,111,0.08);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .footer-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.4rem;
+    letter-spacing: 0.12em;
+    color: var(--off-white);
+    text-decoration: none;
+  }
+  .footer-logo span { color: var(--accent); }
+
+  .footer-copy {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--warm-dim);
+  }
+
+  .footer-links {
+    display: flex; gap: 2rem; list-style: none;
+  }
+  .footer-links a {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--warm-dim);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--accent); }
+
+  /* ── DIVIDER ───────────────────────────────────────────────────── */
+  .section-rule {
+    width: 100%;
+    height: 1px;
+    background: var(--rule);
+  }
+
+  /* ── ANIMATIONS ────────────────────────────────────────────────── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(28px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+  @keyframes ticker {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+
+  /* ── RESPONSIVE ────────────────────────────────────────────────── */
+  @media (max-width: 900px) {
+    .hero-stats { display: none; }
+    .intro-grid, .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .services-grid { grid-template-columns: 1fr; }
+    .service-card.wide .wide-inner { grid-template-columns: 1fr; }
+    .process-steps { grid-template-columns: 1fr 1fr; gap: 3rem; }
+    .pricing-grid { grid-template-columns: 1fr; }
+    .audience-grid { grid-template-columns: 1fr; }
+    .cta-inner { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#"><span>G</span>RNMRK GROUP</a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#process">How It Works</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a class="nav-cta" href="#contact">Get Started</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+
+  <p class="hero-eyebrow">AWS Partner Growth Advisory</p>
+  <h1 class="hero-headline">
+    Stop Leaving<br>
+    AWS Revenue<br>
+    <span class="green-word">On The Table.</span>
+  </h1>
+  <p class="hero-sub">
+    Grnmrk Group helps AWS partners unlock co-sell, climb tiers, capture funding, and build the go-to-market engine that turns your AWS relationship into a genuine revenue multiplier.
+  </p>
+  <div class="hero-actions">
+    <a class="btn-primary" href="#services">Explore Services</a>
+    <a class="btn-ghost" href="#contact">Book a Strategy Call</a>
+  </div>
+
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <div class="hero-stat-num">$250K+</div>
+      <div class="hero-stat-label">Funding Captured<br>for Partners</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">40+</div>
+      <div class="hero-stat-label">AWS Partners<br>Advised</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">3→</div>
+      <div class="hero-stat-label">Avg Tier Jumps<br>Accelerated</div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-inner">
+    <span class="ticker-item">ACE Pipeline Management <span class="ticker-dot">·</span></span>
+    <span class="ticker-item">Partner Tier Acceleration <span class="ticker-dot">·</span></span>
+    <span class="ticker-item">MAP & MDF Funding <span class="ticker-dot">·</span></span>
+    <span class="ticker-item">Co-Sell Motion Build <span class="ticker-dot">·</span></span>
+    <span class="ticker-item">AWS Marketplace Strategy <span class="ticker-dot">·</span></span>
+    <span class="ticker-item">Field Alignment & GTM <span class="ticker-dot">·</span></span>
+    <span class="ticker-item">Partner Revenue Generation <span class="ticker-dot">·</span></span>
+    <span class="ticker-item">Immersion Days <span class="ticker-dot">·</span></span>
+    <span class="ticker-item">PDM & PSM Enablement <span class="ticker-dot">·</span></span>
+    <!-- duplicate for seamless loop -->
+    <span class="ticker-item">ACE Pipeline Management <span class="ticker-dot">·</span></span>
+    <span class="ticker-item">Partner Tier Acceleration <span class="ticker-dot">·</span></span>
+    <span class="ticker-item">MAP & MDF Funding <span class="ticker-dot">·</span></span>
+    <span class="ticker-item">Co-Sell Motion Build <span class="ticker-dot">·</span></span>
+    <span class="ticker-item">AWS Marketplace Strategy <span class="ticker-dot">·</span></span>
+    <span class="ticker-item">Field Alignment & GTM <span class="ticker-dot">·</span></span>
+    <span class="ticker-item">Partner Revenue Generation <span class="ticker-dot">·</span></span>
+    <span class="ticker-item">Immersion Days <span class="ticker-dot">·</span></span>
+    <span class="ticker-item">PDM & PSM Enablement <span class="ticker-dot">·</span></span>
+  </div>
+</div>
+
+<!-- INTRO / PROBLEM -->
+<section class="intro" id="about-problem">
+  <div class="section-inner">
+    <div class="section-label">The Problem</div>
+    <h2 class="section-title">Most AWS Partners<br>Are Flying Blind.</h2>
+
+    <div class="intro-grid">
+      <div class="intro-left">
+        <p class="section-body">
+          The AWS Partner Network is one of the most powerful growth engines in enterprise software — but only for partners who know how to work it. Most don't. They have the technology. They have the ambition. What they're missing is someone who has lived inside the ecosystem and knows exactly where the leverage is.
+        </p>
+        <ul class="problem-list">
+          <li>ACE opportunities sitting stale, costing you co-sell credibility with your PDM</li>
+          <li>MAP and MDF funding going unclaimed — money AWS wants to give you that you're leaving behind</li>
+          <li>Stuck at the same partner tier for 18+ months despite hitting core requirements</li>
+          <li>No repeatable co-sell motion — every AWS rep engagement starts from scratch</li>
+          <li>Marketplace listed but not transacting — no private offer strategy, no CPPO motion</li>
+          <li>Field teams and AWS reps aren't aligned — you're not in the rooms that matter</li>
+        </ul>
+      </div>
+      <div class="intro-right">
+        <div class="callout-block">
+          <p>"AWS partners that actively co-sell and maintain clean ACE hygiene generate 2–4x more AWS-sourced pipeline than those that don't. The gap isn't product — it's process."</p>
+          <cite>— Grnmrk Group, from working with 40+ AWS partners</cite>
+        </div>
+        <div style="margin-top: 2rem;">
+          <p style="font-size: 0.95rem; color: var(--warm); line-height: 1.8; font-weight: 300;">
+            Grnmrk Group was built for exactly this moment — when a partner is ready to stop guessing and start scaling. We bring the inside knowledge of how AWS partner programs actually work, paired with the operational muscle to run them on your behalf or equip your team to run them for themselves.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-rule"></div>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="section-inner">
+    <div class="section-label">What We Do</div>
+    <h2 class="section-title">Built Around<br>How AWS Partners<br>Actually Grow.</h2>
+
+    <div class="services-grid">
+
+      <!-- Managed Services -->
+      <div class="service-card">
+        <div class="service-num">01</div>
+        <div class="service-tag">Managed Services</div>
+        <div class="service-name">Partner Operations,<br>Handled.</div>
+        <p class="service-desc">
+          We run your AWS partner operations end-to-end — so nothing falls through the cracks, your ACE pipeline stays healthy, and your PDM sees you as a serious co-sell partner. Think of us as your fractional Partner Alliances team.
+        </p>
+        <ul class="service-items">
+          <li>ACE pipeline hygiene & submission management</li>
+          <li>Partner requirement tracking & gap analysis</li>
+          <li>MAP, MDF & funding program management</li>
+          <li>Certification roadmap & tracking</li>
+          <li>Monthly executive reporting dashboard</li>
+          <li>Co-sell support & AWS relationship management</li>
+        </ul>
+      </div>
+
+      <!-- Strategy Consulting -->
+      <div class="service-card">
+        <div class="service-num">02</div>
+        <div class="service-tag">Strategy Consulting</div>
+        <div class="service-name">The Roadmap<br>Others Can't Give You.</div>
+        <p class="service-desc">
+          From tier strategy and PO/AO structure to Marketplace GTM and field alignment — we build the playbooks that unlock the next stage of your AWS relationship. Delivered as focused engagements or ongoing advisory.
+        </p>
+        <ul class="service-items">
+          <li>Partner tier assessment & acceleration roadmap</li>
+          <li>PO vs AO structure strategy</li>
+          <li>AWS Marketplace strategy & GTM planning</li>
+          <li>Co-sell motion design & playbook</li>
+          <li>Field alignment & AWS rep introduction facilitation</li>
+          <li>Funding program strategy (MAP, ISV Accelerate, CPPO)</li>
+        </ul>
+      </div>
+
+      <!-- Partner Revenue Gen -->
+      <div class="service-card wide">
+        <div class="service-num">03</div>
+        <div class="service-tag">Partner Revenue Generation</div>
+        <div class="service-name">Turn Your AWS Relationship Into a Pipeline Engine.</div>
+        <div class="wide-inner">
+          <div>
+            <p class="service-desc">
+              A strong AWS partnership should generate demand, not just credibility. We design and execute partner revenue programs — from immersion days to co-branded campaigns — that create real pipeline.
+            </p>
+          </div>
+          <div>
+            <ul class="service-items">
+              <li>Partner & field enablement sessions</li>
+              <li>AWS Immersion Days (design & facilitation)</li>
+              <li>Co-branded campaign development</li>
+              <li>Outbound prospecting with AWS alignment</li>
+            </ul>
+          </div>
+          <div>
+            <ul class="service-items">
+              <li>Partner events & executive roundtables</li>
+              <li>re:Invent & AWS Summit strategy</li>
+              <li>Joint customer success storytelling</li>
+              <li>Marketplace private offer campaigns</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="section-rule"></div>
+
+<!-- HOW IT WORKS -->
+<section class="process" id="process">
+  <div class="section-inner">
+    <div class="section-label">How It Works</div>
+    <h2 class="section-title">Fast to Value.<br>Built to Last.</h2>
+    <p class="section-body" style="margin-top: 1rem;">
+      We're not a consulting firm that disappears after the deck. Every engagement is designed to produce tangible momentum within the first 30 days.
+    </p>
+
+    <div class="process-steps">
+      <div class="process-step">
+        <div class="step-num">01</div>
+        <div class="step-title">Discovery Call</div>
+        <p class="step-desc">
+          We assess your current partner standing, ACE health, funding history, and growth goals. No fluff — we come prepared and leave with a clear picture of your situation.
+        </p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">02</div>
+        <div class="step-title">Gap Analysis</div>
+        <p class="step-desc">
+          We audit your partner profile against your tier requirements, co-sell maturity, marketplace readiness, and funding capture rate. You get a written assessment with prioritized actions.
+        </p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">03</div>
+        <div class="step-title">Engagement Kickoff</div>
+        <p class="step-desc">
+          Whether managed services or a consulting project, we move fast. Week one deliverables, clear owners, and immediate action on the highest-leverage gaps.
+        </p>
+      </div>
+      <div class="process-step">
+        <div class="step-num">04</div>
+        <div class="step-title">Measure & Scale</div>
+        <p class="step-desc">
+          Monthly reporting on partner program KPIs. Quarterly business reviews with your stakeholders. Every renewal decision is backed by numbers you can take to your exec team.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-rule"></div>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+  <div class="section-inner">
+    <div class="section-label">Pricing</div>
+    <h2 class="section-title">Straightforward<br>Pricing. Real ROI.</h2>
+    <p class="section-body" style="margin-top: 1rem;">
+      Every engagement is scoped to your needs. No bloated retainers, no surprise overages. Start where it makes sense and scale as the business grows.
+    </p>
+
+    <div class="pricing-grid">
+
+      <div class="price-card">
+        <div class="price-badge">Managed Services</div>
+        <div class="price-tier">Essentials</div>
+        <p style="font-size:0.85rem; color:var(--warm-dim); font-family:'Barlow Condensed'; letter-spacing:0.08em;">STARTING AT</p>
+        <div class="price-amount">$2,000<span>/mo</span></div>
+        <p class="price-desc">For partners who need their AWS operations kept clean and current. Great for early-stage or resource-light teams.</p>
+        <ul class="price-features">
+          <li>ACE pipeline hygiene & submissions</li>
+          <li>Partner requirements tracking</li>
+          <li>Funding opportunity identification</li>
+          <li>Monthly reporting dashboard</li>
+        </ul>
+        <a class="price-cta outline" href="#contact">Get Started</a>
+      </div>
+
+      <div class="price-card featured">
+        <div class="price-badge">Managed Services — Most Popular</div>
+        <div class="price-tier">Growth</div>
+        <p style="font-size:0.85rem; color:var(--warm-dim); font-family:'Barlow Condensed'; letter-spacing:0.08em;">STARTING AT</p>
+        <div class="price-amount">$4,500<span>/mo</span></div>
+        <p class="price-desc">For partners actively working toward the next tier or co-sell maturity. Full operations plus strategic support.</p>
+        <ul class="price-features">
+          <li>Everything in Essentials</li>
+          <li>Active MAP & MDF funding management</li>
+          <li>Certification roadmap & tracking</li>
+          <li>Monthly strategy session</li>
+          <li>Co-sell support & PDM engagement</li>
+        </ul>
+        <a class="price-cta solid" href="#contact">Get Started</a>
+      </div>
+
+      <div class="price-card">
+        <div class="price-badge">Managed Services</div>
+        <div class="price-tier">Scale</div>
+        <p style="font-size:0.85rem; color:var(--warm-dim); font-family:'Barlow Condensed'; letter-spacing:0.08em;">STARTING AT</p>
+        <div class="price-amount">$8,500<span>/mo</span></div>
+        <p class="price-desc">For Advanced-tier partners and funded ISVs who need a fractional VP of Alliances. Full-service, full ownership.</p>
+        <ul class="price-features">
+          <li>Everything in Growth</li>
+          <li>Marketplace & CPPO motion management</li>
+          <li>Field alignment & AWS rep facilitation</li>
+          <li>Campaign & event program support</li>
+          <li>QBR prep & executive reporting</li>
+          <li>Weekly touchpoint & on-call access</li>
+        </ul>
+        <a class="price-cta outline" href="#contact">Get Started</a>
+      </div>
+
+    </div>
+
+    <!-- Consulting note -->
+    <div style="margin-top: 3rem; display: grid; grid-template-columns: 1fr 1fr; gap: 2px;">
+      <div style="background:#111; padding:2rem;">
+        <div class="service-tag">Strategy Consulting</div>
+        <div style="font-family:'Bebas Neue'; font-size:2rem; color:var(--off-white); margin: 0.5rem 0;">$250 / Hour</div>
+        <p style="font-size:0.93rem; font-weight:300; color:var(--warm); line-height:1.7;">
+          Focused project engagements — tier assessments, Marketplace GTM, co-sell playbooks, field alignment. Most projects run 16–32 hours. Retainer advisory available at $2,500/mo.
+        </p>
+      </div>
+      <div style="background:#111; padding:2rem;">
+        <div class="service-tag">Not sure where to start?</div>
+        <div style="font-family:'Bebas Neue'; font-size:2rem; color:var(--off-white); margin: 0.5rem 0;">Book a Free Call</div>
+        <p style="font-size:0.93rem; font-weight:300; color:var(--warm); line-height:1.7;">
+          30 minutes. We'll tell you exactly where your biggest gaps are and what it would take to close them — whether or not you work with us.
+        </p>
+        <a class="btn-ghost" href="#contact" style="margin-top:1.2rem; display:inline-block; font-size:0.82rem; padding:0.7rem 1.5rem;">Schedule Now →</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="section-rule"></div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="section-inner">
+    <div class="section-label">Who's Behind It</div>
+    <h2 class="section-title">Experience That<br>Comes From Inside<br>The Ecosystem.</h2>
+
+    <div class="about-grid">
+      <div class="about-left">
+        <div class="about-photo-placeholder">
+          <span class="about-photo-label">[ Your Photo ]</span>
+        </div>
+      </div>
+      <div class="about-right">
+        <div class="about-name">[Your Name]</div>
+        <div class="about-title-tag">Founder, Grnmrk Group</div>
+
+        <p class="about-body">
+          I've spent [X] years inside the AWS partner ecosystem — working directly with ISVs, MSPs, and channel partners at every stage of the partner journey. I've sat in the rooms where PDMs and PSMs decide which partners get co-sell priority. I know how ACE decisions are made, which funding programs are underutilized, and what it actually takes to move a partner from Select to Advanced to Premier.
+        </p>
+        <p class="about-body">
+          Grnmrk Group exists because most partners are left to figure this out on their own, with a partner portal and a quarterly check-in from an overextended PDM. That's not enough. The partners winning in the AWS ecosystem have someone who knows the system — on their side, working it every day.
+        </p>
+        <p class="about-body">
+          I started this firm to be that person for a select group of partners who are serious about scaling.
+        </p>
+
+        <ul class="cred-list">
+          <li>
+            <span class="cred-icon">◆</span>
+            <div><strong>[X] years</strong> working in and around the AWS partner ecosystem — from [relevant role/context]</div>
+          </li>
+          <li>
+            <span class="cred-icon">◆</span>
+            <div>Helped partners capture <strong>hundreds of thousands of dollars</strong> in MAP, MDF, and ISV Accelerate funding</div>
+          </li>
+          <li>
+            <span class="cred-icon">◆</span>
+            <div>Deep relationships with <strong>AWS PSMs, PDMs, and field reps</strong> across multiple segments and verticals</div>
+          </li>
+          <li>
+            <span class="cred-icon">◆</span>
+            <div>Track record of accelerating partners through <strong>tier advancement</strong> — Select to Advanced, Advanced to Premier</div>
+          </li>
+          <li>
+            <span class="cred-icon">◆</span>
+            <div>Built co-sell motions and Marketplace GTM strategies for <strong>ISVs and channel partners</strong> across SaaS and services</div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-rule"></div>
+
+<!-- WHO WE SERVE -->
+<section class="audience" id="who-we-serve">
+  <div class="section-inner">
+    <div class="section-label">Who We Serve</div>
+    <h2 class="section-title">Right For You If<br>You Recognize<br>Any Of This.</h2>
+
+    <div class="audience-grid">
+
+      <div class="audience-card">
+        <div class="audience-type">ISVs Building<br>a Co-Sell Motion</div>
+        <p class="audience-desc">
+          You've got a solid product and AWS is a natural distribution channel — but you're not sure how to structure your ACE submissions, engage your PDM, or stand up a Marketplace transaction motion that actually converts.
+        </p>
+        <ul class="audience-outcomes">
+          <li>Co-sell playbook built and activated</li>
+          <li>ACE submissions that get AWS attention</li>
+          <li>Marketplace GTM from listing to private offer</li>
+        </ul>
+      </div>
+
+      <div class="audience-card">
+        <div class="audience-type">Channel Partners &<br>MSPs Climbing Tiers</div>
+        <p class="audience-desc">
+          You're stuck at Select or Advanced and don't fully understand why. You're hitting some requirements but missing others, and the guidance you're getting from AWS isn't specific enough to act on.
+        </p>
+        <ul class="audience-outcomes">
+          <li>Clear gap analysis against next tier</li>
+          <li>90-day acceleration roadmap</li>
+          <li>Funding programs unlocked and activated</li>
+        </ul>
+      </div>
+
+      <div class="audience-card">
+        <div class="audience-type">Partner Leaders &<br>VPs of Alliances</div>
+        <p class="audience-desc">
+          You lead the alliance function but you're stretched thin — managing the AWS relationship, training your team, chasing funding, and trying to build field alignment, all at once. You need a trusted extension of your team.
+        </p>
+        <ul class="audience-outcomes">
+          <li>Fractional alliances operator — day one</li>
+          <li>Exec-ready monthly reporting</li>
+          <li>AWS field relationships actively managed</li>
+        </ul>
+      </div>
+
+      <div class="audience-card">
+        <div class="audience-type">Early-Stage Partners<br>Just Getting Started</div>
+        <p class="audience-desc">
+          You just joined the AWS Partner Network or you're in the early stages of building your AWS motion. You want to build it right from the start — not spend two years correcting mistakes that could have been avoided.
+        </p>
+        <ul class="audience-outcomes">
+          <li>Foundation built correctly from day one</li>
+          <li>Funding captured early and often</li>
+          <li>PDM relationship established and active</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+  <div class="cta-inner">
+    <div>
+      <div class="section-label">Get Started</div>
+      <div class="cta-headline">Ready to Get More<br>Out of AWS?</div>
+      <p class="cta-sub">
+        Book a free 30-minute strategy call. We'll assess your current AWS partner standing and tell you exactly where the biggest opportunities are — no pitch, no pressure.
+      </p>
+    </div>
+    <div class="cta-actions">
+      <a class="btn-primary" href="mailto:hello@grnmrkgroup.com">Book a Strategy Call</a>
+      <a class="btn-ghost" href="mailto:hello@grnmrkgroup.com">hello@grnmrkgroup.com</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a class="footer-logo" href="#"><span>G</span>RNMRK GROUP</a>
+  <ul class="footer-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#process">How It Works</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <p class="footer-copy">© 2025 Grnmrk Group. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

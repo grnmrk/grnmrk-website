@@ -801,13 +801,12 @@
   footer {
     background: #050505;
     border-top: 1px solid rgba(143,191,111,0.08);
-    width: 100vw;
-    position: relative;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
+    width: 100%;
     display: block;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    padding-left: calc(50vw - 50%);
+    padding-right: calc(50vw - 50%);
   }
 
   .footer-top {

@@ -800,30 +800,109 @@
   /* ── FOOTER ────────────────────────────────────────────────────── */
   footer {
     background: #050505;
-    padding: 3rem 5vw;
     border-top: 1px solid rgba(143,191,111,0.08);
+  }
+
+  .footer-top {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 5vw 3rem;
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    gap: 4rem;
     flex-wrap: wrap;
-    gap: 1rem;
+  }
+
+  .footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
   }
 
   .footer-logo {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     letter-spacing: 0.12em;
     color: var(--off-white);
     text-decoration: none;
   }
   .footer-logo span { color: var(--accent); }
 
-  .footer-copy {
+  .footer-tagline {
     font-family: 'Barlow Condensed', sans-serif;
     font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--warm-dim);
+  }
+
+  .footer-linkedin {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.82rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--warm-dim);
+    text-decoration: none;
+    margin-top: 0.4rem;
+    transition: color 0.2s;
+  }
+  .footer-linkedin:hover { color: var(--accent); }
+
+  .footer-nav-group {
+    display: flex;
+    gap: 4rem;
+    flex-wrap: wrap;
+  }
+
+  .footer-nav-col {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .footer-nav-heading {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .footer-nav-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .footer-nav-links a {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.88rem;
+    letter-spacing: 0.08em;
+    color: var(--warm-dim);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-nav-links a:hover { color: var(--accent); }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(143,191,111,0.08);
+    padding: 1.5rem 5vw;
+    max-width: 100%;
+  }
+
+  .footer-copy {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--warm-dim);
+    max-width: 1200px;
+    margin: 0 auto;
   }
 
   .footer-links {
@@ -1289,47 +1368,42 @@
         </p>
         <ul class="audience-outcomes">
           <li>Fractional alliances operator — day one</li>
-          <li>Exec-ready monthly reporting</li>
-          <li>AWS field relationships actively managed</li>
-        </ul>
-      </div>
-
-      <div class="audience-card">
-        <div class="audience-type">Early-Stage Partners<br>Just Getting Started</div>
-        <p class="audience-desc">
-          You just joined the AWS Partner Network or you're in the early stages of building your AWS motion. You want to build it right from the start — not spend two years correcting mistakes that could have been avoided.
-        </p>
-        <ul class="audience-outcomes">
-          <li>Foundation built correctly from day one</li>
-          <li>Funding captured early and often</li>
-          <li>PDM relationship established and active</li>
-        </ul>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- CTA -->
-<section class="cta-section" id="contact">
-  <div class="cta-inner">
-    <div>
-      <div class="section-label">Get Started</div>
-      <div class="cta-headline">Ready to Get More<br>Out of AWS?</div>
-      <p class="cta-sub">
-        Book a free 30-minute strategy call. We'll assess your current AWS partner standing and tell you exactly where the biggest opportunities are — no pitch, no pressure.
-      </p>
-    </div>
-    <div class="cta-actions">
-      <a class="btn-primary" href="https://calendly.com/grnmrk/30-min-consultation" target="_blank" rel="noopener noreferrer">Book a Strategy Call</a>
-      <a class="btn-ghost" href="/cdn-cgi/l/email-protection#7b131e1717143b1c091516091055181416"><span class="__cf_email__" data-cfemail="8be3eee7e7e4cbecf9e5e6f9e0a5e8e4e6">[email&#160;protected]</span></a>
-    </div>
-    <img class="aws-badge" src="aws-logo_copy.png" alt="AWS Partner">
-  </div>
-</section>
-
-<!-- FOOTER -->
+          <li><!-- FOOTER -->
 <footer>
-  <a class="footer-logo" href="#"><span>G</span>RNMRK GROUP</a>
-  <ul class="footer-links">
-    <li><a href="#
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a class="footer-logo" href="#"><span>G</span>RNMRK GROUP</a>
+      <p class="footer-tagline">AWS Partner Growth Advisors</p>
+      <a class="footer-linkedin" href="#" aria-label="LinkedIn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        LinkedIn
+      </a>
+    </div>
+    <div class="footer-nav-group">
+      <div class="footer-nav-col">
+        <div class="footer-nav-heading">Navigate</div>
+        <ul class="footer-nav-links">
+          <li><a href="#services">Services</a></li>
+          <li><a href="#process">How It Works</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-nav-col">
+        <div class="footer-nav-heading">Company</div>
+        <ul class="footer-nav-links">
+          <li><a href="careers.html">Careers</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2025 Grnmrk Group LLC. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>

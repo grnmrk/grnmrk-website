@@ -609,21 +609,19 @@
     margin-top: 4rem;
   }
 
-  .about-photo-placeholder {
-    width: 100%;
-    aspect-ratio: 3/4;
-    background: var(--green-dim);
-    border: 1px solid rgba(61,220,132,0.3);
-    display: flex; align-items: flex-end;
-    padding: 1.5rem;
-    position: relative;
-    overflow: hidden;
-  }
-  .about-photo-placeholder::before {
-    content: '';
-    position: absolute; inset: 0;
-    background: radial-gradient(ellipse at 60% 30%, rgba(61,220,132,0.15), transparent 70%);
-  }
+.about-photo-placeholder {
+  width: 100%;
+  aspect-ratio: 3/4;
+  display: flex; align-items: flex-end;
+  padding: 0;
+  border: none;
+  background: none;
+  position: relative;
+  overflow: hidden;
+}
+.about-photo-placeholder::before {
+  display: none;
+}
   .about-photo-label {
     font-family: 'Barlow Condensed', sans-serif;
     font-size: 0.78rem;

@@ -8,21 +8,63 @@
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;1,300&family=Barlow+Condensed:wght@500;700&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
   :root {
-    --black: #0A0A0A; --off-white: #F0EDE6; --white: #FFFFFF;
-    --green: #2D5A3D; --green-light: #3D7A55; --green-dim: #1A3825;
-    --accent: #8FBF6F; --warm: #C8B99A; --warm-dim: #7A6E5F;
-    --rule: rgba(143,191,111,0.25);
+    --bg:          #F0EDE6;
+    --bg-alt:      #E8E4DC;
+    --bg-card:     #EDEAE3;
+    --ink:         #111111;
+    --ink-mid:     #3A3A3A;
+    --ink-dim:     #7A7369;
+    --green:       #3DDC84;
+    --green-dark:  #28B06A;
+    --green-dim:   #D4F5E5;
+    --rule:        rgba(17,17,17,0.1);
+    --white:       #FFFFFF;
   }
+
   html { scroll-behavior: smooth; }
-  body { background: var(--black); color: var(--off-white); font-family: 'Barlow', sans-serif; font-weight: 300; font-size: 17px; line-height: 1.7; overflow-x: hidden; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Barlow', sans-serif;
+    font-weight: 300;
+    font-size: 17px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
 
   /* ── NAV ── */
-  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1.4rem 5vw; background: rgba(10,10,10,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(143,191,111,0.12); }
-  .nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.7rem; letter-spacing: 0.12em; color: var(--off-white); text-decoration: none; }
-  .nav-logo span { color: var(--accent); }
-  .nav-back { font-family: 'Barlow Condensed', sans-serif; font-weight: 500; font-size: 0.85rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--warm); text-decoration: none; display: flex; align-items: center; gap: 0.5rem; transition: color 0.2s; }
-  .nav-back:hover { color: var(--accent); }
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.4rem 5vw;
+    background: rgba(240,237,230,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--rule);
+  }
+  .nav-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.7rem;
+    letter-spacing: 0.12em;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .nav-logo span { color: var(--green); }
+
+  .nav-back {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 500;
+    font-size: 0.85rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+    text-decoration: none;
+    display: flex; align-items: center; gap: 0.5rem;
+    transition: color 0.2s;
+  }
+  .nav-back:hover { color: var(--green-dark); }
 
   /* ── PAGE LAYOUT ── */
   .page-wrap {
@@ -43,18 +85,14 @@
     font-size: 0.78rem;
     letter-spacing: 0.22em;
     text-transform: uppercase;
-    color: var(--accent);
+    color: var(--green-dark);
     margin-bottom: 1.2rem;
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
+    display: flex; align-items: center; gap: 0.8rem;
   }
   .page-eyebrow::before {
     content: '';
-    display: inline-block;
-    width: 24px;
-    height: 1px;
-    background: var(--accent);
+    display: inline-block; width: 24px; height: 1px;
+    background: var(--green-dark);
   }
 
   .page-title {
@@ -62,14 +100,14 @@
     font-size: clamp(3.5rem, 6vw, 6rem);
     line-height: 0.95;
     letter-spacing: 0.02em;
-    color: var(--off-white);
+    color: var(--ink);
     margin-bottom: 1.8rem;
   }
 
   .contact-desc {
     font-size: 1rem;
     font-weight: 300;
-    color: var(--warm);
+    color: var(--ink-mid);
     line-height: 1.8;
     margin-bottom: 3rem;
   }
@@ -93,23 +131,23 @@
     font-size: 0.72rem;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: var(--accent);
+    color: var(--green-dark);
   }
 
   .contact-alt-value {
     font-family: 'Barlow Condensed', sans-serif;
     font-size: 0.95rem;
     letter-spacing: 0.06em;
-    color: var(--warm);
+    color: var(--ink-mid);
     text-decoration: none;
     transition: color 0.2s;
   }
-  .contact-alt-value:hover { color: var(--accent); }
+  .contact-alt-value:hover { color: var(--green-dark); }
 
   /* ── FORM ── */
   .contact-form {
-    background: #0D0D0D;
-    border: 1px solid rgba(143,191,111,0.08);
+    background: var(--white);
+    border: 1px solid var(--rule);
     padding: 3.5rem;
     position: relative;
   }
@@ -118,7 +156,7 @@
     position: absolute;
     top: 0; left: 0; right: 0;
     height: 2px;
-    background: var(--accent);
+    background: var(--green);
   }
 
   .form-row {
@@ -141,13 +179,13 @@
     font-size: 0.75rem;
     letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--accent);
+    color: var(--green-dark);
   }
 
   input, textarea {
-    background: #111;
-    border: 1px solid rgba(143,191,111,0.12);
-    color: var(--off-white);
+    background: var(--bg);
+    border: 1px solid rgba(17,17,17,0.15);
+    color: var(--ink);
     font-family: 'Barlow', sans-serif;
     font-weight: 300;
     font-size: 0.97rem;
@@ -159,12 +197,12 @@
     border-radius: 0;
   }
   input::placeholder, textarea::placeholder {
-    color: var(--warm-dim);
+    color: var(--ink-dim);
     opacity: 0.6;
   }
   input:focus, textarea:focus {
-    border-color: var(--accent);
-    background: #141a11;
+    border-color: var(--green-dark);
+    background: var(--white);
   }
 
   textarea {
@@ -188,15 +226,15 @@
     font-size: 0.9rem;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--black);
-    background: var(--accent);
+    color: var(--ink);
+    background: var(--green);
     padding: 1rem 2.5rem;
     border: none;
     cursor: pointer;
     transition: background 0.2s, color 0.2s;
     display: inline-block;
   }
-  .btn-primary:hover { background: var(--green-light); color: var(--white); }
+  .btn-primary:hover { background: var(--green-dark); color: var(--white); }
 
   .form-error {
     display: none;
@@ -216,42 +254,104 @@
   .form-success-icon {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 3rem;
-    color: var(--accent);
+    color: var(--green-dark);
     line-height: 1;
     margin-bottom: 1rem;
   }
   .form-success-title {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 2.2rem;
-    color: var(--off-white);
+    color: var(--ink);
     margin-bottom: 0.8rem;
   }
   .form-success-body {
     font-size: 0.95rem;
     font-weight: 300;
-    color: var(--warm);
+    color: var(--ink-mid);
     line-height: 1.75;
   }
 
   .divider { width: 100%; height: 1px; background: var(--rule); }
 
   /* ── FOOTER ── */
-  footer { background: #050505; border-top: 1px solid rgba(143,191,111,0.08); width: 100%; display: block; }
-  .footer-top { width: 100%; max-width: 1200px; margin: 0 auto; padding: 4rem 5vw 3rem; display: flex; justify-content: space-between; gap: 4rem; flex-wrap: wrap; }
+  footer {
+    background: var(--bg-alt);
+    border-top: 1px solid var(--rule);
+    width: 100%;
+    display: block;
+  }
+  .footer-top {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 5vw 3rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 4rem;
+    flex-wrap: wrap;
+  }
   .footer-brand { display: flex; flex-direction: column; gap: 0.8rem; }
-  .footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; letter-spacing: 0.12em; color: var(--off-white); text-decoration: none; }
-  .footer-logo span { color: var(--accent); }
-  .footer-tagline { font-family: 'Barlow Condensed', sans-serif; font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--warm-dim); }
-  .footer-linkedin { display: inline-flex; align-items: center; gap: 0.5rem; font-family: 'Barlow Condensed', sans-serif; font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--warm-dim); text-decoration: none; margin-top: 0.4rem; transition: color 0.2s; }
-  .footer-linkedin:hover { color: var(--accent); }
+  .footer-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.6rem;
+    letter-spacing: 0.12em;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .footer-logo span { color: var(--green); }
+  .footer-tagline {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+  }
+  .footer-linkedin {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.82rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+    text-decoration: none;
+    margin-top: 0.4rem;
+    transition: color 0.2s;
+  }
+  .footer-linkedin:hover { color: var(--green-dark); }
   .footer-nav-group { display: flex; gap: 4rem; flex-wrap: wrap; }
   .footer-nav-col { display: flex; flex-direction: column; gap: 1rem; }
-  .footer-nav-heading { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); }
+  .footer-nav-heading {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
   .footer-nav-links { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
-  .footer-nav-links a { font-family: 'Barlow Condensed', sans-serif; font-size: 0.88rem; letter-spacing: 0.08em; color: var(--warm-dim); text-decoration: none; transition: color 0.2s; }
-  .footer-nav-links a:hover { color: var(--accent); }
-  .footer-bottom { border-top: 1px solid rgba(143,191,111,0.08); padding: 1.5rem 5vw; width: 100%; }
-  .footer-copy { font-family: 'Barlow Condensed', sans-serif; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--warm-dim); max-width: 1200px; margin: 0 auto; }
+  .footer-nav-links a {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.88rem;
+    letter-spacing: 0.08em;
+    color: var(--ink-dim);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-nav-links a:hover { color: var(--green-dark); }
+  .footer-bottom {
+    border-top: 1px solid var(--rule);
+    padding: 1.5rem 5vw;
+    width: 100%;
+  }
+  .footer-copy {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+    max-width: 1200px;
+    margin: 0 auto;
+  }
 
   /* ── RESPONSIVE ── */
   @media (max-width: 900px) {
@@ -276,7 +376,7 @@
     <div class="page-eyebrow">Get in Touch</div>
     <h1 class="page-title">Let's Talk<br>AWS.</h1>
     <p class="contact-desc">
-      Whether you're trying to climb tiers, unlock funding, build a co-sell motion, or just figure out where to start, let's to take a look. Fill out the form and we'll get back to you within one business day.
+      Whether you're trying to climb tiers, unlock funding, build a co-sell motion, or just figure out where to start, let's take a look. Fill out the form and we'll get back to you within one business day.
     </p>
 
     <div class="contact-alt">
@@ -390,10 +490,8 @@
     const errorEl   = document.getElementById('formError');
     const submitBtn = document.getElementById('submitBtn');
 
-    // Reset error state
     errorEl.style.display = 'none';
 
-    // Validation — highlight empty required fields
     const requiredFields = [
       document.getElementById('firstName'),
       document.getElementById('lastName'),
@@ -410,7 +508,6 @@
     });
     if (!valid) return;
 
-    // Loading state
     submitBtn.textContent = 'Sending…';
     submitBtn.disabled = true;
 

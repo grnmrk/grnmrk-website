@@ -10,23 +10,25 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --black:   #0A0A0A;
-    --off-white: #F0EDE6;
-    --white:   #FFFFFF;
-    --green:   #2D5A3D;
-    --green-light: #3D7A55;
-    --green-dim: #1A3825;
-    --accent:  #8FBF6F;
-    --warm:    #C8B99A;
-    --warm-dim: #7A6E5F;
-    --rule:    rgba(143,191,111,0.25);
+    /* ── Core palette — pulled directly from logo ── */
+    --bg:          #F0EDE6;   /* warm off-white — logo background */
+    --bg-alt:      #E8E4DC;   /* slightly darker for alternating sections */
+    --bg-card:     #EDEAE3;   /* card backgrounds */
+    --ink:         #111111;   /* near-black — logo wordmark */
+    --ink-mid:     #3A3A3A;   /* medium text */
+    --ink-dim:     #7A7369;   /* muted/secondary text */
+    --green:       #3DDC84;   /* mint green — logo accent dot */
+    --green-dark:  #28B06A;   /* hover state */
+    --green-dim:   #D4F5E5;   /* very light green tint for backgrounds */
+    --rule:        rgba(17,17,17,0.1);
+    --white:       #FFFFFF;
   }
 
   html { scroll-behavior: smooth; }
 
   body {
-    background: var(--black);
-    color: var(--off-white);
+    background: var(--bg);
+    color: var(--ink);
     font-family: 'Barlow', sans-serif;
     font-weight: 300;
     font-size: 17px;
@@ -39,19 +41,19 @@
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     display: flex; align-items: center; justify-content: space-between;
     padding: 1.4rem 5vw;
-    background: rgba(10,10,10,0.85);
+    background: rgba(240,237,230,0.92);
     backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(143,191,111,0.12);
+    border-bottom: 1px solid var(--rule);
   }
 
   .nav-logo {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 1.7rem;
     letter-spacing: 0.12em;
-    color: var(--off-white);
+    color: var(--ink);
     text-decoration: none;
   }
-  .nav-logo span { color: var(--accent); }
+  .nav-logo span { color: var(--green); }
 
   .nav-links { display: flex; gap: 2.5rem; list-style: none; }
   .nav-links a {
@@ -60,11 +62,11 @@
     font-size: 0.85rem;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--warm);
+    color: var(--ink-dim);
     text-decoration: none;
     transition: color 0.2s;
   }
-  .nav-links a:hover { color: var(--accent); }
+  .nav-links a:hover { color: var(--ink); }
 
   .nav-cta {
     font-family: 'Barlow Condensed', sans-serif;
@@ -72,13 +74,13 @@
     font-size: 0.85rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: var(--black);
-    background: var(--accent);
+    color: var(--ink);
+    background: var(--green);
     padding: 0.55rem 1.4rem;
     text-decoration: none;
     transition: background 0.2s;
   }
-  .nav-cta:hover { background: var(--green-light); color: var(--white); }
+  .nav-cta:hover { background: var(--green-dark); color: var(--white); }
 
   /* ── HERO ──────────────────────────────────────────────────────── */
   .hero {
@@ -87,14 +89,14 @@
     padding: 0 5vw 7rem;
     position: relative;
     overflow: hidden;
+    background: var(--bg);
   }
 
   .hero-bg {
     position: absolute; inset: 0;
     background:
-      radial-gradient(ellipse 80% 60% at 70% 40%, rgba(45,90,61,0.35) 0%, transparent 65%),
-      radial-gradient(ellipse 50% 40% at 20% 80%, rgba(143,191,111,0.08) 0%, transparent 60%),
-      linear-gradient(160deg, #0A0A0A 0%, #0e1510 50%, #0A0A0A 100%);
+      radial-gradient(ellipse 70% 60% at 75% 35%, rgba(61,220,132,0.12) 0%, transparent 65%),
+      radial-gradient(ellipse 50% 40% at 15% 80%, rgba(61,220,132,0.06) 0%, transparent 60%);
   }
 
   /* Grid lines */
@@ -102,10 +104,10 @@
     content: '';
     position: absolute; inset: 0;
     background-image:
-      linear-gradient(rgba(143,191,111,0.05) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(143,191,111,0.05) 1px, transparent 1px);
+      linear-gradient(rgba(17,17,17,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(17,17,17,0.04) 1px, transparent 1px);
     background-size: 60px 60px;
-    mask-image: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.6) 40%, rgba(0,0,0,0.3) 100%);
+    mask-image: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.5) 40%, rgba(0,0,0,0.2) 100%);
   }
 
   .hero-eyebrow {
@@ -114,7 +116,7 @@
     font-size: 0.82rem;
     letter-spacing: 0.22em;
     text-transform: uppercase;
-    color: var(--accent);
+    color: var(--green-dark);
     margin-bottom: 1.5rem;
     position: relative;
     display: flex; align-items: center; gap: 1rem;
@@ -123,7 +125,7 @@
   .hero-eyebrow::before {
     content: '';
     display: inline-block; width: 32px; height: 1px;
-    background: var(--accent);
+    background: var(--green-dark);
   }
 
   .hero-headline {
@@ -131,18 +133,18 @@
     font-size: clamp(4rem, 9vw, 9rem);
     line-height: 0.92;
     letter-spacing: 0.02em;
-    color: var(--off-white);
+    color: var(--ink);
     position: relative;
     animation: fadeUp 0.9s 0.1s ease both;
     max-width: 900px;
   }
-  .hero-headline .green-word { color: var(--accent); }
+  .hero-headline .green-word { color: var(--green-dark); }
 
   .hero-sub {
     margin-top: 2rem;
     font-size: 1.15rem;
     font-weight: 300;
-    color: var(--warm);
+    color: var(--ink-mid);
     max-width: 560px;
     line-height: 1.65;
     position: relative;
@@ -162,14 +164,14 @@
     font-size: 0.9rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: var(--black);
-    background: var(--accent);
+    color: var(--ink);
+    background: var(--green);
     padding: 1rem 2.2rem;
     text-decoration: none;
     display: inline-block;
     transition: background 0.2s, color 0.2s;
   }
-  .btn-primary:hover { background: var(--green-light); color: var(--white); }
+  .btn-primary:hover { background: var(--green-dark); color: var(--white); }
 
   .btn-ghost {
     font-family: 'Barlow Condensed', sans-serif;
@@ -177,27 +179,25 @@
     font-size: 0.9rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: var(--off-white);
-    border: 1px solid rgba(240,237,230,0.3);
+    color: var(--ink);
+    border: 1px solid rgba(17,17,17,0.35);
     padding: 1rem 2.2rem;
     text-decoration: none;
     display: inline-block;
     transition: border-color 0.2s, color 0.2s;
   }
-  .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+  .btn-ghost:hover { border-color: var(--green-dark); color: var(--green-dark); }
 
   .hero-stats {
     position: absolute; right: 5vw; bottom: 7rem;
     display: flex; flex-direction: column; gap: 2rem;
     animation: fadeIn 1.2s 0.5s ease both;
   }
-  .hero-stat {
-    text-align: right;
-  }
+  .hero-stat { text-align: right; }
   .hero-stat-num {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 3.2rem;
-    color: var(--accent);
+    color: var(--green-dark);
     line-height: 1;
   }
   .hero-stat-label {
@@ -205,17 +205,15 @@
     font-size: 0.78rem;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: var(--warm-dim);
+    color: var(--ink-dim);
   }
 
   /* ── TICKER STRIP ──────────────────────────────────────────────── */
   .ticker {
-    background: var(--green);
+    background: var(--ink);
     padding: 0.75rem 0;
     overflow: hidden;
     white-space: nowrap;
-    border-top: 1px solid var(--green-light);
-    border-bottom: 1px solid var(--green-dim);
   }
   .ticker-inner {
     display: inline-flex;
@@ -227,11 +225,11 @@
     font-size: 0.82rem;
     letter-spacing: 0.16em;
     text-transform: uppercase;
-    color: var(--off-white);
+    color: var(--bg);
     padding: 0 3rem;
   }
   .ticker-dot {
-    color: var(--accent);
+    color: var(--green);
     font-size: 1.2rem;
     vertical-align: middle;
   }
@@ -251,14 +249,14 @@
     font-size: 0.78rem;
     letter-spacing: 0.22em;
     text-transform: uppercase;
-    color: var(--accent);
+    color: var(--green-dark);
     display: flex; align-items: center; gap: 0.8rem;
     margin-bottom: 1.2rem;
   }
   .section-label::before {
     content: '';
     display: inline-block; width: 24px; height: 1px;
-    background: var(--accent);
+    background: var(--green-dark);
   }
 
   .section-title {
@@ -266,20 +264,20 @@
     font-size: clamp(2.8rem, 5vw, 5rem);
     line-height: 0.95;
     letter-spacing: 0.02em;
-    color: var(--off-white);
+    color: var(--ink);
     margin-bottom: 1.5rem;
   }
 
   .section-body {
     font-size: 1.05rem;
     font-weight: 300;
-    color: var(--warm);
+    color: var(--ink-mid);
     max-width: 620px;
     line-height: 1.8;
   }
 
   /* ── INTRO / PROBLEM ───────────────────────────────────────────── */
-  .intro { background: var(--black); }
+  .intro { background: var(--bg); }
 
   .intro-grid {
     display: grid;
@@ -288,9 +286,6 @@
     align-items: start;
     margin-top: 4rem;
   }
-
-  .intro-left {}
-  .intro-right {}
 
   .problem-list {
     list-style: none;
@@ -301,12 +296,12 @@
     padding: 1.2rem 0;
     border-bottom: 1px solid var(--rule);
     font-size: 1rem;
-    color: var(--warm);
+    color: var(--ink-mid);
     font-weight: 300;
   }
   .problem-list li::before {
     content: '→';
-    color: var(--accent);
+    color: var(--green-dark);
     font-size: 1rem;
     flex-shrink: 0;
     margin-top: 0.1rem;
@@ -314,8 +309,8 @@
 
   .callout-block {
     background: var(--green-dim);
-    border-left: 3px solid var(--accent);
-    padding: 2rem 2rem 2rem 2rem;
+    border-left: 3px solid var(--green);
+    padding: 2rem;
     margin-top: 2rem;
   }
   .callout-block p {
@@ -323,7 +318,7 @@
     font-size: 1.3rem;
     font-weight: 500;
     line-height: 1.4;
-    color: var(--off-white);
+    color: var(--ink);
     letter-spacing: 0.01em;
   }
   .callout-block cite {
@@ -333,12 +328,12 @@
     font-size: 0.8rem;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--accent);
+    color: var(--green-dark);
     font-style: normal;
   }
 
   /* ── SERVICES ──────────────────────────────────────────────────── */
-  .services { background: #0D0D0D; }
+  .services { background: var(--bg-alt); }
 
   .services-grid {
     display: grid;
@@ -348,19 +343,19 @@
   }
 
   .service-card {
-    background: #111;
+    background: var(--bg);
     padding: 3rem;
     position: relative;
     overflow: hidden;
     transition: background 0.3s;
   }
-  .service-card:hover { background: #141a11; }
+  .service-card:hover { background: var(--white); }
 
   .service-card::before {
     content: '';
     position: absolute; top: 0; left: 0; right: 0;
     height: 2px;
-    background: var(--accent);
+    background: var(--green);
     transform: scaleX(0);
     transform-origin: left;
     transition: transform 0.4s ease;
@@ -370,12 +365,12 @@
   .service-num {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 4rem;
-    color: rgba(143,191,111,0.1);
+    color: rgba(17,17,17,0.07);
     line-height: 1;
     margin-bottom: 1rem;
     transition: color 0.3s;
   }
-  .service-card:hover .service-num { color: rgba(143,191,111,0.2); }
+  .service-card:hover .service-num { color: rgba(61,220,132,0.2); }
 
   .service-tag {
     font-family: 'Barlow Condensed', sans-serif;
@@ -383,7 +378,7 @@
     font-size: 0.72rem;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: var(--accent);
+    color: var(--green-dark);
     margin-bottom: 0.6rem;
   }
 
@@ -391,7 +386,7 @@
     font-family: 'Bebas Neue', sans-serif;
     font-size: 2.2rem;
     letter-spacing: 0.04em;
-    color: var(--off-white);
+    color: var(--ink);
     line-height: 1;
     margin-bottom: 1.2rem;
   }
@@ -399,33 +394,28 @@
   .service-desc {
     font-size: 0.95rem;
     font-weight: 300;
-    color: var(--warm);
+    color: var(--ink-mid);
     line-height: 1.75;
     margin-bottom: 1.5rem;
   }
 
-  .service-items {
-    list-style: none;
-  }
+  .service-items { list-style: none; }
   .service-items li {
     font-family: 'Barlow Condensed', sans-serif;
     font-size: 0.88rem;
     letter-spacing: 0.06em;
-    color: var(--warm-dim);
+    color: var(--ink-dim);
     padding: 0.4rem 0;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
+    border-bottom: 1px solid var(--rule);
     display: flex; align-items: center; gap: 0.6rem;
   }
   .service-items li::before {
     content: '—';
-    color: var(--accent);
+    color: var(--green-dark);
     font-size: 0.75rem;
   }
 
-  /* Wide card */
-  .service-card.wide {
-    grid-column: 1 / -1;
-  }
+  .service-card.wide { grid-column: 1 / -1; }
   .wide-inner {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -433,7 +423,7 @@
   }
 
   /* ── HOW IT WORKS ──────────────────────────────────────────────── */
-  .process { background: var(--black); }
+  .process { background: var(--bg); }
 
   .process-steps {
     display: grid;
@@ -450,15 +440,12 @@
     background: var(--rule);
   }
 
-  .process-step {
-    padding: 0 2rem 0 0;
-    position: relative;
-  }
+  .process-step { padding: 0 2rem 0 0; position: relative; }
 
   .step-num {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 3rem;
-    color: var(--accent);
+    color: var(--green-dark);
     line-height: 1;
     margin-bottom: 1.5rem;
     position: relative;
@@ -469,7 +456,7 @@
     position: absolute;
     bottom: -0.3rem; left: 0;
     width: 100%; height: 2px;
-    background: var(--accent);
+    background: var(--green);
   }
 
   .step-title {
@@ -478,19 +465,19 @@
     font-size: 1.1rem;
     letter-spacing: 0.06em;
     text-transform: uppercase;
-    color: var(--off-white);
+    color: var(--ink);
     margin-bottom: 0.8rem;
   }
 
   .step-desc {
     font-size: 0.93rem;
     font-weight: 300;
-    color: var(--warm);
+    color: var(--ink-mid);
     line-height: 1.7;
   }
 
   /* ── PRICING ───────────────────────────────────────────────────── */
-  .pricing { background: #0D0D0D; }
+  .pricing { background: var(--bg-alt); }
 
   .pricing-grid {
     display: grid;
@@ -500,15 +487,25 @@
   }
 
   .price-card {
-    background: #111;
+    background: var(--bg);
     padding: 2.5rem;
     position: relative;
     overflow: hidden;
   }
   .price-card.featured {
-    background: var(--green-dim);
-    border: 1px solid rgba(143,191,111,0.3);
+    background: var(--ink);
+    border: none;
   }
+  .price-card.featured .price-tier,
+  .price-card.featured .price-amount,
+  .price-card.featured .price-desc,
+  .price-card.featured .price-features li {
+    color: var(--bg);
+  }
+  .price-card.featured .price-amount { color: var(--green); }
+  .price-card.featured .price-desc { color: rgba(240,237,230,0.7); border-top-color: rgba(255,255,255,0.1); }
+  .price-card.featured .price-features li { border-bottom-color: rgba(255,255,255,0.07); }
+  .price-card.featured .price-features li::before { color: var(--green); }
 
   .price-badge {
     font-family: 'Barlow Condensed', sans-serif;
@@ -516,8 +513,8 @@
     font-size: 0.72rem;
     letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--black);
-    background: var(--accent);
+    color: var(--ink);
+    background: var(--green);
     padding: 0.3rem 0.8rem;
     display: inline-block;
     margin-bottom: 1.5rem;
@@ -527,14 +524,14 @@
     font-family: 'Bebas Neue', sans-serif;
     font-size: 2rem;
     letter-spacing: 0.06em;
-    color: var(--off-white);
+    color: var(--ink);
     margin-bottom: 0.3rem;
   }
 
   .price-amount {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 3.5rem;
-    color: var(--accent);
+    color: var(--green-dark);
     line-height: 1;
     margin: 0.8rem 0 0.3rem;
   }
@@ -542,13 +539,13 @@
     font-family: 'Barlow', sans-serif;
     font-size: 1rem;
     font-weight: 300;
-    color: var(--warm-dim);
+    color: var(--ink-dim);
   }
 
   .price-desc {
     font-size: 0.9rem;
     font-weight: 300;
-    color: var(--warm);
+    color: var(--ink-mid);
     line-height: 1.6;
     margin: 1rem 0 1.5rem;
     padding-top: 1rem;
@@ -562,14 +559,14 @@
   .price-features li {
     font-size: 0.9rem;
     font-weight: 300;
-    color: var(--warm);
+    color: var(--ink-mid);
     padding: 0.5rem 0;
     display: flex; gap: 0.7rem;
-    border-bottom: 1px solid rgba(255,255,255,0.04);
+    border-bottom: 1px solid var(--rule);
   }
   .price-features li::before {
     content: '✓';
-    color: var(--accent);
+    color: var(--green-dark);
     font-size: 0.85rem;
     flex-shrink: 0;
   }
@@ -587,22 +584,22 @@
     transition: all 0.2s;
   }
   .price-cta.outline {
-    border: 1px solid rgba(143,191,111,0.4);
-    color: var(--accent);
+    border: 1px solid rgba(17,17,17,0.25);
+    color: var(--ink);
   }
   .price-cta.outline:hover {
-    background: var(--accent);
-    color: var(--black);
-    border-color: var(--accent);
+    background: var(--green);
+    color: var(--ink);
+    border-color: var(--green);
   }
   .price-cta.solid {
-    background: var(--accent);
-    color: var(--black);
+    background: var(--green);
+    color: var(--ink);
   }
-  .price-cta.solid:hover { background: var(--green-light); color: var(--white); }
+  .price-cta.solid:hover { background: var(--green-dark); color: var(--white); }
 
   /* ── ABOUT ─────────────────────────────────────────────────────── */
-  .about { background: var(--black); }
+  .about { background: var(--bg); }
 
   .about-grid {
     display: grid;
@@ -612,13 +609,11 @@
     margin-top: 4rem;
   }
 
-  .about-left {}
-
   .about-photo-placeholder {
     width: 100%;
     aspect-ratio: 3/4;
     background: var(--green-dim);
-    border: 1px solid rgba(143,191,111,0.15);
+    border: 1px solid rgba(61,220,132,0.3);
     display: flex; align-items: flex-end;
     padding: 1.5rem;
     position: relative;
@@ -627,14 +622,14 @@
   .about-photo-placeholder::before {
     content: '';
     position: absolute; inset: 0;
-    background: radial-gradient(ellipse at 60% 30%, rgba(45,90,61,0.6), transparent 70%);
+    background: radial-gradient(ellipse at 60% 30%, rgba(61,220,132,0.15), transparent 70%);
   }
   .about-photo-label {
     font-family: 'Barlow Condensed', sans-serif;
     font-size: 0.78rem;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: var(--accent);
+    color: var(--green-dark);
     position: relative;
   }
 
@@ -642,7 +637,7 @@
     font-family: 'Bebas Neue', sans-serif;
     font-size: 3rem;
     letter-spacing: 0.04em;
-    color: var(--off-white);
+    color: var(--ink);
     margin-bottom: 0.3rem;
   }
   .about-title-tag {
@@ -651,14 +646,14 @@
     font-size: 0.85rem;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: var(--accent);
+    color: var(--green-dark);
     margin-bottom: 2rem;
   }
 
   .about-body {
     font-size: 1.05rem;
     font-weight: 300;
-    color: var(--warm);
+    color: var(--ink-mid);
     line-height: 1.8;
     margin-bottom: 1.5rem;
   }
@@ -673,21 +668,21 @@
     padding: 1rem 0;
     border-bottom: 1px solid var(--rule);
     font-size: 0.95rem;
-    color: var(--warm);
+    color: var(--ink-mid);
   }
   .cred-list li strong {
     font-weight: 500;
-    color: var(--off-white);
+    color: var(--ink);
   }
   .cred-icon {
-    color: var(--accent);
+    color: var(--green);
     font-size: 1.1rem;
     flex-shrink: 0;
     margin-top: 0.1rem;
   }
 
   /* ── WHO WE SERVE ──────────────────────────────────────────────── */
-  .audience { background: #0D0D0D; }
+  .audience { background: var(--bg-alt); }
 
   .audience-grid {
     display: grid;
@@ -697,40 +692,38 @@
   }
 
   .audience-card {
-    background: #111;
+    background: var(--bg);
     padding: 2.5rem;
     border-bottom: 2px solid transparent;
     transition: border-color 0.3s, background 0.3s;
   }
   .audience-card:hover {
-    border-color: var(--accent);
-    background: #141a11;
+    border-color: var(--green);
+    background: var(--white);
   }
 
   .audience-type {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 2rem;
     letter-spacing: 0.04em;
-    color: var(--off-white);
+    color: var(--ink);
     margin-bottom: 0.8rem;
   }
 
   .audience-desc {
     font-size: 0.95rem;
     font-weight: 300;
-    color: var(--warm);
+    color: var(--ink-mid);
     line-height: 1.75;
     margin-bottom: 1.2rem;
   }
 
-  .audience-outcomes {
-    list-style: none;
-  }
+  .audience-outcomes { list-style: none; }
   .audience-outcomes li {
     font-family: 'Barlow Condensed', sans-serif;
     font-size: 0.88rem;
     letter-spacing: 0.05em;
-    color: var(--accent);
+    color: var(--green-dark);
     padding: 0.3rem 0;
     display: flex; gap: 0.6rem; align-items: center;
   }
@@ -741,9 +734,7 @@
 
   /* ── CTA ───────────────────────────────────────────────────────── */
   .cta-section {
-    background: var(--green-dim);
-    border-top: 1px solid rgba(143,191,111,0.2);
-    border-bottom: 1px solid rgba(143,191,111,0.2);
+    background: var(--ink);
     overflow: hidden;
     position: relative;
   }
@@ -751,8 +742,7 @@
     content: '';
     position: absolute; inset: 0;
     background:
-      radial-gradient(ellipse 70% 80% at 80% 50%, rgba(45,90,61,0.5), transparent 70%),
-      radial-gradient(ellipse 40% 60% at 10% 50%, rgba(143,191,111,0.06), transparent 60%);
+      radial-gradient(ellipse 60% 80% at 80% 50%, rgba(61,220,132,0.08), transparent 70%);
   }
 
   .cta-inner {
@@ -766,28 +756,19 @@
     align-items: center;
   }
 
-  .aws-badge {
-    position: absolute;
-    bottom: 2.5rem;
-    right: 5vw;
-    width: 90px;
-    opacity: 0.92;
-    transition: opacity 0.2s;
-  }
-  .aws-badge:hover { opacity: 1; }
-
   .cta-headline {
     font-family: 'Bebas Neue', sans-serif;
     font-size: clamp(2.5rem, 4.5vw, 4.5rem);
     line-height: 0.95;
     letter-spacing: 0.02em;
-    color: var(--off-white);
+    color: var(--bg);
     margin-bottom: 1rem;
   }
+  .cta-headline span { color: var(--green); }
   .cta-sub {
     font-size: 1.05rem;
     font-weight: 300;
-    color: var(--warm);
+    color: rgba(240,237,230,0.65);
     max-width: 520px;
     line-height: 1.7;
   }
@@ -799,8 +780,8 @@
 
   /* ── FOOTER ────────────────────────────────────────────────────── */
   footer {
-    background: #050505;
-    border-top: 1px solid rgba(143,191,111,0.08);
+    background: var(--bg-alt);
+    border-top: 1px solid var(--rule);
     width: 100%;
     display: block;
   }
@@ -826,17 +807,17 @@
     font-family: 'Bebas Neue', sans-serif;
     font-size: 1.6rem;
     letter-spacing: 0.12em;
-    color: var(--off-white);
+    color: var(--ink);
     text-decoration: none;
   }
-  .footer-logo span { color: var(--accent); }
+  .footer-logo span { color: var(--green); }
 
   .footer-tagline {
     font-family: 'Barlow Condensed', sans-serif;
     font-size: 0.78rem;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: var(--warm-dim);
+    color: var(--ink-dim);
   }
 
   .footer-linkedin {
@@ -847,12 +828,12 @@
     font-size: 0.82rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: var(--warm-dim);
+    color: var(--ink-dim);
     text-decoration: none;
     margin-top: 0.4rem;
     transition: color 0.2s;
   }
-  .footer-linkedin:hover { color: var(--accent); }
+  .footer-linkedin:hover { color: var(--green-dark); }
 
   .footer-nav-group {
     display: flex;
@@ -872,7 +853,7 @@
     font-size: 0.72rem;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: var(--accent);
+    color: var(--ink);
   }
 
   .footer-nav-links {
@@ -886,14 +867,14 @@
     font-family: 'Barlow Condensed', sans-serif;
     font-size: 0.88rem;
     letter-spacing: 0.08em;
-    color: var(--warm-dim);
+    color: var(--ink-dim);
     text-decoration: none;
     transition: color 0.2s;
   }
-  .footer-nav-links a:hover { color: var(--accent); }
+  .footer-nav-links a:hover { color: var(--green-dark); }
 
   .footer-bottom {
-    border-top: 1px solid rgba(143,191,111,0.08);
+    border-top: 1px solid var(--rule);
     padding: 1.5rem 5vw;
     width: 100%;
   }
@@ -903,24 +884,10 @@
     font-size: 0.75rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: var(--warm-dim);
+    color: var(--ink-dim);
     max-width: 1200px;
     margin: 0 auto;
   }
-
-  .footer-links {
-    display: flex; gap: 2rem; list-style: none;
-  }
-  .footer-links a {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.78rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--warm-dim);
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-  .footer-links a:hover { color: var(--accent); }
 
   /* ── DIVIDER ───────────────────────────────────────────────────── */
   .section-rule {
@@ -1018,7 +985,6 @@
     <span class="ticker-item">Partner Revenue Generation <span class="ticker-dot">·</span></span>
     <span class="ticker-item">Immersion Days <span class="ticker-dot">·</span></span>
     <span class="ticker-item">PDM & PSM Enablement <span class="ticker-dot">·</span></span>
-    <!-- duplicate for seamless loop -->
     <span class="ticker-item">ACE Pipeline Management <span class="ticker-dot">·</span></span>
     <span class="ticker-item">Partner Tier Acceleration <span class="ticker-dot">·</span></span>
     <span class="ticker-item">MAP & MDF Funding <span class="ticker-dot">·</span></span>
@@ -1057,7 +1023,7 @@
           <cite>— Grnmrk Group, from working with 40+ AWS partners</cite>
         </div>
         <div style="margin-top: 2rem;">
-          <p style="font-size: 0.95rem; color: var(--warm); line-height: 1.8; font-weight: 300;">
+          <p style="font-size: 0.95rem; color: var(--ink-mid); line-height: 1.8; font-weight: 300;">
             Grnmrk Group was built for exactly this moment — when a partner is ready to stop guessing and start scaling. We bring the inside knowledge of how AWS partner programs actually work, paired with the operational muscle to run them on your behalf or equip your team to run them for themselves.
           </p>
         </div>
@@ -1075,8 +1041,6 @@
     <h2 class="section-title">Built Around<br>How AWS Partners<br>Actually Grow.</h2>
 
     <div class="services-grid">
-
-      <!-- Managed Services -->
       <div class="service-card">
         <div class="service-num">01</div>
         <div class="service-tag">Managed Services</div>
@@ -1094,7 +1058,6 @@
         </ul>
       </div>
 
-      <!-- Strategy Consulting -->
       <div class="service-card">
         <div class="service-num">02</div>
         <div class="service-tag">Strategy Consulting</div>
@@ -1112,7 +1075,6 @@
         </ul>
       </div>
 
-      <!-- Partner Revenue Gen -->
       <div class="service-card wide">
         <div class="service-num">03</div>
         <div class="service-tag">Partner Revenue Generation</div>
@@ -1141,7 +1103,6 @@
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </section>
@@ -1161,30 +1122,22 @@
       <div class="process-step">
         <div class="step-num">01</div>
         <div class="step-title">Discovery Call</div>
-        <p class="step-desc">
-          We assess your current partner standing, ACE health, funding history, and growth goals. No fluff — we come prepared and leave with a clear picture of your situation.
-        </p>
+        <p class="step-desc">We assess your current partner standing, ACE health, funding history, and growth goals. No fluff — we come prepared and leave with a clear picture of your situation.</p>
       </div>
       <div class="process-step">
         <div class="step-num">02</div>
         <div class="step-title">Gap Analysis</div>
-        <p class="step-desc">
-          We audit your partner profile against your tier requirements, co-sell maturity, marketplace readiness, and funding capture rate. You get a written assessment with prioritized actions.
-        </p>
+        <p class="step-desc">We audit your partner profile against your tier requirements, co-sell maturity, marketplace readiness, and funding capture rate. You get a written assessment with prioritized actions.</p>
       </div>
       <div class="process-step">
         <div class="step-num">03</div>
         <div class="step-title">Engagement Kickoff</div>
-        <p class="step-desc">
-          Whether managed services or a consulting project, we move fast. Week one deliverables, clear owners, and immediate action on the highest-leverage gaps.
-        </p>
+        <p class="step-desc">Whether managed services or a consulting project, we move fast. Week one deliverables, clear owners, and immediate action on the highest-leverage gaps.</p>
       </div>
       <div class="process-step">
         <div class="step-num">04</div>
         <div class="step-title">Measure & Scale</div>
-        <p class="step-desc">
-          Monthly reporting on partner program KPIs. Quarterly business reviews with your stakeholders. Every renewal decision is backed by numbers you can take to your exec team.
-        </p>
+        <p class="step-desc">Monthly reporting on partner program KPIs. Quarterly business reviews with your stakeholders. Every renewal decision is backed by numbers you can take to your exec team.</p>
       </div>
     </div>
   </div>
@@ -1202,11 +1155,10 @@
     </p>
 
     <div class="pricing-grid">
-
       <div class="price-card">
         <div class="price-badge">Managed Services</div>
         <div class="price-tier">Essentials</div>
-        <p style="font-size:0.85rem; color:var(--warm-dim); font-family:'Barlow Condensed'; letter-spacing:0.08em;">STARTING AT</p>
+        <p style="font-size:0.85rem; color:var(--ink-dim); font-family:'Barlow Condensed'; letter-spacing:0.08em;">STARTING AT</p>
         <div class="price-amount">$2,000<span>/mo</span></div>
         <p class="price-desc">For partners who need their AWS operations kept clean and current. Great for early-stage or resource-light teams.</p>
         <ul class="price-features">
@@ -1219,10 +1171,10 @@
       </div>
 
       <div class="price-card featured">
-        <div class="price-badge">Managed Services — Most Popular</div>
+        <div class="price-badge">Most Popular</div>
         <div class="price-tier">Growth</div>
-        <p style="font-size:0.85rem; color:var(--warm-dim); font-family:'Barlow Condensed'; letter-spacing:0.08em;">STARTING AT</p>
-        <div class="price-amount">$4,500<span>/mo</span></div>
+        <p style="font-size:0.85rem; color:rgba(240,237,230,0.5); font-family:'Barlow Condensed'; letter-spacing:0.08em;">STARTING AT</p>
+        <div class="price-amount">$4,500<span style="color:rgba(240,237,230,0.5)">/mo</span></div>
         <p class="price-desc">For partners actively working toward the next tier or co-sell maturity. Full operations plus strategic support.</p>
         <ul class="price-features">
           <li>Everything in Essentials</li>
@@ -1237,7 +1189,7 @@
       <div class="price-card">
         <div class="price-badge">Managed Services</div>
         <div class="price-tier">Scale</div>
-        <p style="font-size:0.85rem; color:var(--warm-dim); font-family:'Barlow Condensed'; letter-spacing:0.08em;">STARTING AT</p>
+        <p style="font-size:0.85rem; color:var(--ink-dim); font-family:'Barlow Condensed'; letter-spacing:0.08em;">STARTING AT</p>
         <div class="price-amount">$8,500<span>/mo</span></div>
         <p class="price-desc">For Advanced-tier partners and funded ISVs who need a fractional VP of Alliances. Full-service, full ownership.</p>
         <ul class="price-features">
@@ -1250,28 +1202,25 @@
         </ul>
         <a class="price-cta outline" href="https://calendly.com/grnmrk/30-min-consultation" target="_blank" rel="noopener noreferrer">Get Started</a>
       </div>
-
     </div>
 
-    <!-- Consulting note -->
     <div style="margin-top: 3rem; display: grid; grid-template-columns: 1fr 1fr; gap: 2px;">
-      <div style="background:#111; padding:2rem;">
+      <div style="background:var(--bg); padding:2rem;">
         <div class="service-tag">Strategy Consulting</div>
-        <div style="font-family:'Bebas Neue'; font-size:2rem; color:var(--off-white); margin: 0.5rem 0;">$250 / Hour</div>
-        <p style="font-size:0.93rem; font-weight:300; color:var(--warm); line-height:1.7;">
+        <div style="font-family:'Bebas Neue'; font-size:2rem; color:var(--ink); margin: 0.5rem 0;">$250 / Hour</div>
+        <p style="font-size:0.93rem; font-weight:300; color:var(--ink-mid); line-height:1.7;">
           Focused project engagements — tier assessments, Marketplace GTM, co-sell playbooks, field alignment. Most projects run 16–32 hours. Retainer advisory available at $2,500/mo.
         </p>
       </div>
-      <div style="background:#111; padding:2rem;">
+      <div style="background:var(--bg); padding:2rem;">
         <div class="service-tag">Not sure where to start?</div>
-        <div style="font-family:'Bebas Neue'; font-size:2rem; color:var(--off-white); margin: 0.5rem 0;">Book a Free Call</div>
-        <p style="font-size:0.93rem; font-weight:300; color:var(--warm); line-height:1.7;">
+        <div style="font-family:'Bebas Neue'; font-size:2rem; color:var(--ink); margin: 0.5rem 0;">Book a Free Call</div>
+        <p style="font-size:0.93rem; font-weight:300; color:var(--ink-mid); line-height:1.7;">
           30 minutes. We'll tell you exactly where your biggest gaps are and what it would take to close them — whether or not you work with us.
         </p>
         <a class="btn-ghost" href="https://calendly.com/grnmrk/30-min-consultation" target="_blank" rel="noopener noreferrer" style="margin-top:1.2rem; display:inline-block; font-size:0.82rem; padding:0.7rem 1.5rem;">Schedule Now →</a>
       </div>
     </div>
-
   </div>
 </section>
 
@@ -1339,7 +1288,6 @@
     <h2 class="section-title">Right For You If<br>You Recognize<br>Any Of This.</h2>
 
     <div class="audience-grid">
-
       <div class="audience-card">
         <div class="audience-type">ISVs Building<br>a Co-Sell Motion</div>
         <p class="audience-desc">
@@ -1371,7 +1319,43 @@
         </p>
         <ul class="audience-outcomes">
           <li>Fractional alliances operator — day one</li>
-          <li><!-- FOOTER -->
+          <li>Full program visibility without the headcount</li>
+          <li>Executive-ready reporting every month</li>
+        </ul>
+      </div>
+
+      <div class="audience-card">
+        <div class="audience-type">Partners Ready<br>to Scale Revenue</div>
+        <p class="audience-desc">
+          You've got the AWS relationship, you're hitting requirements, but your Marketplace isn't transacting and your co-sell pipeline isn't converting. You need someone who can turn activity into revenue.
+        </p>
+        <ul class="audience-outcomes">
+          <li>Marketplace private offer strategy activated</li>
+          <li>Co-sell motion generating real pipeline</li>
+          <li>AWS field aligned and engaged</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+  <div class="cta-inner">
+    <div>
+      <h2 class="cta-headline">Ready to Stop<br>Leaving <span>Revenue</span><br>On The Table?</h2>
+      <p class="cta-sub">
+        30 minutes. We'll tell you exactly where your biggest gaps are and what it would take to close them — whether or not you work with us.
+      </p>
+    </div>
+    <div class="cta-actions">
+      <a class="btn-primary" href="https://calendly.com/grnmrk/30-min-consultation" target="_blank" rel="noopener noreferrer">Book a Free Strategy Call</a>
+      <a class="btn-ghost" href="mailto:hello@grnmrk.com" style="text-align:center; border-color:rgba(240,237,230,0.25); color:var(--bg);">Send an Email</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
 <footer>
   <div class="footer-top">
     <div class="footer-brand">

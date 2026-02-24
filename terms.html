@@ -8,57 +8,228 @@
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;1,300&family=Barlow+Condensed:wght@500;700&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
   :root {
-    --black: #0A0A0A; --off-white: #F0EDE6; --white: #FFFFFF;
-    --green: #2D5A3D; --green-light: #3D7A55; --green-dim: #1A3825;
-    --accent: #8FBF6F; --warm: #C8B99A; --warm-dim: #7A6E5F;
-    --rule: rgba(143,191,111,0.25);
+    --bg:          #F0EDE6;
+    --bg-alt:      #E8E4DC;
+    --ink:         #111111;
+    --ink-mid:     #3A3A3A;
+    --ink-dim:     #7A7369;
+    --green:       #3DDC84;
+    --green-dark:  #28B06A;
+    --green-dim:   #D4F5E5;
+    --rule:        rgba(17,17,17,0.1);
+    --white:       #FFFFFF;
   }
+
   html { scroll-behavior: smooth; }
-  body { background: var(--black); color: var(--off-white); font-family: 'Barlow', sans-serif; font-weight: 300; font-size: 17px; line-height: 1.7; overflow-x: hidden; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Barlow', sans-serif;
+    font-weight: 300;
+    font-size: 17px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
 
   /* NAV */
-  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1.4rem 5vw; background: rgba(10,10,10,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(143,191,111,0.12); }
-  .nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.7rem; letter-spacing: 0.12em; color: var(--off-white); text-decoration: none; }
-  .nav-logo span { color: var(--accent); }
-  .nav-back { font-family: 'Barlow Condensed', sans-serif; font-weight: 500; font-size: 0.85rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--warm); text-decoration: none; display: flex; align-items: center; gap: 0.5rem; transition: color 0.2s; }
-  .nav-back:hover { color: var(--accent); }
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.4rem 5vw;
+    background: rgba(240,237,230,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--rule);
+  }
+  .nav-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.7rem;
+    letter-spacing: 0.12em;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .nav-logo span { color: var(--green); }
+
+  .nav-back {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 500;
+    font-size: 0.85rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+    text-decoration: none;
+    display: flex; align-items: center; gap: 0.5rem;
+    transition: color 0.2s;
+  }
+  .nav-back:hover { color: var(--green-dark); }
 
   /* PAGE HEADER */
-  .page-header { padding: 10rem 5vw 5rem; max-width: 900px; margin: 0 auto; }
-  .page-eyebrow { font-family: 'Barlow Condensed', sans-serif; font-size: 0.78rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.8rem; }
-  .page-eyebrow::before { content: ''; display: inline-block; width: 24px; height: 1px; background: var(--accent); }
-  .page-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 6vw, 6rem); line-height: 0.95; letter-spacing: 0.02em; color: var(--off-white); margin-bottom: 1rem; }
-  .page-meta { font-family: 'Barlow Condensed', sans-serif; font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--warm-dim); }
+  .page-header {
+    padding: 10rem 5vw 5rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .page-eyebrow {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--green-dark);
+    margin-bottom: 1rem;
+    display: flex; align-items: center; gap: 0.8rem;
+  }
+  .page-eyebrow::before {
+    content: '';
+    display: inline-block; width: 24px; height: 1px;
+    background: var(--green-dark);
+  }
+  .page-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3rem, 6vw, 6rem);
+    line-height: 0.95;
+    letter-spacing: 0.02em;
+    color: var(--ink);
+    margin-bottom: 1rem;
+  }
+  .page-meta {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.82rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+  }
 
   /* CONTENT */
-  .page-content { max-width: 900px; margin: 0 auto; padding: 0 5vw 8rem; }
-  .page-content h2 { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; letter-spacing: 0.04em; color: var(--off-white); margin: 3rem 0 1rem; }
-  .page-content p { font-size: 1rem; font-weight: 300; color: var(--warm); line-height: 1.8; margin-bottom: 1.2rem; }
-  .page-content ul { list-style: none; margin-bottom: 1.2rem; }
-  .page-content ul li { font-size: 1rem; font-weight: 300; color: var(--warm); line-height: 1.8; padding: 0.3rem 0 0.3rem 1.5rem; position: relative; }
-  .page-content ul li::before { content: '—'; color: var(--accent); position: absolute; left: 0; }
-  .page-content a { color: var(--accent); text-decoration: none; }
+  .page-content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 5vw 8rem;
+  }
+  .page-content h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.8rem;
+    letter-spacing: 0.04em;
+    color: var(--ink);
+    margin: 3rem 0 1rem;
+  }
+  .page-content p {
+    font-size: 1rem;
+    font-weight: 300;
+    color: var(--ink-mid);
+    line-height: 1.8;
+    margin-bottom: 1.2rem;
+  }
+  .page-content ul {
+    list-style: none;
+    margin-bottom: 1.2rem;
+  }
+  .page-content ul li {
+    font-size: 1rem;
+    font-weight: 300;
+    color: var(--ink-mid);
+    line-height: 1.8;
+    padding: 0.3rem 0 0.3rem 1.5rem;
+    position: relative;
+  }
+  .page-content ul li::before {
+    content: '—';
+    color: var(--green-dark);
+    position: absolute;
+    left: 0;
+  }
+  .page-content a {
+    color: var(--green-dark);
+    text-decoration: none;
+  }
   .page-content a:hover { text-decoration: underline; }
-  .divider { width: 100%; height: 1px; background: var(--rule); margin: 0; }
+
+  .divider {
+    width: 100%;
+    height: 1px;
+    background: var(--rule);
+    margin: 0;
+  }
 
   /* FOOTER */
-  footer { background: #050505; border-top: 1px solid rgba(143,191,111,0.08); width: 100%; display: block; }
-  .footer-top { width: 100%; max-width: 1200px; margin: 0 auto; padding: 4rem 5vw 3rem; display: flex; justify-content: space-between; gap: 4rem; flex-wrap: wrap; }
+  footer {
+    background: var(--bg-alt);
+    border-top: 1px solid var(--rule);
+    width: 100%;
+    display: block;
+  }
+  .footer-top {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 5vw 3rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 4rem;
+    flex-wrap: wrap;
+  }
   .footer-brand { display: flex; flex-direction: column; gap: 0.8rem; }
-  .footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; letter-spacing: 0.12em; color: var(--off-white); text-decoration: none; }
-  .footer-logo span { color: var(--accent); }
-  .footer-tagline { font-family: 'Barlow Condensed', sans-serif; font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--warm-dim); }
-  .footer-linkedin { display: inline-flex; align-items: center; gap: 0.5rem; font-family: 'Barlow Condensed', sans-serif; font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--warm-dim); text-decoration: none; margin-top: 0.4rem; transition: color 0.2s; }
-  .footer-linkedin:hover { color: var(--accent); }
+  .footer-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.6rem;
+    letter-spacing: 0.12em;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .footer-logo span { color: var(--green); }
+  .footer-tagline {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+  }
+  .footer-linkedin {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.82rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+    text-decoration: none;
+    margin-top: 0.4rem;
+    transition: color 0.2s;
+  }
+  .footer-linkedin:hover { color: var(--green-dark); }
   .footer-nav-group { display: flex; gap: 4rem; flex-wrap: wrap; }
   .footer-nav-col { display: flex; flex-direction: column; gap: 1rem; }
-  .footer-nav-heading { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); }
+  .footer-nav-heading {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
   .footer-nav-links { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
-  .footer-nav-links a { font-family: 'Barlow Condensed', sans-serif; font-size: 0.88rem; letter-spacing: 0.08em; color: var(--warm-dim); text-decoration: none; transition: color 0.2s; }
-  .footer-nav-links a:hover { color: var(--accent); }
-  .footer-bottom { border-top: 1px solid rgba(143,191,111,0.08); padding: 1.5rem 5vw; }
-  .footer-copy { font-family: 'Barlow Condensed', sans-serif; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--warm-dim); max-width: 1200px; margin: 0 auto; }
+  .footer-nav-links a {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.88rem;
+    letter-spacing: 0.08em;
+    color: var(--ink-dim);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-nav-links a:hover { color: var(--green-dark); }
+  .footer-bottom {
+    border-top: 1px solid var(--rule);
+    padding: 1.5rem 5vw;
+  }
+  .footer-copy {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+    max-width: 1200px;
+    margin: 0 auto;
+  }
 </style>
 </head>
 <body>
@@ -108,7 +279,7 @@
   <p>We reserve the right to update these Terms of Service at any time. Changes will be posted on this page with an updated effective date. Continued use of our services after any changes constitutes acceptance of the new terms.</p>
 
   <h2>10. Contact</h2>
-  <p>If you have questions about these Terms of Service, please contact us at <a href="/cdn-cgi/l/email-protection#19717c757576597e6b77746b72377a7674"><span class="__cf_email__" data-cfemail="93fbf6fffffcd3f4e1fdfee1f8bdf0fcfe">[email&#160;protected]</span></a>.</p>
+  <p>If you have questions about these Terms of Service, please contact us at <a href="mailto:hello@grnmrk.com">hello@grnmrk.com</a>.</p>
 
 </div>
 
@@ -143,4 +314,10 @@
       </div>
     </div>
   </div>
-  <div class="f
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2025 Grnmrk Group LLC. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>

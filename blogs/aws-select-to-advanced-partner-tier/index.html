@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Advance from AWS Select to Advanced Partner Tier — Grnmrk Group</title>
+<meta name="description" content="Most AWS partners hit Select and stall. Here's exactly what it takes to advance from Select to Advanced tier — the requirements, the gaps most partners miss, and a 90-day plan to close them.">
+<link rel="icon" type="image/png" href="/favicon-transparent.png">
+<link rel="apple-touch-icon" href="/favicon-transparent.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;1,300&family=Barlow+Condensed:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg:          #F0EDE6;
+    --bg-alt:      #E8E4DC;
+    --ink:         #111111;
+    --ink-mid:     #3A3A3A;
+    --ink-dim:     #7A7369;
+    --green:       #3DDC84;
+    --green-dark:  #28B06A;
+    --green-dim:   #D4F5E5;
+    --rule:        rgba(17,17,17,0.1);
+    --white:       #FFFFFF;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Barlow', sans-serif;
+    font-weight: 300;
+    font-size: 17px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.4rem 5vw;
+    background: rgba(240,237,230,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--rule);
+  }
+  .nav-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.7rem;
+    letter-spacing: 0.12em;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .nav-logo span { color: var(--green); }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 500;
+    font-size: 0.85rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--ink); }
+  .nav-cta {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink);
+    background: var(--green);
+    padding: 0.55rem 1.4rem;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .nav-cta:hover { background: var(--green-dark); color: var(--white); }
+
+  /* ── ARTICLE HERO ── */
+  .article-hero {
+    background: var(--ink);
+    padding: 9rem 5vw 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .article-hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 60% 80% at 85% 50%, rgba(61,220,132,0.07), transparent 70%);
+  }
+  .article-hero-inner {
+    max-width: 860px;
+    margin: 0 auto;
+    position: relative;
+  }
+  .article-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+  }
+  .article-tag {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink);
+    background: var(--green);
+    padding: 0.25rem 0.8rem;
+  }
+  .article-date, .article-read-time {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(240,237,230,0.4);
+  }
+  .article-dot { color: rgba(240,237,230,0.2); }
+
+  .article-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.8rem, 6vw, 5.5rem);
+    line-height: 0.95;
+    letter-spacing: 0.02em;
+    color: var(--bg);
+    margin-bottom: 1.5rem;
+  }
+  .article-deck {
+    font-size: 1.15rem;
+    font-weight: 300;
+    color: rgba(240,237,230,0.65);
+    line-height: 1.75;
+    max-width: 680px;
+  }
+
+  /* ── BREADCRUMB ── */
+  .breadcrumb {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 1.5rem 5vw;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .breadcrumb a {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .breadcrumb a:hover { color: var(--green-dark); }
+  .breadcrumb-sep {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.78rem;
+    color: var(--ink-dim);
+  }
+  .breadcrumb-current {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-mid);
+  }
+
+  /* ── ARTICLE LAYOUT ── */
+  .article-wrap {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 4rem 5vw 6rem;
+    display: grid;
+    grid-template-columns: 1fr 220px;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  /* ── ARTICLE BODY ── */
+  .article-body h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.2rem;
+    letter-spacing: 0.03em;
+    color: var(--ink);
+    line-height: 1;
+    margin: 3rem 0 1.2rem;
+    padding-top: 3rem;
+    border-top: 1px solid var(--rule);
+  }
+  .article-body h2:first-child {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
+  }
+
+  .article-body h3 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink);
+    margin: 2rem 0 0.8rem;
+  }
+
+  .article-body p {
+    font-size: 1.02rem;
+    font-weight: 300;
+    color: var(--ink-mid);
+    line-height: 1.85;
+    margin-bottom: 1.4rem;
+  }
+
+  .article-body strong {
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .article-body ul, .article-body ol {
+    margin: 1rem 0 1.5rem 1.2rem;
+  }
+  .article-body li {
+    font-size: 1rem;
+    font-weight: 300;
+    color: var(--ink-mid);
+    line-height: 1.8;
+    margin-bottom: 0.5rem;
+    padding-left: 0.4rem;
+  }
+
+  .article-body a {
+    color: var(--green-dark);
+    text-decoration: underline;
+    text-decoration-color: rgba(40,176,106,0.3);
+    transition: text-decoration-color 0.2s;
+  }
+  .article-body a:hover { text-decoration-color: var(--green-dark); }
+
+  /* Callout block */
+  .callout {
+    background: var(--green-dim);
+    border-left: 3px solid var(--green);
+    padding: 1.5rem 2rem;
+    margin: 2rem 0;
+  }
+  .callout p {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 500;
+    line-height: 1.5;
+    color: var(--ink);
+    letter-spacing: 0.01em;
+    margin-bottom: 0;
+  }
+
+  /* Insight box */
+  .insight-box {
+    background: var(--ink);
+    padding: 2rem 2.5rem;
+    margin: 2.5rem 0;
+  }
+  .insight-box-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.68rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--green);
+    margin-bottom: 0.8rem;
+  }
+  .insight-box p {
+    font-size: 0.97rem;
+    font-weight: 300;
+    color: rgba(240,237,230,0.75);
+    line-height: 1.75;
+    margin-bottom: 0;
+  }
+
+  /* Requirement table */
+  .req-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0 2rem;
+    font-size: 0.92rem;
+  }
+  .req-table th {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink);
+    text-align: left;
+    padding: 0.8rem 1rem;
+    background: var(--bg-alt);
+    border-bottom: 2px solid var(--ink);
+  }
+  .req-table td {
+    padding: 0.8rem 1rem;
+    font-weight: 300;
+    color: var(--ink-mid);
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+    line-height: 1.6;
+  }
+  .req-table td:first-child {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 600;
+    font-size: 0.88rem;
+    letter-spacing: 0.05em;
+    color: var(--ink);
+  }
+  .req-table tr:last-child td { border-bottom: none; }
+  .check { color: var(--green-dark); }
+  .warn { color: #C0392B; }
+
+  /* Step block */
+  .step-block {
+    display: flex;
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+    align-items: flex-start;
+  }
+  .step-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.5rem;
+    color: var(--green);
+    line-height: 1;
+    flex-shrink: 0;
+    width: 3rem;
+    text-align: center;
+  }
+  .step-content h3 {
+    margin-top: 0.2rem;
+  }
+  .step-content p {
+    margin-bottom: 0;
+  }
+
+  /* ── SIDEBAR ── */
+  .article-sidebar {
+    position: sticky;
+    top: 7rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .toc {
+    background: var(--bg-alt);
+    padding: 1.5rem;
+  }
+  .toc-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink);
+    margin-bottom: 1rem;
+  }
+  .toc-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .toc-list a {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.04em;
+    color: var(--ink-dim);
+    text-decoration: none;
+    transition: color 0.2s;
+    display: block;
+    line-height: 1.4;
+  }
+  .toc-list a:hover { color: var(--green-dark); }
+
+  .sidebar-cta {
+    background: var(--ink);
+    padding: 1.5rem;
+  }
+  .sidebar-cta-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.68rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--green);
+    margin-bottom: 0.8rem;
+  }
+  .sidebar-cta-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.4rem;
+    letter-spacing: 0.04em;
+    color: var(--bg);
+    line-height: 1.1;
+    margin-bottom: 0.8rem;
+  }
+  .sidebar-cta p {
+    font-size: 0.85rem;
+    font-weight: 300;
+    color: rgba(240,237,230,0.6);
+    line-height: 1.65;
+    margin-bottom: 1.2rem;
+  }
+  .sidebar-btn {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.82rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink);
+    background: var(--green);
+    padding: 0.8rem 1rem;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    transition: background 0.2s;
+  }
+  .sidebar-btn:hover { background: var(--green-dark); color: var(--white); }
+
+  /* ── DIVIDER ── */
+  .divider { width: 100%; height: 1px; background: var(--rule); }
+
+  /* ── BOTTOM CTA ── */
+  .bottom-cta {
+    background: var(--ink);
+    overflow: hidden;
+    position: relative;
+  }
+  .bottom-cta::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 60% 80% at 80% 50%, rgba(61,220,132,0.08), transparent 70%);
+  }
+  .bottom-cta-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 6rem 5vw;
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 4rem;
+    align-items: center;
+  }
+  .bottom-cta h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.2rem, 4vw, 4rem);
+    line-height: 0.95;
+    color: var(--bg);
+    margin-bottom: 0.8rem;
+  }
+  .bottom-cta h2 span { color: var(--green); }
+  .bottom-cta p {
+    font-size: 1rem;
+    font-weight: 300;
+    color: rgba(240,237,230,0.6);
+    max-width: 500px;
+    line-height: 1.7;
+  }
+  .cta-actions {
+    display: flex; flex-direction: column; gap: 1rem;
+    min-width: 220px;
+  }
+  .btn-primary {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink);
+    background: var(--green);
+    padding: 1rem 2.2rem;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    transition: background 0.2s, color 0.2s;
+  }
+  .btn-primary:hover { background: var(--green-dark); color: var(--white); }
+  .btn-ghost {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 500;
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--bg);
+    border: 1px solid rgba(240,237,230,0.25);
+    padding: 1rem 2.2rem;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .btn-ghost:hover { border-color: var(--green); color: var(--green); }
+
+  /* ── RELATED POSTS ── */
+  .related {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 5rem 5vw;
+  }
+  .related-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 500;
+    font-size: 0.78rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--green-dark);
+    display: flex; align-items: center; gap: 0.8rem;
+    margin-bottom: 2.5rem;
+  }
+  .related-label::before {
+    content: '';
+    display: inline-block; width: 24px; height: 1px;
+    background: var(--green-dark);
+  }
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+  }
+  .related-card {
+    background: var(--bg-alt);
+    padding: 2rem;
+    text-decoration: none;
+    display: block;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.3s;
+  }
+  .related-card:hover { background: var(--white); }
+  .related-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--green);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+  }
+  .related-card:hover::before { transform: scaleX(1); }
+  .related-tag {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink);
+    background: var(--green);
+    padding: 0.2rem 0.6rem;
+    display: inline-block;
+    margin-bottom: 1rem;
+  }
+  .related-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.3rem;
+    line-height: 1.05;
+    letter-spacing: 0.02em;
+    color: var(--ink);
+    margin-bottom: 0.8rem;
+  }
+  .related-excerpt {
+    font-size: 0.88rem;
+    font-weight: 300;
+    color: var(--ink-mid);
+    line-height: 1.7;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--bg-alt);
+    border-top: 1px solid var(--rule);
+    width: 100%;
+    display: block;
+  }
+  .footer-top {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 5vw 3rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 4rem;
+    flex-wrap: wrap;
+  }
+  .footer-brand { display: flex; flex-direction: column; gap: 0.8rem; }
+  .footer-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.6rem;
+    letter-spacing: 0.12em;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .footer-logo span { color: var(--green); }
+  .footer-tagline {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+  }
+  .footer-linkedin {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.82rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+    text-decoration: none;
+    margin-top: 0.4rem;
+    transition: color 0.2s;
+  }
+  .footer-linkedin:hover { color: var(--green-dark); }
+  .footer-nav-group { display: flex; gap: 4rem; flex-wrap: wrap; }
+  .footer-nav-col { display: flex; flex-direction: column; gap: 1rem; }
+  .footer-nav-heading {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+  .footer-nav-links { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+  .footer-nav-links a {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.88rem;
+    letter-spacing: 0.08em;
+    color: var(--ink-dim);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-nav-links a:hover { color: var(--green-dark); }
+  .footer-bottom { border-top: 1px solid var(--rule); padding: 1.5rem 5vw; width: 100%; }
+  .footer-copy {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .article-wrap { grid-template-columns: 1fr; }
+    .article-sidebar { position: static; }
+    .bottom-cta-inner { grid-template-columns: 1fr; }
+    .related-grid { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="/"><span>G</span>RNMRK GROUP</a>
+  <ul class="nav-links">
+    <li><a href="/services">Services</a></li>
+    <li><a href="/#process">How It Works</a></li>
+    <li><a href="/#pricing">Pricing</a></li>
+    <li><a href="/#about">About</a></li>
+    <li><a href="/contact">Contact</a></li>
+  </ul>
+  <a class="nav-cta" href="https://calendly.com/grnmrk/30-min-consultation" target="_blank" rel="noopener noreferrer">Get Started</a>
+</nav>
+
+<!-- ARTICLE HERO -->
+<div class="article-hero">
+  <div class="article-hero-inner">
+    <div class="article-meta">
+      <span class="article-tag">Tier Advancement</span>
+      <span class="article-dot">·</span>
+      <span class="article-read-time">12 min read</span>
+    </div>
+    <h1 class="article-title">How to Advance from AWS Select to Advanced Partner Tier</h1>
+    <p class="article-deck">Most partners hit Select and stall for 18 months or more. The gap between Select and Advanced isn't just about checking more boxes — it's about understanding what AWS is actually evaluating and building a program that signals co-sell readiness. Here's exactly how to close that gap.</p>
+  </div>
+</div>
+
+<!-- BREADCRUMB -->
+<div style="background: var(--bg-alt); border-bottom: 1px solid var(--rule);">
+  <div class="breadcrumb">
+    <a href="/">Home</a>
+    <span class="breadcrumb-sep">→</span>
+    <a href="/blog">Blog</a>
+    <span class="breadcrumb-sep">→</span>
+    <span class="breadcrumb-current">AWS Select to Advanced</span>
+  </div>
+</div>
+
+<!-- ARTICLE BODY -->
+<div class="article-wrap">
+
+  <article class="article-body">
+
+    <h2 id="why-partners-stall">Why Most Partners Stall at Select</h2>
+
+    <p>Getting to AWS Select is the easy part. AWS designed it that way. The requirements are achievable, the documentation is clear, and AWS actively wants partners to reach Select because it signals a baseline level of commitment to the ecosystem.</p>
+
+    <p>Advanced is a different conversation entirely. The partners who stall — and most do, often for 12 to 24 months — aren't failing because they lack the technology or the customers. They're stalling because they're treating the path to Advanced the same way they treated Select: as a checklist exercise.</p>
+
+    <p>It isn't. Advanced tier is AWS signaling that it trusts you as a co-sell partner. Every requirement is designed to answer one question: <strong>is this partner ready to show up in front of our customers and represent us?</strong></p>
+
+    <div class="callout">
+      <p>The partners who advance fastest aren't necessarily the ones with the most certifications. They're the ones whose PDM is actively vouching for them internally — and that relationship is built deliberately, not passively.</p>
+    </div>
+
+    <h2 id="the-requirements">The Advanced Tier Requirements, Explained</h2>
+
+    <p>The AWS Partner Network updates its program requirements periodically, so always verify the current thresholds in your Partner Central portal. That said, the core categories have been stable for years and are unlikely to change significantly. Here's what you're working toward:</p>
+
+    <table class="req-table">
+      <thead>
+        <tr>
+          <th>Requirement Area</th>
+          <th>What AWS Looks For</th>
+          <th>Common Gap</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>AWS Certifications</td>
+          <td>Minimum number of active, validated certifications across your team</td>
+          <td>Certifications lapse or are held by people who've left the company</td>
+        </tr>
+        <tr>
+          <td>Customer References</td>
+          <td>Validated customer success stories showing real AWS deployments</td>
+          <td>Partners have customers but haven't submitted them through the formal validation process</td>
+        </tr>
+        <tr>
+          <td>Annual Revenue</td>
+          <td>AWS-attributed revenue above the Advanced threshold</td>
+          <td>Revenue exists but isn't being properly attributed through ACE or the Partner Portal</td>
+        </tr>
+        <tr>
+          <td>ACE Pipeline Activity</td>
+          <td>Active, healthy opportunity pipeline with consistent submission cadence</td>
+          <td>ACE is treated as an afterthought — submissions are sporadic and opportunities are stale</td>
+        </tr>
+        <tr>
+          <td>Training Completion</td>
+          <td>Partner-level training paths completed by your team</td>
+          <td>Training is started but not completed, or not logged to the correct PO</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="insight-box">
+      <div class="insight-box-label">From the Field</div>
+      <p>The single most common reason we see partners fail to advance isn't a hard requirement — it's revenue attribution. They have the customers, they have the AWS usage, but none of it is flowing through ACE in a way that AWS can credit to their partner account. Fix your attribution before you do anything else.</p>
+    </div>
+
+    <h2 id="the-gaps">The Four Gaps That Actually Block Advancement</h2>
+
+    <p>After working through this process with dozens of partners, the blockers almost always come back to four things. None of them are technical. All of them are operational.</p>
+
+    <h3>Gap 1: Invisible Revenue</h3>
+    <p>You have customers using AWS. Your products run on AWS. But if that activity isn't being submitted through ACE — with the opportunity properly linked to your AWS partner account and ideally co-owned with a field rep — AWS can't credit it to you. This is the most fixable and most overlooked gap in the program. Start here.</p>
+
+    <h3>Gap 2: Stale or Thin Customer References</h3>
+    <p>AWS requires validated customer references, not just customer names. The validation process involves AWS reaching out to confirm the engagement. Many partners have satisfied customers who haven't been submitted, or they've submitted customers whose engagements are too thin — a proof-of-concept that never went to production, for example. AWS wants to see substantive, ongoing AWS usage.</p>
+
+    <h3>Gap 3: Certification Drift</h3>
+    <p>AWS certifications expire. Team members leave. New hires join with different credential profiles. What was a clean certification count six months ago can silently fall below the Advanced threshold without anyone noticing. You need a living tracker — not a one-time count — that monitors expiration dates and maps credentials to headcount.</p>
+
+    <h3>Gap 4: A PDM Who Doesn't Know You</h3>
+    <p>This one isn't in the requirements document, but it matters more than most partners realize. Your Partner Development Manager reviews and approves tier advancement. If your PDM doesn't have context on who you are, what you're building with AWS, and why you deserve Advanced — your application goes in cold. Partners who advance quickly have almost always been in regular contact with their PDM for at least two quarters before applying.</p>
+
+    <h2 id="pdm-relationship">Building the PDM Relationship That Accelerates Advancement</h2>
+
+    <p>Your PDM is the single most important person in your AWS partner journey, and most partners treat them like a support ticket queue.</p>
+
+    <p>PDMs are overextended. A typical PDM manages 50 to 150 partners. They can't proactively support everyone — they triage. The partners who get attention are the ones who make it easy: clear updates, active ACE pipelines, concrete asks, and a demonstrated understanding of how the co-sell motion works.</p>
+
+    <p>Here's what a good PDM engagement cadence looks like:</p>
+
+    <ul>
+      <li><strong>Monthly email update</strong> — one paragraph on pipeline activity, one on any certifications or training completed, one ask or question. Keep it under 200 words.</li>
+      <li><strong>Quarterly call</strong> — 30 minutes, agenda sent in advance. Cover your ACE pipeline, any funding you've applied for, and your tier advancement timeline. Come with specific questions.</li>
+      <li><strong>Event touchpoints</strong> — if you're attending re:Invent or a regional AWS Summit, let your PDM know and try to get a face-to-face meeting. These carry disproportionate weight.</li>
+    </ul>
+
+    <div class="callout">
+      <p>Don't wait until you're applying for Advanced to start building the PDM relationship. By then it's too late. The relationship needs to be warm before the application goes in.</p>
+    </div>
+
+    <h2 id="ace-pipeline">Getting Your ACE Pipeline Right</h2>
+
+    <p>ACE — the AWS Customer Engagements tool — is how AWS tracks your co-sell activity, validates your revenue attribution, and evaluates whether you're a partner worth investing in. It's also the thing most partners manage worst.</p>
+
+    <p>A healthy ACE pipeline for Advanced tier consideration means:</p>
+
+    <ul>
+      <li>Active opportunities being submitted regularly — not in batches at quarter end</li>
+      <li>Opportunities with accurate stage, close date, ARR, and customer detail</li>
+      <li>A meaningful percentage of opportunities that are co-owned with AWS (meaning a field rep has accepted the opportunity)</li>
+      <li>Opportunities that progress through stages rather than sitting stale at the same status for months</li>
+      <li>Win/loss data being captured — AWS uses close rates to evaluate co-sell quality</li>
+    </ul>
+
+    <div class="insight-box">
+      <div class="insight-box-label">Common Mistake</div>
+      <p>Partners often submit a batch of opportunities right before applying for Advanced tier. AWS can see your submission history. A sudden spike after months of inactivity doesn't look like program maturity — it looks like you're gaming the system. Build the habit over time.</p>
+    </div>
+
+    <h2 id="90-day-plan">The 90-Day Advancement Plan</h2>
+
+    <p>If you're at Select and want to reach Advanced, here's the sequencing that works. This assumes you have a reasonable foundation — some certifications, some AWS customers, some ACE activity — and need to close the gaps systematically.</p>
+
+    <div class="step-block">
+      <div class="step-num">01</div>
+      <div class="step-content">
+        <h3>Days 1–14: Audit Your Current Standing</h3>
+        <p>Pull your current partner scorecard from Partner Central. Document your exact position on every Advanced requirement: certifications (count, holders, expiration dates), customer references (submitted vs. eligible), revenue attribution, ACE pipeline health, and training completion. Don't guess — get the actual numbers.</p>
+      </div>
+    </div>
+
+    <div class="step-block">
+      <div class="step-num">02</div>
+      <div class="step-content">
+        <h3>Days 14–30: Fix Revenue Attribution</h3>
+        <p>Identify every active customer where AWS is in the stack. For each one, check whether there's an ACE opportunity that captures that revenue. If not, create it. Work with your sales team to back-populate existing wins that should be in ACE but aren't. This alone often moves the needle significantly on your attributed revenue count.</p>
+      </div>
+    </div>
+
+    <div class="step-block">
+      <div class="step-num">03</div>
+      <div class="step-content">
+        <h3>Days 30–45: Submit Customer References</h3>
+        <p>Identify your three strongest AWS customer engagements — production workloads, meaningful ARR, willing to be contacted by AWS. Submit them through the customer reference process in Partner Central. Don't wait for this — it takes time for references to be validated, and you want them cleared before you apply.</p>
+      </div>
+    </div>
+
+    <div class="step-block">
+      <div class="step-num">04</div>
+      <div class="step-content">
+        <h3>Days 45–60: Close Certification Gaps</h3>
+        <p>Based on your audit, identify which certifications you need and who on your team is best positioned to get them. Prioritize certifications that serve double duty — ones that count toward Advanced requirements and also toward any specializations you're targeting. Schedule exams, not study sessions.</p>
+      </div>
+    </div>
+
+    <div class="step-block">
+      <div class="step-num">05</div>
+      <div class="step-content">
+        <h3>Days 60–75: Engage Your PDM</h3>
+        <p>Schedule a call with your PDM and share your advancement timeline. Don't ask permission — tell them what you're doing and ask for their input on anything that might be holding you back from their perspective. Ask directly: "Is there anything you'd want to see before we apply for Advanced?" This conversation surfaces issues you can't see from the portal.</p>
+      </div>
+    </div>
+
+    <div class="step-block">
+      <div class="step-num">06</div>
+      <div class="step-content">
+        <h3>Days 75–90: Apply and Follow Up</h3>
+        <p>Once your scorecard is clean, submit your application through Partner Central. Notify your PDM that the application is in. Follow up within two weeks if you haven't heard back. If you're rejected, ask your PDM specifically what needs to change — the feedback is almost always actionable.</p>
+      </div>
+    </div>
+
+    <h2 id="after-advanced">What Changes When You Reach Advanced</h2>
+
+    <p>Reaching Advanced tier isn't just a badge. It changes what's available to you inside the AWS ecosystem in material ways:</p>
+
+    <ul>
+      <li><strong>PDM access improves.</strong> Advanced partners typically get more PDM attention and a more senior contact. The relationship becomes more strategic.</li>
+      <li><strong>Funding eligibility expands.</strong> Many MAP, MDF, and co-investment programs have higher funding limits or exclusive availability for Advanced and Premier partners.</li>
+      <li><strong>Co-sell priority increases.</strong> AWS field reps are more willing to bring Advanced partners into deals. The tier signals credibility to people who don't know you.</li>
+      <li><strong>Marketplace and Specialization paths open up.</strong> Some Marketplace programs and AWS Competencies require Advanced tier as a baseline.</li>
+      <li><strong>Competitive differentiation sharpens.</strong> When a prospect is evaluating two partners, the one with Advanced tier has an edge — it's visible, it's third-party validated, and it signals investment in the AWS relationship.</li>
+    </ul>
+
+    <div class="callout">
+      <p>Advanced tier is a platform, not a destination. The partners who get the most out of it are the ones who immediately start working toward the next thing — a Specialization, a Marketplace motion, or Premier tier — rather than treating it as the finish line.</p>
+    </div>
+
+    <h2 id="bottom-line">The Bottom Line</h2>
+
+    <p>Advancing from Select to Advanced isn't complicated, but it requires discipline and it requires someone actively managing the process. The partners who stall aren't missing something exotic — they're missing consistent execution on the fundamentals: clean ACE pipeline, validated customer references, current certifications, and an engaged PDM relationship.</p>
+
+    <p>If you're tired of sitting at Select and want a clear path forward, <a href="/contact">reach out to us</a>. We've run this process for dozens of partners and we know exactly where the leverage is.</p>
+
+  </article>
+
+  <!-- SIDEBAR -->
+  <aside class="article-sidebar">
+    <div class="toc">
+      <div class="toc-label">In This Guide</div>
+      <ul class="toc-list">
+        <li><a href="#why-partners-stall">Why Partners Stall at Select</a></li>
+        <li><a href="#the-requirements">The Requirements, Explained</a></li>
+        <li><a href="#the-gaps">The Four Gaps</a></li>
+        <li><a href="#pdm-relationship">Building the PDM Relationship</a></li>
+        <li><a href="#ace-pipeline">Getting ACE Right</a></li>
+        <li><a href="#90-day-plan">The 90-Day Plan</a></li>
+        <li><a href="#after-advanced">What Changes at Advanced</a></li>
+        <li><a href="#bottom-line">The Bottom Line</a></li>
+      </ul>
+    </div>
+
+    <div class="sidebar-cta">
+      <div class="sidebar-cta-label">Need Help?</div>
+      <div class="sidebar-cta-title">We Run This Process For You.</div>
+      <p>Tier advancement is one of our core managed services. We audit your standing, close the gaps, and manage the PDM relationship — so you don't have to figure it out alone.</p>
+      <a class="sidebar-btn" href="https://calendly.com/grnmrk/30-min-consultation" target="_blank" rel="noopener noreferrer">Book a Free Call</a>
+    </div>
+  </aside>
+
+</div>
+
+<div class="divider"></div>
+
+<!-- RELATED POSTS -->
+<div class="related">
+  <div class="related-label">Keep Reading</div>
+  <div class="related-grid">
+    <a class="related-card" href="/blog/aws-map-funding-guide">
+      <div class="related-tag">Funding</div>
+      <div class="related-title">AWS MAP Funding: What It Is and How to Qualify</div>
+      <p class="related-excerpt">MAP is one of the most valuable and underutilized funding programs in the AWS ecosystem. Here's how to qualify and apply.</p>
+    </a>
+    <a class="related-card" href="/blog/aws-ace-pipeline-management-guide">
+      <div class="related-tag">ACE Pipeline</div>
+      <div class="related-title">The Complete Guide to AWS ACE Pipeline Management</div>
+      <p class="related-excerpt">ACE is how AWS decides which partners get co-sell priority. Here's how to manage it in a way that actually moves your PDM to act.</p>
+    </a>
+    <a class="related-card" href="/blog/how-to-build-aws-co-sell-motion">
+      <div class="related-tag">Co-Sell</div>
+      <div class="related-title">How to Build a Co-Sell Motion with AWS Field Reps</div>
+      <p class="related-excerpt">Co-selling with AWS isn't about having a good product — it's about building the right relationships and showing up the right way.</p>
+    </a>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- BOTTOM CTA -->
+<div class="bottom-cta">
+  <div class="bottom-cta-inner">
+    <div>
+      <h2>Want Us to Run This<br><span>Process For You?</span></h2>
+      <p>Tier advancement is one of our core managed services. We audit your current standing, build the plan, close the gaps, and manage your PDM relationship — so nothing falls through the cracks.</p>
+    </div>
+    <div class="cta-actions">
+      <a class="btn-primary" href="https://calendly.com/grnmrk/30-min-consultation" target="_blank" rel="noopener noreferrer">Book a Free Strategy Call</a>
+      <a class="btn-ghost" href="/services">View All Services</a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a class="footer-logo" href="/"><span>G</span>RNMRK GROUP</a>
+      <p class="footer-tagline">AWS Partner Growth Advisors</p>
+      <a class="footer-linkedin" href="https://www.linkedin.com/company/grnmrk-group/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        LinkedIn
+      </a>
+    </div>
+    <div class="footer-nav-group">
+      <div class="footer-nav-col">
+        <div class="footer-nav-heading">Navigate</div>
+        <ul class="footer-nav-links">
+          <li><a href="/services">Services</a></li>
+          <li><a href="/#process">How It Works</a></li>
+          <li><a href="/#pricing">Pricing</a></li>
+          <li><a href="/#about">About</a></li>
+          <li><a href="/contact">Contact</a></li>
+          <li><a href="/blog">Blog</a></li>
+        </ul>
+      </div>
+      <div class="footer-nav-col">
+        <div class="footer-nav-heading">Company</div>
+        <ul class="footer-nav-links">
+          <li><a href="/careers">Careers</a></li>
+          <li><a href="/terms">Terms of Service</a></li>
+          <li><a href="/privacy">Privacy Policy</a></li>
+        </ul>
+        <img src="/aws-logo_copy.png" alt="AWS Partner" style="height: 104px; margin-top: 1.5rem;">
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2025 Grnmrk Group LLC. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>

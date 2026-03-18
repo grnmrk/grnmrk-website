@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AWS MAP Funding: What It Is and How to Qualify — Grnmrk Group</title>
+<meta name="description" content="AWS MAP (Migration Acceleration Program) is one of the most valuable and underutilized funding programs in the AWS ecosystem. Here's what it covers, who qualifies, and how to apply before the window closes.">
+<link rel="icon" type="image/png" href="/favicon-transparent.png">
+<link rel="apple-touch-icon" href="/favicon-transparent.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;1,300&family=Barlow+Condensed:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg:          #F0EDE6;
+    --bg-alt:      #E8E4DC;
+    --ink:         #111111;
+    --ink-mid:     #3A3A3A;
+    --ink-dim:     #7A7369;
+    --green:       #3DDC84;
+    --green-dark:  #28B06A;
+    --green-dim:   #D4F5E5;
+    --rule:        rgba(17,17,17,0.1);
+    --white:       #FFFFFF;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Barlow', sans-serif;
+    font-weight: 300;
+    font-size: 17px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.4rem 5vw;
+    background: rgba(240,237,230,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--rule);
+  }
+  .nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.7rem; letter-spacing: 0.12em; color: var(--ink); text-decoration: none; }
+  .nav-logo span { color: var(--green); }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a { font-family: 'Barlow Condensed', sans-serif; font-weight: 500; font-size: 0.85rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-dim); text-decoration: none; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--ink); }
+  .nav-cta { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); background: var(--green); padding: 0.55rem 1.4rem; text-decoration: none; transition: background 0.2s; }
+  .nav-cta:hover { background: var(--green-dark); color: var(--white); }
+
+  /* ── ARTICLE HERO ── */
+  .article-hero {
+    background: var(--ink);
+    padding: 9rem 5vw 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .article-hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 60% 80% at 85% 50%, rgba(61,220,132,0.07), transparent 70%);
+  }
+  .article-hero-inner { max-width: 860px; margin: 0 auto; position: relative; }
+  .article-meta { display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap; }
+  .article-tag { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink); background: var(--green); padding: 0.25rem 0.8rem; }
+  .article-date, .article-read-time { font-family: 'Barlow Condensed', sans-serif; font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(240,237,230,0.4); }
+  .article-dot { color: rgba(240,237,230,0.2); }
+  .article-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.8rem, 6vw, 5.5rem); line-height: 0.95; letter-spacing: 0.02em; color: var(--bg); margin-bottom: 1.5rem; }
+  .article-deck { font-size: 1.15rem; font-weight: 300; color: rgba(240,237,230,0.65); line-height: 1.75; max-width: 680px; }
+
+  /* ── BREADCRUMB ── */
+  .breadcrumb { max-width: 860px; margin: 0 auto; padding: 1.5rem 5vw; display: flex; align-items: center; gap: 0.5rem; }
+  .breadcrumb a { font-family: 'Barlow Condensed', sans-serif; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-dim); text-decoration: none; transition: color 0.2s; }
+  .breadcrumb a:hover { color: var(--green-dark); }
+  .breadcrumb-sep { font-family: 'Barlow Condensed', sans-serif; font-size: 0.78rem; color: var(--ink-dim); }
+  .breadcrumb-current { font-family: 'Barlow Condensed', sans-serif; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-mid); }
+
+  /* ── ARTICLE LAYOUT ── */
+  .article-wrap { max-width: 860px; margin: 0 auto; padding: 4rem 5vw 6rem; display: grid; grid-template-columns: 1fr 220px; gap: 5rem; align-items: start; }
+
+  /* ── ARTICLE BODY ── */
+  .article-body h2 { font-family: 'Bebas Neue', sans-serif; font-size: 2.2rem; letter-spacing: 0.03em; color: var(--ink); line-height: 1; margin: 3rem 0 1.2rem; padding-top: 3rem; border-top: 1px solid var(--rule); }
+  .article-body h2:first-child { margin-top: 0; padding-top: 0; border-top: none; }
+  .article-body h3 { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.1rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink); margin: 2rem 0 0.8rem; }
+  .article-body p { font-size: 1.02rem; font-weight: 300; color: var(--ink-mid); line-height: 1.85; margin-bottom: 1.4rem; }
+  .article-body strong { font-weight: 600; color: var(--ink); }
+  .article-body ul, .article-body ol { margin: 1rem 0 1.5rem 1.2rem; }
+  .article-body li { font-size: 1rem; font-weight: 300; color: var(--ink-mid); line-height: 1.8; margin-bottom: 0.5rem; padding-left: 0.4rem; }
+  .article-body a { color: var(--green-dark); text-decoration: underline; text-decoration-color: rgba(40,176,106,0.3); transition: text-decoration-color 0.2s; }
+  .article-body a:hover { text-decoration-color: var(--green-dark); }
+
+  .callout { background: var(--green-dim); border-left: 3px solid var(--green); padding: 1.5rem 2rem; margin: 2rem 0; }
+  .callout p { font-family: 'Barlow Condensed', sans-serif; font-size: 1.15rem; font-weight: 500; line-height: 1.5; color: var(--ink); letter-spacing: 0.01em; margin-bottom: 0; }
+
+  .insight-box { background: var(--ink); padding: 2rem 2.5rem; margin: 2.5rem 0; }
+  .insight-box-label { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--green); margin-bottom: 0.8rem; }
+  .insight-box p { font-size: 0.97rem; font-weight: 300; color: rgba(240,237,230,0.75); line-height: 1.75; margin-bottom: 0; }
+
+  .req-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0 2rem; font-size: 0.92rem; }
+  .req-table th { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--ink); text-align: left; padding: 0.8rem 1rem; background: var(--bg-alt); border-bottom: 2px solid var(--ink); }
+  .req-table td { padding: 0.8rem 1rem; font-weight: 300; color: var(--ink-mid); border-bottom: 1px solid var(--rule); vertical-align: top; line-height: 1.6; }
+  .req-table td:first-child { font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: 0.88rem; letter-spacing: 0.05em; color: var(--ink); }
+  .req-table tr:last-child td { border-bottom: none; }
+
+  .step-block { display: flex; gap: 1.5rem; margin: 1.5rem 0; align-items: flex-start; }
+  .step-num { font-family: 'Bebas Neue', sans-serif; font-size: 2.5rem; color: var(--green); line-height: 1; flex-shrink: 0; width: 3rem; text-align: center; }
+  .step-content h3 { margin-top: 0.2rem; }
+  .step-content p { margin-bottom: 0; }
+
+  /* Funding amount highlight */
+  .funding-highlight {
+    background: var(--bg-alt);
+    border: 1px solid var(--rule);
+    border-top: 3px solid var(--green);
+    padding: 1.8rem 2rem;
+    margin: 1.5rem 0;
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .funding-amount {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3rem;
+    color: var(--green-dark);
+    line-height: 1;
+    flex-shrink: 0;
+  }
+  .funding-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink);
+    margin-bottom: 0.3rem;
+  }
+  .funding-desc {
+    font-size: 0.92rem;
+    font-weight: 300;
+    color: var(--ink-mid);
+    line-height: 1.6;
+  }
+
+  /* ── SIDEBAR ── */
+  .article-sidebar { position: sticky; top: 7rem; display: flex; flex-direction: column; gap: 2rem; }
+  .toc { background: var(--bg-alt); padding: 1.5rem; }
+  .toc-label { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink); margin-bottom: 1rem; }
+  .toc-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+  .toc-list a { font-family: 'Barlow Condensed', sans-serif; font-size: 0.85rem; letter-spacing: 0.04em; color: var(--ink-dim); text-decoration: none; transition: color 0.2s; display: block; line-height: 1.4; }
+  .toc-list a:hover { color: var(--green-dark); }
+  .sidebar-cta { background: var(--ink); padding: 1.5rem; }
+  .sidebar-cta-label { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--green); margin-bottom: 0.8rem; }
+  .sidebar-cta-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; letter-spacing: 0.04em; color: var(--bg); line-height: 1.1; margin-bottom: 0.8rem; }
+  .sidebar-cta p { font-size: 0.85rem; font-weight: 300; color: rgba(240,237,230,0.6); line-height: 1.65; margin-bottom: 1.2rem; }
+  .sidebar-btn { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); background: var(--green); padding: 0.8rem 1rem; text-decoration: none; display: block; text-align: center; transition: background 0.2s; }
+  .sidebar-btn:hover { background: var(--green-dark); color: var(--white); }
+
+  .divider { width: 100%; height: 1px; background: var(--rule); }
+
+  /* ── BOTTOM CTA ── */
+  .bottom-cta { background: var(--ink); overflow: hidden; position: relative; }
+  .bottom-cta::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 80% at 80% 50%, rgba(61,220,132,0.08), transparent 70%); }
+  .bottom-cta-inner { max-width: 1200px; margin: 0 auto; padding: 6rem 5vw; position: relative; display: grid; grid-template-columns: 1fr auto; gap: 4rem; align-items: center; }
+  .bottom-cta h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.2rem, 4vw, 4rem); line-height: 0.95; color: var(--bg); margin-bottom: 0.8rem; }
+  .bottom-cta h2 span { color: var(--green); }
+  .bottom-cta p { font-size: 1rem; font-weight: 300; color: rgba(240,237,230,0.6); max-width: 500px; line-height: 1.7; }
+  .cta-actions { display: flex; flex-direction: column; gap: 1rem; min-width: 220px; }
+  .btn-primary { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.9rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); background: var(--green); padding: 1rem 2.2rem; text-decoration: none; display: block; text-align: center; transition: background 0.2s, color 0.2s; }
+  .btn-primary:hover { background: var(--green-dark); color: var(--white); }
+  .btn-ghost { font-family: 'Barlow Condensed', sans-serif; font-weight: 500; font-size: 0.9rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--bg); border: 1px solid rgba(240,237,230,0.25); padding: 1rem 2.2rem; text-decoration: none; display: block; text-align: center; transition: border-color 0.2s, color 0.2s; }
+  .btn-ghost:hover { border-color: var(--green); color: var(--green); }
+
+  /* ── RELATED ── */
+  .related { max-width: 1200px; margin: 0 auto; padding: 5rem 5vw; }
+  .related-label { font-family: 'Barlow Condensed', sans-serif; font-weight: 500; font-size: 0.78rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--green-dark); display: flex; align-items: center; gap: 0.8rem; margin-bottom: 2.5rem; }
+  .related-label::before { content: ''; display: inline-block; width: 24px; height: 1px; background: var(--green-dark); }
+  .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+  .related-card { background: var(--bg-alt); padding: 2rem; text-decoration: none; display: block; position: relative; overflow: hidden; transition: background 0.3s; }
+  .related-card:hover { background: var(--white); }
+  .related-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--green); transform: scaleX(0); transform-origin: left; transition: transform 0.4s ease; }
+  .related-card:hover::before { transform: scaleX(1); }
+  .related-tag { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink); background: var(--green); padding: 0.2rem 0.6rem; display: inline-block; margin-bottom: 1rem; }
+  .related-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.3rem; line-height: 1.05; letter-spacing: 0.02em; color: var(--ink); margin-bottom: 0.8rem; }
+  .related-excerpt { font-size: 0.88rem; font-weight: 300; color: var(--ink-mid); line-height: 1.7; }
+
+  /* ── FOOTER ── */
+  footer { background: var(--bg-alt); border-top: 1px solid var(--rule); width: 100%; display: block; }
+  .footer-top { width: 100%; max-width: 1200px; margin: 0 auto; padding: 4rem 5vw 3rem; display: flex; justify-content: space-between; gap: 4rem; flex-wrap: wrap; }
+  .footer-brand { display: flex; flex-direction: column; gap: 0.8rem; }
+  .footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; letter-spacing: 0.12em; color: var(--ink); text-decoration: none; }
+  .footer-logo span { color: var(--green); }
+  .footer-tagline { font-family: 'Barlow Condensed', sans-serif; font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-dim); }
+  .footer-linkedin { display: inline-flex; align-items: center; gap: 0.5rem; font-family: 'Barlow Condensed', sans-serif; font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-dim); text-decoration: none; margin-top: 0.4rem; transition: color 0.2s; }
+  .footer-linkedin:hover { color: var(--green-dark); }
+  .footer-nav-group { display: flex; gap: 4rem; flex-wrap: wrap; }
+  .footer-nav-col { display: flex; flex-direction: column; gap: 1rem; }
+  .footer-nav-heading { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink); }
+  .footer-nav-links { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+  .footer-nav-links a { font-family: 'Barlow Condensed', sans-serif; font-size: 0.88rem; letter-spacing: 0.08em; color: var(--ink-dim); text-decoration: none; transition: color 0.2s; }
+  .footer-nav-links a:hover { color: var(--green-dark); }
+  .footer-bottom { border-top: 1px solid var(--rule); padding: 1.5rem 5vw; width: 100%; }
+  .footer-copy { font-family: 'Barlow Condensed', sans-serif; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-dim); max-width: 1200px; margin: 0 auto; }
+
+  @media (max-width: 900px) {
+    .article-wrap { grid-template-columns: 1fr; }
+    .article-sidebar { position: static; }
+    .bottom-cta-inner { grid-template-columns: 1fr; }
+    .related-grid { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+    .funding-highlight { flex-direction: column; gap: 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="/"><span>G</span>RNMRK GROUP</a>
+  <ul class="nav-links">
+    <li><a href="/services">Services</a></li>
+    <li><a href="/#process">How It Works</a></li>
+    <li><a href="/#pricing">Pricing</a></li>
+    <li><a href="/#about">About</a></li>
+    <li><a href="/contact">Contact</a></li>
+  </ul>
+  <a class="nav-cta" href="https://calendly.com/grnmrk/30-min-consultation" target="_blank" rel="noopener noreferrer">Get Started</a>
+</nav>
+
+<div class="article-hero">
+  <div class="article-hero-inner">
+    <div class="article-meta">
+      <span class="article-tag">Funding</span>
+      <span class="article-dot">·</span>
+      <span class="article-read-time">10 min read</span>
+    </div>
+    <h1 class="article-title">AWS MAP Funding: What It Is and How to Qualify</h1>
+    <p class="article-deck">The Migration Acceleration Program is one of the most valuable — and most consistently underutilized — funding programs in the AWS partner ecosystem. Most partners who qualify never apply. Here's what MAP covers, who qualifies, and exactly how to capture it.</p>
+  </div>
+</div>
+
+<div style="background: var(--bg-alt); border-bottom: 1px solid var(--rule);">
+  <div class="breadcrumb">
+    <a href="/">Home</a>
+    <span class="breadcrumb-sep">→</span>
+    <a href="/blogs">Blog</a>
+    <span class="breadcrumb-sep">→</span>
+    <span class="breadcrumb-current">AWS MAP Funding Guide</span>
+  </div>
+</div>
+
+<div class="article-wrap">
+
+  <article class="article-body">
+
+    <h2 id="what-is-map">What Is AWS MAP?</h2>
+
+    <p>MAP — the Migration Acceleration Program — is AWS's primary funding vehicle for partners helping customers migrate workloads to the cloud. It was designed to remove the financial friction that slows large-scale migrations, and it does that by putting real money behind qualified migration engagements.</p>
+
+    <p>At its core, MAP is a co-investment program. AWS funds a portion of the migration work — typically in the form of AWS credits, cash, or both — and in return expects the partner to deliver a successful migration that brings the customer deeper into the AWS ecosystem. Everyone wins: the customer migrates faster with less financial risk, the partner gets funded work, and AWS adds committed ARR to its cloud revenue.</p>
+
+    <p>What most partners don't realize is how accessible MAP actually is. It is not reserved for Premier-tier partners or massive system integrators. Select and Advanced partners working on legitimate migration engagements can and do qualify.</p>
+
+    <div class="callout">
+      <p>MAP is not a discount program. It's a co-investment in migration success. AWS funds partners it trusts to deliver — which means your credibility, your ACE pipeline, and your PDM relationship all factor into whether you get approved.</p>
+    </div>
+
+    <h2 id="map-phases">The Three Phases of MAP</h2>
+
+    <p>MAP is structured around the natural stages of a migration engagement. Each phase has its own funding mechanism, its own requirements, and its own window for application. Understanding the structure is the first step to capturing the money that's available.</p>
+
+    <h3>Phase 1: Assess</h3>
+    <p>The Assess phase funds the discovery and assessment work that happens before a migration plan is finalized. This is where you evaluate the customer's current environment, identify dependencies, estimate migration complexity, and build the business case for moving to AWS.</p>
+
+    <div class="funding-highlight">
+      <div class="funding-amount">$0–$15K</div>
+      <div>
+        <div class="funding-label">Assess Phase Funding</div>
+        <p class="funding-desc">Typically delivered as AWS credits or cash to offset the cost of assessment tooling, labor, and discovery workshops. Exact amounts vary by engagement scope and partner tier.</p>
+      </div>
+    </div>
+
+    <h3>Phase 2: Mobilize</h3>
+    <p>Mobilize covers the planning and readiness work — building the migration runbook, standing up the landing zone, training the customer's team, and completing any pre-migration remediation. This phase often involves the most intensive partner labor and carries correspondingly higher funding potential.</p>
+
+    <div class="funding-highlight">
+      <div class="funding-amount">$10K–$50K+</div>
+      <div>
+        <div class="funding-label">Mobilize Phase Funding</div>
+        <p class="funding-desc">Funding at this phase scales with the size and complexity of the migration. Engagements involving large workload counts or significant technical lift attract higher co-investment from AWS.</p>
+      </div>
+    </div>
+
+    <h3>Phase 3: Migrate & Modernize</h3>
+    <p>This is the execution phase — the actual movement of workloads to AWS, followed by optimization and modernization work. MAP funding here is often structured as AWS credits that offset the customer's AWS consumption during the migration period, reducing their financial risk and making it easier for you to close the deal.</p>
+
+    <div class="funding-highlight">
+      <div class="funding-amount">$25K–$500K+</div>
+      <div>
+        <div class="funding-label">Migrate & Modernize Funding</div>
+        <p class="funding-desc">Large enterprise migrations can attract significant MAP funding at this phase. The funding is tied to committed AWS ARR generated by the migration — larger migrations, larger co-investment.</p>
+      </div>
+    </div>
+
+    <div class="insight-box">
+      <div class="insight-box-label">Important to Know</div>
+      <p>MAP funding amounts are not publicly listed and vary significantly based on engagement size, partner tier, customer ARR commitment, and your relationship with your PDM. The numbers above are directional. Your PDM is the right person to discuss specific funding amounts for a given engagement — which is exactly why that relationship matters.</p>
+    </div>
+
+    <h2 id="who-qualifies">Who Qualifies for MAP?</h2>
+
+    <p>MAP eligibility is driven by a combination of partner standing and engagement characteristics. You need both — having the right partner profile doesn't matter if the engagement doesn't qualify, and having a qualifying engagement doesn't matter if your partner profile isn't strong enough to get approved.</p>
+
+    <h3>Partner-Side Requirements</h3>
+    <ul>
+      <li><strong>Active APN membership</strong> at Select tier or above</li>
+      <li><strong>Relevant AWS competencies or service validations</strong> — Migration Competency is the most directly relevant, but partners without it can still qualify</li>
+      <li><strong>Active ACE pipeline</strong> with the migration opportunity submitted and properly attributed</li>
+      <li><strong>Clean partner standing</strong> — no compliance issues, current on training and certification requirements</li>
+      <li><strong>PDM relationship</strong> — your PDM needs to sponsor your MAP submission internally</li>
+    </ul>
+
+    <h3>Engagement-Side Requirements</h3>
+    <ul>
+      <li><strong>Legitimate migration scope</strong> — MAP is for meaningful migrations, not minor workload moves. Think 50+ servers, or significant application re-platforming.</li>
+      <li><strong>New-to-AWS or expanding workloads</strong> — MAP is designed to accelerate net-new AWS consumption, not fund work on already-migrated infrastructure</li>
+      <li><strong>Committed customer</strong> — AWS wants to see that the customer is serious. A signed SOW or at minimum a signed proposal helps significantly</li>
+      <li><strong>Documented AWS ARR impact</strong> — the application requires you to project the AWS ARR that will result from the migration</li>
+    </ul>
+
+    <table class="req-table">
+      <thead>
+        <tr>
+          <th>Eligibility Factor</th>
+          <th>What AWS Looks For</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Partner Tier</td>
+          <td>Select or above; Advanced and Premier partners get higher funding consideration</td>
+        </tr>
+        <tr>
+          <td>Migration Competency</td>
+          <td>Preferred but not always required; strengthens application significantly</td>
+        </tr>
+        <tr>
+          <td>ACE Opportunity</td>
+          <td>Must exist, be current, and reference the MAP engagement</td>
+        </tr>
+        <tr>
+          <td>Migration Scope</td>
+          <td>Meaningful workload count or ARR impact; not for trivial migrations</td>
+        </tr>
+        <tr>
+          <td>Customer Commitment</td>
+          <td>Signed agreement or clear evidence of customer intent</td>
+        </tr>
+        <tr>
+          <td>Projected AWS ARR</td>
+          <td>Must be documented in the application; larger ARR = more funding consideration</td>
+        </tr>
+        <tr>
+          <td>PDM Sponsorship</td>
+          <td>Your PDM must endorse the application internally — relationship matters here</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2 id="common-mistakes">Why Most Partners Don't Capture MAP Funding</h2>
+
+    <p>The frustrating reality is that many partners are doing MAP-eligible work right now and getting nothing for it. Here are the mistakes we see most often.</p>
+
+    <h3>They Don't Know the Opportunity Exists</h3>
+    <p>MAP is not prominently advertised. AWS doesn't send out emails telling partners they have migration engagements that qualify for funding. You have to know to ask, know what to submit, and know who to talk to. Most partners are simply unaware of what's available until someone tells them.</p>
+
+    <h3>The ACE Opportunity Is Missing or Wrong</h3>
+    <p>MAP submissions are tied to ACE opportunities. If the migration isn't in ACE — or it's in ACE but incorrectly categorized, missing the customer ARR projection, or not linked to your partner account properly — the submission won't go through. ACE hygiene is foundational to MAP capture.</p>
+
+    <h3>They Apply Too Late</h3>
+    <p>MAP funding is approved before the work is done, not after. Applying for MAP retroactively — after the migration is already underway or complete — almost never works. The application needs to be in before the project kicks off, which means identifying qualifying engagements early in the sales cycle, not at project close.</p>
+
+    <h3>The PDM Doesn't Know About the Engagement</h3>
+    <p>MAP submissions require internal AWS sponsorship. If your PDM doesn't know the migration is happening, they can't advocate for your application. Partners with warm PDM relationships get MAP approved. Partners whose PDMs are hearing about the engagement for the first time when the application arrives do not.</p>
+
+    <div class="insight-box">
+      <div class="insight-box-label">From the Field</div>
+      <p>We've seen partners leave six-figure MAP funding uncaptured on a single engagement because they didn't submit the ACE opportunity until after the migration started. By then, the funding window had closed. The work was already done. MAP is not retroactive — it has to be set up before the engagement begins.</p>
+    </div>
+
+    <h2 id="how-to-apply">How to Apply for MAP: Step by Step</h2>
+
+    <p>The MAP program process runs through AWS Partner Central and your PDM. Here's the sequence that works.</p>
+
+    <div class="step-block">
+      <div class="step-num">01</div>
+      <div class="step-content">
+        <h3>Identify the Qualifying Engagement Early</h3>
+        <p>As soon as you have a migration opportunity in active discussion — not when the SOW is signed, but when you're qualifying the deal — flag it internally as a potential MAP candidate. The earlier you start the process, the more funding phases you can capture.</p>
+      </div>
+    </div>
+
+    <div class="step-block">
+      <div class="step-num">02</div>
+      <div class="step-content">
+        <h3>Submit the ACE Opportunity Correctly</h3>
+        <p>Create or update the ACE opportunity to accurately reflect the migration scope: customer name, projected AWS ARR, workload count, migration type, and expected close date. Make sure the opportunity is tagged as a migration engagement and that it's linked to your PO (not a personal account). This is the foundation the MAP program sits on.</p>
+      </div>
+    </div>
+
+    <div class="step-block">
+      <div class="step-num">03</div>
+      <div class="step-content">
+        <h3>Notify Your PDM</h3>
+        <p>Before you touch the MAP submission, tell your PDM about the engagement. Send them the ACE opportunity number, a one-paragraph summary of the migration scope, and the projected AWS ARR. Ask them directly: "Is this a good MAP candidate, and will you sponsor the submission?" This conversation surfaces issues early and gets your PDM bought in before the paperwork starts.</p>
+      </div>
+    </div>
+
+    <div class="step-block">
+      <div class="step-num">04</div>
+      <div class="step-content">
+        <h3>Complete the MAP Submission in Partner Central</h3>
+        <p>Navigate to the Funding section of AWS Partner Central and locate the MAP program. You'll need: the ACE opportunity ID, customer details, migration scope documentation, projected AWS ARR, your engagement timeline, and your methodology for each MAP phase you're submitting for. Be specific — vague submissions get lower funding consideration or get rejected.</p>
+      </div>
+    </div>
+
+    <div class="step-block">
+      <div class="step-num">05</div>
+      <div class="step-content">
+        <h3>Follow Up and Track Approval Status</h3>
+        <p>MAP submissions don't always move quickly. Follow up with your PDM after 5–7 business days if you haven't heard anything. Keep your ACE opportunity current — reviewers check it. If your application is rejected, ask your PDM for the specific reason and resubmit with the gaps addressed.</p>
+      </div>
+    </div>
+
+    <div class="step-block">
+      <div class="step-num">06</div>
+      <div class="step-content">
+        <h3>Execute, Document, and Submit Proof of Execution</h3>
+        <p>Once MAP is approved, the funding is contingent on delivery. AWS will require proof of execution — typically in the form of deliverables documentation, customer sign-off, and evidence of workload migration. Treat the MAP deliverables requirements like a contract. Miss them and you lose the funding.</p>
+      </div>
+    </div>
+
+    <h2 id="maximizing-map">How to Maximize Your MAP Capture</h2>
+
+    <p>Getting MAP approved once is good. Building a repeatable MAP capture motion is what changes your business.</p>
+
+    <h3>Build MAP Into Your Sales Process</h3>
+    <p>Every migration opportunity your team qualifies should go through a MAP eligibility check before the proposal stage. This means your sales team needs to understand what MAP is, how to identify qualifying engagements, and how to position MAP funding as part of the deal. Customers respond well to "AWS will co-fund part of this migration" — it lowers the deal friction on your side and their side simultaneously.</p>
+
+    <h3>Get the Migration Competency</h3>
+    <p>Partners with the AWS Migration Competency have a meaningfully stronger MAP approval rate than those without it. The competency validates that you have the methodology, the people, and the track record to deliver large-scale migrations. If migration is a core part of your practice, the Migration Competency should be on your roadmap.</p>
+
+    <h3>Track MAP Submissions Like Pipeline</h3>
+    <p>MAP funding should be tracked the same way you track revenue — with a pipeline view of where each application is, what the potential funding is, and what the next action is. Treating MAP as an afterthought means funding slips through. Treating it as pipeline means it compounds.</p>
+
+    <div class="callout">
+      <p>The best partners we've worked with have a designated person who owns MAP — knows the requirements, tracks active applications, and manages the PDM relationship around funding. It doesn't have to be a full-time role, but someone has to own it or it won't happen consistently.</p>
+    </div>
+
+    <h2 id="map-and-mdf">MAP vs. MDF: What's the Difference?</h2>
+
+    <p>Partners often confuse MAP and MDF. They serve different purposes and have different application processes.</p>
+
+    <p><strong>MAP</strong> is project-specific funding tied to a named migration engagement. It's co-investment in delivery — AWS funds the work of migrating a specific customer to AWS.</p>
+
+    <p><strong>MDF</strong> (Market Development Funds) is go-to-market funding — money AWS provides to help partners build pipeline through marketing activities like events, content, campaigns, and demand generation. It's not tied to a specific customer engagement.</p>
+
+    <p>They're not mutually exclusive. A partner working on a large migration program might be using MAP to fund the delivery work and MDF to fund the demand generation campaign that brought the customer in. If you're not capturing both, you're leaving money on the table from two different directions.</p>
+
+    <h2 id="bottom-line">The Bottom Line</h2>
+
+    <p>MAP is real money for real migration work. The partners capturing it consistently aren't doing anything exotic — they're identifying qualifying engagements early, keeping their ACE pipeline clean, maintaining a warm PDM relationship, and submitting applications before the work starts.</p>
+
+    <p>If you're running migration engagements and not capturing MAP, the fix is operational, not technical. It's a process problem, and it's a solvable one.</p>
+
+    <p>We manage MAP and MDF funding capture as part of our <a href="/services">managed services</a>. If you want to understand what's available for your current pipeline, <a href="/contact">reach out</a> — we'll tell you exactly what you qualify for.</p>
+
+  </article>
+
+  <aside class="article-sidebar">
+    <div class="toc">
+      <div class="toc-label">In This Guide</div>
+      <ul class="toc-list">
+        <li><a href="#what-is-map">What Is AWS MAP?</a></li>
+        <li><a href="#map-phases">The Three Phases</a></li>
+        <li><a href="#who-qualifies">Who Qualifies</a></li>
+        <li><a href="#common-mistakes">Why Partners Miss It</a></li>
+        <li><a href="#how-to-apply">How to Apply</a></li>
+        <li><a href="#maximizing-map">Maximizing MAP Capture</a></li>
+        <li><a href="#map-and-mdf">MAP vs. MDF</a></li>
+        <li><a href="#bottom-line">The Bottom Line</a></li>
+      </ul>
+    </div>
+
+    <div class="sidebar-cta">
+      <div class="sidebar-cta-label">We Handle This</div>
+      <div class="sidebar-cta-title">MAP & MDF Funding Management.</div>
+      <p>We identify qualifying engagements, manage the application process, and track approvals — so you capture the funding AWS already wants to give you.</p>
+      <a class="sidebar-btn" href="https://calendly.com/grnmrk/30-min-consultation" target="_blank" rel="noopener noreferrer">Book a Free Call</a>
+    </div>
+  </aside>
+
+</div>
+
+<div class="divider"></div>
+
+<div class="related">
+  <div class="related-label">Keep Reading</div>
+  <div class="related-grid">
+    <a class="related-card" href="/blogs/aws-mdf-funding-how-to-apply">
+      <div class="related-tag">Funding</div>
+      <div class="related-title">AWS MDF Funding: How to Apply and Actually Get Approved</div>
+      <p class="related-excerpt">MDF is available to most AWS partners — but first-time approval rates are low. Here's what reviewers are actually looking for.</p>
+    </a>
+    <a class="related-card" href="/blogs/aws-select-to-advanced-partner-tier">
+      <div class="related-tag">Tier Advancement</div>
+      <div class="related-title">How to Advance from AWS Select to Advanced Partner Tier</div>
+      <p class="related-excerpt">The gap between Select and Advanced is operational, not technical. Here's the 90-day plan to close it.</p>
+    </a>
+    <a class="related-card" href="/blogs/aws-ace-pipeline-management-guide">
+      <div class="related-tag">ACE Pipeline</div>
+      <div class="related-title">The Complete Guide to AWS ACE Pipeline Management</div>
+      <p class="related-excerpt">Clean ACE is the foundation of every funding program. Here's how to manage it right.</p>
+    </a>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<div class="bottom-cta">
+  <div class="bottom-cta-inner">
+    <div>
+      <h2>Leaving MAP Funding<br><span>On the Table?</span></h2>
+      <p>We identify qualifying migration engagements in your pipeline, manage the MAP submission process, and make sure you're capturing every dollar AWS is willing to co-invest in your work.</p>
+    </div>
+    <div class="cta-actions">
+      <a class="btn-primary" href="https://calendly.com/grnmrk/30-min-consultation" target="_blank" rel="noopener noreferrer">Book a Free Strategy Call</a>
+      <a class="btn-ghost" href="/services">View All Services</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a class="footer-logo" href="/"><span>G</span>RNMRK GROUP</a>
+      <p class="footer-tagline">AWS Partner Growth Advisors</p>
+      <a class="footer-linkedin" href="https://www.linkedin.com/company/grnmrk-group/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        LinkedIn
+      </a>
+    </div>
+    <div class="footer-nav-group">
+      <div class="footer-nav-col">
+        <div class="footer-nav-heading">Navigate</div>
+        <ul class="footer-nav-links">
+          <li><a href="/services">Services</a></li>
+          <li><a href="/#process">How It Works</a></li>
+          <li><a href="/#pricing">Pricing</a></li>
+          <li><a href="/#about">About</a></li>
+          <li><a href="/contact">Contact</a></li>
+          <li><a href="/blogs">Blog</a></li>
+        </ul>
+      </div>
+      <div class="footer-nav-col">
+        <div class="footer-nav-heading">Company</div>
+        <ul class="footer-nav-links">
+          <li><a href="/careers">Careers</a></li>
+          <li><a href="/terms">Terms of Service</a></li>
+          <li><a href="/privacy">Privacy Policy</a></li>
+        </ul>
+        <img src="/aws-logo_copy.png" alt="AWS Partner" style="height: 104px; margin-top: 1.5rem;">
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2025 Grnmrk Group LLC. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>

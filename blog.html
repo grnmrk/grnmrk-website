@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog — Grnmrk Group</title>
+<meta name="description" content="Practical guides on AWS partner tier advancement, MAP funding, ACE pipeline management, co-sell motions, and everything in between.">
+<link rel="icon" type="image/png" href="/favicon-transparent.png">
+<link rel="apple-touch-icon" href="/favicon-transparent.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;1,300&family=Barlow+Condensed:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg:          #F0EDE6;
+    --bg-alt:      #E8E4DC;
+    --ink:         #111111;
+    --ink-mid:     #3A3A3A;
+    --ink-dim:     #7A7369;
+    --green:       #3DDC84;
+    --green-dark:  #28B06A;
+    --green-dim:   #D4F5E5;
+    --rule:        rgba(17,17,17,0.1);
+    --white:       #FFFFFF;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Barlow', sans-serif;
+    font-weight: 300;
+    font-size: 17px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.4rem 5vw;
+    background: rgba(240,237,230,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--rule);
+  }
+  .nav-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.7rem;
+    letter-spacing: 0.12em;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .nav-logo span { color: var(--green); }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 500;
+    font-size: 0.85rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover, .nav-links a.active { color: var(--ink); }
+  .nav-cta {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink);
+    background: var(--green);
+    padding: 0.55rem 1.4rem;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .nav-cta:hover { background: var(--green-dark); color: var(--white); }
+
+  /* ── PAGE HERO ── */
+  .page-hero {
+    padding: 10rem 5vw 5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: end;
+  }
+  .page-eyebrow {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--green-dark);
+    margin-bottom: 1rem;
+    display: flex; align-items: center; gap: 0.8rem;
+  }
+  .page-eyebrow::before {
+    content: '';
+    display: inline-block; width: 24px; height: 1px;
+    background: var(--green-dark);
+  }
+  .page-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3.5rem, 7vw, 7rem);
+    line-height: 0.92;
+    letter-spacing: 0.02em;
+    color: var(--ink);
+  }
+  .page-intro {
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: var(--ink-mid);
+    line-height: 1.8;
+  }
+
+  .divider { width: 100%; height: 1px; background: var(--rule); }
+
+  /* ── FEATURED POST ── */
+  .featured-wrap {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 5rem 5vw;
+  }
+  .featured-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 500;
+    font-size: 0.78rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--green-dark);
+    display: flex; align-items: center; gap: 0.8rem;
+    margin-bottom: 2rem;
+  }
+  .featured-label::before {
+    content: '';
+    display: inline-block; width: 24px; height: 1px;
+    background: var(--green-dark);
+  }
+
+  .featured-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    background: var(--ink);
+    text-decoration: none;
+    transition: opacity 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+  .featured-card:hover { opacity: 0.94; }
+  .featured-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--green);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+  }
+  .featured-card:hover::after { transform: scaleX(1); }
+
+  .featured-visual {
+    background: var(--green-dim);
+    min-height: 360px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .featured-visual::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 60% 40%, rgba(61,220,132,0.3), transparent 70%);
+  }
+  .featured-visual-text {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 8rem;
+    color: rgba(17,17,17,0.08);
+    line-height: 1;
+    position: relative;
+    user-select: none;
+  }
+
+  .featured-content {
+    padding: 3.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .featured-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .post-tag {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.68rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink);
+    background: var(--green);
+    padding: 0.2rem 0.7rem;
+  }
+  .post-date {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(240,237,230,0.45);
+  }
+  .featured-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(1.8rem, 3vw, 2.8rem);
+    line-height: 1;
+    letter-spacing: 0.02em;
+    color: var(--bg);
+    margin-bottom: 1.2rem;
+  }
+  .featured-excerpt {
+    font-size: 0.97rem;
+    font-weight: 300;
+    color: rgba(240,237,230,0.65);
+    line-height: 1.75;
+    margin-bottom: 2rem;
+  }
+  .read-more {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--green);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  /* ── BLOG GRID ── */
+  .blog-section {
+    background: var(--bg-alt);
+    padding: 0 0 6rem;
+  }
+  .blog-section-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 5rem 5vw 0;
+  }
+  .blog-section-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 500;
+    font-size: 0.78rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--green-dark);
+    display: flex; align-items: center; gap: 0.8rem;
+    margin-bottom: 2.5rem;
+  }
+  .blog-section-label::before {
+    content: '';
+    display: inline-block; width: 24px; height: 1px;
+    background: var(--green-dark);
+  }
+
+  .posts-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px;
+  }
+
+  .post-card {
+    background: var(--bg);
+    padding: 2.5rem;
+    text-decoration: none;
+    display: block;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.3s;
+  }
+  .post-card:hover { background: var(--white); }
+  .post-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--green);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+  }
+  .post-card:hover::before { transform: scaleX(1); }
+
+  .post-card-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+  }
+  .post-card-tag {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.68rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink);
+    background: var(--green);
+    padding: 0.2rem 0.7rem;
+  }
+  .post-card-date {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+  }
+
+  .post-card-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.7rem;
+    line-height: 1.05;
+    letter-spacing: 0.02em;
+    color: var(--ink);
+    margin-bottom: 1rem;
+  }
+
+  .post-card-excerpt {
+    font-size: 0.93rem;
+    font-weight: 300;
+    color: var(--ink-mid);
+    line-height: 1.75;
+    margin-bottom: 1.5rem;
+  }
+
+  .post-card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid var(--rule);
+    padding-top: 1rem;
+  }
+  .post-read-time {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+  }
+  .post-arrow {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.82rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--green-dark);
+    transition: gap 0.2s;
+  }
+
+  /* ── COMING SOON CARD ── */
+  .post-card.coming-soon {
+    opacity: 0.5;
+    cursor: default;
+  }
+  .post-card.coming-soon:hover { background: var(--bg); }
+  .post-card.coming-soon::before { display: none; }
+  .coming-soon-badge {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.68rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+    border: 1px solid var(--rule);
+    padding: 0.2rem 0.7rem;
+    display: inline-block;
+    margin-bottom: 1.2rem;
+  }
+
+  /* ── TOPICS STRIP ── */
+  .topics-strip {
+    background: var(--ink);
+    padding: 3rem 5vw;
+  }
+  .topics-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+  .topics-label {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.4rem;
+    letter-spacing: 0.06em;
+    color: var(--bg);
+    white-space: nowrap;
+  }
+  .topics-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+  }
+  .topic-pill {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 500;
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(240,237,230,0.6);
+    border: 1px solid rgba(240,237,230,0.15);
+    padding: 0.35rem 0.9rem;
+    transition: color 0.2s, border-color 0.2s;
+    cursor: default;
+  }
+  .topic-pill:hover {
+    color: var(--green);
+    border-color: var(--green);
+  }
+
+  /* ── NEWSLETTER / CTA ── */
+  .newsletter {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 6rem 5vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+  }
+  .newsletter-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.5rem, 4vw, 4rem);
+    line-height: 0.95;
+    letter-spacing: 0.02em;
+    color: var(--ink);
+    margin-bottom: 1rem;
+  }
+  .newsletter-title span { color: var(--green-dark); }
+  .newsletter-body {
+    font-size: 1rem;
+    font-weight: 300;
+    color: var(--ink-mid);
+    line-height: 1.8;
+  }
+  .newsletter-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .newsletter-form input {
+    background: var(--white);
+    border: 1px solid rgba(17,17,17,0.15);
+    color: var(--ink);
+    font-family: 'Barlow', sans-serif;
+    font-weight: 300;
+    font-size: 0.97rem;
+    padding: 0.9rem 1.1rem;
+    outline: none;
+    transition: border-color 0.2s;
+    border-radius: 0;
+    -webkit-appearance: none;
+  }
+  .newsletter-form input:focus { border-color: var(--green-dark); }
+  .newsletter-form input::placeholder { color: var(--ink-dim); opacity: 0.6; }
+  .newsletter-btn {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink);
+    background: var(--green);
+    padding: 1rem 2rem;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    text-align: center;
+  }
+  .newsletter-btn:hover { background: var(--green-dark); color: var(--white); }
+  .newsletter-note {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    color: var(--ink-dim);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--bg-alt);
+    border-top: 1px solid var(--rule);
+    width: 100%;
+    display: block;
+  }
+  .footer-top {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 5vw 3rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 4rem;
+    flex-wrap: wrap;
+  }
+  .footer-brand { display: flex; flex-direction: column; gap: 0.8rem; }
+  .footer-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.6rem;
+    letter-spacing: 0.12em;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .footer-logo span { color: var(--green); }
+  .footer-tagline {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+  }
+  .footer-linkedin {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.82rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+    text-decoration: none;
+    margin-top: 0.4rem;
+    transition: color 0.2s;
+  }
+  .footer-linkedin:hover { color: var(--green-dark); }
+  .footer-nav-group { display: flex; gap: 4rem; flex-wrap: wrap; }
+  .footer-nav-col { display: flex; flex-direction: column; gap: 1rem; }
+  .footer-nav-heading {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+  .footer-nav-links { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+  .footer-nav-links a {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.88rem;
+    letter-spacing: 0.08em;
+    color: var(--ink-dim);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-nav-links a:hover { color: var(--green-dark); }
+  .footer-bottom {
+    border-top: 1px solid var(--rule);
+    padding: 1.5rem 5vw;
+    width: 100%;
+  }
+  .footer-copy {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .page-hero { grid-template-columns: 1fr; gap: 2rem; padding-top: 8rem; }
+    .featured-card { grid-template-columns: 1fr; }
+    .featured-visual { min-height: 200px; }
+    .posts-grid { grid-template-columns: 1fr; }
+    .topics-inner { grid-template-columns: 1fr; gap: 1.5rem; }
+    .newsletter { grid-template-columns: 1fr; gap: 3rem; }
+    .nav-links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="/"><span>G</span>RNMRK GROUP</a>
+  <ul class="nav-links">
+    <li><a href="/services">Services</a></li>
+    <li><a href="/#process">How It Works</a></li>
+    <li><a href="/#pricing">Pricing</a></li>
+    <li><a href="/#about">About</a></li>
+    <li><a href="/contact">Contact</a></li>
+  </ul>
+  <a class="nav-cta" href="https://calendly.com/grnmrk/30-min-consultation" target="_blank" rel="noopener noreferrer">Get Started</a>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div>
+    <div class="page-eyebrow">Insights & Guides</div>
+    <h1 class="page-title">The AWS<br>Partner<br>Playbook.</h1>
+  </div>
+  <p class="page-intro">
+    Practical, no-fluff guides on AWS partner tier advancement, MAP and MDF funding, ACE pipeline management, co-sell motions, and everything else the AWS partner ecosystem doesn't make easy to figure out on your own.
+  </p>
+</div>
+
+<div class="divider"></div>
+
+<!-- FEATURED POST -->
+<div class="featured-wrap">
+  <div class="featured-label">Featured Article</div>
+
+  <a class="featured-card" href="/blog/aws-select-to-advanced-partner-tier">
+    <div class="featured-visual">
+      <div class="featured-visual-text">01</div>
+    </div>
+    <div class="featured-content">
+      <div>
+        <div class="featured-meta">
+          <span class="post-tag">Tier Advancement</span>
+          <span class="post-date">Coming Soon</span>
+        </div>
+        <div class="featured-title">How to Advance from AWS Select to Advanced Partner Tier</div>
+        <p class="featured-excerpt">
+          Most partners hit Select and stall. The gap between Select and Advanced isn't just about checking more boxes — it's about understanding what AWS is actually evaluating and building a program that signals co-sell readiness. Here's exactly how to close that gap.
+        </p>
+      </div>
+      <div class="read-more">Read the Guide →</div>
+    </div>
+  </a>
+</div>
+
+<div class="divider"></div>
+
+<!-- BLOG GRID -->
+<section class="blog-section">
+  <div class="blog-section-inner">
+    <div class="blog-section-label">All Articles</div>
+  </div>
+
+  <div style="max-width:1200px; margin:0 auto; padding: 0 5vw;">
+    <div class="posts-grid">
+
+      <!-- Post 1 — Featured repeat as card -->
+      <a class="post-card" href="/blog/aws-select-to-advanced-partner-tier">
+        <div class="post-card-meta">
+          <span class="post-card-tag">Tier Advancement</span>
+          <span class="post-card-date">Coming Soon</span>
+        </div>
+        <div class="post-card-title">How to Advance from AWS Select to Advanced Partner Tier</div>
+        <p class="post-card-excerpt">A step-by-step breakdown of the requirements, the gaps most partners miss, and the 90-day plan to get there.</p>
+        <div class="post-card-footer">
+          <span class="post-read-time">12 min read</span>
+          <span class="post-arrow">Read →</span>
+        </div>
+      </a>
+
+      <!-- Post 2 -->
+      <a class="post-card" href="/blog/aws-map-funding-guide">
+        <div class="post-card-meta">
+          <span class="post-card-tag">Funding</span>
+          <span class="post-card-date">Coming Soon</span>
+        </div>
+        <div class="post-card-title">AWS MAP Funding: What It Is and How to Qualify</div>
+        <p class="post-card-excerpt">MAP is one of the most valuable and underutilized funding programs in the AWS ecosystem. Here's what it covers, who qualifies, and how to apply before the window closes.</p>
+        <div class="post-card-footer">
+          <span class="post-read-time">10 min read</span>
+          <span class="post-arrow">Read →</span>
+        </div>
+      </a>
+
+      <!-- Post 3 -->
+      <a class="post-card" href="/blog/aws-ace-pipeline-management-guide">
+        <div class="post-card-meta">
+          <span class="post-card-tag">ACE Pipeline</span>
+          <span class="post-card-date">Coming Soon</span>
+        </div>
+        <div class="post-card-title">The Complete Guide to AWS ACE Pipeline Management</div>
+        <p class="post-card-excerpt">ACE is more than a CRM — it's how AWS decides which partners get co-sell priority. Here's how to manage it in a way that actually moves your PDM to act.</p>
+        <div class="post-card-footer">
+          <span class="post-read-time">14 min read</span>
+          <span class="post-arrow">Read →</span>
+        </div>
+      </a>
+
+      <!-- Post 4 -->
+      <a class="post-card" href="/blog/aws-mdf-funding-how-to-apply">
+        <div class="post-card-meta">
+          <span class="post-card-tag">Funding</span>
+          <span class="post-card-date">Coming Soon</span>
+        </div>
+        <div class="post-card-title">AWS MDF Funding: How to Apply and Actually Get Approved</div>
+        <p class="post-card-excerpt">Market Development Funds are available to most AWS partners — but the approval rate for first-time applicants is low. This guide covers what reviewers are actually looking for.</p>
+        <div class="post-card-footer">
+          <span class="post-read-time">9 min read</span>
+          <span class="post-arrow">Read →</span>
+        </div>
+      </a>
+
+      <!-- Post 5 -->
+      <a class="post-card" href="/blog/how-to-build-aws-co-sell-motion">
+        <div class="post-card-meta">
+          <span class="post-card-tag">Co-Sell</span>
+          <span class="post-card-date">Coming Soon</span>
+        </div>
+        <div class="post-card-title">How to Build a Co-Sell Motion with AWS Field Reps</div>
+        <p class="post-card-excerpt">Co-selling with AWS isn't about having a good product — it's about building the right relationships and showing up the right way. Here's the playbook for making it repeatable.</p>
+        <div class="post-card-footer">
+          <span class="post-read-time">11 min read</span>
+          <span class="post-arrow">Read →</span>
+        </div>
+      </a>
+
+      <!-- Placeholder - more coming -->
+      <div class="post-card coming-soon">
+        <div class="coming-soon-badge">More Coming</div>
+        <div class="post-card-title">More Guides on the Way</div>
+        <p class="post-card-excerpt">We're publishing new guides on AWS Marketplace GTM, ISV Accelerate, CPPO strategy, partner program operations, and more. Subscribe below to get notified.</p>
+        <div class="post-card-footer">
+          <span class="post-read-time">Subscribe below</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TOPICS STRIP -->
+<div class="topics-strip">
+  <div class="topics-inner">
+    <div class="topics-label">Topics We Cover</div>
+    <div class="topics-list">
+      <span class="topic-pill">Tier Advancement</span>
+      <span class="topic-pill">MAP Funding</span>
+      <span class="topic-pill">MDF Funding</span>
+      <span class="topic-pill">ACE Pipeline</span>
+      <span class="topic-pill">Co-Sell Motions</span>
+      <span class="topic-pill">AWS Marketplace</span>
+      <span class="topic-pill">CPPO Strategy</span>
+      <span class="topic-pill">ISV Accelerate</span>
+      <span class="topic-pill">PDM Relationships</span>
+      <span class="topic-pill">Partner Operations</span>
+      <span class="topic-pill">Field Alignment</span>
+      <span class="topic-pill">QBR Prep</span>
+    </div>
+  </div>
+</div>
+
+<!-- NEWSLETTER SIGNUP -->
+<div style="background: var(--bg);">
+  <div class="newsletter">
+    <div>
+      <div class="featured-label" style="margin-bottom:1.2rem;">Stay in the Loop</div>
+      <h2 class="newsletter-title">Get New Guides<br><span>When They Drop.</span></h2>
+      <p class="newsletter-body">
+        We publish practical, no-fluff guides on the AWS partner ecosystem — written from inside the program, not from a press release. No spam. Unsubscribe anytime.
+      </p>
+    </div>
+    <div class="newsletter-form">
+      <input type="text" placeholder="First name">
+      <input type="email" placeholder="Work email">
+      <button class="newsletter-btn">Subscribe →</button>
+      <p class="newsletter-note">No spam. Unsubscribe any time. We typically send 1–2 emails per month.</p>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a class="footer-logo" href="/"><span>G</span>RNMRK GROUP</a>
+      <p class="footer-tagline">AWS Partner Growth Advisors</p>
+      <a class="footer-linkedin" href="https://www.linkedin.com/company/grnmrk-group/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        LinkedIn
+      </a>
+    </div>
+    <div class="footer-nav-group">
+      <div class="footer-nav-col">
+        <div class="footer-nav-heading">Navigate</div>
+        <ul class="footer-nav-links">
+          <li><a href="/services">Services</a></li>
+          <li><a href="/#process">How It Works</a></li>
+          <li><a href="/#pricing">Pricing</a></li>
+          <li><a href="/#about">About</a></li>
+          <li><a href="/contact">Contact</a></li>
+          <li><a href="/blog">Blog</a></li>
+        </ul>
+      </div>
+      <div class="footer-nav-col">
+        <div class="footer-nav-heading">Company</div>
+        <ul class="footer-nav-links">
+          <li><a href="/careers">Careers</a></li>
+          <li><a href="/terms">Terms of Service</a></li>
+          <li><a href="/privacy">Privacy Policy</a></li>
+        </ul>
+        <img src="/aws-logo_copy.png" alt="AWS Partner Network Logo" style="height: 80px; margin-top: 1.5rem;">
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2025 Grnmrk Group LLC. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>

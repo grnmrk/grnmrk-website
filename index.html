@@ -1447,27 +1447,5 @@
   </div>
 </footer>
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "name": "Grnmrk Group",
-  "url": "https://www.grnmrk.com",
-  "description": "AWS Partner Growth Advisory helping ISVs and MSPs unlock co-sell, advance partner tiers, and capture MAP and MDF funding.",
-  "serviceType": "AWS Partner Program Consulting",
-  "areaServed": "US",
-  "sameAs": [
-    "https://www.linkedin.com/company/grnmrk-group/"
-  ]
-}
-</script>
-document.querySelectorAll('*').forEach(el => {
-  if (el.children.length === 0 && el.textContent.includes('AWS')) {
-    el.innerHTML = el.innerHTML.replace(
-      /\bAWS\b/g,
-      '<span style="color:#FF9900">AWS</span>'
-    );
-  }
-});
 </body>
 </html>

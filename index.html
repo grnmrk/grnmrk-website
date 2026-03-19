@@ -1461,6 +1461,13 @@
   ]
 }
 </script>
-
+document.querySelectorAll('*').forEach(el => {
+  if (el.children.length === 0 && el.textContent.includes('AWS')) {
+    el.innerHTML = el.innerHTML.replace(
+      /\bAWS\b/g,
+      '<span style="color:#FF9900">AWS</span>'
+    );
+  }
+});
 </body>
 </html>

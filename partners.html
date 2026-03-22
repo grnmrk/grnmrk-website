@@ -357,7 +357,101 @@
         <p style="font-size: 1rem; font-weight: 300; color: var(--ink-mid); line-height: 1.8; margin-bottom: 2.5rem;">
           For every referred partner who becomes a client, we pay a referral fee and keep you in the loop on the engagement. Simple, transparent, no strings.
         </p>
-        <a class="btn-primary" href="mailto:hello@grnmrk.com?subject=Referral" style="display: inline-block;">Submit a Referral →</a>
+        <div id="referralWrap">
+  <form id="referralForm" style="display: flex; flex-direction: column; gap: 1rem;">
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+      <div style="display: flex; flex-direction: column; gap: 0.4rem;">
+        <label style="font-family:'Barlow Condensed'; font-size:0.72rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--green-dark);">Your Name</label>
+        <input type="text" id="refYourName" placeholder="Jane Smith" required style="background:var(--white); border:1px solid rgba(17,17,17,0.15); color:var(--ink); font-family:'Barlow',sans-serif; font-weight:300; font-size:0.97rem; padding:0.9rem 1.1rem; outline:none; border-radius:0; -webkit-appearance:none; transition:border-color 0.2s;" onfocus="this.style.borderColor='var(--green-dark)'" onblur="this.style.borderColor='rgba(17,17,17,0.15)'">
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 0.4rem;">
+        <label style="font-family:'Barlow Condensed'; font-size:0.72rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--green-dark);">Your Email</label>
+        <input type="email" id="refYourEmail" placeholder="jane@company.com" required style="background:var(--white); border:1px solid rgba(17,17,17,0.15); color:var(--ink); font-family:'Barlow',sans-serif; font-weight:300; font-size:0.97rem; padding:0.9rem 1.1rem; outline:none; border-radius:0; -webkit-appearance:none; transition:border-color 0.2s;" onfocus="this.style.borderColor='var(--green-dark)'" onblur="this.style.borderColor='rgba(17,17,17,0.15)'">
+      </div>
+    </div>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+      <div style="display: flex; flex-direction: column; gap: 0.4rem;">
+        <label style="font-family:'Barlow Condensed'; font-size:0.72rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--green-dark);">Partner Name</label>
+        <input type="text" id="refPartnerName" placeholder="Referred person's name" required style="background:var(--white); border:1px solid rgba(17,17,17,0.15); color:var(--ink); font-family:'Barlow',sans-serif; font-weight:300; font-size:0.97rem; padding:0.9rem 1.1rem; outline:none; border-radius:0; -webkit-appearance:none; transition:border-color 0.2s;" onfocus="this.style.borderColor='var(--green-dark)'" onblur="this.style.borderColor='rgba(17,17,17,0.15)'">
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 0.4rem;">
+        <label style="font-family:'Barlow Condensed'; font-size:0.72rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--green-dark);">Partner Company</label>
+        <input type="text" id="refPartnerCompany" placeholder="Their company" required style="background:var(--white); border:1px solid rgba(17,17,17,0.15); color:var(--ink); font-family:'Barlow',sans-serif; font-weight:300; font-size:0.97rem; padding:0.9rem 1.1rem; outline:none; border-radius:0; -webkit-appearance:none; transition:border-color 0.2s;" onfocus="this.style.borderColor='var(--green-dark)'" onblur="this.style.borderColor='rgba(17,17,17,0.15)'">
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 0.4rem;">
+      <label style="font-family:'Barlow Condensed'; font-size:0.72rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--green-dark);">What's Their AWS Situation?</label>
+      <textarea id="refContext" placeholder="e.g. They're stuck at Select tier and can't figure out why, or they have migration engagements but haven't applied for MAP funding..." required rows="4" style="background:var(--white); border:1px solid rgba(17,17,17,0.15); color:var(--ink); font-family:'Barlow',sans-serif; font-weight:300; font-size:0.97rem; padding:0.9rem 1.1rem; outline:none; border-radius:0; resize:vertical; line-height:1.7; transition:border-color 0.2s;" onfocus="this.style.borderColor='var(--green-dark)'" onblur="this.style.borderColor='rgba(17,17,17,0.15)'"></textarea>
+    </div>
+    <div style="display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap;">
+      <button type="button" id="referralBtn" onclick="handleReferral()" style="font-family:'Barlow Condensed'; font-weight:700; font-size:0.9rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--ink); background:var(--green); padding:1rem 2.2rem; border:none; cursor:pointer; transition:background 0.2s;">Submit Referral →</button>
+      <p id="referralError" style="display:none; font-family:'Barlow Condensed'; font-size:0.82rem; letter-spacing:0.06em; color:#c0392b;">Something went wrong. Email us directly at hello@grnmrk.com.</p>
+    </div>
+  </form>
+
+  <div id="referralSuccess" style="display:none; background:var(--green-dim); border-left:3px solid var(--green); padding:2rem;">
+    <div style="font-family:'Bebas Neue'; font-size:1.8rem; color:var(--ink); margin-bottom:0.5rem;">Referral Received.</div>
+    <p style="font-size:0.95rem; font-weight:300; color:var(--ink-mid); line-height:1.75;">Thanks for the intro. We'll follow up with your referral within one business day and keep you in the loop.</p>
+  </div>
+</div>
+
+<script>
+  async function handleReferral() {
+    const yourName       = document.getElementById('refYourName').value.trim();
+    const yourEmail      = document.getElementById('refYourEmail').value.trim();
+    const partnerName    = document.getElementById('refPartnerName').value.trim();
+    const partnerCompany = document.getElementById('refPartnerCompany').value.trim();
+    const context        = document.getElementById('refContext').value.trim();
+    const btn            = document.getElementById('referralBtn');
+    const errorEl        = document.getElementById('referralError');
+
+    errorEl.style.display = 'none';
+
+    const fields = [
+      document.getElementById('refYourName'),
+      document.getElementById('refYourEmail'),
+      document.getElementById('refPartnerName'),
+      document.getElementById('refPartnerCompany'),
+      document.getElementById('refContext')
+    ];
+    let valid = true;
+    fields.forEach(f => {
+      if (!f.value.trim()) {
+        f.style.borderColor = '#c0392b';
+        f.addEventListener('input', () => { f.style.borderColor = ''; }, { once: true });
+        valid = false;
+      }
+    });
+    if (!valid) return;
+
+    btn.textContent = 'Sending…';
+    btn.disabled = true;
+
+    try {
+      const res = await fetch('https://formspree.io/f/meerbgvp', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          _subject: `New Partner Referral — ${partnerName} at ${partnerCompany}`,
+          _replyto: yourEmail,
+          'Referred By': yourName,
+          'Referrer Email': yourEmail,
+          'Partner Name': partnerName,
+          'Partner Company': partnerCompany,
+          'AWS Situation': context
+        })
+      });
+      if (res.ok) {
+        document.getElementById('referralForm').style.display = 'none';
+        document.getElementById('referralSuccess').style.display = 'block';
+      } else { throw new Error(); }
+    } catch {
+      btn.textContent = 'Submit Referral →';
+      btn.disabled = false;
+      errorEl.style.display = 'block';
+    }
+  }
+</script>
 
         <div class="who-refers">
           <div class="who-card">

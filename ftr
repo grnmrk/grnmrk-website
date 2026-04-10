@@ -1,0 +1,1174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- SEO Title & Meta -->
+<title>AWS Foundational Technical Review (FTR) | ISV Accelerate & Co-Sell Unlock — Grnmrk Group</title>
+<meta name="description" content="Pass your AWS Foundational Technical Review on the first submission. Grnmrk Group guides ISVs through FTR gap analysis, evidence documentation, ACE prerequisites, and Partner Central submission to unlock ISV Accelerate and co-sell priority.">
+<meta name="keywords" content="AWS Foundational Technical Review, FTR, AWS FTR preparation, AWS ISV Accelerate, AWS partner technical review, AWS Qualified Software badge, AWS co-sell, AWS Partner Network FTR, AWS ISV program, FTR submission support">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://grnmrk.com/ftr">
+
+<!-- Open Graph -->
+<meta property="og:title" content="AWS Foundational Technical Review (FTR) — Grnmrk Group">
+<meta property="og:description" content="Pass your AWS FTR on the first submission. Grnmrk handles gap analysis, evidence docs, ACE prerequisites, and Partner Central submission so you unlock ISV Accelerate and co-sell priority access.">
+<meta property="og:url" content="https://grnmrk.com/ftr">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Grnmrk Group">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AWS Foundational Technical Review (FTR) — Grnmrk Group">
+<meta name="twitter:description" content="Pass your AWS FTR on the first submission. Unlock ISV Accelerate, the Qualified Software badge, and co-sell priority access.">
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="/grnmrk-logo_white-tranpsarent-logo.png">
+<link rel="apple-touch-icon" href="/grnmrk-logo_white-tranpsarent-logo.png">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;1,300&family=Barlow+Condensed:wght@500;700&display=swap" rel="stylesheet">
+
+<!-- Structured Data: Service -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "AWS Foundational Technical Review (FTR) Preparation & Submission",
+  "description": "Grnmrk Group guides ISVs through the full AWS FTR process — checklist gap analysis, evidence documentation, ACE pipeline prerequisites, and Partner Central submission management.",
+  "provider": {
+    "@type": "Organization",
+    "name": "Grnmrk Group",
+    "url": "https://grnmrk.com",
+    "sameAs": "https://www.linkedin.com/company/grnmrk-group/"
+  },
+  "serviceType": "AWS Partner Consulting",
+  "url": "https://grnmrk.com/ftr",
+  "offers": {
+    "@type": "Offer",
+    "priceSpecification": {
+      "@type": "UnitPriceSpecification",
+      "price": "250",
+      "priceCurrency": "USD",
+      "unitText": "hour"
+    }
+  }
+}
+</script>
+
+<!-- Structured Data: FAQ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the AWS Foundational Technical Review (FTR)?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The AWS Foundational Technical Review (FTR) is a mandatory evaluation for ISVs seeking the AWS Qualified Software badge and ISV Accelerate eligibility. AWS reviews your architecture, security posture, and operational practices against a defined checklist before granting co-sell priority access."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What do I need before starting an FTR?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Before submitting an FTR, you must have at least 10 active or closed opportunities in ACE (AWS Customer Engagements). Grnmrk sets up and manages this prerequisite as part of the engagement."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does FTR preparation take?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most FTR engagements run 12–20 hours of consulting work, with total elapsed time of 3–6 weeks depending on your current technical readiness and how quickly gaps can be remediated."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does the FTR unlock for my business?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Passing the FTR unlocks the AWS Qualified Software badge, ISV Accelerate eligibility (enabling co-sell with AWS), MAP/MDF funding access, and elevated visibility with AWS field teams and PDMs."
+      }
+    }
+  ]
+}
+</script>
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg:          #F0EDE6;
+    --bg-alt:      #E8E4DC;
+    --ink:         #111111;
+    --ink-mid:     #3A3A3A;
+    --ink-dim:     #7A7369;
+    --green:       #3DDC84;
+    --green-dark:  #28B06A;
+    --green-dim:   #D4F5E5;
+    --rule:        rgba(17,17,17,0.1);
+    --white:       #FFFFFF;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Barlow', sans-serif;
+    font-weight: 300;
+    font-size: 17px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.4rem 5vw;
+    background: rgba(240,237,230,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--rule);
+  }
+  .nav-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.7rem;
+    letter-spacing: 0.12em;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .nav-logo span { color: var(--green); }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 500;
+    font-size: 0.85rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover, .nav-links a.active { color: var(--ink); }
+  .nav-cta {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink);
+    background: var(--green);
+    padding: 0.55rem 1.4rem;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .nav-cta:hover { background: var(--green-dark); color: var(--white); }
+
+  /* ── PAGE HERO ── */
+  .page-hero {
+    padding: 10rem 5vw 6rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: end;
+  }
+  .page-eyebrow {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--green-dark);
+    margin-bottom: 1rem;
+    display: flex; align-items: center; gap: 0.8rem;
+  }
+  .page-eyebrow::before {
+    content: '';
+    display: inline-block; width: 24px; height: 1px;
+    background: var(--green-dark);
+  }
+  .page-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3.5rem, 7vw, 7rem);
+    line-height: 0.92;
+    letter-spacing: 0.02em;
+    color: var(--ink);
+  }
+  .page-title span { color: var(--green-dark); }
+  .page-intro {
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: var(--ink-mid);
+    line-height: 1.8;
+    margin-bottom: 2rem;
+  }
+  .page-intro-note {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.82rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+    border-left: 2px solid var(--green);
+    padding-left: 1rem;
+    line-height: 1.6;
+  }
+
+  .divider { width: 100%; height: 1px; background: var(--rule); }
+
+  /* ── SHARED ── */
+  .section-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 7rem 5vw;
+  }
+  .section-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 500;
+    font-size: 0.78rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--green-dark);
+    display: flex; align-items: center; gap: 0.8rem;
+    margin-bottom: 1.2rem;
+  }
+  .section-label::before {
+    content: '';
+    display: inline-block; width: 24px; height: 1px;
+    background: var(--green-dark);
+  }
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.8rem, 5vw, 5rem);
+    line-height: 0.95;
+    letter-spacing: 0.02em;
+    color: var(--ink);
+    margin-bottom: 1rem;
+  }
+  .section-body {
+    font-size: 1.05rem;
+    font-weight: 300;
+    color: var(--ink-mid);
+    max-width: 640px;
+    line-height: 1.8;
+  }
+  .service-hero-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 8rem;
+    color: rgba(17,17,17,0.05);
+    line-height: 1;
+    margin-bottom: -1rem;
+  }
+
+  /* ── HIGHLIGHT BAND ── */
+  .highlight-band {
+    background: var(--ink);
+    padding: 1.2rem 5vw;
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    overflow: hidden;
+  }
+  .highlight-band-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--green);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .highlight-band-items {
+    display: flex;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+  }
+  .highlight-band-item {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.82rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(240,237,230,0.6);
+    white-space: nowrap;
+  }
+
+  /* ── WHAT YOU UNLOCK ── */
+  .unlock { background: var(--bg); }
+
+  .unlock-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    margin-top: 4rem;
+  }
+  .unlock-card {
+    background: var(--bg-alt);
+    padding: 2.5rem 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.3s;
+  }
+  .unlock-card:hover { background: var(--white); }
+  .unlock-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--green);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+  }
+  .unlock-card:hover::before { transform: scaleX(1); }
+  .unlock-card.dark {
+    background: var(--ink);
+  }
+  .unlock-card.dark::before { transform: scaleX(1); }
+  .unlock-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3.5rem;
+    color: rgba(17,17,17,0.07);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+  .unlock-card.dark .unlock-num { color: rgba(255,255,255,0.06); }
+  .unlock-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.5rem;
+    letter-spacing: 0.04em;
+    color: var(--ink);
+    line-height: 1.1;
+    margin-bottom: 0.8rem;
+  }
+  .unlock-card.dark .unlock-title { color: var(--green); }
+  .unlock-desc {
+    font-size: 0.88rem;
+    font-weight: 300;
+    color: var(--ink-mid);
+    line-height: 1.7;
+  }
+  .unlock-card.dark .unlock-desc { color: rgba(240,237,230,0.6); }
+
+  /* ── PROCESS ── */
+  .process { background: var(--bg-alt); }
+
+  .process-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 7rem;
+    align-items: start;
+    margin-top: 4rem;
+  }
+  .process-left { position: sticky; top: 8rem; }
+
+  .process-price-block {
+    background: var(--ink);
+    padding: 2.5rem;
+    margin-top: 2rem;
+  }
+  .process-price-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--green);
+    margin-bottom: 0.5rem;
+  }
+  .process-price {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3.5rem;
+    color: var(--green);
+    line-height: 1;
+  }
+  .process-price-note {
+    font-size: 0.88rem;
+    font-weight: 300;
+    color: rgba(240,237,230,0.55);
+    margin-top: 0.4rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+  }
+  .process-hours {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 1.2rem;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.82rem;
+    letter-spacing: 0.06em;
+    color: rgba(240,237,230,0.5);
+  }
+  .process-hours strong {
+    color: rgba(240,237,230,0.85);
+    font-weight: 700;
+  }
+
+  .steps-list { list-style: none; }
+  .step-item {
+    border-bottom: 1px solid var(--rule);
+    padding: 2.2rem 0;
+  }
+  .step-item:first-child { padding-top: 0; }
+  .step-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    margin-bottom: 0.8rem;
+  }
+  .step-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.8rem;
+    color: rgba(17,17,17,0.1);
+    line-height: 1;
+    flex-shrink: 0;
+    width: 3rem;
+  }
+  .step-meta { flex: 1; }
+  .step-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.6rem;
+    letter-spacing: 0.04em;
+    color: var(--ink);
+    line-height: 1;
+    margin-bottom: 0.4rem;
+  }
+  .step-tag {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 500;
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink);
+    background: var(--green);
+    padding: 0.2rem 0.6rem;
+    display: inline-block;
+  }
+  .step-desc {
+    font-size: 0.95rem;
+    font-weight: 300;
+    color: var(--ink-mid);
+    line-height: 1.75;
+    margin-bottom: 1rem;
+    padding-left: 4.5rem;
+  }
+  .step-deliverables {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding-left: 4.5rem;
+  }
+  .step-deliverables li {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    color: var(--green-dark);
+    background: var(--green-dim);
+    padding: 0.2rem 0.7rem;
+  }
+
+  /* ── WHO IT'S FOR ── */
+  .who { background: var(--bg); }
+
+  .who-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    margin-top: 4rem;
+    align-items: start;
+  }
+  .who-block { }
+  .who-block-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.8rem;
+    letter-spacing: 0.04em;
+    color: var(--ink);
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--ink);
+  }
+  .who-block-title.green-border { border-color: var(--green); }
+  .who-list { list-style: none; }
+  .who-list li {
+    font-size: 0.95rem;
+    font-weight: 300;
+    color: var(--ink-mid);
+    padding: 0.75rem 0;
+    display: flex;
+    gap: 0.8rem;
+    border-bottom: 1px solid var(--rule);
+    line-height: 1.6;
+  }
+  .who-list li::before {
+    content: '✓';
+    color: var(--green-dark);
+    font-size: 0.9rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+  .who-list li.no::before {
+    content: '✕';
+    color: var(--ink-dim);
+  }
+
+  /* ── FAQ ── */
+  .faq { background: var(--bg-alt); }
+
+  .faq-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    margin-top: 4rem;
+  }
+  .faq-item {
+    background: var(--white);
+    padding: 2.5rem;
+    border-top: 2px solid transparent;
+    transition: border-color 0.3s;
+  }
+  .faq-item:hover { border-color: var(--green); }
+  .faq-q {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink);
+    margin-bottom: 0.8rem;
+    line-height: 1.4;
+  }
+  .faq-a {
+    font-size: 0.92rem;
+    font-weight: 300;
+    color: var(--ink-mid);
+    line-height: 1.75;
+  }
+
+  /* ── COMPARE ── */
+  .compare { background: var(--bg); }
+
+  .compare-table {
+    margin-top: 4rem;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  .compare-table th {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.2rem;
+    letter-spacing: 0.06em;
+    color: var(--ink);
+    text-align: left;
+    padding: 1.2rem 1.5rem;
+    border-bottom: 2px solid var(--ink);
+    background: var(--bg);
+  }
+  .compare-table th:first-child { width: 40%; }
+  .compare-table th.highlight {
+    background: var(--ink);
+    color: var(--green);
+  }
+  .compare-table td {
+    padding: 1rem 1.5rem;
+    font-size: 0.93rem;
+    font-weight: 300;
+    color: var(--ink-mid);
+    border-bottom: 1px solid var(--rule);
+    vertical-align: middle;
+  }
+  .compare-table td:first-child {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 500;
+    font-size: 0.88rem;
+    letter-spacing: 0.06em;
+    color: var(--ink);
+    text-transform: uppercase;
+  }
+  .compare-table td.highlight-col { background: rgba(17,17,17,0.03); }
+  .compare-table tr:last-child td { border-bottom: none; }
+  .check { color: var(--green-dark); font-size: 1.1rem; }
+  .dash { color: var(--ink-dim); }
+
+  /* ── CTA ── */
+  .cta-section {
+    background: var(--ink);
+    overflow: hidden;
+    position: relative;
+  }
+  .cta-section::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 60% 80% at 80% 50%, rgba(61,220,132,0.08), transparent 70%);
+  }
+  .cta-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 7rem 5vw;
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 4rem;
+    align-items: center;
+  }
+  .cta-headline {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.5rem, 4.5vw, 4.5rem);
+    line-height: 0.95;
+    letter-spacing: 0.02em;
+    color: var(--bg);
+    margin-bottom: 1rem;
+  }
+  .cta-headline span { color: var(--green); }
+  .cta-sub {
+    font-size: 1.05rem;
+    font-weight: 300;
+    color: rgba(240,237,230,0.65);
+    max-width: 520px;
+    line-height: 1.7;
+  }
+  .cta-actions {
+    display: flex; flex-direction: column; gap: 1rem;
+    min-width: 220px;
+  }
+  .btn-primary {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink);
+    background: var(--green);
+    padding: 1rem 2.2rem;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.2s, color 0.2s;
+    text-align: center;
+  }
+  .btn-primary:hover { background: var(--green-dark); color: var(--white); }
+  .btn-ghost {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 500;
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--bg);
+    border: 1px solid rgba(240,237,230,0.25);
+    padding: 1rem 2.2rem;
+    text-decoration: none;
+    display: inline-block;
+    transition: border-color 0.2s, color 0.2s;
+    text-align: center;
+  }
+  .btn-ghost:hover { border-color: var(--green); color: var(--green); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--bg-alt);
+    border-top: 1px solid var(--rule);
+    width: 100%;
+    display: block;
+  }
+  .footer-top {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 5vw 3rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 4rem;
+    flex-wrap: wrap;
+  }
+  .footer-brand { display: flex; flex-direction: column; gap: 0.8rem; }
+  .footer-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.6rem;
+    letter-spacing: 0.12em;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .footer-logo span { color: var(--green); }
+  .footer-tagline {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+  }
+  .footer-linkedin {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.82rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+    text-decoration: none;
+    margin-top: 0.4rem;
+    transition: color 0.2s;
+  }
+  .footer-linkedin:hover { color: var(--green-dark); }
+  .footer-nav-group { display: flex; gap: 4rem; flex-wrap: wrap; }
+  .footer-nav-col { display: flex; flex-direction: column; gap: 1rem; }
+  .footer-nav-heading {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+  .footer-nav-links { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+  .footer-nav-links a {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.88rem;
+    letter-spacing: 0.08em;
+    color: var(--ink-dim);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-nav-links a:hover { color: var(--green-dark); }
+  .footer-nav-links a.highlight-link {
+    color: var(--green-dark);
+    font-weight: 700;
+  }
+  .footer-nav-links a.highlight-link:hover { color: var(--ink); }
+  .footer-bottom {
+    border-top: 1px solid var(--rule);
+    padding: 1.5rem 5vw;
+    width: 100%;
+  }
+  .footer-copy {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .page-hero { grid-template-columns: 1fr; gap: 2rem; padding-top: 8rem; }
+    .unlock-grid { grid-template-columns: 1fr 1fr; }
+    .process-layout { grid-template-columns: 1fr; gap: 3rem; }
+    .process-left { position: static; }
+    .who-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .faq-grid { grid-template-columns: 1fr; }
+    .compare-table { font-size: 0.82rem; }
+    .compare-table th, .compare-table td { padding: 0.8rem; }
+    .cta-inner { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+    .highlight-band { flex-direction: column; gap: 1rem; align-items: flex-start; }
+    .step-desc, .step-deliverables { padding-left: 0; }
+  }
+  @media (max-width: 600px) {
+    .unlock-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="/"><span>G</span>RNMRK GROUP</a>
+  <ul class="nav-links">
+    <li><a href="/services">Services</a></li>
+    <li><a href="/#process">How It Works</a></li>
+    <li><a href="/#pricing">Pricing</a></li>
+    <li><a href="/#about">About</a></li>
+    <li><a href="/contact">Contact</a></li>
+  </ul>
+  <a class="nav-cta" href="https://calendly.com/grnmrk/30-min-consultation" target="_blank" rel="noopener noreferrer">Get Started</a>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div>
+    <div class="page-eyebrow">Strategy Consulting</div>
+    <h1 class="page-title">AWS<br><span>Foundational</span><br>Technical<br>Review.</h1>
+  </div>
+  <div>
+    <p class="page-intro">
+      The AWS Foundational Technical Review (FTR) is the gateway to ISV Accelerate, co-sell priority access, and the Qualified Software badge. Most ISVs fail it the first time — not because their product isn't ready, but because the process itself is poorly understood.
+    </p>
+    <p class="page-intro" style="margin-top: 1rem;">
+      Grnmrk guides you through every step: gap analysis, evidence documentation, ACE pipeline prerequisites, and Partner Central submission. Our clients pass on the first submission.
+    </p>
+    <p class="page-intro-note">
+      Engagement runs 12–20 hours · $250/hr · Most clients complete in 3–6 weeks
+    </p>
+  </div>
+</div>
+
+<!-- BAND -->
+<div class="highlight-band">
+  <span class="highlight-band-label">What FTR Unlocks</span>
+  <div class="highlight-band-items">
+    <span class="highlight-band-item">Qualified Software Badge</span>
+    <span class="highlight-band-item">ISV Accelerate Eligibility</span>
+    <span class="highlight-band-item">Co-Sell Priority Access</span>
+    <span class="highlight-band-item">MAP & MDF Funding</span>
+    <span class="highlight-band-item">Field Team Visibility</span>
+  </div>
+</div>
+
+<!-- WHAT YOU UNLOCK -->
+<section class="unlock" id="what-ftr-unlocks">
+  <div class="section-inner">
+    <div class="section-label">Why It Matters</div>
+    <h2 class="section-title">One Review.<br>Everything Changes.</h2>
+    <p class="section-body" style="margin-top: 1rem;">
+      The FTR isn't a checkbox. It's the credentialing event that moves you from a listing in the AWS catalog to a co-sell partner the field team actually routes deals to.
+    </p>
+
+    <div class="unlock-grid">
+      <div class="unlock-card dark">
+        <div class="unlock-num">01</div>
+        <div class="unlock-title">AWS Qualified Software Badge</div>
+        <p class="unlock-desc">Signals to AWS buyers and field reps that your product has been reviewed and validated against AWS architectural and security standards. It shows up on your Marketplace listing and in Partner Finder.</p>
+      </div>
+      <div class="unlock-card">
+        <div class="unlock-num">02</div>
+        <div class="unlock-title">ISV Accelerate Eligibility</div>
+        <p class="unlock-desc">ISV Accelerate is the co-sell program. Without passing FTR, you can't enroll. With it, AWS field reps can formally co-sell your product alongside AWS services and earn credit for attaching you.</p>
+      </div>
+      <div class="unlock-card">
+        <div class="unlock-num">03</div>
+        <div class="unlock-title">Co-Sell Priority Access</div>
+        <p class="unlock-desc">FTR completion signals to your PDM and the broader AWS field that you're a credible, investment-worthy partner — dramatically increasing the likelihood they route opportunities your way.</p>
+      </div>
+      <div class="unlock-card">
+        <div class="unlock-num">04</div>
+        <div class="unlock-title">MAP & MDF Funding Eligibility</div>
+        <p class="unlock-desc">FTR status opens the door to Migration Acceleration Program funding, Market Development Funds, and POC credits that AWS makes available to credentialed ISV partners.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PROCESS -->
+<section class="process" id="ftr-process">
+  <div class="section-inner">
+    <div class="section-label">How We Work</div>
+
+    <div class="process-layout">
+      <div class="process-left">
+        <div class="service-hero-num">FTR</div>
+        <h2 class="section-title">Pass on the<br>First Try.</h2>
+        <p class="section-body" style="margin-top: 1rem;">
+          Most FTR failures come from documentation gaps, missed prerequisites, or submitting before the ACE pipeline is properly staged. We eliminate all three.
+        </p>
+
+        <div class="process-price-block">
+          <div class="process-price-label">Engagement Rate</div>
+          <div class="process-price">$250<span style="font-family:'Barlow'; font-size:1.2rem; font-weight:300; color:rgba(240,237,230,0.5)"> / hr</span></div>
+          <p class="process-price-note">Most FTR engagements run 12–20 hours with a total elapsed timeline of 3–6 weeks depending on your current readiness.</p>
+          <p class="process-hours">Scope is defined after a free discovery call. <strong>No surprises, no bloat.</strong></p>
+        </div>
+
+        <a class="btn-primary" href="https://calendly.com/grnmrk/30-min-consultation" target="_blank" rel="noopener noreferrer" style="margin-top: 1.5rem; display:block; text-align:center;">Book a Free FTR Assessment</a>
+      </div>
+
+      <div class="process-right">
+        <ul class="steps-list">
+
+          <li class="step-item">
+            <div class="step-header">
+              <div class="step-num">01</div>
+              <div class="step-meta">
+                <div class="step-name">Delivery Model Selection & Checklist Mapping</div>
+                <div class="step-tag">Week 1</div>
+              </div>
+            </div>
+            <p class="step-desc">Not all FTR checklists are the same. AWS uses different evaluation criteria for SaaS, AMI, Container, and Professional Services products. We identify the correct checklist for your delivery model, map your current architecture and security posture against it, and flag every gap before you waste time on the wrong review track.</p>
+            <ul class="step-deliverables">
+              <li>Delivery model classification</li>
+              <li>Checklist selection</li>
+              <li>Initial gap inventory</li>
+            </ul>
+          </li>
+
+          <li class="step-item">
+            <div class="step-header">
+              <div class="step-num">02</div>
+              <div class="step-meta">
+                <div class="step-name">Security & Architecture Gap Remediation</div>
+                <div class="step-tag">Weeks 1–3</div>
+              </div>
+            </div>
+            <p class="step-desc">We work through each checklist requirement with your technical team — identifying what evidence already exists, what needs to be documented, and what gaps require actual remediation before submission. We prioritize by submission risk, not alphabetical order, so you close the highest-risk items first.</p>
+            <ul class="step-deliverables">
+              <li>Prioritized gap remediation plan</li>
+              <li>Evidence documentation support</li>
+              <li>Architecture guidance</li>
+              <li>Security controls mapping</li>
+            </ul>
+          </li>
+
+          <li class="step-item">
+            <div class="step-header">
+              <div class="step-num">03</div>
+              <div class="step-meta">
+                <div class="step-name">ACE Pipeline Prerequisite Setup</div>
+                <div class="step-tag">Weeks 1–4 (Parallel)</div>
+              </div>
+            </div>
+            <p class="step-desc">AWS requires a minimum of 10 active or closed opportunities in ACE before you can submit an FTR. This catches most ISVs off guard. We assess your current ACE pipeline, submit or clean up existing opportunities to meet the threshold, and ensure the submissions are properly structured to satisfy the prerequisite — running this track in parallel with technical prep.</p>
+            <ul class="step-deliverables">
+              <li>ACE pipeline audit</li>
+              <li>Opportunity submissions & hygiene</li>
+              <li>Prerequisite threshold verification</li>
+            </ul>
+          </li>
+
+          <li class="step-item">
+            <div class="step-header">
+              <div class="step-num">04</div>
+              <div class="step-meta">
+                <div class="step-name">Evidence Package Assembly</div>
+                <div class="step-tag">Week 3–4</div>
+              </div>
+            </div>
+            <p class="step-desc">AWS reviewers are evaluating documentation, not just intent. We assemble your full evidence package — screenshots, architecture diagrams, security policy excerpts, and written responses — formatted to match what reviewers actually look for. We've seen enough failed submissions to know what "good enough" doesn't pass.</p>
+            <ul class="step-deliverables">
+              <li>Complete evidence package</li>
+              <li>Architecture diagrams</li>
+              <li>Written policy documentation</li>
+              <li>Reviewer-ready formatting</li>
+            </ul>
+          </li>
+
+          <li class="step-item">
+            <div class="step-header">
+              <div class="step-num">05</div>
+              <div class="step-meta">
+                <div class="step-name">Partner Central Submission & Review Management</div>
+                <div class="step-tag">Week 4–6</div>
+              </div>
+            </div>
+            <p class="step-desc">We manage the full Partner Central submission — entering all required information, attaching evidence, and coordinating with your AWS PDM to flag the review for prioritization. If AWS comes back with clarifying questions or remediation requests, we manage the response and keep the review moving forward without bottlenecking your team.</p>
+            <ul class="step-deliverables">
+              <li>Partner Central submission management</li>
+              <li>PDM coordination</li>
+              <li>Reviewer Q&A response</li>
+              <li>Approval confirmation & next steps</li>
+            </ul>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- WHO IT'S FOR -->
+<section class="who" id="who-ftr-is-for">
+  <div class="section-inner">
+    <div class="section-label">Fit Assessment</div>
+    <h2 class="section-title">Is This<br>Right For You?</h2>
+    <p class="section-body" style="margin-top: 1rem;">Not every ISV is in the right position to start FTR. Here's how to know.</p>
+
+    <div class="who-grid">
+      <div class="who-block">
+        <div class="who-block-title green-border">Good Fit</div>
+        <ul class="who-list">
+          <li>You're listed on AWS Marketplace or actively working toward a listing</li>
+          <li>Your product runs on AWS infrastructure (SaaS, AMI, or container-based)</li>
+          <li>You have at least a few real customer deals with an AWS connection</li>
+          <li>You want to enroll in ISV Accelerate and pursue co-sell</li>
+          <li>You're targeting Select or Advanced tier and need the Qualified Software badge</li>
+          <li>You have a technical team that can implement remediation items with guidance</li>
+          <li>You've been told by your PDM that FTR is the next step</li>
+        </ul>
+      </div>
+      <div class="who-block">
+        <div class="who-block-title">Not Yet Ready</div>
+        <ul class="who-list">
+          <li class="no">Your product doesn't run on AWS or you have no AWS Marketplace presence</li>
+          <li class="no">You have zero ACE pipeline — no customer interactions logged in Partner Central</li>
+          <li class="no">Your architecture has fundamental security gaps that can't be remediated quickly</li>
+          <li class="no">You're still in early product development or don't have production customers</li>
+          <li class="no">You haven't joined the AWS Partner Network at the Registered or Select tier</li>
+        </ul>
+        <p style="margin-top: 1.5rem; font-size: 0.88rem; font-weight: 300; color: var(--ink-dim); line-height: 1.7;">
+          Not ready for FTR yet? Our <a href="/services#managed-services" style="color: var(--green-dark); text-decoration: none;">Managed Services</a> and <a href="/services#strategy-consulting" style="color: var(--green-dark); text-decoration: none;">Strategy Consulting</a> can get you there.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- COMPARE: DIY vs GRNMRK -->
+<section class="compare" id="ftr-compare">
+  <div class="section-inner">
+    <div class="section-label">Why Grnmrk</div>
+    <h2 class="section-title">DIY vs. Grnmrk<br>Guided FTR.</h2>
+    <p class="section-body" style="margin-top: 1rem;">What the self-serve path actually looks like versus what we do.</p>
+
+    <table class="compare-table" role="table" aria-label="Comparison of DIY FTR vs Grnmrk-guided FTR">
+      <thead>
+        <tr>
+          <th scope="col"></th>
+          <th scope="col" class="highlight">Grnmrk-Guided</th>
+          <th scope="col">DIY / Internal</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Checklist Selection</td>
+          <td class="highlight-col"><span class="check">✓</span> Correct track identified upfront</td>
+          <td>Often misidentified — costs weeks</td>
+        </tr>
+        <tr>
+          <td>ACE Prerequisite</td>
+          <td class="highlight-col"><span class="check">✓</span> Managed in parallel, not as a blocker</td>
+          <td>Frequently missed until submission attempt</td>
+        </tr>
+        <tr>
+          <td>Gap Analysis</td>
+          <td class="highlight-col"><span class="check">✓</span> Prioritized by submission risk</td>
+          <td>Manual checklist review — no prioritization</td>
+        </tr>
+        <tr>
+          <td>Evidence Documentation</td>
+          <td class="highlight-col"><span class="check">✓</span> Reviewer-ready package</td>
+          <td>Often incomplete or incorrectly formatted</td>
+        </tr>
+        <tr>
+          <td>Partner Central Submission</td>
+          <td class="highlight-col"><span class="check">✓</span> Fully managed</td>
+          <td>Requires significant internal time to navigate</td>
+        </tr>
+        <tr>
+          <td>PDM Coordination</td>
+          <td class="highlight-col"><span class="check">✓</span> Proactive — not reactive</td>
+          <td>Usually ad hoc and delayed</td>
+        </tr>
+        <tr>
+          <td>First-Submission Pass Rate</td>
+          <td class="highlight-col"><span class="check">✓</span> Strong — most clients pass first try</td>
+          <td>Industry average requires multiple attempts</td>
+        </tr>
+        <tr>
+          <td>Total Elapsed Time</td>
+          <td class="highlight-col">3–6 weeks</td>
+          <td>3–6 months (commonly)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- FAQ -->
+<section class="faq" id="ftr-faq">
+  <div class="section-inner">
+    <div class="section-label">FAQ</div>
+    <h2 class="section-title">Common FTR<br>Questions.</h2>
+
+    <div class="faq-grid">
+      <div class="faq-item">
+        <p class="faq-q">What exactly is the AWS Foundational Technical Review?</p>
+        <p class="faq-a">The FTR is an AWS-led evaluation of your product's architecture, security posture, and operational practices. AWS reviews your submission against a defined checklist — which varies by delivery model (SaaS, AMI, Container) — and grants approval once requirements are met. Passing unlocks the Qualified Software badge and ISV Accelerate enrollment eligibility.</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">Do I need 10 ACE opportunities before I submit?</p>
+        <p class="faq-a">Yes. AWS requires at least 10 active or closed opportunities in ACE (AWS Customer Engagements) as a prerequisite to FTR submission. This is one of the most commonly missed requirements for ISVs attempting FTR on their own. We address this as a parallel workstream from day one.</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">What AWS tier do I need to be at before starting FTR?</p>
+        <p class="faq-a">You need to be enrolled in the AWS Partner Network at the Registered tier at minimum, but most ISVs starting FTR are at or working toward the Select tier. FTR is a requirement for the Qualified Software designation, which is also needed for ISV Accelerate enrollment regardless of tier.</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">What's the difference between FTR and the Well-Architected Review?</p>
+        <p class="faq-a">The FTR is a mandatory partner credentialing review that evaluates your product against a security and architecture checklist. The Well-Architected Review (WAR) is a customer-facing service partners use to assess and improve customer workloads — and it's a co-sell motion in its own right. They're complementary, not interchangeable.</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">What happens if AWS sends back remediation requests?</p>
+        <p class="faq-a">We manage all reviewer communication. If AWS asks for additional evidence, clarification, or remediation, we coordinate the response and resubmission without creating internal bottlenecks. This is standard for first-time submissions — we build buffer for it in the timeline.</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">Can I start FTR prep while also building my Marketplace listing?</p>
+        <p class="faq-a">Yes, and it often makes sense to run them in parallel since both require similar product readiness. If you need support on both tracks, our <a href="/services#strategy-consulting" style="color: var(--green-dark); text-decoration: none;">Strategy Consulting</a> engagement can cover Marketplace GTM and FTR prep as a combined scope.</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">How much does FTR preparation with Grnmrk cost?</p>
+        <p class="faq-a">We bill at $250/hr with most FTR engagements running 12–20 hours — typically $3,000–$5,000 total. Scope and estimate are confirmed after a free discovery call. No retainer required; this is a fixed-scope project engagement.</p>
+      </div>
+      <div class="faq-item">
+        <p class="faq-q">What do I need to have ready before we start?</p>
+        <p class="faq-a">Access to Partner Central, a technical contact on your side who can address architecture and security questions, and a rough sense of your current ACE pipeline status. We handle everything else from there.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-inner">
+    <div>
+      <h2 class="cta-headline">Ready to Get<br>Your <span>FTR Done?</span></h2>
+      <p class="cta-sub">30 minutes. We'll review your current AWS partner status, assess your FTR readiness, and give you a clear scope and timeline — whether or not you work with us.</p>
+    </div>
+    <div class="cta-actions">
+      <a class="btn-primary" href="https://calendly.com/grnmrk/30-min-consultation" target="_blank" rel="noopener noreferrer">Book a Free FTR Assessment</a>
+      <a class="btn-ghost" href="mailto:hello@grnmrk.com">Send an Email</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a class="footer-logo" href="/"><span>G</span>RNMRK GROUP</a>
+      <p class="footer-tagline">AWS Partner Growth Advisors</p>
+      <a class="footer-linkedin" href="https://www.linkedin.com/company/grnmrk-group/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        LinkedIn
+      </a>
+    </div>
+    <div class="footer-nav-group">
+      <div class="footer-nav-col">
+        <div class="footer-nav-heading">Navigate</div>
+        <ul class="footer-nav-links">
+          <li><a href="/services">Services</a></li>
+          <li><a href="/fractional-pdm">Fractional PDM</a></li>
+          <li><a href="/ftr" class="highlight-link">AWS FTR Preparation</a></li>
+          <li><a href="/#process">How It Works</a></li>
+          <li><a href="/#pricing">Pricing</a></li>
+          <li><a href="/#about">About</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-nav-col">
+        <div class="footer-nav-heading">Company</div>
+        <ul class="footer-nav-links">
+          <li><a href="/partners">Partners</a></li>
+          <li><a href="/careers">Careers</a></li>
+          <li><a href="/terms">Terms of Service</a></li>
+          <li><a href="/privacy">Privacy Policy</a></li>
+          <li><a href="/blogs">Blog</a></li>
+        </ul>
+        <img src="/aws-logo_copy.png" alt="AWS Partner Network Logo" style="height: 116px; margin-top: 1.5rem;">
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2025 Grnmrk Group LLC. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>

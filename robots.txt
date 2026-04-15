@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Block crawling of any internal/system paths (add more as needed)
+Disallow: /cdn-cgi/
+
+# Sitemap location — this is what Google uses to discover all pages
+Sitemap: https://www.grnmrk.com/sitemap.xml

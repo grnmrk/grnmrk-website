@@ -162,6 +162,8 @@ nav.scrolled { padding: 0.9rem 5vw; }
   display: flex;
   flex-direction: column;
   min-height: 340px;
+  text-decoration: none;
+  color: inherit;
 }
 .price-card:hover { background: var(--white); }
 .price-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--green); transform: scaleX(0); transform-origin: left; transition: transform 0.35s ease; }
@@ -190,16 +192,11 @@ nav.scrolled { padding: 0.9rem 5vw; }
 .price-desc { font-size: 0.95rem; font-weight: 300; color: var(--ink-mid); line-height: 1.7; margin-top: 1rem; }
 .price-card.featured .price-desc { color: rgba(240,237,230,0.7); max-width: 640px; }
 
-.price-cta-row { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-top: auto; padding-top: 1.5rem; }
-.price-card.featured .price-cta-row { padding-top: 1.8rem; }
-.price-link { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--green-dark); text-decoration: none; border-bottom: 1px solid var(--green-dark); padding-bottom: 0.2rem; transition: color 0.2s, border-color 0.2s; }
-.price-link:hover { color: var(--ink); border-color: var(--ink); }
-.price-card.featured .price-link { color: var(--green); border-color: var(--green); }
-.price-card.featured .price-link:hover { color: var(--white); border-color: var(--white); }
-
-.price-book { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); background: var(--green); padding: 0.7rem 1.4rem; text-decoration: none; transition: background 0.2s; }
-.price-book:hover { background: var(--green-dark); color: var(--white); }
-.price-card.featured .price-book:hover { background: var(--white); color: var(--ink); }
+.price-foot { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-top: auto; padding-top: 1.5rem; }
+.price-arrow { font-family: 'Barlow Condensed', sans-serif; font-weight: 500; font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-dim); transition: color 0.2s, transform 0.2s; display: inline-flex; align-items: center; gap: 0.5rem; }
+.price-card:hover .price-arrow { color: var(--green-dark); transform: translateX(3px); }
+.price-card.featured .price-arrow { color: rgba(240,237,230,0.55); }
+.price-card.featured:hover .price-arrow { color: var(--green); }
 
 /* COMPARE BAND */
 .compare-band { background: var(--ink); padding: 1.3rem 5vw; }
@@ -336,9 +333,8 @@ footer { background: var(--bg-alt); border-top: 1px solid var(--rule); }
         <div class="price-starting">Project or retainer</div>
         <div class="price-amount">From $6K<span class="price-amount-suffix"> / project</span></div>
         <p class="price-desc">Full Marketplace motion including listing build, FTR submission, SaaS Co-sell Benefit enrollment, private offer campaigns, and CPPO channel programs. Scoped as a ~12-week buildout project or layered into an ongoing managed retainer.</p>
-        <div class="price-cta-row">
-          <span class="price-link">See Details →</span>
-          <a href="https://calendly.com/grnmrk/30-min-consultation" target="_blank" rel="noopener noreferrer" class="price-book" onclick="event.stopPropagation();">Book a Call</a>
+        <div class="price-foot">
+          <span class="price-arrow">See Details <span style="font-size:1rem;">→</span></span>
         </div>
       </a>
 
@@ -351,9 +347,8 @@ footer { background: var(--bg-alt); border-top: 1px solid var(--rule); }
         <div class="price-starting">Starting at</div>
         <div class="price-amount">$2,500<span class="price-amount-suffix"> / mo</span></div>
         <p class="price-desc">Month-to-month retainer covering ACE pipeline, MAP funding, PDM cadence, and executive reporting. Three tiers available at $2,500, $4,500, and $8,500/mo.</p>
-        <div class="price-cta-row">
-          <span class="price-link">See Details →</span>
-          <a href="https://calendly.com/grnmrk/30-min-consultation" target="_blank" rel="noopener noreferrer" class="price-book" onclick="event.stopPropagation();">Book a Call</a>
+        <div class="price-foot">
+          <span class="price-arrow">See Details <span style="font-size:1rem;">→</span></span>
         </div>
       </a>
 
@@ -366,9 +361,8 @@ footer { background: var(--bg-alt); border-top: 1px solid var(--rule); }
         <div class="price-starting">Hourly</div>
         <div class="price-amount">$250<span class="price-amount-suffix"> / hr</span></div>
         <p class="price-desc">Fixed-scope engagements for tier acceleration, co-sell motion design, funding strategy, and PO/AO structure. Most projects run 16 to 32 hours.</p>
-        <div class="price-cta-row">
-          <span class="price-link">See Details →</span>
-          <a href="https://calendly.com/grnmrk/30-min-consultation" target="_blank" rel="noopener noreferrer" class="price-book" onclick="event.stopPropagation();">Book a Call</a>
+        <div class="price-foot">
+          <span class="price-arrow">See Details <span style="font-size:1rem;">→</span></span>
         </div>
       </a>
 
@@ -381,9 +375,8 @@ footer { background: var(--bg-alt); border-top: 1px solid var(--rule); }
         <div class="price-starting">Custom scope</div>
         <div class="price-amount">Let's Talk</div>
         <p class="price-desc">An embedded VP of Alliances priced between managed services and a full-time hire. Scope and hours per week confirmed during the free scoping call.</p>
-        <div class="price-cta-row">
-          <span class="price-link">See Details →</span>
-          <a href="https://calendly.com/grnmrk/30-min-consultation" target="_blank" rel="noopener noreferrer" class="price-book" onclick="event.stopPropagation();">Book a Call</a>
+        <div class="price-foot">
+          <span class="price-arrow">See Details <span style="font-size:1rem;">→</span></span>
         </div>
       </a>
 
@@ -396,9 +389,8 @@ footer { background: var(--bg-alt); border-top: 1px solid var(--rule); }
         <div class="price-starting">Project-based</div>
         <div class="price-amount">From $8K<span class="price-amount-suffix"> / program</span></div>
         <p class="price-desc">Immersion Days, co-branded campaigns, re:Invent strategy, joint customer stories, and private offer campaigns. Scoped per program based on pipeline goals.</p>
-        <div class="price-cta-row">
-          <span class="price-link">See Details →</span>
-          <a href="https://calendly.com/grnmrk/30-min-consultation" target="_blank" rel="noopener noreferrer" class="price-book" onclick="event.stopPropagation();">Book a Call</a>
+        <div class="price-foot">
+          <span class="price-arrow">See Details <span style="font-size:1rem;">→</span></span>
         </div>
       </a>
 
@@ -522,7 +514,7 @@ footer { background: var(--bg-alt); border-top: 1px solid var(--rule); }
         <div class="footer-nav-heading">Company</div>
         <ul class="footer-nav-links">
           <li><a href="/pricing">Pricing</a></li>
-          <li><a href="/company/case-studies">Case Studies</a></li>
+          <li><a href="/case-studies">Case Studies</a></li>
           <li><a href="/company/about">About</a></li>
           <li><a href="/company/contact">Contact</a></li>
           <li><a href="/company/partners">Partners</a></li>

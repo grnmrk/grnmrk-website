@@ -594,21 +594,6 @@
 }
 .footer-legal a:hover { color: var(--green-dark); }
 
-  /* ── RESPONSIVE ── */
-  @media (max-width: 900px) {
-    .page-hero { grid-template-columns: 1fr; gap: 2rem; padding-top: 8rem; }
-    .featured-card { grid-template-columns: 1fr; }
-    .featured-visual { min-height: 200px; }
-    .posts-grid { grid-template-columns: 1fr; }
-    .topics-inner { grid-template-columns: 1fr; gap: 1.5rem; }
-    .newsletter { grid-template-columns: 1fr; gap: 3rem; }
-    .nav-links { display: none; }
-  }
-</style>
-</head>
-<body>
-
-<!-- NAV -->
 nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
   display: flex; align-items: center; justify-content: space-between;
@@ -686,6 +671,66 @@ nav.scrolled { padding: 0.9rem 5vw; }
 .nav-ghost:hover { color: var(--ink); }
 .nav-cta { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); background: var(--green); padding: 0.5rem 1.3rem; text-decoration: none; transition: background 0.2s; }
 .nav-cta:hover { background: var(--green-dark); color: var(--white); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .page-hero { grid-template-columns: 1fr; gap: 2rem; padding-top: 8rem; }
+    .featured-card { grid-template-columns: 1fr; }
+    .featured-visual { min-height: 200px; }
+    .posts-grid { grid-template-columns: 1fr; }
+    .topics-inner { grid-template-columns: 1fr; gap: 1.5rem; }
+    .newsletter { grid-template-columns: 1fr; gap: 3rem; }
+    .nav-links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <a class="nav-logo" href="/"><span>G</span>RNMRK GROUP</a>
+  <ul class="nav-links">
+    <li class="nav-item has-dropdown">
+      <a href="/services">Services</a>
+      <div class="nav-dropdown">
+        <a href="/services">Services Overview</a>
+        <a href="/services/aws-marketplace">AWS Marketplace</a>
+        <a href="/services/managed-operations">Managed Operations</a>
+        <a href="/services/strategy-consulting">Strategy Consulting</a>
+        <a href="/services/fractional-alliances-leader">Fractional Alliances Leader</a>
+        <a href="/services/partner-revenue-generation">Revenue Generation</a>
+        <a href="/services/foundational-technical-review">FTR Preparation</a>
+        <a href="/services/fractional-pdm">Fractional PDM</a>
+      </div>
+    </li>
+    <li><a href="/pricing">Pricing</a></li>
+    <li class="nav-item has-dropdown">
+      <a href="/company/about">Company</a>
+      <div class="nav-dropdown">
+        <a href="/company/about">About</a>
+        <a href="/case-studies">Case Studies</a>
+        <a href="/company/contact">Contact</a>
+        <a href="/company/partners">Partners</a>
+        <a href="/company/careers">Careers</a>
+        <a href="/blogs">Blog</a>
+      </div>
+    </li>
+    <li class="nav-item has-dropdown">
+      <a href="/resources">Resources</a>
+      <div class="nav-dropdown">
+        <a href="/resources/aws-map-funding-checklist">MAP Funding Checklist</a>
+        <a href="/resources/aws-mdf-funding-checklist">MDF Funding Checklist</a>
+        <a href="/resources/aws-ftr-checklist">FTR Checklist</a>
+        <a href="/resources/aws-marketplace-gtm-readiness-guide">Marketplace GTM Guide</a>
+      </div>
+    </li>
+    <li><a href="/company/contact">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <a class="nav-ghost" href="mailto:hello@grnmrk.com">hello@grnmrk.com</a>
+    <a class="nav-cta" href="https://calendly.com/grnmrk/30-min-consultation" target="_blank" rel="noopener noreferrer">Book a Call</a>
+  </div>
+</nav>
 
 <!-- PAGE HERO -->
 <div class="page-hero">

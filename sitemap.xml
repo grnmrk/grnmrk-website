@@ -173,6 +173,38 @@
     <priority>0.5</priority>
   </url>
 
+    <!-- ── RESOURCES PAGES ─────────────────────────────────────────────── -->
+
+  <url>
+    <loc>https://www.grnmrk.com/resources/aws-map-funding-checklist</loc>
+    <lastmod>2025-04-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://www.grnmrk.com/resources/aws-ftr-checklist</loc>
+    <lastmod>2025-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://www.grnmrk.com/resources/aws-marketplace-gtm-readiness-guide</loc>
+    <lastmod>2025-04-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+   <url>
+    <loc>https://www.grnmrk.com/resources/aws-mdf-funding-checklist</loc>
+    <lastmod>2025-04-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+
+
   <!-- ── LEGAL ─────────────────────────────────────────────────────── -->
 
   <url>

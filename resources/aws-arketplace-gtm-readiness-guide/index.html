@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AWS Marketplace GTM Readiness Guide — Grnmrk Group</title>
+<meta name="description" content="Free interactive guide: everything you need in place before your AWS Marketplace listing actually transacts. Covers FTR, listings, SaaS Co-sell Benefit, private offers, and CPPO.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;1,300&family=Barlow+Condensed:wght@500;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --bg: #F0EDE6; --bg-alt: #E8E4DC; --ink: #111111; --ink-mid: #3A3A3A; --ink-dim: #7A7369; --green: #3DDC84; --green-dark: #28B06A; --green-dim: #D4F5E5; --rule: rgba(17,17,17,0.1); --white: #FFFFFF; }
+body { background: var(--bg); color: var(--ink); font-family: 'Barlow', sans-serif; font-weight: 300; font-size: 16px; line-height: 1.7; }
+.cover { background: var(--ink); min-height: 300px; padding: 4rem 5vw 3rem; position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: flex-end; }
+.cover::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 60% at 60% 20%, rgba(61,220,132,0.13), transparent 60%); }
+.cover-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.3rem; letter-spacing: 0.14em; color: rgba(240,237,230,0.45); margin-bottom: 2.5rem; position: relative; }
+.cover-logo span { color: var(--green); }
+.cover-tag { font-family: 'Barlow Condensed', sans-serif; font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--green); margin-bottom: 0.8rem; position: relative; display: flex; align-items: center; gap: 0.7rem; }
+.cover-tag::before { content: ''; width: 20px; height: 1px; background: var(--green); }
+.cover-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.8rem, 6vw, 5rem); line-height: 0.95; letter-spacing: 0.02em; color: var(--bg); position: relative; max-width: 820px; }
+.cover-title em { font-style: normal; color: var(--green); }
+.cover-sub { font-size: 1rem; font-weight: 300; color: rgba(240,237,230,0.6); margin-top: 1.2rem; max-width: 600px; line-height: 1.7; position: relative; }
+.meta-band { background: var(--green-dark); padding: 0.9rem 5vw; display: flex; gap: 2.5rem; flex-wrap: wrap; }
+.meta-item { font-family: 'Barlow Condensed', sans-serif; font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink); }
+.meta-item strong { font-weight: 700; }
+.gate-wrap { max-width: 900px; margin: 0 auto; padding: 4rem 5vw 5rem; }
+.gate-intro p { font-size: 1rem; font-weight: 300; color: var(--ink-mid); line-height: 1.85; margin-bottom: 1rem; }
+.gate-intro strong { font-weight: 500; color: var(--ink); }
+.preview-label { font-family: 'Barlow Condensed', sans-serif; font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-dim); margin: 1.5rem 0 0.8rem; }
+.preview-list { list-style: none; display: flex; flex-direction: column; gap: 2px; pointer-events: none; }
+.preview-item { background: var(--bg-alt); padding: 0.85rem 1.2rem; display: flex; align-items: center; gap: 1rem; }
+.preview-check { width: 16px; height: 16px; border: 1.5px solid var(--rule); flex-shrink: 0; }
+.preview-text { font-size: 0.92rem; color: var(--ink-mid); }
+.preview-fade { position: relative; }
+.preview-fade::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 80px; background: linear-gradient(transparent, var(--bg)); }
+.form-panel { background: var(--ink); padding: 3rem; position: relative; overflow: hidden; margin-top: 3rem; }
+.form-panel::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 80% at 90% 10%, rgba(61,220,132,0.1), transparent 60%); pointer-events: none; }
+.form-inner { position: relative; }
+.form-eyebrow { font-family: 'Barlow Condensed', sans-serif; font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--green); display: flex; align-items: center; gap: 0.7rem; margin-bottom: 0.8rem; }
+.form-eyebrow::before { content: ''; width: 18px; height: 1px; background: var(--green); }
+.form-title { font-family: 'Bebas Neue', sans-serif; font-size: 2.2rem; letter-spacing: 0.04em; color: var(--bg); line-height: 1; margin-bottom: 0.5rem; }
+.form-sub { font-size: 0.92rem; font-weight: 300; color: rgba(240,237,230,0.6); line-height: 1.65; margin-bottom: 2.5rem; max-width: 520px; }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.form-field { display: flex; flex-direction: column; gap: 0.4rem; }
+.form-field.full { grid-column: span 2; }
+.form-label { font-family: 'Barlow Condensed', sans-serif; font-size: 0.7rem; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(240,237,230,0.5); }
+.form-input { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); color: var(--bg); font-family: 'Barlow', sans-serif; font-weight: 300; font-size: 0.95rem; padding: 0.75rem 1rem; outline: none; transition: border-color 0.2s; width: 100%; }
+.form-input::placeholder { color: rgba(240,237,230,0.2); }
+.form-input:focus { border-color: var(--green); }
+.form-actions { display: flex; align-items: center; gap: 1.5rem; margin-top: 1.8rem; flex-wrap: wrap; }
+.btn-submit { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.88rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); background: var(--green); padding: 1rem 2.2rem; border: none; cursor: pointer; transition: background 0.2s; }
+.btn-submit:hover:not(:disabled) { background: var(--green-dark); color: var(--white); }
+.btn-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+.form-or { font-family: 'Barlow Condensed', sans-serif; font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(240,237,230,0.35); }
+.btn-calendly { font-family: 'Barlow Condensed', sans-serif; font-weight: 500; font-size: 0.88rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(240,237,230,0.7); border: 1px solid rgba(240,237,230,0.2); padding: 1rem 1.8rem; text-decoration: none; transition: border-color 0.2s, color 0.2s; }
+.btn-calendly:hover { border-color: var(--green); color: var(--green); }
+.form-privacy { font-size: 0.78rem; font-weight: 300; color: rgba(240,237,230,0.3); margin-top: 1.2rem; }
+.form-error { font-family: 'Barlow Condensed', sans-serif; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: #ff6b6b; margin-top: 1rem; display: none; }
+.form-success { display: none; text-align: center; padding: 2rem 0; }
+.form-success-icon { font-size: 3rem; line-height: 1; margin-bottom: 0.8rem; }
+.form-success-title { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 0.04em; color: var(--green); margin-bottom: 0.5rem; }
+.form-success-text { font-size: 0.92rem; font-weight: 300; color: rgba(240,237,230,0.65); line-height: 1.7; }
+.checklist-content { display: none; }
+.checklist-content.unlocked { display: block; }
+.body-wrap { max-width: 900px; margin: 0 auto; padding: 4rem 5vw 2rem; }
+.progress-wrap { background: var(--bg-alt); padding: 1.2rem 1.8rem; margin-bottom: 3rem; display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; }
+.progress-label { font-family: 'Barlow Condensed', sans-serif; font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-dim); flex-shrink: 0; }
+.progress-bar-wrap { flex: 1; min-width: 150px; height: 5px; background: var(--rule); }
+.progress-bar { height: 100%; background: var(--green-dark); width: 0%; transition: width 0.3s; }
+.progress-count { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; color: var(--green-dark); line-height: 1; flex-shrink: 0; }
+.checklist-section { margin-bottom: 3rem; }
+.section-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.2rem; padding-bottom: 0.8rem; border-bottom: 2px solid var(--ink); }
+.section-num { font-family: 'Bebas Neue', sans-serif; font-size: 2.5rem; color: rgba(17,17,17,0.1); line-height: 1; flex-shrink: 0; }
+.section-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; letter-spacing: 0.04em; color: var(--ink); line-height: 1; }
+.section-note { font-family: 'Barlow Condensed', sans-serif; font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-dim); margin-left: auto; flex-shrink: 0; }
+.checklist { list-style: none; display: flex; flex-direction: column; gap: 2px; }
+.checklist-item { background: var(--bg-alt); transition: background 0.2s; }
+.checklist-item:hover { background: var(--white); }
+.checklist-label { display: flex; align-items: flex-start; gap: 1rem; padding: 1rem 1.2rem; cursor: pointer; }
+.checklist-label input[type="checkbox"] { flex-shrink: 0; width: 18px; height: 18px; accent-color: var(--green-dark); margin-top: 0.15rem; cursor: pointer; }
+.item-text { font-size: 0.95rem; font-weight: 400; color: var(--ink); line-height: 1.5; }
+.item-note { font-size: 0.82rem; font-weight: 300; color: var(--ink-dim); line-height: 1.5; margin-top: 0.3rem; }
+.checklist-item.checked { background: var(--green-dim); }
+.checklist-item.checked .item-text { color: var(--green-dark); text-decoration: line-through; text-decoration-color: rgba(40,176,106,0.4); }
+.tag-req { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.58rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink); background: var(--green); padding: 0.1rem 0.4rem; display: inline-block; margin-left: 0.5rem; vertical-align: middle; }
+.tag-opt { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.58rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--white); background: var(--ink-dim); padding: 0.1rem 0.4rem; display: inline-block; margin-left: 0.5rem; vertical-align: middle; }
+.explainer { background: var(--bg-alt); padding: 1.8rem 2rem; margin-top: 2px; }
+.explainer-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--green-dark); margin-bottom: 0.7rem; }
+.explainer p { font-size: 0.92rem; font-weight: 300; color: var(--ink-mid); line-height: 1.75; margin-bottom: 0.7rem; }
+.explainer strong { font-weight: 500; color: var(--ink); }
+.dark-summary { background: var(--ink); padding: 2.5rem; margin-top: 1rem; margin-bottom: 1rem; }
+.dark-summary-label { font-family: 'Barlow Condensed', sans-serif; font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--green); margin-bottom: 1.2rem; }
+.dark-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.dark-card { background: rgba(255,255,255,0.04); padding: 1.2rem; }
+.dark-card-title { font-family: 'Barlow Condensed', sans-serif; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--green); margin-bottom: 0.4rem; }
+.dark-card-text { font-size: 0.85rem; font-weight: 300; color: rgba(240,237,230,0.5); line-height: 1.6; }
+.bottom-cta { background: var(--ink); padding: 4rem 5vw; position: relative; overflow: hidden; }
+.bottom-cta::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 80% at 70% 50%, rgba(61,220,132,0.08), transparent 60%); }
+.bottom-cta-inner { max-width: 900px; margin: 0 auto; position: relative; display: grid; grid-template-columns: 1fr auto; gap: 4rem; align-items: center; }
+.bottom-cta-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2rem, 3.5vw, 3rem); line-height: 1; letter-spacing: 0.02em; color: var(--bg); margin-bottom: 0.8rem; }
+.bottom-cta-title em { font-style: normal; color: var(--green); }
+.bottom-cta-text { font-size: 0.95rem; font-weight: 300; color: rgba(240,237,230,0.6); line-height: 1.7; max-width: 460px; }
+.bottom-cta-actions { display: flex; flex-direction: column; gap: 1rem; min-width: 210px; }
+.btn-cta-primary { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.88rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); background: var(--green); padding: 1rem 1.8rem; text-decoration: none; display: block; text-align: center; transition: background 0.2s; }
+.btn-cta-primary:hover { background: var(--green-dark); color: var(--white); }
+.btn-cta-ghost { font-family: 'Barlow Condensed', sans-serif; font-weight: 500; font-size: 0.88rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(240,237,230,0.7); border: 1px solid rgba(240,237,230,0.2); padding: 1rem 1.8rem; text-decoration: none; display: block; text-align: center; transition: border-color 0.2s, color 0.2s; }
+.btn-cta-ghost:hover { border-color: var(--green); color: var(--green); }
+.doc-footer { background: var(--bg-alt); padding: 1.5rem 5vw; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; border-top: 1px solid var(--rule); }
+.footer-brand { font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; letter-spacing: 0.14em; color: var(--ink); text-decoration: none; }
+.footer-brand span { color: var(--green); }
+.footer-note { font-family: 'Barlow Condensed', sans-serif; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-dim); }
+@media (max-width: 700px) { .form-grid { grid-template-columns: 1fr; } .form-field.full { grid-column: span 1; } .dark-cols { grid-template-columns: 1fr; } .bottom-cta-inner { grid-template-columns: 1fr; gap: 2rem; } .meta-band { gap: 1rem; } .form-actions { flex-direction: column; align-items: flex-start; } }
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="cover-logo"><span>G</span>RNMRK GROUP</div>
+  <div class="cover-tag">AWS Marketplace</div>
+  <h1 class="cover-title">AWS Marketplace GTM<br><em>Readiness Guide</em></h1>
+  <p class="cover-sub">Five sections covering everything you need in place before your Marketplace listing actually transacts — FTR, listing quality, SaaS Co-sell Benefit, private offers, and CPPO.</p>
+</div>
+
+<div class="meta-band">
+  <div class="meta-item"><strong>Covers:</strong> Listings · FTR · SaaS Co-sell Benefit · Private Offers · CPPO</div>
+  <div class="meta-item"><strong>For:</strong> ISVs &amp; Channel Partners</div>
+  <div class="meta-item"><strong>Updated:</strong> 2025</div>
+</div>
+
+<div class="gate-wrap">
+  <div class="gate-intro">
+    <p>Most AWS Marketplace listings don't transact. Not because the product is wrong, but because the motion behind the listing is incomplete. A listing without a private offer strategy sits idle. SaaS Co-sell Benefit enrollment without active ACE pipeline produces no AWS-sourced deals. CPPO channel programs never get stood up.</p>
+    <p>This guide walks through each component of a Marketplace GTM motion that actually generates revenue. <strong>Work through each section and check off what you have in place — the gaps you find are your starting point.</strong></p>
+  </div>
+
+  <div class="preview-label">What's Inside</div>
+  <div class="preview-fade">
+    <ul class="preview-list">
+      <li class="preview-item"><div class="preview-check"></div><div class="preview-text">Technical foundation — FTR, ACE prerequisites, Marketplace seller registration</div></li>
+      <li class="preview-item"><div class="preview-check"></div><div class="preview-text">Listing quality — pricing model, dimensions, content, and buyer experience</div></li>
+      <li class="preview-item"><div class="preview-check"></div><div class="preview-text">Co-sell readiness — SaaS Co-sell Benefit enrollment, PDM cadence, ACE hygiene</div></li>
+      <li class="preview-item"><div class="preview-check"></div><div class="preview-text">Private offer strategy — deal mechanics, EDP, and first offer checklist</div></li>
+      <li class="preview-item"><div class="preview-check"></div><div class="preview-text">CPPO channel motion — partner authorization, enablement, and reseller pricing</div></li>
+    </ul>
+  </div>
+
+  <div class="form-panel" id="formWrap">
+    <div class="form-inner">
+      <div id="gateForm">
+        <div class="form-eyebrow">Get the full guide</div>
+        <h2 class="form-title">Access the Marketplace GTM Readiness Guide</h2>
+        <p class="form-sub">Enter your details and the full interactive guide unlocks immediately.</p>
+        <form id="leadForm">
+          <div class="form-grid">
+            <div class="form-field"><label class="form-label" for="fname">First Name</label><input class="form-input" type="text" id="fname" name="name" placeholder="Alex" required></div>
+            <div class="form-field"><label class="form-label" for="company">Company</label><input class="form-input" type="text" id="company" name="company" placeholder="Acme Corp" required></div>
+            <div class="form-field full"><label class="form-label" for="email">Work Email</label><input class="form-input" type="email" id="email" name="email" placeholder="alex@company.com" required></div>
+          </div>
+          <div class="form-actions">
+            <button class="btn-submit" type="submit" id="submitBtn">Get Access</button>
+            <span class="form-or">or</span>
+            <a class="btn-calendly" href="https://calendly.com/grnmrk/30-min-consultation" target="_blank" rel="noopener noreferrer">Book a Strategy Call Instead</a>
+          </div>
+          <div class="form-error" id="formError">Something went wrong. Please try again or email hello@grnmrk.com</div>
+          <p class="form-privacy">No spam. Your information is used only to send relevant AWS partner content from Grnmrk Group.</p>
+        </form>
+      </div>
+      <div class="form-success" id="formSuccess">
+        <div class="form-success-icon">✓</div>
+        <div class="form-success-title">You're in.</div>
+        <p class="form-success-text">Unlocking the guide now.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="checklist-content" id="checklistContent">
+  <div class="body-wrap">
+    <div class="progress-wrap">
+      <span class="progress-label">Readiness Progress</span>
+      <div class="progress-bar-wrap"><div class="progress-bar" id="progressBar"></div></div>
+      <span class="progress-count" id="progressCount">0 / 29</span>
+    </div>
+
+    <div class="checklist-section">
+      <div class="section-header"><div class="section-num">01</div><div class="section-title">Technical Foundation</div><div class="section-note">FTR &amp; Infrastructure</div></div>
+      <ul class="checklist">
+        <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">AWS Foundational Technical Review (FTR) passed <span class="tag-req">Required for Transactable Listings</span></div><div class="item-note">FTR is the gate for transactable Marketplace listings and SaaS Co-sell Benefit. Without it you can list, but not transact.</div></div></label></li>
+        <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">At least one ACE opportunity submitted and active in Partner Central <span class="tag-req">Required</span></div><div class="item-note">Required as a prerequisite for FTR approval and SaaS Co-sell Benefit enrollment.</div></div></label></li>
+        <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">AWS Marketplace seller account registered and verified</div><div class="item-note">Marketplace seller registration is separate from APN partner registration. Complete this in the AWS Marketplace Management Portal.</div></div></label></li>
+        <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">Marketplace Metering Service or SaaS Contracts API integrated</div><div class="item-note">Required for SaaS listings. Your product must be able to meter usage or fulfill contracts through the Marketplace APIs. Scope this as an engineering task early.</div></div></label></li>
+      </ul>
+      <div class="explainer">
+        <div class="explainer-title">Why FTR Comes First</div>
+        <p>A non-transactable Marketplace listing has almost no GTM value. AWS field reps have no incentive to route deals to it. <strong>FTR is the unlock for everything else on this list.</strong> If you haven't passed FTR, that's your first action item — nothing else here applies yet.</p>
+      </div>
+    </div>
+
+    <div class="checklist-section">
+      <div class="section-header"><div class="section-num">02</div><div class="section-title">Listing Quality</div><div class="section-note">What Buyers See</div></div>
+      <ul class="checklist">
+        <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">Product title and description written for AWS buyers, not a generic audience</div><div class="item-note">Marketplace search is keyword-driven. Use the terms AWS customers search — infrastructure type, workload category, compliance frameworks, deployment model.</div></div></label></li>
+        <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">Pricing model selected and confirmed with your PDM for your deal shapes</div><div class="item-note">The wrong pricing structure makes private offers complicated and slows deal velocity. SaaS can be: subscription, usage-based, or contract-based.</div></div></label></li>
+        <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">Product dimensions configured to match how you actually sell</div><div class="item-note">Dimensions are the units by which you meter and bill. They must match the dimensions in private offers. Misaligned dimensions block deals.</div></div></label></li>
+        <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">Support information, EULA, and refund policy populated</div><div class="item-note">AWS reviewers check that support terms are realistic and the EULA is complete. Placeholder fields delay listing approval.</div></div></label></li>
+        <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">Product logo, screenshots, and overview video added</div><div class="item-note">Listings with complete media assets convert at higher rates. A video walkthrough meaningfully improves buyer confidence.</div></div></label></li>
+        <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">Listing reviewed by someone who hasn't worked on it</div><div class="item-note">Familiarity blindness is real. An outside reviewer will catch descriptions that assume product knowledge buyers don't have.</div></div></label></li>
+      </ul>
+    </div>
+
+    <div class="checklist-section">
+      <div class="section-header"><div class="section-num">03</div><div class="section-title">Co-Sell Readiness</div><div class="section-note">SaaS Co-sell Benefit &amp; AWS Field</div></div>
+      <ul class="checklist">
+        <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">SaaS Co-sell Benefit enrollment submitted (formerly ISV Accelerate)</div><div class="item-note">Requires a passed FTR, active ACE pipeline, and PDM eligibility confirmation. Enrollment is a separate application from FTR — not automatic.</div></div></label></li>
+        <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">ACE pipeline hygiene in place — regular submissions, no stale opportunities</div><div class="item-note">AWS field reps evaluate co-sell partners by ACE activity. A stale pipeline signals low engagement and reduces deals routed your way.</div></div></label></li>
+        <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">PDM relationship active with a defined meeting cadence</div><div class="item-note">Monthly check-ins are the minimum. Quarterly without a structured agenda is not enough.</div></div></label></li>
+        <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">AWS field reps in target territories know who you are</div><div class="item-note">PDMs can introduce you to field AEs. Having 2–3 field-level relationships in your priority segments significantly increases co-sell routing.</div></div></label></li>
+        <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">Co-sell pitch and one-pager prepared for AWS field use</div><div class="item-note">AWS field reps need a simple, credible brief they can use in a customer conversation. A partner-facing co-sell pitch and a customer-facing one-pager are the minimum.</div></div></label></li>
+        <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">Internal deal qualification criteria for Marketplace documented</div><div class="item-note">Your AEs need to know which deals to route through Marketplace vs. direct contract. Common criteria: customer has EDP, deal size threshold, regulated industry.</div></div></label></li>
+      </ul>
+    </div>
+
+    <div class="checklist-section">
+      <div class="section-header"><div class="section-num">04</div><div class="section-title">Private Offer Strategy</div><div class="section-note">How Enterprise Deals Close</div></div>
+      <ul class="checklist">
+        <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">Private offer mechanics understood by your sales team</div><div class="item-note">Your AEs need to know: what a private offer is, when to propose it, how to create it in AMMP, and what the buyer experience looks like. Run a 30-minute internal enablement session.</div></div></label></li>
+        <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">Standard private offer terms defined — pricing tiers, contract lengths, ramp schedules</div><div class="item-note">Pre-defined offer structures speed deal execution. Your team shouldn't be building offer terms from scratch on every deal.</div></div></label></li>
+        <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">EDP implications understood for target customers</div><div class="item-note">Many enterprise AWS customers have EDP commitments. Knowing which customers have EDP — and by how much — lets you target private offers where they reduce the most friction.</div></div></label></li>
+        <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">AWS Deal Room process understood for co-sell-sourced private offers</div><div class="item-note">For co-sold deals, the private offer should reference the ACE opportunity and be coordinated with the AWS field rep for proper attribution.</div></div></label></li>
+        <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">At least one pilot private offer created — even as an internal test</div><div class="item-note">The first private offer always takes longer than expected. Run a test offer before you're trying to close a real deal under time pressure.</div></div></label></li>
+      </ul>
+      <div class="explainer">
+        <div class="explainer-title">Why Private Offers Are the Core Revenue Motion</div>
+        <p>Most enterprise deals don't originate from a customer browsing the Marketplace catalog. They originate from a sales conversation — and then route to Marketplace via a private offer because the customer wants to use committed AWS spend. <strong>The listing is the infrastructure. The private offer is the revenue motion.</strong></p>
+      </div>
+    </div>
+
+    <div class="checklist-section">
+      <div class="section-header"><div class="section-num">05</div><div class="section-title">CPPO Channel Motion</div><div class="section-note">For ISVs with Channel Partners</div></div>
+      <ul class="checklist">
+        <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">CPPO eligibility confirmed — ISV must have a transactable Marketplace listing <span class="tag-req">Required</span></div><div class="item-note">CPPO requires a live, transactable ISV listing as the source. You cannot set up CPPO with a non-transactable listing.</div></div></label></li>
+        <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">Target channel partners identified — 2–5 committed partners to start</div><div class="item-note">Start with partners who already sell your product and have existing customer relationships. Don't try to onboard the entire channel at once.</div></div></label></li>
+        <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">Channel partners have AWS Marketplace seller accounts registered</div><div class="item-note">Partners must have their own Marketplace seller accounts to transact CPPO offers. A common early blocker — confirm this before building the motion.</div></div></label></li>
+        <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">Reseller pricing and margin structure defined for CPPO</div><div class="item-note">CPPO lets you set a reseller price lower than your public listing price. Define the margin structure — typically 10–30% discount to the channel — before enabling partners.</div></div></label></li>
+        <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">CPPO partner authorization configured in the Marketplace Management Portal</div><div class="item-note">You authorize specific channel partners to extend offers from your listing. This must be set up before any channel partner can create an offer.</div></div></label></li>
+        <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">Channel partner enablement session run on CPPO mechanics</div><div class="item-note">Your channel partners need to understand how to create CPPO offers, the buyer experience, and how to track the deal in ACE. Run a 1-hour session before expecting them to transact.</div></div></label></li>
+      </ul>
+    </div>
+
+    <div class="dark-summary">
+      <div class="dark-summary-label">GTM Readiness — What to Prioritize Based on Where You Are</div>
+      <div class="dark-cols">
+        <div class="dark-card"><div class="dark-card-title">Zero Marketplace transactions</div><div class="dark-card-text">Start with FTR (if not passed), fix the listing structure, then run one internal test private offer. First transaction matters more than the channel motion.</div></div>
+        <div class="dark-card"><div class="dark-card-title">Listing exists but never transacted</div><div class="dark-card-text">The problem is almost always the sales motion. Most teams have never actually created a private offer. Start there.</div></div>
+        <div class="dark-card"><div class="dark-card-title">Transacting but want more volume</div><div class="dark-card-text">Activate co-sell properly — SaaS Co-sell Benefit enrollment, ACE hygiene, PDM cadence. Then layer in CPPO to scale through the channel.</div></div>
+        <div class="dark-card"><div class="dark-card-title">Channel partners but no CPPO</div><div class="dark-card-text">CPPO unlocks Marketplace-native channel revenue. If you have 3+ partners selling your product, CPPO is likely leaving meaningful revenue uncaptured.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bottom-cta">
+    <div class="bottom-cta-inner">
+      <div>
+        <h2 class="bottom-cta-title">Ready to build a <em>Marketplace motion</em> that actually transacts?</h2>
+        <p class="bottom-cta-text">Grnmrk Group runs the full Marketplace motion for ISVs and channel partners — FTR through CPPO. Let's review your current setup and tell you where we'd start.</p>
+      </div>
+      <div class="bottom-cta-actions">
+        <a class="btn-cta-primary" href="https://calendly.com/grnmrk/30-min-consultation" target="_blank" rel="noopener noreferrer">Book a Free Strategy Call</a>
+        <a class="btn-cta-ghost" href="mailto:hello@grnmrk.com">Send an Email</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="doc-footer">
+  <a href="https://www.grnmrk.com" class="footer-brand"><span>G</span>RNMRK GROUP</a>
+  <div class="footer-note">grnmrk.com &nbsp;&middot;&nbsp; hello@grnmrk.com</div>
+</div>
+
+<script>
+const FORMSPREE = 'https://formspree.io/f/mojybjpd';
+const STORAGE_KEY = 'grnmrk-mktplace';
+(function() {
+  try { if (localStorage.getItem(STORAGE_KEY + '-v') === '1') { unlock(); return; } } catch(e) {}
+  document.getElementById('leadForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const btn = document.getElementById('submitBtn'); const err = document.getElementById('formError');
+    btn.textContent = 'Sending...'; btn.disabled = true; err.style.display = 'none';
+    try {
+      const r = await fetch(FORMSPREE, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify({ name: this.name.value, email: this.email.value, company: this.company.value, source: 'Marketplace GTM Guide', page: window.location.href }) });
+      if (r.ok) {
+        document.getElementById('gateForm').style.display = 'none'; document.getElementById('formSuccess').style.display = 'block';
+        try { localStorage.setItem(STORAGE_KEY + '-v', '1'); } catch(e) {}
+        setTimeout(() => { const fw = document.getElementById('formWrap'); fw.style.transition = 'opacity 0.5s'; fw.style.opacity = '0'; setTimeout(() => { fw.style.display = 'none'; unlock(); }, 500); }, 1800);
+      } else { throw new Error(); }
+    } catch(e) { err.style.display = 'block'; btn.textContent = 'Get Access'; btn.disabled = false; }
+  });
+})();
+function unlock() {
+  const c = document.getElementById('checklistContent'); c.classList.add('unlocked'); c.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  const cbs = document.querySelectorAll('.checklist input[type="checkbox"]');
+  const bar = document.getElementById('progressBar'); const cnt = document.getElementById('progressCount'); const total = cbs.length;
+  function upd() { const ch = [...cbs].filter(x => x.checked).length; bar.style.width = (ch/total*100) + '%'; cnt.textContent = ch + ' / ' + total; cbs.forEach(cb => cb.closest('.checklist-item').classList.toggle('checked', cb.checked)); }
+  upd(); cbs.forEach(cb => cb.addEventListener('change', upd));
+}
+</script>
+</body>
+</html>

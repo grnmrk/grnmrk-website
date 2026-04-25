@@ -685,17 +685,83 @@
 <body>
 
 <!-- NAV -->
-<nav>
-  <a class="nav-logo" href="/"><span>G</span>RNMRK GROUP</a>
-  <ul class="nav-links">
-    <li><a href="/services">Services</a></li>
-    <li><a href="/pricing">Pricing</a></li>
-    <li><a href="/company/case-studies">Case Studies</a></li>
-    <li><a href="/company/about">About</a></li>
-    <li><a href="/company/contact">Contact</a></li>
-  </ul>
-  <a class="nav-cta" href="https://calendly.com/grnmrk/30-min-consultation" target="_blank" rel="noopener noreferrer">Get Started</a>
-</nav>
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1.2rem 5vw;
+  background: rgba(240,237,230,0.94);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--rule);
+  transition: padding 0.3s;
+}
+nav.scrolled { padding: 0.9rem 5vw; }
+.nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.7rem; letter-spacing: 0.12em; color: var(--ink); text-decoration: none; }
+.nav-logo span { color: var(--green); }
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a { font-family: 'Barlow Condensed', sans-serif; font-weight: 500; font-size: 0.82rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-dim); text-decoration: none; transition: color 0.2s; }
+.nav-links a:hover { color: var(--ink); }
+/* DROPDOWNS */
+.nav-item { position: relative; }
+
+.nav-dropdown {
+  display: none;
+  position: absolute;
+  top: calc(100%);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--white);
+  border: 1px solid var(--rule);
+  box-shadow: 0 8px 32px rgba(17,17,17,0.1);
+  min-width: 220px;
+  padding: 0.6rem 0;
+  z-index: 200;
+}
+
+.nav-dropdown::before {
+  content: '';
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10px;
+  height: 10px;
+  background: var(--white);
+  border-left: 1px solid var(--rule);
+  border-top: 1px solid var(--rule);
+  rotate: 45deg;
+}
+
+.nav-dropdown a {
+  display: block;
+  padding: 0.55rem 1.4rem;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 500;
+  font-size: 0.82rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+  text-decoration: none;
+  transition: color 0.15s, background 0.15s;
+  white-space: nowrap;
+}
+
+.nav-dropdown a:hover {
+  color: var(--ink);
+  background: var(--bg);
+}
+
+.has-dropdown:hover .nav-dropdown { display: block; }
+.has-dropdown > a::after {
+  content: ' ↓';
+  font-size: 0.65rem;
+  opacity: 0.5;
+  letter-spacing: 0;
+}
+.nav-right { display: flex; align-items: center; gap: 1.5rem; }
+.nav-ghost { font-family: 'Barlow Condensed', sans-serif; font-weight: 500; font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-dim); text-decoration: none; transition: color 0.2s; }
+.nav-ghost:hover { color: var(--ink); }
+.nav-cta { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); background: var(--green); padding: 0.5rem 1.3rem; text-decoration: none; transition: background 0.2s; }
+.nav-cta:hover { background: var(--green-dark); color: var(--white); }
 
 <!-- ARTICLE HERO -->
 <div class="article-hero">

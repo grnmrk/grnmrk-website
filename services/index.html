@@ -70,7 +70,7 @@
   .nav-cta {
     font-family: 'Barlow Condensed', sans-serif;
     font-weight: 700;
-    font-size: 0.85rem;
+    font-size: 0.82rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--ink);
@@ -1285,6 +1285,12 @@ nav.scrolled { padding: 0.9rem 5vw; }
   </div>
 </footer>
 
+<script>
+  const nav = document.getElementById('mainNav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  });
+</script>
 
 </body>
 </html>

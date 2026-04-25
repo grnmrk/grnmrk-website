@@ -141,6 +141,28 @@
   .cta-actions { display: flex; flex-direction: column; gap: 1rem; min-width: 220px; }
 
   /* FOOTER */
+  
+   .footer-bottom-inner { 
+  max-width: 1200px; 
+  margin: 0 auto; 
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between; 
+  flex-wrap: wrap; 
+  gap: 1rem; 
+}
+.footer-legal { display: flex; gap: 2rem; }
+.footer-legal a { 
+  font-family: 'Barlow Condensed', sans-serif; 
+  font-size: 0.72rem; 
+  letter-spacing: 0.1em; 
+  text-transform: uppercase; 
+  color: var(--ink-dim); 
+  text-decoration: none; 
+  transition: color 0.2s; 
+}
+.footer-legal a:hover { color: var(--green-dark); }
+
   footer { background: var(--bg-alt); border-top: 1px solid var(--rule); width: 100%; display: block; }
   .footer-top { width: 100%; max-width: 1200px; margin: 0 auto; padding: 4rem 5vw 3rem; display: flex; justify-content: space-between; gap: 4rem; flex-wrap: wrap; }
   .footer-brand { display: flex; flex-direction: column; gap: 0.8rem; }

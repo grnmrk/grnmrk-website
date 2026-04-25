@@ -53,6 +53,15 @@
   border-bottom: 1px solid var(--rule);
   transition: padding 0.3s;
 }
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1.2rem 5vw;
+  background: rgba(240,237,230,0.94);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--rule);
+  transition: padding 0.3s;
+}
 nav.scrolled { padding: 0.9rem 5vw; }
 .nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.7rem; letter-spacing: 0.12em; color: var(--ink); text-decoration: none; }
 .nav-logo span { color: var(--green); }

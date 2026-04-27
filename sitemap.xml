@@ -203,7 +203,19 @@
     <priority>0.5</priority>
   </url>
 
+   <url>
+    <loc>https://www.grnmrk.com/resources/aws-mdf-funding-checklist</loc>
+    <lastmod>2025-04-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
 
+   <url>
+    <loc>https://www.grnmrk.com/resources/aws-co-sell-playbook</loc>
+    <lastmod>2025-04-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
 
   <!-- ── LEGAL ─────────────────────────────────────────────────────── -->
 

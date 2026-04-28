@@ -88,7 +88,7 @@
   <link rel="apple-touch-icon" href="/favicon-transparent.png">
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Barlow+Condensed:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;1,300&family=Barlow+Condensed:wght@500;700&display=swap" rel="stylesheet">
 
   <!-- ── STYLES ─────────────────────────────────────────────── -->
   <style>
@@ -113,16 +113,7 @@
     }
 
     html { scroll-behavior: smooth; }
-
-    body {
-      background: var(--bg);
-      color: var(--ink);
-      font-family: 'Barlow', sans-serif;
-      font-weight: 300;
-      font-size: 17px;
-      line-height: 1.7;
-      overflow-x: hidden;
-    }
+    body { background: var(--bg); color: var(--ink); font-family: 'Barlow', sans-serif; font-weight: 300; font-size: 17px; line-height: 1.7; overflow-x: hidden; }
 
     /* =============================================================
        NAVIGATION
@@ -156,354 +147,153 @@
     .nav-cta:hover { background: var(--green-dark); color: var(--white); }
 
     /* =============================================================
-       BREADCRUMB
+       DARK HERO
        ============================================================= */
-    .breadcrumb { max-width: 760px; margin: 0 auto; padding: 6rem 5vw 0; }
-    .breadcrumb-inner { font-family: 'Barlow Condensed', sans-serif; font-size: 0.75rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-dim); display: flex; gap: 0.6rem; align-items: center; margin-top: 2rem; }
-    .breadcrumb-inner a { color: var(--ink-dim); text-decoration: none; transition: color 0.2s; }
-    .breadcrumb-inner a:hover { color: var(--green-dark); }
-    .breadcrumb-sep { opacity: 0.4; }
+    .article-hero { background: var(--ink); padding: 9rem 5vw 5rem; position: relative; overflow: hidden; }
+    .article-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 80% at 85% 50%, rgba(61,220,132,0.07), transparent 70%); }
+    .article-hero-inner { max-width: 860px; margin: 0 auto; position: relative; }
+    .article-meta { display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap; }
+    .article-tag { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink); background: var(--green); padding: 0.25rem 0.8rem; }
+    .article-read-time { font-family: 'Barlow Condensed', sans-serif; font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(240,237,230,0.4); }
+    .article-dot { color: rgba(240,237,230,0.2); }
+    .article-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.8rem, 6vw, 5.5rem); line-height: 0.95; letter-spacing: 0.02em; color: var(--bg); margin-bottom: 1.5rem; }
+    .article-deck { font-size: 1.15rem; font-weight: 300; color: rgba(240,237,230,0.65); line-height: 1.75; max-width: 680px; }
 
     /* =============================================================
-       ARTICLE HEADER
+       BREADCRUMB BAR
        ============================================================= */
-    .article-header {
-      max-width: 760px;
-      margin: 0 auto;
-      padding: 3rem 5vw 4rem;
-    }
-    .article-meta {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin-bottom: 1.8rem;
-      flex-wrap: wrap;
-    }
-    .article-tag {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 700;
-      font-size: 0.68rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--ink);
-      background: var(--green);
-      padding: 0.25rem 0.7rem;
-    }
-    .article-status {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 0.72rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--ink-dim);
-    }
-    .article-title {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(2.6rem, 5.5vw, 4.2rem);
-      line-height: 1.0;
-      letter-spacing: 0.02em;
-      color: var(--ink);
-      margin-bottom: 1.5rem;
-    }
-    .article-intro {
-      font-size: 1.2rem;
-      font-weight: 300;
-      color: var(--ink-mid);
-      line-height: 1.75;
-      margin-bottom: 2.5rem;
-      border-left: 3px solid var(--green);
-      padding-left: 1.5rem;
-    }
-    .article-byline {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding-top: 1.5rem;
-      border-top: 1px solid var(--rule);
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-    .byline-left { display: flex; align-items: center; gap: 1rem; }
-    .byline-name { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); }
-    .byline-detail { font-family: 'Barlow Condensed', sans-serif; font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-dim); }
-    .byline-read { font-family: 'Barlow Condensed', sans-serif; font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-dim); }
+    .breadcrumb-wrap { background: var(--bg-alt); border-bottom: 1px solid var(--rule); }
+    .breadcrumb { max-width: 860px; margin: 0 auto; padding: 1.5rem 5vw; display: flex; align-items: center; gap: 0.5rem; }
+    .breadcrumb a { font-family: 'Barlow Condensed', sans-serif; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-dim); text-decoration: none; transition: color 0.2s; }
+    .breadcrumb a:hover { color: var(--green-dark); }
+    .breadcrumb-sep { font-family: 'Barlow Condensed', sans-serif; font-size: 0.78rem; color: var(--ink-dim); }
+    .breadcrumb-current { font-family: 'Barlow Condensed', sans-serif; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-mid); }
 
     /* =============================================================
-       ARTICLE BODY
+       ARTICLE LAYOUT — TWO COLUMN
        ============================================================= */
-    .article-body {
-      max-width: 760px;
-      margin: 0 auto;
-      padding: 0 5vw 6rem;
-    }
-
-    /* Prose typography */
-    .article-body p {
-      font-size: 1.05rem;
-      font-weight: 300;
-      color: var(--ink-mid);
-      line-height: 1.85;
-      margin-bottom: 1.4rem;
-    }
-    .article-body strong { font-weight: 500; color: var(--ink); }
-    .article-body em { font-style: italic; }
-
-    /* Section headings */
-    .article-body h2 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(1.8rem, 3vw, 2.6rem);
-      letter-spacing: 0.03em;
-      color: var(--ink);
-      line-height: 1;
-      margin: 3.5rem 0 1.2rem;
-      padding-top: 3.5rem;
-      border-top: 1px solid var(--rule);
-    }
-    .article-body h3 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.4rem;
-      letter-spacing: 0.03em;
-      color: var(--ink);
-      line-height: 1;
-      margin: 2.5rem 0 0.8rem;
-    }
-
-    /* Lists within body */
-    .article-body ul,
-    .article-body ol {
-      margin: 1.2rem 0 1.6rem 0;
-      padding-left: 0;
-      list-style: none;
-    }
-    .article-body ul li,
-    .article-body ol li {
-      font-size: 1.02rem;
-      font-weight: 300;
-      color: var(--ink-mid);
-      line-height: 1.75;
-      padding: 0.5rem 0 0.5rem 1.6rem;
-      position: relative;
-      border-bottom: 1px solid var(--rule);
-    }
-    .article-body ul li:last-child,
-    .article-body ol li:last-child { border-bottom: none; }
-    .article-body ul li::before { content: '→'; position: absolute; left: 0; color: var(--green-dark); font-size: 0.9rem; }
-    .article-body ol { counter-reset: item; }
-    .article-body ol li { counter-increment: item; }
-    .article-body ol li::before { content: counter(item, decimal-leading-zero); position: absolute; left: 0; font-family: 'Bebas Neue', sans-serif; font-size: 0.95rem; color: var(--green-dark); letter-spacing: 0.04em; }
-
-    /* Pull quote / callout */
-    .article-pullquote {
-      background: var(--ink);
-      padding: 2.5rem;
-      margin: 3rem 0;
-      position: relative;
-    }
-    .article-pullquote p {
-      font-size: 1.2rem;
-      font-weight: 400;
-      color: rgba(240,237,230,0.9);
-      line-height: 1.65;
-      margin: 0;
-    }
-    .article-pullquote::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0;
-      width: 3px; height: 100%;
-      background: var(--green);
-    }
-
-    /* Highlight box */
-    .article-highlight {
-      background: var(--green-dim);
-      border-left: 3px solid var(--green-dark);
-      padding: 1.5rem 2rem;
-      margin: 2rem 0;
-    }
-    .article-highlight p { margin: 0; font-size: 0.98rem; font-weight: 400; color: var(--ink); }
-    .article-highlight strong { font-weight: 600; }
-
-    /* Inline link style */
-    .article-body a { color: var(--green-dark); text-decoration: none; border-bottom: 1px solid var(--green-dim); transition: border-color 0.2s; }
-    .article-body a:hover { border-color: var(--green-dark); }
-
-    /* Table of contents */
-    .article-toc {
-      background: var(--bg-alt);
-      padding: 2rem 2.2rem;
-      margin-bottom: 3.5rem;
-    }
-    .article-toc-label {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--green-dark);
-      margin-bottom: 1rem;
-      display: flex; align-items: center; gap: 0.7rem;
-    }
-    .article-toc-label::before { content: ''; width: 18px; height: 1px; background: var(--green-dark); }
-    .article-toc ol { list-style: none; padding: 0; counter-reset: toc; }
-    .article-toc ol li { counter-increment: toc; padding: 0.4rem 0 0.4rem 1.8rem; border-bottom: 1px solid var(--rule); position: relative; }
-    .article-toc ol li:last-child { border-bottom: none; }
-    .article-toc ol li::before { content: counter(toc, decimal-leading-zero); position: absolute; left: 0; font-family: 'Bebas Neue', sans-serif; font-size: 0.85rem; color: var(--ink-dim); letter-spacing: 0.04em; }
-    .article-toc ol li a { font-family: 'Barlow Condensed', sans-serif; font-size: 0.88rem; letter-spacing: 0.06em; color: var(--ink-mid); text-decoration: none; border: none; transition: color 0.2s; }
-    .article-toc ol li a:hover { color: var(--green-dark); }
+    .article-wrap { max-width: 860px; margin: 0 auto; padding: 4rem 5vw 6rem; display: grid; grid-template-columns: 1fr 220px; gap: 5rem; align-items: start; }
 
     /* =============================================================
-       IN-ARTICLE LEAD MAGNET CTA
+       ARTICLE BODY (left column)
        ============================================================= */
-    .inline-cta {
-      background: var(--ink);
-      padding: 3rem;
-      margin: 3.5rem 0;
-      position: relative;
-      overflow: hidden;
-    }
-    .inline-cta::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: radial-gradient(ellipse 70% 80% at 80% 30%, rgba(61,220,132,0.1), transparent 65%);
-    }
+    .article-body h2 { font-family: 'Bebas Neue', sans-serif; font-size: 2.2rem; letter-spacing: 0.03em; color: var(--ink); line-height: 1; margin: 3rem 0 1.2rem; padding-top: 3rem; border-top: 1px solid var(--rule); }
+    .article-body h2:first-child { margin-top: 0; padding-top: 0; border-top: none; }
+    .article-body h3 { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.1rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink); margin: 2rem 0 0.8rem; }
+    .article-body p { font-size: 1.02rem; font-weight: 300; color: var(--ink-mid); line-height: 1.85; margin-bottom: 1.4rem; }
+    .article-body strong { font-weight: 600; color: var(--ink); }
+    .article-body ul, .article-body ol { margin: 1rem 0 1.5rem 1.2rem; }
+    .article-body li { font-size: 1rem; font-weight: 300; color: var(--ink-mid); line-height: 1.8; margin-bottom: 0.5rem; padding-left: 0.4rem; }
+    .article-body a { color: var(--green-dark); text-decoration: underline; text-decoration-color: rgba(40,176,106,0.3); transition: text-decoration-color 0.2s; }
+    .article-body a:hover { text-decoration-color: var(--green-dark); }
+
+    /* Callout block (green tint) */
+    .callout { background: var(--green-dim); border-left: 3px solid var(--green); padding: 1.5rem 2rem; margin: 2rem 0; }
+    .callout p { font-family: 'Barlow Condensed', sans-serif; font-size: 1.15rem; font-weight: 500; line-height: 1.5; color: var(--ink); letter-spacing: 0.01em; margin-bottom: 0; }
+
+    /* Insight box (dark) */
+    .insight-box { background: var(--ink); padding: 2rem 2.5rem; margin: 2.5rem 0; }
+    .insight-box-label { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--green); margin-bottom: 0.8rem; }
+    .insight-box p { font-size: 0.97rem; font-weight: 300; color: rgba(240,237,230,0.75); line-height: 1.75; margin-bottom: 0; }
+
+    /* In-article lead magnet CTA */
+    .inline-cta { background: var(--ink); padding: 2.5rem; margin: 3rem 0; position: relative; overflow: hidden; }
+    .inline-cta::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 80% at 80% 30%, rgba(61,220,132,0.1), transparent 65%); pointer-events: none; }
     .inline-cta-inner { position: relative; }
-    .inline-cta-tag {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 700;
-      font-size: 0.68rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--ink);
-      background: var(--green);
-      padding: 0.22rem 0.65rem;
-      display: inline-block;
-      margin-bottom: 1rem;
-    }
-    .inline-cta-title {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(1.8rem, 3vw, 2.4rem);
-      letter-spacing: 0.03em;
-      color: var(--bg);
-      line-height: 1;
-      margin-bottom: 0.8rem;
-    }
+    .inline-cta-tag { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink); background: var(--green); padding: 0.22rem 0.65rem; display: inline-block; margin-bottom: 0.8rem; }
+    .inline-cta-title { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 0.03em; color: var(--bg); line-height: 1; margin-bottom: 0.7rem; }
     .inline-cta-title span { color: var(--green); }
-    .inline-cta-desc {
-      font-size: 0.95rem;
-      font-weight: 300;
-      color: rgba(240,237,230,0.7);
-      line-height: 1.7;
-      max-width: 520px;
-      margin-bottom: 1.8rem;
-    }
-    .inline-cta-items {
-      list-style: none;
-      padding: 0;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-bottom: 2rem;
-    }
-    .inline-cta-items li {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 0.78rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--ink);
-      background: var(--green-dim);
-      padding: 0.2rem 0.8rem;
-      border-bottom: none;
-    }
-    .inline-cta-items li::before { display: none; }
-    .btn-inline-cta {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 700;
-      font-size: 0.88rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--ink);
-      background: var(--green);
-      padding: 1rem 2rem;
-      text-decoration: none;
-      display: inline-block;
-      transition: background 0.2s;
-      border: none;
-    }
-    .btn-inline-cta:hover { background: var(--green-dark); color: var(--white); }
+    .inline-cta-desc { font-size: 0.95rem; font-weight: 300; color: rgba(240,237,230,0.7); line-height: 1.7; max-width: 480px; margin-bottom: 1.5rem; }
+    .inline-cta-items { list-style: none; padding: 0; margin: 0 0 1.5rem; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .inline-cta-items li { font-family: 'Barlow Condensed', sans-serif; font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink); background: var(--green-dim); padding: 0.2rem 0.8rem; }
+    .btn-inline-cta { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.88rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); background: var(--green); padding: 0.9rem 1.8rem; text-decoration: none; display: inline-block; transition: background 0.2s; }
+    .btn-inline-cta:hover { background: var(--green-dark); color: var(--white); text-decoration: none; }
 
-    /* =============================================================
-       ARTICLE FOOTER / AUTHOR BIO
-       ============================================================= */
-    .article-author-bio {
-      border-top: 2px solid var(--ink);
-      padding-top: 3rem;
-      margin-top: 4rem;
-    }
-    .bio-label {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 0.72rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--green-dark);
-      display: flex; align-items: center; gap: 0.7rem;
-      margin-bottom: 1rem;
-    }
+    /* Author bio */
+    .article-author-bio { border-top: 2px solid var(--ink); padding-top: 3rem; margin-top: 4rem; }
+    .bio-label { font-family: 'Barlow Condensed', sans-serif; font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--green-dark); display: flex; align-items: center; gap: 0.7rem; margin-bottom: 1rem; }
     .bio-label::before { content: ''; width: 18px; height: 1px; background: var(--green-dark); }
     .bio-name { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; letter-spacing: 0.04em; color: var(--ink); margin-bottom: 0.8rem; }
     .bio-text { font-size: 0.95rem; font-weight: 300; color: var(--ink-mid); line-height: 1.75; margin-bottom: 1.2rem; }
     .bio-cta-row { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem; }
-    .btn-primary { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.88rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); background: var(--green); padding: 0.9rem 1.8rem; text-decoration: none; display: inline-block; transition: background 0.2s, color 0.2s; }
-    .btn-primary:hover { background: var(--green-dark); color: var(--white); }
-    .btn-outline { font-family: 'Barlow Condensed', sans-serif; font-weight: 500; font-size: 0.88rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); border: 1.5px solid rgba(17,17,17,0.3); padding: 0.9rem 1.8rem; text-decoration: none; display: inline-block; transition: border-color 0.2s, color 0.2s; }
-    .btn-outline:hover { border-color: var(--green-dark); color: var(--green-dark); }
+    .btn-primary-light { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.88rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); background: var(--green); padding: 0.9rem 1.8rem; text-decoration: none; display: inline-block; transition: background 0.2s, color 0.2s; }
+    .btn-primary-light:hover { background: var(--green-dark); color: var(--white); text-decoration: none; }
+    .btn-outline-light { font-family: 'Barlow Condensed', sans-serif; font-weight: 500; font-size: 0.88rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); border: 1.5px solid rgba(17,17,17,0.3); padding: 0.9rem 1.8rem; text-decoration: none; display: inline-block; transition: border-color 0.2s, color 0.2s; }
+    .btn-outline-light:hover { border-color: var(--green-dark); color: var(--green-dark); text-decoration: none; }
 
     /* =============================================================
-       RELATED / NEXT ARTICLES
+       SIDEBAR (right column)
        ============================================================= */
-    .related-wrap { background: var(--bg-alt); padding: 5rem 5vw; }
-    .related-inner { max-width: 760px; margin: 0 auto; }
-    .related-label { font-family: 'Barlow Condensed', sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--green-dark); display: flex; align-items: center; gap: 0.7rem; margin-bottom: 2rem; }
-    .related-label::before { content: ''; width: 18px; height: 1px; background: var(--green-dark); }
-    .related-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
-    .related-card { background: var(--bg); padding: 2.2rem; position: relative; overflow: hidden; text-decoration: none; display: block; transition: background 0.25s; }
+    .article-sidebar { position: sticky; top: 7rem; display: flex; flex-direction: column; gap: 2rem; }
+
+    /* TOC widget */
+    .toc { background: var(--bg-alt); padding: 1.5rem; }
+    .toc-label { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink); margin-bottom: 1rem; }
+    .toc-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+    .toc-list a { font-family: 'Barlow Condensed', sans-serif; font-size: 0.85rem; letter-spacing: 0.04em; color: var(--ink-dim); text-decoration: none; transition: color 0.2s; display: block; line-height: 1.4; }
+    .toc-list a:hover { color: var(--green-dark); }
+
+    /* Sidebar CTA card */
+    .sidebar-cta { background: var(--ink); padding: 1.5rem; }
+    .sidebar-cta-label { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--green); margin-bottom: 0.8rem; }
+    .sidebar-cta-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; letter-spacing: 0.04em; color: var(--bg); line-height: 1.1; margin-bottom: 0.8rem; }
+    .sidebar-cta p { font-size: 0.85rem; font-weight: 300; color: rgba(240,237,230,0.6); line-height: 1.65; margin-bottom: 1.2rem; }
+    .sidebar-btn { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); background: var(--green); padding: 0.8rem 1rem; text-decoration: none; display: block; text-align: center; transition: background 0.2s; }
+    .sidebar-btn:hover { background: var(--green-dark); color: var(--white); }
+
+    /* =============================================================
+       DIVIDER
+       ============================================================= */
+    .divider { width: 100%; height: 1px; background: var(--rule); }
+
+    /* =============================================================
+       RELATED ARTICLES
+       ============================================================= */
+    .related { max-width: 1200px; margin: 0 auto; padding: 5rem 5vw; }
+    .related-label { font-family: 'Barlow Condensed', sans-serif; font-weight: 500; font-size: 0.78rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--green-dark); display: flex; align-items: center; gap: 0.8rem; margin-bottom: 2.5rem; }
+    .related-label::before { content: ''; display: inline-block; width: 24px; height: 1px; background: var(--green-dark); }
+    .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+    .related-card { background: var(--bg-alt); padding: 2rem; text-decoration: none; display: block; position: relative; overflow: hidden; transition: background 0.3s; }
     .related-card:hover { background: var(--white); }
-    .related-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--green); transform: scaleX(0); transform-origin: left; transition: transform 0.35s ease; }
+    .related-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--green); transform: scaleX(0); transform-origin: left; transition: transform 0.4s ease; }
     .related-card:hover::before { transform: scaleX(1); }
-    .related-card-tag { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink); background: var(--green); padding: 0.2rem 0.6rem; display: inline-block; margin-bottom: 0.8rem; }
-    .related-card-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; letter-spacing: 0.04em; color: var(--ink); line-height: 1.05; margin-bottom: 0.6rem; }
-    .related-card-desc { font-size: 0.88rem; font-weight: 300; color: var(--ink-mid); line-height: 1.65; }
+    .related-tag { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink); background: var(--green); padding: 0.2rem 0.6rem; display: inline-block; margin-bottom: 1rem; }
+    .related-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.3rem; line-height: 1.05; letter-spacing: 0.02em; color: var(--ink); margin-bottom: 0.8rem; }
+    .related-excerpt { font-size: 0.88rem; font-weight: 300; color: var(--ink-mid); line-height: 1.7; }
 
     /* =============================================================
-       BOTTOM CTA SECTION
+       BOTTOM CTA
        ============================================================= */
-    .bottom-cta { background: var(--ink); position: relative; overflow: hidden; padding: 5rem 5vw; }
-    .bottom-cta::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 90% at 75% 50%, rgba(61,220,132,0.09), transparent 65%); }
-    .bottom-cta-inner { max-width: 760px; margin: 0 auto; position: relative; display: grid; grid-template-columns: 1fr auto; gap: 4rem; align-items: center; }
-    .bottom-cta-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.2rem, 4vw, 3.5rem); line-height: 0.95; letter-spacing: 0.02em; color: var(--bg); margin-bottom: 1rem; }
-    .bottom-cta-title em { font-style: normal; color: var(--green); }
-    .bottom-cta-text { font-size: 0.95rem; font-weight: 300; color: rgba(240,237,230,0.65); line-height: 1.75; max-width: 420px; }
-    .bottom-cta-actions { display: flex; flex-direction: column; gap: 1rem; min-width: 210px; }
-    .btn-cta-ghost { font-family: 'Barlow Condensed', sans-serif; font-weight: 500; font-size: 0.88rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(240,237,230,0.7); border: 1px solid rgba(240,237,230,0.22); padding: 1rem 1.8rem; text-decoration: none; display: block; text-align: center; transition: border-color 0.2s, color 0.2s; }
-    .btn-cta-ghost:hover { border-color: var(--green); color: var(--green); }
+    .bottom-cta { background: var(--ink); overflow: hidden; position: relative; }
+    .bottom-cta::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 80% at 80% 50%, rgba(61,220,132,0.08), transparent 70%); }
+    .bottom-cta-inner { max-width: 1200px; margin: 0 auto; padding: 6rem 5vw; position: relative; display: grid; grid-template-columns: 1fr auto; gap: 4rem; align-items: center; }
+    .bottom-cta h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.2rem, 4vw, 4rem); line-height: 0.95; color: var(--bg); margin-bottom: 0.8rem; }
+    .bottom-cta h2 span { color: var(--green); }
+    .bottom-cta p { font-size: 1rem; font-weight: 300; color: rgba(240,237,230,0.6); max-width: 500px; line-height: 1.7; }
+    .cta-actions { display: flex; flex-direction: column; gap: 1rem; min-width: 220px; }
+    .btn-primary { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.9rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); background: var(--green); padding: 1rem 2.2rem; text-decoration: none; display: block; text-align: center; transition: background 0.2s, color 0.2s; }
+    .btn-primary:hover { background: var(--green-dark); color: var(--white); }
+    .btn-ghost { font-family: 'Barlow Condensed', sans-serif; font-weight: 500; font-size: 0.9rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--bg); border: 1px solid rgba(240,237,230,0.25); padding: 1rem 2.2rem; text-decoration: none; display: block; text-align: center; transition: border-color 0.2s, color 0.2s; }
+    .btn-ghost:hover { border-color: var(--green); color: var(--green); }
 
     /* =============================================================
        FOOTER
        ============================================================= */
-    footer { background: var(--bg-alt); border-top: 1px solid var(--rule); }
-    .footer-top { max-width: 1200px; margin: 0 auto; padding: 4rem 5vw 3rem; display: flex; justify-content: space-between; gap: 4rem; flex-wrap: wrap; }
+    footer { background: var(--bg-alt); border-top: 1px solid var(--rule); width: 100%; display: block; }
+    .footer-top { width: 100%; max-width: 1200px; margin: 0 auto; padding: 4rem 5vw 3rem; display: flex; justify-content: space-between; gap: 4rem; flex-wrap: wrap; }
     .footer-brand { display: flex; flex-direction: column; gap: 0.8rem; }
     .footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; letter-spacing: 0.12em; color: var(--ink); text-decoration: none; }
     .footer-logo span { color: var(--green); }
-    .footer-tagline { font-family: 'Barlow Condensed', sans-serif; font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-dim); }
-    .footer-linkedin { display: inline-flex; align-items: center; gap: 0.5rem; font-family: 'Barlow Condensed', sans-serif; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-dim); text-decoration: none; margin-top: 0.4rem; transition: color 0.2s; }
+    .footer-tagline { font-family: 'Barlow Condensed', sans-serif; font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-dim); }
+    .footer-linkedin { display: inline-flex; align-items: center; gap: 0.5rem; font-family: 'Barlow Condensed', sans-serif; font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-dim); text-decoration: none; margin-top: 0.4rem; transition: color 0.2s; }
     .footer-linkedin:hover { color: var(--linkedin-blue); }
     .footer-nav-group { display: flex; gap: 4rem; flex-wrap: wrap; }
     .footer-nav-col { display: flex; flex-direction: column; gap: 1rem; }
-    .footer-nav-heading { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink); }
+    .footer-nav-heading { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink); }
     .footer-nav-links { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
-    .footer-nav-links a { font-family: 'Barlow Condensed', sans-serif; font-size: 0.85rem; letter-spacing: 0.08em; color: var(--ink-dim); text-decoration: none; transition: color 0.2s; }
+    .footer-nav-links a { font-family: 'Barlow Condensed', sans-serif; font-size: 0.88rem; letter-spacing: 0.08em; color: var(--ink-dim); text-decoration: none; transition: color 0.2s; }
     .footer-nav-links a:hover { color: var(--green-dark); }
-    .footer-bottom { border-top: 1px solid var(--rule); padding: 1.5rem 5vw; }
+    .footer-bottom { border-top: 1px solid var(--rule); padding: 1.5rem 5vw; width: 100%; }
     .footer-bottom-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
     .footer-copy { font-family: 'Barlow Condensed', sans-serif; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-dim); }
     .footer-legal { display: flex; gap: 2rem; }
@@ -511,19 +301,14 @@
     .footer-legal a:hover { color: var(--green-dark); }
 
     /* =============================================================
-       UTILITIES
-       ============================================================= */
-    .divider { width: 100%; height: 1px; background: var(--rule); }
-
-    /* =============================================================
        RESPONSIVE
        ============================================================= */
-    @media (max-width: 768px) {
-      .nav-links, .nav-ghost { display: none; }
+    @media (max-width: 900px) {
+      .article-wrap { grid-template-columns: 1fr; }
+      .article-sidebar { position: static; }
+      .bottom-cta-inner { grid-template-columns: 1fr; }
       .related-grid { grid-template-columns: 1fr; }
-      .bottom-cta-inner { grid-template-columns: 1fr; gap: 2rem; }
-      .inline-cta { padding: 2rem; }
-      .article-toc { padding: 1.5rem; }
+      .nav-links { display: none; }
     }
 
   </style>
@@ -555,7 +340,7 @@
         <a href="/company/about">Company</a>
         <div class="nav-dropdown">
           <a href="/company/about">About</a>
-          <a href="/case-studies">Case Studies</a>
+          <a href="/company/case-studies">Case Studies</a>
           <a href="/company/contact">Contact</a>
           <a href="/company/partners">Partners</a>
           <a href="/company/careers">Careers</a>
@@ -569,6 +354,7 @@
           <a href="/resources/aws-mdf-funding-checklist">MDF Funding Checklist</a>
           <a href="/resources/aws-ftr-checklist">FTR Checklist</a>
           <a href="/resources/aws-marketplace-gtm-readiness-guide">Marketplace GTM Guide</a>
+          <a href="/resources/aws-co-sell-playbook">Co-Sell Playbook</a>
         </div>
       </li>
       <li><a href="/company/contact">Contact</a></li>
@@ -580,274 +366,291 @@
   </nav>
 
   <!-- ============================================================
-       BREADCRUMB
+       DARK HERO
        ============================================================ -->
-  <div class="breadcrumb">
-    <div class="breadcrumb-inner">
-      <a href="/">Home</a><span class="breadcrumb-sep">/</span>
-      <a href="/blogs">Blog</a><span class="breadcrumb-sep">/</span>
-      <span>Co-Sell Motion</span>
+  <div class="article-hero">
+    <div class="article-hero-inner">
+      <div class="article-meta">
+        <span class="article-tag">Co-Sell</span>
+        <span class="article-dot">·</span>
+        <span class="article-read-time">11 min read</span>
+      </div>
+      <h1 class="article-title">How to Build a Co-Sell Motion with AWS Field Reps</h1>
+      <p class="article-deck">Co-selling with AWS is not about having a good product. It is about building the right relationships and showing up the right way, consistently enough that AWS field reps start routing deals to you before they route them to your competitors. Here is the playbook for making it repeatable.</p>
     </div>
   </div>
 
   <!-- ============================================================
-       ARTICLE HEADER
+       BREADCRUMB BAR
        ============================================================ -->
-  <header class="article-header">
-    <div class="article-meta">
-      <span class="article-tag">Co-Sell</span>
-      <span class="article-status">Published April 2025</span>
+  <div class="breadcrumb-wrap">
+    <div class="breadcrumb">
+      <a href="/">Home</a>
+      <span class="breadcrumb-sep">→</span>
+      <a href="/blogs">Blog</a>
+      <span class="breadcrumb-sep">→</span>
+      <span class="breadcrumb-current">Co-Sell Motion</span>
     </div>
-
-    <h1 class="article-title">How to Build a Co-Sell Motion with AWS Field Reps</h1>
-
-    <p class="article-intro">
-      Co-selling with AWS is not about having a good product. It is about building the right relationships and showing up the right way, consistently enough that AWS field reps start routing deals to you before they route them to your competitors.
-    </p>
-
-    <div class="article-byline">
-      <div class="byline-left">
-        <div>
-          <div class="byline-name">Grnmrk Group</div>
-          <div class="byline-detail">AWS Partner Growth Advisors</div>
-        </div>
-      </div>
-      <div class="byline-read">11 min read</div>
-    </div>
-  </header>
+  </div>
 
   <!-- ============================================================
-       ARTICLE BODY
+       ARTICLE LAYOUT — TWO COLUMN
        ============================================================ -->
-  <main class="article-body" id="article-content">
+  <div class="article-wrap">
 
-    <!-- Table of Contents -->
-    <nav class="article-toc" aria-label="Table of Contents">
-      <div class="article-toc-label">In This Article</div>
-      <ol>
-        <li><a href="#what-cosell-actually-means">What Co-Selling with AWS Actually Means</a></li>
-        <li><a href="#understanding-the-aws-field-org">Understanding the AWS Field Organization</a></li>
-        <li><a href="#ace-pipeline-as-foundation">Why the ACE Pipeline Is the Foundation, Not the Afterthought</a></li>
-        <li><a href="#building-relationships">Building Relationships Before You Need Them</a></li>
-        <li><a href="#qualifying-opportunities">How to Qualify a Co-Sell-Ready Opportunity</a></li>
-        <li><a href="#engaging-productively">Engaging Productively in a Live Co-Sell Deal</a></li>
-        <li><a href="#making-it-repeatable">Making the Motion Repeatable</a></li>
-        <li><a href="#measuring-the-program">Measuring Whether Your Co-Sell Program Is Working</a></li>
-        <li><a href="#cosell-playbook">Get the Full Co-Sell Playbook</a></li>
-      </ol>
-    </nav>
+    <!-- LEFT: Article body -->
+    <article class="article-body">
 
-    <!-- ── SECTION 1 ── -->
-    <h2 id="what-cosell-actually-means">What Co-Selling with AWS Actually Means</h2>
+      <!-- ── SECTION 1 ── -->
+      <h2 id="what-cosell-actually-means">What Co-Selling with AWS Actually Means</h2>
 
-    <p>The term "co-sell" gets used loosely in AWS partner conversations, and that imprecision causes real problems. Partners describe themselves as "co-selling with AWS" when they have done nothing more than list a product in the Marketplace, register an opportunity in ACE, or mention AWS in a customer conversation. None of those things, individually, constitute a co-sell motion.</p>
+      <p>The term "co-sell" gets used loosely in AWS partner conversations, and that imprecision causes real problems. Partners describe themselves as "co-selling with AWS" when they have done nothing more than list a product in the Marketplace, register an opportunity in ACE, or mention AWS in a customer conversation. None of those things, individually, constitute a co-sell motion.</p>
 
-    <p>A co-sell motion is something more specific. It is a structured, repeatable process through which your sales team and AWS field representatives work together on a shared set of customer opportunities. The AWS rep brings their customer relationships and co-sell attribution. You bring your product and technical expertise. When it works well, both sides benefit: you get access to accounts and deal velocity you could not generate alone, and AWS benefits from a partner who drives more customers deeper into the AWS ecosystem.</p>
+      <p>A co-sell motion is something more specific. It is a structured, repeatable process through which your sales team and AWS field representatives work together on a shared set of customer opportunities. The AWS rep brings their customer relationships and co-sell attribution. You bring your product and technical expertise. When it works well, both sides benefit: you get access to accounts and deal velocity you could not generate alone, and AWS benefits from a partner who drives more customers deeper into the AWS ecosystem.</p>
 
-    <p>The distinction that matters here is between <strong>co-sell eligibility</strong> and <strong>co-sell execution</strong>. Most partners focus almost entirely on eligibility, completing the prerequisites for ACE, passing the Foundational Technical Review, enrolling in the SaaS Co-sell Benefit program, and then wondering why their AWS relationship is not generating any pipeline. Eligibility is the entry ticket. Execution is the program.</p>
+      <p>The distinction that matters here is between <strong>co-sell eligibility</strong> and <strong>co-sell execution</strong>. Most partners focus almost entirely on eligibility — completing the prerequisites for ACE, passing the Foundational Technical Review, enrolling in the SaaS Co-sell Benefit program — and then wondering why their AWS relationship is not generating any pipeline. Eligibility is the entry ticket. Execution is the program.</p>
 
-    <div class="article-highlight">
-      <p><strong>The critical insight:</strong> AWS field reps are measured on revenue and customer outcomes, not on partner program metrics. They will co-sell with partners who make them look good in front of customers. Building a co-sell motion means earning that reputation, systematically.</p>
-    </div>
+      <div class="callout">
+        <p>AWS field reps are measured on revenue and customer outcomes, not on partner program metrics. They will co-sell with partners who make them look good in front of customers. Building a co-sell motion means earning that reputation, systematically.</p>
+      </div>
 
-    <!-- ── SECTION 2 ── -->
-    <h2 id="understanding-the-aws-field-org">Understanding the AWS Field Organization</h2>
+      <!-- ── SECTION 2 ── -->
+      <h2 id="understanding-the-aws-field-org">Understanding the AWS Field Organization</h2>
 
-    <p>A common mistake in AWS partner programs is treating "AWS" as a single entity. It is not. The AWS field organization is segmented, distributed, and in some respects decentralized, and the people who can actually move co-sell deals forward are not always the people you spend the most time talking to.</p>
+      <p>A common mistake in AWS partner programs is treating "AWS" as a single entity. It is not. The AWS field organization is segmented, distributed, and in some respects decentralized, and the people who can actually move co-sell deals forward are not always the people you spend the most time talking to.</p>
 
-    <p>The four roles that matter most for co-sell are:</p>
+      <h3>Partner Development Managers (PDMs)</h3>
+      <p>PDMs are your primary AWS relationship contact. They manage a portfolio of partners and are responsible for growing those partners' participation in AWS programs, including ACE, funding, and tier advancement. They can facilitate introductions to field reps and help you prioritize which opportunities to submit. What PDMs generally cannot do is source customer deals for you directly, because their book of business is partners, not customers. Expect monthly check-ins, QBR prep support, and program guidance from your PDM. Do not expect them to be the engine of your pipeline generation.</p>
 
-    <h3>Partner Development Managers (PDMs)</h3>
-    <p>PDMs are your primary AWS relationship contact. They manage a portfolio of partners and are responsible for growing those partners' participation in AWS programs, including ACE, funding, and tier advancement. They can facilitate introductions to field reps and help you prioritize which opportunities to submit. What PDMs generally cannot do is source customer deals for you directly, because their book of business is partners, not customers. Expect monthly check-ins, QBR prep support, and program guidance from your PDM. Do not expect them to be the engine of your pipeline generation.</p>
+      <h3>Partner Solutions Managers (PSMs)</h3>
+      <p>PSMs sit closer to the field than PDMs and have more direct relationships with the AWS account teams in specific territories. In practice, many partners have limited or no direct PSM contact, particularly at lower partner tiers. When you do have a PSM relationship, treat it carefully: PSMs are often the bridge between your program metrics and the field teams who source co-sell opportunities.</p>
 
-    <h3>Partner Solutions Managers (PSMs)</h3>
-    <p>PSMs sit closer to the field than PDMs and have more direct relationships with the AWS account teams in specific territories. In practice, many partners have limited or no direct PSM contact, particularly at lower partner tiers. When you do have a PSM relationship, treat it carefully: PSMs are often the bridge between your program metrics and the field teams who source co-sell opportunities.</p>
+      <h3>Territory Field AEs (Account Executives)</h3>
+      <p>Field AEs are the most important co-sell relationship you can build, and the one that most partners neglect. These are the people managing relationships with AWS enterprise and mid-market customers in specific geographic or industry segments. When a field AE has a customer who needs a capability your product delivers, and when they know who you are and trust that you will perform, they will bring you into that deal. That is the co-sell motion at its core. The challenge is that there are hundreds of field AEs across AWS, they rotate territories periodically, and most of them have never heard of your company.</p>
 
-    <h3>Territory Field AEs (Account Executives)</h3>
-    <p>Field AEs are the most important co-sell relationship you can build, and the one that most partners neglect. These are the people managing relationships with AWS enterprise and mid-market customers in specific geographic or industry segments. When a field AE has a customer who needs a capability your product delivers, and when they know who you are and trust that you will perform, they will bring you into that deal. That is the co-sell motion at its core. The challenge is that there are hundreds of field AEs across AWS, they rotate territories periodically, and most of them have never heard of your company.</p>
+      <h3>Specialists and Solutions Architects</h3>
+      <p>Within AWS, there are domain specialists in areas like security, data and analytics, migration, and industry verticals. If your product fits a specific workload or compliance requirement, building relationships with the relevant specialists can surface co-sell opportunities that a generalist field AE might not flag on their own.</p>
 
-    <h3>Specialists and Solutions Architects</h3>
-    <p>Within AWS, there are domain specialists in areas like security, data and analytics, migration, and industry verticals. If your product fits a specific workload or compliance requirement, building relationships with the relevant specialists can surface co-sell opportunities that a generalist field AE might not flag on their own.</p>
+      <div class="insight-box">
+        <div class="insight-box-label">From the Field</div>
+        <p>Most partners spend the majority of their AWS relationship time talking to the people who cannot directly source pipeline. Shifting attention toward field AEs, even incrementally, is usually the highest-leverage move available in a co-sell program.</p>
+      </div>
 
-    <div class="article-pullquote">
-      <p>Most partners spend the majority of their AWS relationship time talking to the people who cannot directly source pipeline. Shifting attention toward field AEs, even incrementally, is usually the highest-leverage move available in a co-sell program.</p>
-    </div>
+      <!-- ── SECTION 3 ── -->
+      <h2 id="ace-pipeline-as-foundation">Why the ACE Pipeline Is the Foundation, Not the Afterthought</h2>
 
-    <!-- ── SECTION 3 ── -->
-    <h2 id="ace-pipeline-as-foundation">Why the ACE Pipeline Is the Foundation, Not the Afterthought</h2>
+      <p>ACE, the AWS Customer Engagement pipeline tool in Partner Central, is the mechanism through which co-sell activity is tracked, attributed, and measured by AWS. Partners who do not use it consistently are largely invisible to the field teams they need to engage. Partners who use it well signal to AWS that they are a serious co-sell partner worth routing opportunities toward.</p>
 
-    <p>ACE, the AWS Customer Engagement pipeline tool in Partner Central, is the mechanism through which co-sell activity is tracked, attributed, and measured by AWS. Partners who do not use it consistently are largely invisible to the field teams they need to engage. Partners who use it well signal to AWS that they are a serious co-sell partner worth routing opportunities toward.</p>
+      <p>There are two common failure modes in ACE that undermine co-sell programs. The first is under-submission: companies that are actively working customer deals that involve AWS, but are not submitting those deals in ACE. The second is stale pipeline: companies that submitted opportunities months ago but have not updated them, leaving their ACE dashboard filled with closed deals, lost deals, and outdated contacts that make the whole program look inactive.</p>
 
-    <p>There are two common failure modes in ACE that undermine co-sell programs. The first is under-submission: companies that are actively working customer deals that involve AWS, but are not submitting those deals in ACE. The second is stale pipeline: companies that submitted opportunities months ago but have not updated them, leaving their ACE dashboard filled with closed deals, lost deals, and outdated contacts that make the whole program look inactive.</p>
+      <p>The practical standard for a healthy ACE pipeline, from the perspective of a partner who wants to earn co-sell attention, is this:</p>
 
-    <p>What AWS field teams actually look at when evaluating whether to engage a partner in co-sell is not the number of opportunities submitted, but the quality of the pipeline and the trajectory. They want to see a partner with active, progressing opportunities in accounts that match the field rep's territory. They want to see updates, not just initial submissions. And they want to see attribution when AWS has been involved in moving a deal forward.</p>
+      <ul>
+        <li>At least ten active opportunities submitted at any given time, across relevant accounts and stages</li>
+        <li>Opportunities updated at least monthly, with stage progression documented</li>
+        <li>AWS account IDs included for customer records wherever available</li>
+        <li>Co-sell collaboration enabled on opportunities where AWS involvement is appropriate</li>
+        <li>Closed-won outcomes submitted promptly, with revenue attributed correctly</li>
+      </ul>
 
-    <p>The practical standard for a healthy ACE pipeline, from the perspective of a partner who wants to earn co-sell attention, is this:</p>
-    <ul>
-      <li>At least ten active opportunities submitted at any given time, across relevant accounts and stages</li>
-      <li>Opportunities updated at least monthly, with stage progression documented</li>
-      <li>AWS account IDs included for customer records wherever available</li>
-      <li>Co-sell collaboration enabled on opportunities where AWS involvement is appropriate</li>
-      <li>Closed-won outcomes submitted promptly, with revenue attributed correctly</li>
-    </ul>
+      <p>Maintaining ACE pipeline at this standard is not complicated work, but it is consistent work. Most partner teams underestimate how much ongoing attention it requires and let it slip when other priorities compete for time. This is one of the primary reasons co-sell programs stall.</p>
 
-    <p>Maintaining ACE pipeline at this standard is not complicated work, but it is consistent work. Most partner teams underestimate how much ongoing attention it requires and let it slip when other priorities compete for time. This is one of the primary reasons co-sell programs stall.</p>
+      <!-- IN-ARTICLE CTA -->
+      <div class="inline-cta">
+        <div class="inline-cta-inner">
+          <div class="inline-cta-tag">Free Resource</div>
+          <h3 class="inline-cta-title">The AWS <span>Co-Sell Playbook</span></h3>
+          <p class="inline-cta-desc">ACE submission templates, a PDM engagement framework, opportunity qualification criteria, and a repeatable co-sell motion your team can execute independently. Download it free.</p>
+          <ul class="inline-cta-items">
+            <li>ACE Submission Templates</li>
+            <li>PDM Engagement Framework</li>
+            <li>Opportunity Qualification Criteria</li>
+            <li>Field Alignment Protocol</li>
+            <li>QBR Prep Guide</li>
+          </ul>
+          <a class="btn-inline-cta" href="/resources/aws-co-sell-playbook">Get the Free Playbook</a>
+        </div>
+      </div>
 
-    <!-- IN-ARTICLE CTA -->
-    <div class="inline-cta">
-      <div class="inline-cta-inner">
-        <div class="inline-cta-tag">Free Resource</div>
-        <h3 class="inline-cta-title">The AWS <span>Co-Sell Playbook</span></h3>
-        <p class="inline-cta-desc">ACE submission templates, a PDM engagement framework, opportunity qualification criteria, and a repeatable co-sell motion your team can execute independently. Download it free.</p>
-        <ul class="inline-cta-items">
-          <li>ACE Submission Templates</li>
-          <li>PDM Engagement Framework</li>
-          <li>Opportunity Qualification Criteria</li>
-          <li>Field Alignment Protocol</li>
-          <li>QBR Prep Guide</li>
+      <!-- ── SECTION 4 ── -->
+      <h2 id="building-relationships">Building Relationships Before You Need Them</h2>
+
+      <p>One of the most consistent patterns in successful co-sell programs is that the partners generating the most AWS-sourced pipeline are the ones who invested in field relationships before they needed them. This sounds obvious stated plainly, but it runs against how most partner programs actually operate in practice.</p>
+
+      <p>The typical pattern looks like this: a partner learns about co-sell, gets ACE set up, submits a few opportunities, then emails their PDM asking if any field reps in the territory have customers who might benefit from their product. The PDM may or may not respond quickly. If an introduction happens, it is with a rep who has never heard of the partner, has no context for why their product is relevant, and has forty other priorities competing for their attention. The call or meeting happens, nothing actionable comes of it, and the partner concludes that co-sell does not work for them.</p>
+
+      <p>The alternative approach starts much earlier and looks more like relationship management than sales development. Before you have active co-sell deals to discuss, you should be building awareness with the field teams in your target territories. This means attending AWS events and seeking introductions there. It means doing Immersion Days and executive briefings that get your product in front of AWS field teams in a low-pressure, educational context. It means showing up consistently in PDM check-ins with relevant market intelligence and customer stories, not just program status updates.</p>
+
+      <p>When a field AE eventually has a customer who matches your product profile, and when they have already heard your name from two or three different directions, the co-sell conversation starts from a position of credibility rather than cold outreach. That difference in starting position compounds over time and accounts for most of the variance between co-sell programs that generate consistent pipeline and those that generate occasional deals.</p>
+
+      <!-- ── SECTION 5 ── -->
+      <h2 id="qualifying-opportunities">How to Qualify a Co-Sell-Ready Opportunity</h2>
+
+      <p>Not every deal belongs in your co-sell pipeline. Submitting every opportunity to ACE regardless of AWS fit is counterproductive: it creates noise for the field teams you are trying to build credibility with, and it dilutes your ACE dashboard with deals where AWS has no meaningful role to play.</p>
+
+      <p>A co-sell-ready opportunity typically meets several of these criteria:</p>
+
+      <ul>
+        <li>The customer is an existing AWS customer, or the deal involves a workload that will run on AWS</li>
+        <li>AWS involvement would materially improve the probability of winning or the speed of closing the deal</li>
+        <li>The customer's AWS account team would benefit from knowing about this deal, either because it drives additional AWS spend or because it addresses a known account initiative</li>
+        <li>The opportunity is at a stage where AWS engagement is productive, typically past initial discovery but before formal procurement</li>
+        <li>Your team has the capacity to manage an active co-sell relationship on this deal, meaning you will respond to introductions quickly and keep the AWS team appropriately informed</li>
+      </ul>
+
+      <div class="callout">
+        <p>A smaller number of well-managed co-sell deals is consistently more productive than a large number of poorly managed ones. AWS field reps disengage quickly from partners who are slow to respond or fail to follow through.</p>
+      </div>
+
+      <!-- ── SECTION 6 ── -->
+      <h2 id="engaging-productively">Engaging Productively in a Live Co-Sell Deal</h2>
+
+      <p>When a co-sell deal is active, the mechanics of how you engage with the AWS field team matter as much as the quality of your product. Field AEs are managing large account portfolios and dozens of active deals simultaneously. Your job as a co-sell partner is to make it easy for them to include you and hard for them to regret doing so.</p>
+
+      <p>Practically, this means a few things. When an introduction is made, respond the same day and come prepared with a clear, one-page summary of your product's relevance to the specific customer and use case. Do not send the standard corporate overview deck. When you are invited to a customer meeting, prepare a joint agenda with the AWS rep in advance and coordinate on the message before you walk in. When you learn something important about the account — customer feedback, competitive dynamics, timeline changes — share it with the AWS team promptly. These are the behaviors that get you included in the next deal, and the one after that.</p>
+
+      <div class="insight-box">
+        <div class="insight-box-label">Practical Guidance</div>
+        <p>Be explicit about what you are asking from AWS at each stage of a deal. "We would find it helpful if you could introduce us to the IT leadership" is more useful to a field rep than a vague request for support. When the co-sell relationship is governed by specific, actionable asks on both sides, it runs more efficiently and produces better outcomes.</p>
+      </div>
+
+      <!-- ── SECTION 7 ── -->
+      <h2 id="making-it-repeatable">Making the Motion Repeatable</h2>
+
+      <p>The difference between a co-sell event and a co-sell motion is documentation and process. A single deal that happens to involve an AWS field rep is an event. A repeatable program requires that your team knows, without having to ask, how to identify a co-sell-ready opportunity, how to submit it in ACE, how to engage the relevant field rep, and how to manage the relationship through close.</p>
+
+      <p>This is where most partner programs stall. The co-sell knowledge lives in one or two people, typically the alliances manager and one senior AE, and it does not transfer to the broader sales organization. When the alliances manager is occupied or unavailable, co-sell activity stops. When new AEs join, they do not know the process. When the PDM changes, the relationship has to be rebuilt from scratch.</p>
+
+      <p>Building repeatability requires a written playbook that covers at minimum:</p>
+
+      <ul>
+        <li>Qualification criteria your AEs can apply independently to identify co-sell-ready deals</li>
+        <li>Standard ACE submission process with templates and field-level guidance</li>
+        <li>PDM engagement cadence, including what to bring to check-ins and how to prepare for QBRs</li>
+        <li>Field rep introduction protocol, covering how to approach initial engagement and what to prepare</li>
+        <li>Co-sell deal management standards, including communication cadence with AWS and escalation paths</li>
+        <li>Attribution and reporting process for closed-won co-sell deals</li>
+      </ul>
+
+      <p>The playbook does not have to be long. It needs to be specific enough that an AE with no prior co-sell experience can follow it without depending on the alliances manager for every step. That self-sufficiency is the marker of a mature co-sell program.</p>
+
+      <!-- ── SECTION 8 ── -->
+      <h2 id="measuring-the-program">Measuring Whether Your Co-Sell Program Is Working</h2>
+
+      <p>Partners often struggle to articulate the ROI of their co-sell investment because they are measuring the wrong things. The number of ACE submissions, the number of QBRs completed, and the number of field rep introductions made are activity metrics. They tell you whether your team is doing the work. They do not tell you whether the work is producing business outcomes.</p>
+
+      <p>The metrics that actually indicate whether a co-sell program is working are:</p>
+
+      <ul>
+        <li><strong>AWS-sourced pipeline</strong>: the dollar value of opportunities where the initial introduction or referral came through an AWS field relationship, measured quarterly</li>
+        <li><strong>Co-sell-influenced win rate</strong>: comparing the close rate on deals where AWS was actively involved versus deals where they were not, which typically shows a meaningful difference when the program is functioning well</li>
+        <li><strong>Deal velocity</strong>: whether co-sell deals are closing faster than non-co-sell deals, which is one of the primary expected benefits of AWS involvement in a deal</li>
+        <li><strong>PDM relationship quality</strong>: a qualitative assessment, updated quarterly, of whether your PDM relationship is active, whether introductions are being made, and whether your program appears prominently in the AWS view of your tier segment</li>
+      </ul>
+
+      <p>None of these metrics require sophisticated tooling to track. A quarterly review covering these four dimensions, compared against prior periods, gives you a clear enough picture to know whether the program is building momentum or stalling. Most partners do not do even this minimal analysis, which is part of why co-sell investments frequently seem to produce no visible return.</p>
+
+      <!-- ── SECTION 9 ── -->
+      <h2 id="bottom-line">The Bottom Line</h2>
+
+      <p>The frameworks covered in this article work in practice. They are drawn from building and managing co-sell programs across dozens of AWS partners at varying stages of the partner journey. Translating them into operational documents your team can actually use — ACE submission templates, a structured PDM engagement framework, and a deal qualification rubric — takes the concepts from principles to process.</p>
+
+      <p>We have packaged those documents into a single, free playbook. If you are building a co-sell motion from scratch, or trying to scale one that is currently dependent on one or two people, the playbook is a reasonable starting point. If you are further along and want to discuss the specific gaps in your program, <a href="https://calendly.com/grnmrk/30-min-consultation" target="_blank" rel="noopener noreferrer">the free strategy call</a> is the right next step.</p>
+
+      <p>If you want someone to run this for you, <a href="/services">co-sell motion design and management is one of our core services</a>. We build the ACE discipline, manage the PDM relationship, and run the field alignment program. <a href="/company/contact">Reach out</a> if you want to talk through what that looks like for your team.</p>
+
+      <!-- Author Bio -->
+      <div class="article-author-bio">
+        <div class="bio-label">Written By</div>
+        <div class="bio-name">Grnmrk Group</div>
+        <p class="bio-text">Grnmrk Group is an AWS partner advisory firm that runs partner programs for ISVs, MSPs, and channel partners. We manage ACE pipelines, MAP and MDF funding, PDM relationships, and co-sell motions on behalf of clients who want their AWS relationship to generate measurable revenue. Our team has worked inside the AWS partner ecosystem for 20+ years, across dozens of partners at every tier.</p>
+        <div class="bio-cta-row">
+          <a class="btn-primary-light" href="https://calendly.com/grnmrk/30-min-consultation" target="_blank" rel="noopener noreferrer">Book a Free Strategy Call</a>
+          <a class="btn-outline-light" href="/services">See What We Do</a>
+        </div>
+      </div>
+
+    </article><!-- end .article-body -->
+
+    <!-- RIGHT: Sticky sidebar -->
+    <aside class="article-sidebar">
+
+      <!-- TOC widget -->
+      <div class="toc">
+        <div class="toc-label">In This Guide</div>
+        <ul class="toc-list">
+          <li><a href="#what-cosell-actually-means">What Co-Selling with AWS Actually Means</a></li>
+          <li><a href="#understanding-the-aws-field-org">Understanding the AWS Field Organization</a></li>
+          <li><a href="#ace-pipeline-as-foundation">Why ACE Is the Foundation</a></li>
+          <li><a href="#building-relationships">Building Relationships Before You Need Them</a></li>
+          <li><a href="#qualifying-opportunities">How to Qualify a Co-Sell-Ready Opportunity</a></li>
+          <li><a href="#engaging-productively">Engaging in a Live Co-Sell Deal</a></li>
+          <li><a href="#making-it-repeatable">Making the Motion Repeatable</a></li>
+          <li><a href="#measuring-the-program">Measuring Whether It's Working</a></li>
+          <li><a href="#bottom-line">The Bottom Line</a></li>
         </ul>
-        <a class="btn-inline-cta" href="/resources/aws-co-sell-playbook">Get the Free Playbook</a>
       </div>
-    </div>
 
-    <!-- ── SECTION 4 ── -->
-    <h2 id="building-relationships">Building Relationships Before You Need Them</h2>
-
-    <p>One of the most consistent patterns in successful co-sell programs is that the partners generating the most AWS-sourced pipeline are the ones who invested in field relationships before they needed them. This sounds obvious stated plainly, but it runs against how most partner programs actually operate in practice.</p>
-
-    <p>The typical pattern looks like this: a partner learns about co-sell, gets ACE set up, submits a few opportunities, then emails their PDM asking if any field reps in the territory have customers who might benefit from their product. The PDM may or may not respond quickly. If an introduction happens, it is with a rep who has never heard of the partner, has no context for why their product is relevant, and has forty other priorities competing for their attention. The call or meeting happens, nothing actionable comes of it, and the partner concludes that co-sell does not work for them.</p>
-
-    <p>The alternative approach starts much earlier and looks more like relationship management than sales development. Before you have active co-sell deals to discuss, you should be building awareness with the field teams in your target territories. This means attending AWS events and seeking introductions there. It means doing Immersion Days and executive briefings that get your product in front of AWS field teams in a low-pressure, educational context. It means showing up consistently in PDM check-ins with relevant market intelligence and customer stories, not just program status updates.</p>
-
-    <p>When a field AE eventually has a customer who matches your product profile, and when they have already heard your name from two or three different directions, the co-sell conversation starts from a position of credibility rather than cold outreach. That difference in starting position compounds over time and accounts for most of the variance between co-sell programs that generate consistent pipeline and those that generate occasional deals.</p>
-
-    <!-- ── SECTION 5 ── -->
-    <h2 id="qualifying-opportunities">How to Qualify a Co-Sell-Ready Opportunity</h2>
-
-    <p>Not every deal belongs in your co-sell pipeline. Submitting every opportunity to ACE regardless of AWS fit is counterproductive: it creates noise for the field teams you are trying to build credibility with, and it dilutes your ACE dashboard with deals where AWS has no meaningful role to play.</p>
-
-    <p>A co-sell-ready opportunity typically meets several of these criteria:</p>
-
-    <ul>
-      <li>The customer is an existing AWS customer, or the deal involves a workload that will run on AWS</li>
-      <li>AWS's involvement would materially improve the probability of winning or the speed of closing the deal</li>
-      <li>The customer's AWS account team would benefit from knowing about this deal, either because it drives additional AWS spend or because it addresses a known account initiative</li>
-      <li>The opportunity is at a stage where AWS engagement is productive, typically past initial discovery but before formal procurement</li>
-      <li>Your team has the capacity to manage an active co-sell relationship on this deal, meaning you will respond to introductions quickly and keep the AWS team appropriately informed</li>
-    </ul>
-
-    <p>The last criterion is underrated. AWS field reps will disengage quickly from co-sell relationships where the partner is slow to respond, provides incomplete information, or fails to follow through on commitments made in joint customer interactions. A smaller number of well-managed co-sell deals is consistently more productive than a large number of poorly managed ones.</p>
-
-    <!-- ── SECTION 6 ── -->
-    <h2 id="engaging-productively">Engaging Productively in a Live Co-Sell Deal</h2>
-
-    <p>When a co-sell deal is active, the mechanics of how you engage with the AWS field team matter as much as the quality of your product. Field AEs are managing large account portfolios and dozens of active deals simultaneously. Your job as a co-sell partner is to make it easy for them to include you and hard for them to regret doing so.</p>
-
-    <p>Practically, this means a few things. When an introduction is made, respond the same day and come prepared with a clear, one-page summary of your product's relevance to the specific customer and use case. Do not send the standard corporate overview deck. When you are invited to a customer meeting, prepare a joint agenda with the AWS rep in advance and coordinate on the message before you walk in. When you learn something important about the account, customer feedback, competitive dynamics, timeline changes, share it with the AWS team promptly. These are the behaviors that get you included in the next deal, and the one after that.</p>
-
-    <p>It is also worth being explicit about what you are asking from AWS at each stage of a deal. "We would find it helpful if you could introduce us to the IT leadership" is more useful to a field rep than a vague request for support. When the co-sell relationship is governed by specific, actionable asks on both sides, it runs more efficiently and produces better outcomes.</p>
-
-    <!-- ── SECTION 7 ── -->
-    <h2 id="making-it-repeatable">Making the Motion Repeatable</h2>
-
-    <p>The difference between a co-sell event and a co-sell motion is documentation and process. A single deal that happens to involve an AWS field rep is an event. A repeatable program requires that your team knows, without having to ask, how to identify a co-sell-ready opportunity, how to submit it in ACE, how to engage the relevant field rep, and how to manage the relationship through close.</p>
-
-    <p>This is where most partner programs stall. The co-sell knowledge lives in one or two people, typically the alliances manager and one senior AE, and it does not transfer to the broader sales organization. When the alliances manager is occupied or unavailable, co-sell activity stops. When new AEs join, they do not know the process. When the PDM changes, the relationship has to be rebuilt from scratch.</p>
-
-    <p>Building repeatability requires a written playbook that covers at minimum:</p>
-
-    <ul>
-      <li>Qualification criteria your AEs can apply independently to identify co-sell-ready deals</li>
-      <li>Standard ACE submission process with templates and field-level guidance</li>
-      <li>PDM engagement cadence, including what to bring to check-ins and how to prepare for QBRs</li>
-      <li>Field rep introduction protocol, covering how to approach initial engagement and what to prepare</li>
-      <li>Co-sell deal management standards, including communication cadence with AWS and escalation paths</li>
-      <li>Attribution and reporting process for closed-won co-sell deals</li>
-    </ul>
-
-    <p>The playbook does not have to be long. It needs to be specific enough that an AE with no prior co-sell experience can follow it without depending on the alliances manager for every step. That self-sufficiency is the marker of a mature co-sell program.</p>
-
-    <!-- ── SECTION 8 ── -->
-    <h2 id="measuring-the-program">Measuring Whether Your Co-Sell Program Is Working</h2>
-
-    <p>Partners often struggle to articulate the ROI of their co-sell investment because they are measuring the wrong things. The number of ACE submissions, the number of QBRs completed, and the number of field rep introductions made are activity metrics. They tell you whether your team is doing the work. They do not tell you whether the work is producing business outcomes.</p>
-
-    <p>The metrics that actually indicate whether a co-sell program is working are:</p>
-
-    <ul>
-      <li><strong>AWS-sourced pipeline</strong>: the dollar value of opportunities where the initial introduction or referral came through an AWS field relationship, measured quarterly</li>
-      <li><strong>Co-sell-influenced win rate</strong>: comparing the close rate on deals where AWS was actively involved versus deals where they were not, which typically shows a meaningful difference when the program is functioning well</li>
-      <li><strong>Deal velocity</strong>: whether co-sell deals are closing faster than non-co-sell deals, which is one of the primary expected benefits of AWS involvement in a deal</li>
-      <li><strong>PDM relationship quality</strong>: a qualitative assessment, updated quarterly, of whether your PDM relationship is active, whether introductions are being made, and whether your program appears prominently in AWS's view of your tier segment</li>
-    </ul>
-
-    <p>None of these metrics require sophisticated tooling to track. A quarterly review covering these four dimensions, compared against prior periods, gives you a clear enough picture to know whether the program is building momentum or stalling. Most partners do not do even this minimal analysis, which is part of why co-sell investments frequently seem to produce no visible return.</p>
-
-    <!-- ── SECTION 9: LEAD MAGNET CALL ── -->
-    <h2 id="cosell-playbook">Get the Full Co-Sell Playbook</h2>
-
-    <p>The frameworks covered in this article work in practice. They are drawn from building and managing co-sell programs across dozens of AWS partners at varying stages of the partner journey. Translating them into operational documents your team can actually use, ACE submission templates, a structured PDM engagement framework, and a deal qualification rubric, takes the concepts from principles to process.</p>
-
-    <p>We have packaged those documents into a single, free playbook available below. If you are building a co-sell motion from scratch, or trying to scale one that is currently dependent on one or two people, the playbook is a reasonable starting point.</p>
-
-    <p>If you are further along and want to discuss the specific gaps in your program, the free strategy call linked at the bottom of this page is the right next step.</p>
-
-    <a href="/resources/aws-co-sell-playbook" class="btn-primary" style="display:inline-block; margin-top:0.5rem;">Download the Co-Sell Playbook</a>
-
-    <!-- Author Bio -->
-    <div class="article-author-bio">
-      <div class="bio-label">Written By</div>
-      <div class="bio-name">Grnmrk Group</div>
-      <p class="bio-text">Grnmrk Group is an AWS partner advisory firm that runs partner programs for ISVs, MSPs, and channel partners. We manage ACE pipelines, MAP and MDF funding, PDM relationships, and co-sell motions on behalf of clients who want their AWS relationship to generate measurable revenue. Our team has worked inside the AWS partner ecosystem for 20+ years, across dozens of partners at every tier.</p>
-      <div class="bio-cta-row">
-        <a class="btn-primary" href="https://calendly.com/grnmrk/30-min-consultation" target="_blank" rel="noopener noreferrer">Book a Free Strategy Call</a>
-        <a class="btn-outline" href="/services">See What We Do</a>
+      <!-- Sidebar CTA -->
+      <div class="sidebar-cta">
+        <div class="sidebar-cta-label">We Run This For You</div>
+        <div class="sidebar-cta-title">Co-Sell Motion Management.</div>
+        <p>We build the ACE discipline, manage the PDM relationship, and run field alignment — so your co-sell program generates pipeline without depending on one person to hold it together.</p>
+        <a class="sidebar-btn" href="https://calendly.com/grnmrk/30-min-consultation" target="_blank" rel="noopener noreferrer">Book a Free Call</a>
       </div>
-    </div>
 
-  </main>
+    </aside><!-- end .article-sidebar -->
+
+  </div><!-- end .article-wrap -->
+
+  <div class="divider"></div>
 
   <!-- ============================================================
        RELATED ARTICLES
        ============================================================ -->
-  <section class="related-wrap" aria-label="Related Articles">
-    <div class="related-inner">
-      <div class="related-label">More From the Blog</div>
-      <div class="related-grid">
-        <a class="related-card" href="/blogs">
-          <div class="related-card-tag">MAP Funding</div>
-          <div class="related-card-title">How to Get MAP Funding Approved on the First Submission</div>
-          <p class="related-card-desc">The documentation requirements, ACE prerequisites, and common denial reasons that determine whether your MAP application succeeds or comes back rejected.</p>
-        </a>
-        <a class="related-card" href="/blogs">
-          <div class="related-card-tag">AWS Marketplace</div>
-          <div class="related-card-title">Why Your Marketplace Listing Is Not Generating Transactions</div>
-          <p class="related-card-desc">Most Marketplace listings sit idle not because the product is wrong, but because the motion behind the listing is incomplete. Here is what to fix first.</p>
-        </a>
-      </div>
+  <div class="related">
+    <div class="related-label">Keep Reading</div>
+    <div class="related-grid">
+      <a class="related-card" href="/blogs/aws-select-to-advanced-partner-tier">
+        <div class="related-tag">Tier Advancement</div>
+        <div class="related-title">How to Advance from AWS Select to Advanced Partner Tier</div>
+        <p class="related-excerpt">ACE pipeline is one of the key signals in tier advancement. Here's the full 90-day plan to close the gap from Select to Advanced.</p>
+      </a>
+      <a class="related-card" href="/blogs/aws-ace-pipeline-management-guide">
+        <div class="related-tag">ACE Pipeline</div>
+        <div class="related-title">The Complete Guide to AWS ACE Pipeline Management</div>
+        <p class="related-excerpt">ACE is how AWS decides which partners get co-sell priority. Here's how to manage it in a way that actually moves your PDM to act.</p>
+      </a>
+      <a class="related-card" href="/resources/aws-co-sell-playbook">
+        <div class="related-tag">Free Resource</div>
+        <div class="related-title">The AWS Co-Sell Playbook</div>
+        <p class="related-excerpt">ACE submission templates, PDM engagement framework, opportunity qualification criteria, and field alignment protocol. Free download.</p>
+      </a>
     </div>
-  </section>
+  </div>
+
+  <div class="divider"></div>
 
   <!-- ============================================================
        BOTTOM CTA
        ============================================================ -->
-  <section class="bottom-cta">
+  <div class="bottom-cta">
     <div class="bottom-cta-inner">
       <div>
-        <h2 class="bottom-cta-title">Want help building a co-sell motion <em>that produces pipeline</em>?</h2>
-        <p class="bottom-cta-text">Grnmrk Group builds and runs co-sell programs for AWS partners. We bring the ACE discipline, the field relationships, and the playbooks. Book a free strategy call and we will tell you where we would focus first.</p>
+        <h2>Want Us to Build Your<br><span>Co-Sell Motion?</span></h2>
+        <p>We build and run co-sell programs for AWS partners. ACE pipeline management, PDM relationship, field alignment, and the playbooks your team needs to execute independently. You focus on closing deals. We make sure AWS routes them to you.</p>
       </div>
-      <div class="bottom-cta-actions">
-        <a class="btn-primary" href="https://calendly.com/grnmrk/30-min-consultation" target="_blank" rel="noopener noreferrer">Book a Free Call</a>
-        <a class="btn-cta-ghost" href="mailto:hello@grnmrk.com">Send an Email</a>
+      <div class="cta-actions">
+        <a class="btn-primary" href="https://calendly.com/grnmrk/30-min-consultation" target="_blank" rel="noopener noreferrer">Book a Free Strategy Call</a>
+        <a class="btn-ghost" href="/services">View All Services</a>
       </div>
     </div>
-  </section>
+  </div>
 
   <!-- ============================================================
        FOOTER
        ============================================================ -->
-<footer>
+ <footer>
   <div class="footer-top">
     <div class="footer-brand">
       <a class="footer-logo" href="/"><span>G</span>RNMRK GROUP</a>

@@ -260,42 +260,10 @@ body { background: var(--bg); color: var(--ink); font-family: 'Barlow', sans-ser
   </div>
 </div>
 
-<div class="doc-footer">
-  <a href="https://www.grnmrk.com" class="footer-brand"><span>G</span>RNMRK GROUP</a>
-  <div class="footer-note">grnmrk.com &nbsp;&middot;&nbsp; hello@grnmrk.com</div>
-</div>
-
-<script>
-const FORMSPREE = 'https://formspree.io/f/xyklvkbz';
-const STORAGE_KEY = 'grnmrk-ftr';
-(function() {
-  try { if (localStorage.getItem(STORAGE_KEY + '-v') === '1') { unlock(); return; } } catch(e) {}
-  document.getElementById('leadForm').addEventListener('submit', async function(e) {
-    e.preventDefault();
-    const btn = document.getElementById('submitBtn'); const err = document.getElementById('formError');
-    btn.textContent = 'Sending...'; btn.disabled = true; err.style.display = 'none';
-    try {
-      const r = await fetch(FORMSPREE, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify({ name: this.name.value, email: this.email.value, company: this.company.value, source: 'FTR Checklist', page: window.location.href }) });
-      if (r.ok) {
-        document.getElementById('gateForm').style.display = 'none'; document.getElementById('formSuccess').style.display = 'block';
-        try { localStorage.setItem(STORAGE_KEY + '-v', '1'); } catch(e) {}
-        setTimeout(() => { const fw = document.getElementById('formWrap'); fw.style.transition = 'opacity 0.5s'; fw.style.opacity = '0'; setTimeout(() => { fw.style.display = 'none'; unlock(); }, 500); }, 1800);
-      } else { throw new Error(); }
-    } catch(e) { err.style.display = 'block'; btn.textContent = 'Get Access'; btn.disabled = false; }
-  });
-})();
-function unlock() {
-  const c = document.getElementById('checklistContent'); c.classList.add('unlocked'); c.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  const cbs = document.querySelectorAll('.checklist input[type="checkbox"]');
-  const bar = document.getElementById('progressBar'); const cnt = document.getElementById('progressCount'); const total = cbs.length;
-  function upd() { const ch = [...cbs].filter(x => x.checked).length; bar.style.width = (ch/total*100) + '%'; cnt.textContent = ch + ' / ' + total; cbs.forEach(cb => cb.closest('.checklist-item').classList.toggle('checked', cb.checked)); }
-  upd(); cbs.forEach(cb => cb.addEventListener('change', upd));
-}
-</script>
-
 <!-- ============================================================
        FOOTER
        ============================================================ -->
+  <div class="doc-footer"></div>
   <footer>
     <div class="footer-top">
       <div class="footer-brand">
@@ -351,6 +319,37 @@ function unlock() {
       </div>
     </div>
   </footer>
+</div>
+
+<script>
+const FORMSPREE = 'https://formspree.io/f/xyklvkbz';
+const STORAGE_KEY = 'grnmrk-ftr';
+(function() {
+  try { if (localStorage.getItem(STORAGE_KEY + '-v') === '1') { unlock(); return; } } catch(e) {}
+  document.getElementById('leadForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const btn = document.getElementById('submitBtn'); const err = document.getElementById('formError');
+    btn.textContent = 'Sending...'; btn.disabled = true; err.style.display = 'none';
+    try {
+      const r = await fetch(FORMSPREE, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify({ name: this.name.value, email: this.email.value, company: this.company.value, source: 'FTR Checklist', page: window.location.href }) });
+      if (r.ok) {
+        document.getElementById('gateForm').style.display = 'none'; document.getElementById('formSuccess').style.display = 'block';
+        try { localStorage.setItem(STORAGE_KEY + '-v', '1'); } catch(e) {}
+        setTimeout(() => { const fw = document.getElementById('formWrap'); fw.style.transition = 'opacity 0.5s'; fw.style.opacity = '0'; setTimeout(() => { fw.style.display = 'none'; unlock(); }, 500); }, 1800);
+      } else { throw new Error(); }
+    } catch(e) { err.style.display = 'block'; btn.textContent = 'Get Access'; btn.disabled = false; }
+  });
+})();
+function unlock() {
+  const c = document.getElementById('checklistContent'); c.classList.add('unlocked'); c.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  const cbs = document.querySelectorAll('.checklist input[type="checkbox"]');
+  const bar = document.getElementById('progressBar'); const cnt = document.getElementById('progressCount'); const total = cbs.length;
+  function upd() { const ch = [...cbs].filter(x => x.checked).length; bar.style.width = (ch/total*100) + '%'; cnt.textContent = ch + ' / ' + total; cbs.forEach(cb => cb.closest('.checklist-item').classList.toggle('checked', cb.checked)); }
+  upd(); cbs.forEach(cb => cb.addEventListener('change', upd));
+}
+</script>
+
+
 
 </body>
 </html>

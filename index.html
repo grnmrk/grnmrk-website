@@ -87,12 +87,13 @@
       max-width: 1280px; margin: 0 auto;
     }
     .logo {
-      font-size: 20px; font-weight: 700; letter-spacing: -0.01em;
-      color: var(--ink); text-decoration: none;
-      display: flex; align-items: center; gap: 2px;
+      text-decoration: none;
+      display: flex; align-items: center;
     }
-    .logo-g { color: var(--accent); font-size: 22px; }
-    .logo-dot { color: var(--accent); }
+    .logo img {
+      height: 32px; width: auto;
+      display: block;
+    }
 
     .nav-links { display: flex; gap: 32px; list-style: none; }
     .nav-links a {
@@ -590,22 +591,29 @@
       border-bottom: 1px solid rgba(255,255,255,0.07);
     }
     .footer-logo {
-      font-size: 20px; font-weight: 700;
-      color: white; text-decoration: none;
-      margin-bottom: 20px; display: block;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 20px;
     }
-    .footer-logo .logo-g { color: var(--accent); }
+    .footer-logo img {
+      height: 28px; width: auto;
+      display: block;
+      /* Invert dark logo for dark footer background */
+      filter: brightness(0) invert(1);
+    }
+
     .footer-tagline {
       font-size: 14.5px; line-height: 1.65;
       color: var(--footer-text); max-width: 340px; margin-bottom: 28px;
     }
-    .footer-badge {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 6px 14px; margin-right: 8px;
-      border: 1px solid rgba(255,255,255,0.14); border-radius: 8px;
-      font-size: 11.5px; letter-spacing: 0.08em; text-transform: uppercase;
-      color: rgba(255,255,255,0.4); font-weight: 600;
+    .footer-icons {
+      display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
     }
+    .footer-aws-link { display: inline-block; transition: filter 0.2s; }
+    .footer-aws-link img { height: 52px; width: auto; display: block; }
+    .footer-aws-link:hover { filter: brightness(0) saturate(100%) invert(60%) sepia(95%) saturate(600%) hue-rotate(2deg) brightness(105%); }
+    .footer-linkedin-icon { display: inline-flex; align-items: center; justify-content: center; transition: color 0.2s; color: rgba(255,255,255,0.55); text-decoration: none; }
+    .footer-linkedin-icon:hover {--linkedin-blue: #0077B5; }
     .footer-col h4 {
       font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase;
       color: white; font-weight: 700; margin-bottom: 18px;
@@ -661,7 +669,7 @@
   <nav class="nav">
     <div class="nav-inner">
       <a class="logo" href="/">
-        <span class="logo-g">g</span>rnmrk<span class="logo-dot">.</span>
+        <img src="/grnmrk-logo-full-green-g-dot-transparent.png" alt="Grnmrk Group">
       </a>
 
       <ul class="nav-links">
@@ -723,8 +731,7 @@
       </div>
 
       <h1>
-        Turn your AWS partnership into <span class="cycling" id="cyclingWord">revenue</span><br>
-        &mdash; for real.
+        Turn your AWS partnership into <span class="cycling" id="cyclingWord">revenue</span>.
       </h1>
 
       <p class="hero-sub">
@@ -777,7 +784,7 @@
         <div>
           <h2>Strategic AWS partner operations to <em>accelerate revenue growth.</em></h2>
           <p>We've worked inside AWS partner programs across dozens of ISVs, MSPs, and channel partners. We know what stalls co-sell, what gets MAP denied, and what separates a Marketplace listing that transacts from one that sits idle.</p>
-          <p>Grnmrk Group acts as the operating layer behind your AWS partnership — handling the programs, processes, and relationships that turn partner status into pipeline.</p>
+          <p>Grnmrk Group acts as the operating layer behind your AWS partnership, handling the programs, processes, and relationships that turn partner status into pipeline.</p>
           <a class="btn btn-ghost" href="/company/about" style="margin-top:8px;">
             Why Grnmrk <span class="btn-arrow">&#8594;</span>
           </a>
@@ -795,7 +802,7 @@
         <div>
           <div class="section-eyebrow">Services</div>
           <h2>Five service lines covering the full AWS partner <em>lifecycle.</em></h2>
-          <p>From first FTR submission to fractional alliances leadership &mdash; we handle the whole program.</p>
+          <p>From first FTR submission to fractional alliances leadership. We handle the whole program.</p>
         </div>
         <a class="btn btn-ghost" href="/services">All Services <span class="btn-arrow">&#8594;</span></a>
       </div>
@@ -804,16 +811,16 @@
 
         <a class="service-card featured" href="/services/aws-marketplace">
           <div>
-            <div class="card-num">&mdash; 01</div>
+            <div class="card-num">01</div>
             <div class="card-name">AWS Marketplace</div>
-            <div class="card-tagline">Listings, co-sell, private offers,<br>and CPPO &mdash; as one motion.</div>
-            <p class="card-desc">FTR preparation, listing setup and optimization, SaaS Co-sell Benefit enrollment, private offer strategy, and CPPO channel program execution &mdash; run as a single coordinated program.</p>
+            <div class="card-tagline">Listings, co-sell, private offers,<br>and CPPO, as one motion.</div>
+            <p class="card-desc">FTR preparation, listing setup and optimization, SaaS Co-sell Benefit enrollment, private offer strategy, and CPPO channel program execution, run as a single coordinated program.</p>
           </div>
           <span class="card-cta-btn">Explore &#8594;</span>
         </a>
 
         <a class="service-card" href="/services/managed-operations">
-          <div class="card-num">&mdash; 02</div>
+          <div class="card-num">02</div>
           <div class="card-name">Managed Partner Operations</div>
           <div class="card-tagline">Your program, fully managed.</div>
           <p class="card-desc">ACE pipeline hygiene, MAP and MDF funding submissions, PDM relationship cadence, certification tracking, and monthly executive reporting.</p>
@@ -821,7 +828,7 @@
         </a>
 
         <a class="service-card" href="/services/strategy-consulting">
-          <div class="card-num">&mdash; 03</div>
+          <div class="card-num">03</div>
           <div class="card-name">Strategy Consulting</div>
           <div class="card-tagline">Fixed scope. Specific output.</div>
           <p class="card-desc">Tier acceleration plans, co-sell playbooks, Marketplace GTM strategies, and AWS funding audits. Most engagements complete in two to four weeks.</p>
@@ -829,15 +836,15 @@
         </a>
 
         <a class="service-card" href="/services/fractional-alliances-leader">
-          <div class="card-num">&mdash; 04</div>
+          <div class="card-num">04</div>
           <div class="card-name">Fractional Alliances Leader</div>
           <div class="card-tagline">Senior leadership,<br>without the full-time hire.</div>
-          <p class="card-desc">We own the AWS relationship, run the partner program, and represent the function at the executive level &mdash; as embedded, fractional leadership.</p>
+          <p class="card-desc">We own the AWS relationship, run the partner program, and represent the function at the executive level, as embedded fractional leadership.</p>
           <span class="card-link">Learn More &#8594;</span>
         </a>
 
         <a class="service-card" href="/services/partner-revenue-generation">
-          <div class="card-num">&mdash; 05</div>
+          <div class="card-num">05</div>
           <div class="card-name">Partner Revenue Generation</div>
           <div class="card-tagline">AWS-aligned demand that<br>generates real pipeline.</div>
           <p class="card-desc">Immersion Days, co-branded field campaigns, private offer drives, and joint customer success stories that build durable AWS field relationships.</p>
@@ -912,7 +919,7 @@
 
         <div class="testimonial">
           <div class="testimonial-badge">Co-Sell Motion</div>
-          <div class="testimonial-quote">We enrolled in SaaS Co-sell Benefit over a year ago and never saw a single AWS-sourced deal. Grnmrk rebuilt the motion from scratch &mdash; 11 new opportunities and $1.4M in pipeline in 90 days.</div>
+          <div class="testimonial-quote">We enrolled in SaaS Co-sell Benefit over a year ago and never saw a single AWS-sourced deal. Grnmrk rebuilt the motion from scratch: 11 new opportunities and $1.4M in pipeline in 90 days.</div>
           <div class="testimonial-metrics">
             <div class="t-metric"><div class="t-val">11</div><div class="t-label">AWS-sourced<br>opportunities</div></div>
             <div class="t-metric"><div class="t-val">$1.4M</div><div class="t-label">Co-sell<br>pipeline</div></div>
@@ -929,7 +936,7 @@
 
         <div class="testimonial">
           <div class="testimonial-badge">Managed Operations</div>
-          <div class="testimonial-quote">We didn't have anyone who owned the AWS relationship internally. Grnmrk stepped in as our fractional alliances function &mdash; MAP approvals, PDM cadence, ACE hygiene &mdash; everything we'd been missing.</div>
+          <div class="testimonial-quote">We didn't have anyone who owned the AWS relationship internally. Grnmrk stepped in as our fractional alliances function: MAP approvals, PDM cadence, ACE hygiene, and everything we'd been missing.</div>
           <div class="testimonial-metrics">
             <div class="t-metric"><div class="t-val">$187K</div><div class="t-label">MAP funding<br>captured</div></div>
             <div class="t-metric"><div class="t-val">60d</div><div class="t-label">To first<br>approval</div></div>
@@ -1046,12 +1053,22 @@
       <div class="footer-top">
         <div>
           <a class="footer-logo" href="/">
-            <span class="logo-g">g</span>rnmrk<span style="color:var(--accent)">.</span>
+            <img src="/grnmrk-logo-full-green-g-dot-transparent.png" alt="Grnmrk Group">
           </a>
-          <p class="footer-tagline">Grnmrk Group runs AWS partner programs for ISVs, MSPs, and channel partners &mdash; delivering pipeline, funding, and Marketplace revenue.</p>
-          <div>
-            <span class="footer-badge">AWS Partner</span>
-            <a class="footer-badge" href="https://www.linkedin.com/company/grnmrk-group/" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">LinkedIn</a>
+          <p class="footer-tagline">Grnmrk Group runs AWS partner programs for ISVs, MSPs, and channel partners, delivering pipeline, funding, and Marketplace revenue.</p>
+          <div class="footer-icons">
+            <a class="footer-aws-link" href="https://aws.amazon.com/marketplace/seller-profile?id=seller-6mau6z4y6twno" target="_blank" rel="noopener noreferrer" aria-label="AWS Partner Network">
+              <img src="/aws-logo.png" alt="AWS Partner">
+            </a>
+            <a class="footer-linkedin-icon" href="https://www.linkedin.com/company/grnmrk-group/" target="_blank" rel="noopener noreferrer" aria-label="Grnmrk Group on LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="3" ry="3"/>
+                <line x1="8" y1="11" x2="8" y2="16"/>
+                <line x1="8" y1="8" x2="8" y2="8.01"/>
+                <line x1="12" y1="16" x2="12" y2="11"/>
+                <path d="M16 16v-3a2 2 0 0 0-4 0"/>
+              </svg>
+            </a>
           </div>
         </div>
 

@@ -106,12 +106,17 @@
 
     .nav-item { position: relative; }
     .nav-dropdown {
-      display: none; position: absolute;
-      top: calc(100% + 8px); left: 50%; transform: translateX(-50%);
-      background: white; border: 1px solid var(--line);
-      border-radius: 12px; box-shadow: 0 12px 40px rgba(17,17,17,0.12);
-      min-width: 220px; padding: 8px 0; z-index: 200;
-    }
+  display: none; position: absolute;
+  top: 100%; left: 50%; transform: translateX(-50%);
+  padding-top: 8px;
+  background: transparent;
+  z-index: 200;
+}
+.nav-dropdown-inner {
+  background: white; border: 1px solid var(--line);
+  border-radius: 12px; box-shadow: 0 12px 40px rgba(17,17,17,0.12);
+  min-width: 220px; padding: 8px 0;
+}
     .nav-dropdown a {
       display: block; padding: 9px 20px;
       font-size: 13.5px; font-weight: 500; color: var(--slate);
@@ -678,6 +683,7 @@
         <li class="nav-item has-dropdown">
           <a href="/services">Services</a>
           <div class="nav-dropdown">
+            <div class="nav-dropdown-inner">
             <a href="/services">Services Overview</a>
             <a href="/services/aws-marketplace">AWS Marketplace</a>
             <a href="/services/managed-operations">Managed Operations</a>
@@ -686,6 +692,7 @@
             <a href="/services/partner-revenue-generation">Revenue Generation</a>
             <a href="/services/foundational-technical-review">FTR Preparation</a>
             <a href="/services/fractional-pdm">Fractional PDM</a>
+          </div>
           </div>
         </li>
         <li><a href="/pricing">Pricing</a></li>

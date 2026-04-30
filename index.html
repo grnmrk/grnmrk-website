@@ -612,8 +612,12 @@
     .footer-aws-link { display: inline-block; transition: filter 0.2s; }
     .footer-aws-link img { height: 52px; width: auto; display: block; }
     .footer-aws-link:hover { filter: brightness(0) saturate(100%) invert(60%) sepia(95%) saturate(600%) hue-rotate(2deg) brightness(105%); }
-    .footer-linkedin-icon { display: inline-flex; align-items: center; justify-content: center; transition: color 0.2s; color: rgba(255,255,255,0.55); text-decoration: none; }
-    .footer-linkedin-icon:hover {--linkedin-blue: #0077B5; }
+    .footer-linkedin-icon { display: inline-block; text-decoration: none; }
+    .footer-linkedin-icon img { height: 28px; width: auto; display: block; }
+    .footer-linkedin-icon .li-default { display: block; }
+    .footer-linkedin-icon .li-hover { display: none; }
+    .footer-linkedin-icon:hover .li-default { display: none; }
+    .footer-linkedin-icon:hover .li-hover { display: block; }
     .footer-col h4 {
       font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase;
       color: white; font-weight: 700; margin-bottom: 18px;
@@ -1061,14 +1065,9 @@
               <img src="/aws-logo_copy.png" alt="AWS Partner">
             </a>
             <a class="footer-linkedin-icon" href="https://www.linkedin.com/company/grnmrk-group/" target="_blank" rel="noopener noreferrer" aria-label="Grnmrk Group on LinkedIn">
-              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="2" y="2" width="20" height="20" rx="3" ry="3"/>
-                <line x1="8" y1="11" x2="8" y2="16"/>
-                <line x1="8" y1="8" x2="8" y2="8.01"/>
-                <line x1="12" y1="16" x2="12" y2="11"/>
-                <path d="M16 16v-3a2 2 0 0 0-4 0"/>
-              </svg>
-            </a>
+          <img class="li-default" src="/LinkedIn_Symbol_1.png" alt="LinkedIn">
+           <img class="li-hover" src="/LinkedIn_Symbol_1 copy.png" alt="LinkedIn">
+          </a>
           </div>
         </div>
 

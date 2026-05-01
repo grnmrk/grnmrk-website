@@ -1,709 +1,802 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Partners — Grnmrk Group</title>
-<meta name="description" content="Grnmrk Group is an AWS Partner. Learn about the partners we work with, our referral program, and the AWS program credentials we hold.">
-<link rel="icon" type="image/png" href="/favicon-transparent.png">
-<link rel="apple-touch-icon" href="/favicon-transparent.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;1,300&family=Barlow+Condensed:wght@500;700&display=swap" rel="stylesheet">
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  :root {
-    --bg:          #F0EDE6;
-    --bg-alt:      #E8E4DC;
-    --ink:         #111111;
-    --ink-mid:     #3A3A3A;
-    --ink-dim:     #7A7369;
-    --green:       #3DDC84;
-    --green-dark:  #28B06A;
-    --green-dim:   #D4F5E5;
-    --rule:        rgba(17,17,17,0.1);
-    --white:       #FFFFFF;
-  }
+  <!-- ============================================================
+       META & SEO
+  ============================================================ -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Partners — Grnmrk Group</title>
+  <meta name="description" content="Grnmrk Group is an AWS Partner. Learn about the partners we work with, our referral program, and the AWS program credentials we hold.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.grnmrk.com/company/partners">
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
 
-  html { scroll-behavior: smooth; }
-  body { background: var(--bg); color: var(--ink); font-family: 'Barlow', sans-serif; font-weight: 300; font-size: 17px; line-height: 1.7; overflow-x: hidden; }
+  <!-- ============================================================
+       ASSETS
+  ============================================================ -->
+  <link rel="icon" type="image/png" href="/favicon-transparent.png">
+  <link rel="apple-touch-icon" href="/favicon-transparent.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 
-  /* NAV */
- nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 1.2rem 5vw;
-  background: rgba(240,237,230,0.94);
-  backdrop-filter: blur(14px);
-  border-bottom: 1px solid var(--rule);
-  transition: padding 0.3s;
-}
-nav.scrolled { padding: 0.9rem 5vw; }
-.nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.7rem; letter-spacing: 0.12em; color: var(--ink); text-decoration: none; }
-.nav-logo span { color: var(--green); }
-.nav-links { display: flex; gap: 2rem; list-style: none; }
-.nav-links a { font-family: 'Barlow Condensed', sans-serif; font-weight: 500; font-size: 0.82rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-dim); text-decoration: none; transition: color 0.2s; }
-.nav-links a:hover { color: var(--ink); }
-/* DROPDOWNS */
-.nav-item { position: relative; }
+  <!-- Crisp Chat -->
+  <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="f635b745-e538-474c-a47f-3e1f4466424c";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
 
-.nav-dropdown {
-  display: none;
-  position: absolute;
-  top: calc(100%);
-  left: 50%;
-  transform: translateX(-50%);
-  background: var(--white);
-  border: 1px solid var(--rule);
-  box-shadow: 0 8px 32px rgba(17,17,17,0.1);
-  min-width: 220px;
-  padding: 0.6rem 0;
-  z-index: 200;
-}
+  <!-- ============================================================
+       STYLES
+  ============================================================ -->
+  <style>
 
-.nav-dropdown::before {
-  content: '';
-  position: absolute;
-  top: -6px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 10px;
-  height: 10px;
-  background: var(--white);
-  border-left: 1px solid var(--rule);
-  border-top: 1px solid var(--rule);
-  rotate: 45deg;
-}
+    /* ==========================================================
+       TOKENS
+    ========================================================== */
+    :root {
+      --bg:           #F0EDE6;
+      --bg-soft:      #E8E4DC;
+      --ink:          #111111;
+      --ink-soft:     #2A2A2A;
+      --slate:        #7A7369;
+      --slate-light:  #A09890;
+      --line:         #D8D4CC;
+      --accent:       #3DDC84;
+      --accent-hover: #28B06A;
+      --accent-dim:   #D4F5E5;
+      --footer-bg:    #0D0D0D;
+      --footer-text:  #9A9490;
+    }
 
-.nav-dropdown a {
-  display: block;
-  padding: 0.55rem 1.4rem;
-  font-family: 'Barlow Condensed', sans-serif;
-  font-weight: 500;
-  font-size: 0.82rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--ink-dim);
-  text-decoration: none;
-  transition: color 0.15s, background 0.15s;
-  white-space: nowrap;
-}
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Onest', -apple-system, sans-serif;
+      background: var(--bg); color: var(--ink);
+      font-weight: 400; line-height: 1.55;
+      -webkit-font-smoothing: antialiased; overflow-x: hidden;
+    }
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 32px; }
 
-.nav-dropdown a:hover {
-  color: var(--ink);
-  background: var(--bg);
-}
+    /* ==========================================================
+       NAVIGATION
+    ========================================================== */
+    .nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(240,237,230,0.88);
+      backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      height: 72px; padding: 0 32px;
+      max-width: 1280px; margin: 0 auto;
+    }
+    .logo { text-decoration: none; display: flex; align-items: center; }
+    .logo img { height: 96px; width: auto; display: block; }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a { color: var(--ink); text-decoration: none; font-size: 14.5px; font-weight: 500; display: flex; align-items: center; gap: 4px; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--accent-hover); }
+    .nav-item { position: relative; }
+    .nav-dropdown { display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); padding-top: 8px; background: transparent; z-index: 200; }
+    .nav-dropdown-inner { background: white; border: 1px solid var(--line); border-radius: 12px; box-shadow: 0 12px 40px rgba(17,17,17,0.12); min-width: 220px; padding: 8px 0; }
+    .nav-dropdown a { display: block; padding: 9px 20px; font-size: 13.5px; font-weight: 500; color: var(--slate); transition: color 0.15s, background 0.15s; white-space: nowrap; text-decoration: none; }
+    .nav-dropdown a:hover { color: var(--ink); background: var(--bg); }
+    .has-dropdown:hover .nav-dropdown { display: block; }
+    .has-dropdown > a::after { content: ' ↓'; font-size: 10px; opacity: 0.45; }
+    .nav-cta-group { display: flex; align-items: center; gap: 20px; }
+    .nav-email { color: var(--slate); text-decoration: none; font-size: 13.5px; font-weight: 500; transition: color 0.2s; }
+    .nav-email:hover { color: var(--ink); }
 
-.has-dropdown:hover .nav-dropdown { display: block; }
-.has-dropdown > a::after {
-  content: ' ↓';
-  font-size: 0.65rem;
-  opacity: 0.5;
-  letter-spacing: 0;
-}
-.nav-right { display: flex; align-items: center; gap: 1.5rem; }
-.nav-ghost { font-family: 'Barlow Condensed', sans-serif; font-weight: 500; font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-dim); text-decoration: none; transition: color 0.2s; }
-.nav-ghost:hover { color: var(--ink); }
-.nav-cta { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); background: var(--green); padding: 0.5rem 1.3rem; text-decoration: none; transition: background 0.2s; }
-.nav-cta:hover { background: var(--green-dark); color: var(--white); }
+    /* ==========================================================
+       BUTTONS
+    ========================================================== */
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 11px 22px; border-radius: 999px; font-size: 14px; font-weight: 600; font-family: inherit; text-decoration: none; border: none; cursor: pointer; transition: all 0.2s ease; letter-spacing: -0.01em; }
+    .btn-primary { background: var(--ink); color: var(--bg); }
+    .btn-primary:hover { background: var(--accent-hover); color: white; transform: translateY(-1px); }
+    .btn-accent { background: var(--accent); color: var(--ink); }
+    .btn-accent:hover { background: var(--accent-hover); color: white; transform: translateY(-1px); }
+    .btn-ghost-light { background: transparent; color: var(--bg); border: 1.5px solid rgba(240,237,230,0.35); }
+    .btn-ghost-light:hover { border-color: var(--accent); color: var(--accent); }
+    .btn-arrow { display: inline-block; transition: transform 0.2s; }
+    .btn:hover .btn-arrow { transform: translateX(3px); }
 
-  /* PAGE HERO */
-  .page-hero { padding: 10rem 5vw 6rem; max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: end; }
-  .page-eyebrow { font-family: 'Barlow Condensed', sans-serif; font-size: 0.78rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--green-dark); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.8rem; }
-  .page-eyebrow::before { content: ''; display: inline-block; width: 24px; height: 1px; background: var(--green-dark); }
-  .page-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3.5rem, 7vw, 7rem); line-height: 0.92; letter-spacing: 0.02em; color: var(--ink); }
-  .page-intro { font-size: 1.1rem; font-weight: 300; color: var(--ink-mid); line-height: 1.8; }
+    /* ==========================================================
+       SHARED
+    ========================================================== */
+    .section-eyebrow { font-size: 12.5px; color: var(--slate); letter-spacing: 0.09em; text-transform: uppercase; font-weight: 600; position: relative; padding-left: 22px; margin-bottom: 20px; display: inline-block; }
+    .section-eyebrow::before { content: ''; position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 14px; height: 1px; background: var(--accent-hover); }
+    .section-title { font-size: clamp(26px, 3.4vw, 44px); font-weight: 500; line-height: 1.08; letter-spacing: -0.03em; margin-bottom: 16px; }
+    .section-title em { font-family: 'Instrument Serif', serif; font-weight: 400; font-style: italic; color: var(--accent-hover); }
+    .section-body { font-size: 16px; color: var(--slate); max-width: 640px; line-height: 1.68; margin-bottom: 48px; }
 
-  .divider { width: 100%; height: 1px; background: var(--rule); }
+    /* ==========================================================
+       PAGE HERO
+    ========================================================== */
+    .page-hero { padding: 80px 0 72px; border-bottom: 1px solid var(--line); }
+    .page-hero-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 80px; align-items: end; }
+    .page-hero h1 { font-size: clamp(40px, 5.5vw, 72px); font-weight: 600; line-height: 1.0; letter-spacing: -0.035em; }
+    .page-hero h1 em { font-family: 'Instrument Serif', serif; font-weight: 400; font-style: italic; color: var(--accent-hover); }
+    .hero-intro { font-size: 16.5px; color: var(--slate); line-height: 1.68; }
 
-  /* SECTION SHARED */
-  .section-inner { max-width: 1200px; margin: 0 auto; padding: 6rem 5vw; }
-  .section-label { font-family: 'Barlow Condensed', sans-serif; font-weight: 500; font-size: 0.78rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--green-dark); display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1.2rem; }
-  .section-label::before { content: ''; display: inline-block; width: 24px; height: 1px; background: var(--green-dark); }
-  .section-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 4.5vw, 4.5rem); line-height: 0.95; letter-spacing: 0.02em; color: var(--ink); margin-bottom: 1rem; }
-  .section-body { font-size: 1.05rem; font-weight: 300; color: var(--ink-mid); max-width: 640px; line-height: 1.8; margin-bottom: 3rem; }
+    /* ==========================================================
+       AWS CREDENTIALS
+    ========================================================== */
+    .credentials { padding: 96px 0; border-bottom: 1px solid var(--line); }
+    .credentials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .credential-card {
+      background: var(--bg-soft); border: 1px solid var(--line); border-radius: 16px;
+      padding: 32px 28px; position: relative; overflow: hidden; transition: all 0.3s;
+    }
+    .credential-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform 0.35s ease; }
+    .credential-card:hover { border-color: var(--ink); transform: translateY(-3px); box-shadow: 0 10px 28px rgba(17,17,17,0.07); }
+    .credential-card:hover::before { transform: scaleX(1); }
+    .credential-badge { display: inline-flex; align-items: center; padding: 4px 12px; background: var(--accent-dim); border-radius: 999px; font-size: 11px; font-weight: 700; color: var(--accent-hover); margin-bottom: 14px; }
+    .credential-name { font-size: 20px; font-weight: 600; letter-spacing: -0.02em; color: var(--ink); line-height: 1.2; margin-bottom: 10px; }
+    .credential-desc { font-size: 14.5px; color: var(--slate); line-height: 1.65; margin-bottom: 16px; }
+    .credential-desc a { color: var(--accent-hover); text-decoration: none; }
+    .credential-desc a:hover { text-decoration: underline; }
+    .credential-link { font-size: 13px; font-weight: 600; color: var(--accent-hover); text-decoration: none; transition: color 0.2s; display: inline-flex; align-items: center; gap: 4px; }
+    .credential-link:hover { color: var(--ink); }
 
-  /* AWS CREDENTIALS */
-  .credentials { background: var(--bg); }
-  .credentials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
-  .credential-card { background: var(--bg-alt); padding: 2.5rem; position: relative; overflow: hidden; transition: background 0.3s; border-top: 3px solid transparent; }
-  .credential-card:hover { background: var(--white); border-top-color: var(--green); }
-  .credential-badge { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink); background: var(--green); padding: 0.2rem 0.7rem; display: inline-block; margin-bottom: 1.2rem; }
-  .credential-name { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; letter-spacing: 0.04em; color: var(--ink); line-height: 1; margin-bottom: 0.8rem; }
-  .credential-desc { font-size: 0.92rem; font-weight: 300; color: var(--ink-mid); line-height: 1.7; margin-bottom: 1rem; }
-  .credential-link { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--green-dark); text-decoration: none; transition: color 0.2s; }
-  .credential-link:hover { color: var(--ink); }
+    /* ==========================================================
+       BADGE STRIP
+    ========================================================== */
+    .badge-strip { background: var(--ink); padding: 56px 0; }
+    .badge-strip-inner { display: flex; align-items: center; justify-content: space-between; gap: 48px; flex-wrap: wrap; }
+    .badge-strip-title { font-size: clamp(24px, 3.2vw, 40px); font-weight: 500; line-height: 1.08; letter-spacing: -0.03em; color: var(--bg); margin-bottom: 12px; }
+    .badge-strip-title em { font-family: 'Instrument Serif', serif; font-style: italic; color: var(--accent); font-weight: 400; }
+    .badge-strip-text p { font-size: 15.5px; color: rgba(240,237,230,0.6); max-width: 500px; line-height: 1.68; }
+    .badge-strip-logo { flex-shrink: 0; }
+    .badge-strip-logo img { height: 96px; width: auto; display: block; opacity: 0.85; }
 
-  /* AWS PARTNER BADGE SECTION */
-  .badge-strip { background: var(--ink); padding: 4rem 5vw; }
-  .badge-strip-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 4rem; flex-wrap: wrap; }
-  .badge-strip-text h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2rem, 3.5vw, 3rem); line-height: 1; color: var(--bg); margin-bottom: 0.6rem; }
-  .badge-strip-text h2 span { color: var(--green); }
-  .badge-strip-text p { font-size: 0.97rem; font-weight: 300; color: rgba(240,237,230,0.6); max-width: 500px; line-height: 1.7; }
-  .badge-strip-logo { flex-shrink: 0; }
+    /* ==========================================================
+       TESTIMONIALS
+    ========================================================== */
+    .testimonials { padding: 96px 0; background: var(--bg-soft); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .testimonials-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .testimonial-card {
+      background: var(--bg); border: 1px solid var(--line); border-radius: 16px;
+      padding: 36px 32px; position: relative;
+    }
+    .testimonial-mark { font-family: 'Instrument Serif', serif; font-style: italic; font-size: 64px; color: var(--accent); line-height: 0.8; margin-bottom: 20px; display: block; opacity: 0.4; }
+    .testimonial-quote { font-size: 15.5px; color: var(--slate); line-height: 1.72; margin-bottom: 24px; }
+    .testimonial-author { display: flex; flex-direction: column; gap: 2px; border-top: 1px solid var(--line); padding-top: 16px; }
+    .testimonial-name { font-size: 14px; font-weight: 600; color: var(--ink); }
+    .testimonial-title-text { font-size: 13px; color: var(--slate); }
 
-  /* TESTIMONIALS */
-  .testimonials { background: var(--bg-alt); }
-  .testimonials-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
-  .testimonial-card { background: var(--bg); padding: 3rem; position: relative; }
-  .testimonial-card::before { content: '\201C'; font-family: 'Bebas Neue', sans-serif; font-size: 6rem; color: var(--green); line-height: 0.8; position: absolute; top: 1.5rem; left: 2.5rem; opacity: 0.3; }
-  .testimonial-quote { font-size: 1.05rem; font-weight: 300; color: var(--ink-mid); line-height: 1.85; margin-bottom: 2rem; padding-top: 1.5rem; }
-  .testimonial-author { display: flex; flex-direction: column; gap: 0.2rem; border-top: 1px solid var(--rule); padding-top: 1.2rem; }
-  .testimonial-name { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.9rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink); }
-  .testimonial-title { font-family: 'Barlow Condensed', sans-serif; font-size: 0.82rem; letter-spacing: 0.06em; color: var(--ink-dim); }
+    /* ==========================================================
+       CASE STUDIES
+    ========================================================== */
+    .case-studies { padding: 96px 0; border-top: 1px solid var(--line); }
+    .case-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .case-card {
+      background: var(--bg-soft); border: 1px solid var(--line); border-radius: 16px;
+      padding: 28px 24px; position: relative; overflow: hidden; transition: all 0.3s;
+    }
+    .case-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform 0.35s ease; }
+    .case-card:hover { border-color: var(--ink); transform: translateY(-3px); box-shadow: 0 10px 28px rgba(17,17,17,0.07); }
+    .case-card:hover::before { transform: scaleX(1); }
+    .case-card.placeholder { opacity: 0.55; }
+    .case-card.placeholder:hover { transform: none; border-color: var(--line); box-shadow: none; }
+    .case-card.placeholder::before { display: none; }
+    .case-tag { display: inline-flex; align-items: center; padding: 4px 12px; background: var(--accent-dim); border-radius: 999px; font-size: 11px; font-weight: 700; color: var(--accent-hover); margin-bottom: 10px; }
+    .case-card.placeholder .case-tag { background: var(--bg-soft); color: var(--slate); border: 1px solid var(--line); }
+    .case-type { font-size: 12px; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; color: var(--slate); margin-bottom: 6px; }
+    .case-title { font-size: 18px; font-weight: 600; letter-spacing: -0.02em; color: var(--ink); line-height: 1.25; margin-bottom: 12px; }
+    .case-desc { font-size: 14px; color: var(--slate); line-height: 1.65; margin-bottom: 18px; }
+    .case-outcomes { list-style: none; border-top: 1px solid var(--line); padding-top: 14px; display: flex; flex-direction: column; gap: 6px; }
+    .case-outcomes li { font-size: 13.5px; font-weight: 500; color: var(--accent-hover); display: flex; gap: 8px; align-items: flex-start; }
+    .case-outcomes li::before { content: '→'; font-size: 12px; flex-shrink: 0; margin-top: 1px; }
 
-  /* PLACEHOLDER TESTIMONIAL */
-  .testimonial-card.placeholder { background: var(--bg-alt); border: 1px dashed rgba(17,17,17,0.15); }
-  .testimonial-card.placeholder .testimonial-quote { color: var(--ink-dim); font-style: italic; }
+    /* ==========================================================
+       REFERRAL PROGRAM
+    ========================================================== */
+    .referral { padding: 96px 0; background: var(--bg-soft); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .referral-layout { display: grid; grid-template-columns: 1fr 1.2fr; gap: 72px; align-items: start; }
+    .referral-left { position: sticky; top: 96px; }
+    .referral-intro { font-size: 16px; color: var(--slate); line-height: 1.72; margin-bottom: 16px; }
 
-  /* CASE STUDIES */
-  .case-studies { background: var(--bg); }
-  .case-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2px; }
-  .case-card { background: var(--bg-alt); padding: 2.5rem; position: relative; overflow: hidden; transition: background 0.3s; }
-  .case-card:hover { background: var(--white); }
-  .case-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--green); transform: scaleX(0); transform-origin: left; transition: transform 0.4s ease; }
-  .case-card:hover::before { transform: scaleX(1); }
-  .case-tag { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink); background: var(--green); padding: 0.2rem 0.7rem; display: inline-block; margin-bottom: 1rem; }
-  .case-type { font-family: 'Barlow Condensed', sans-serif; font-weight: 500; font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-dim); margin-bottom: 0.5rem; }
-  .case-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; letter-spacing: 0.03em; color: var(--ink); line-height: 1.05; margin-bottom: 1rem; }
-  .case-desc { font-size: 0.92rem; font-weight: 300; color: var(--ink-mid); line-height: 1.75; margin-bottom: 1.5rem; }
-  .case-outcomes { list-style: none; border-top: 1px solid var(--rule); padding-top: 1rem; display: flex; flex-direction: column; gap: 0.4rem; }
-  .case-outcomes li { font-family: 'Barlow Condensed', sans-serif; font-size: 0.85rem; letter-spacing: 0.05em; color: var(--green-dark); display: flex; gap: 0.5rem; align-items: center; }
-  .case-outcomes li::before { content: '→'; font-size: 0.75rem; }
+    /* Referral steps */
+    .referral-how { display: flex; flex-direction: column; gap: 0; margin: 32px 0; }
+    .referral-step { display: flex; gap: 18px; padding: 20px 0; border-bottom: 1px solid var(--line); align-items: flex-start; }
+    .referral-step:last-child { border-bottom: none; }
+    .referral-step-num { font-family: 'Instrument Serif', serif; font-style: italic; font-size: 28px; color: var(--accent-hover); line-height: 1; flex-shrink: 0; width: 36px; }
+    .referral-step-title { font-size: 15px; font-weight: 600; color: var(--ink); margin-bottom: 3px; letter-spacing: -0.01em; }
+    .referral-step-desc { font-size: 14px; color: var(--slate); line-height: 1.6; }
 
-  /* PLACEHOLDER CASE */
-  .case-card.placeholder { opacity: 0.5; cursor: default; }
-  .case-card.placeholder:hover { background: var(--bg-alt); }
-  .case-card.placeholder::before { display: none; }
+    /* Who-refers grid */
+    .who-refers { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 28px; }
+    .who-card { background: var(--ink); border-radius: 12px; padding: 20px; }
+    .who-card-label { font-size: 10.5px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 4px; }
+    .who-card-title { font-size: 16px; font-weight: 600; letter-spacing: -0.01em; color: var(--bg); margin-bottom: 8px; line-height: 1.2; }
+    .who-card-desc { font-size: 13px; color: rgba(240,237,230,0.55); line-height: 1.6; }
 
-  /* REFERRAL PROGRAM */
-  .referral { background: var(--bg-alt); }
-  .referral-layout { display: grid; grid-template-columns: 1fr 1.2fr; gap: 6rem; align-items: start; }
-  .referral-left { position: sticky; top: 8rem; }
-  .referral-how { display: flex; flex-direction: column; gap: 0; }
-  .referral-step { display: flex; gap: 1.5rem; padding: 2rem 0; border-bottom: 1px solid var(--rule); align-items: flex-start; }
-  .referral-step:last-child { border-bottom: none; }
-  .referral-step-num { font-family: 'Bebas Neue', sans-serif; font-size: 2.5rem; color: var(--green); line-height: 1; flex-shrink: 0; width: 3rem; }
-  .referral-step-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.95rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink); margin-bottom: 0.4rem; }
-  .referral-step-desc { font-size: 0.93rem; font-weight: 300; color: var(--ink-mid); line-height: 1.7; }
+    /* Referral benefits */
+    .referral-benefits { display: flex; flex-direction: column; gap: 8px; margin-bottom: 12px; }
+    .referral-benefit { background: var(--bg); border: 1px solid var(--line); border-radius: 12px; padding: 22px; border-left: 3px solid transparent; transition: border-color 0.3s; }
+    .referral-benefit:hover { border-color: var(--accent-hover); }
+    .referral-benefit-label { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-hover); margin-bottom: 4px; }
+    .referral-benefit-title { font-size: 16px; font-weight: 600; color: var(--ink); margin-bottom: 6px; letter-spacing: -0.01em; }
+    .referral-benefit-desc { font-size: 14px; color: var(--slate); line-height: 1.65; }
 
-  .referral-benefits { display: grid; grid-template-columns: 1fr; gap: 2px; }
-  .referral-benefit { background: var(--bg); padding: 2rem; border-left: 3px solid transparent; transition: border-color 0.3s; }
-  .referral-benefit:hover { border-color: var(--green); }
-  .referral-benefit-label { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--green-dark); margin-bottom: 0.4rem; }
-  .referral-benefit-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; color: var(--ink); line-height: 1; margin-bottom: 0.6rem; }
-  .referral-benefit-desc { font-size: 0.92rem; font-weight: 300; color: var(--ink-mid); line-height: 1.7; }
+    /* Referral form */
+    .referral-form-wrap { background: var(--ink); border-radius: 16px; padding: 36px; position: relative; overflow: hidden; }
+    .referral-form-wrap::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 70% at 90% 10%, rgba(61,220,132,0.1), transparent 60%); pointer-events: none; }
+    .referral-form-inner { position: relative; }
+    .rf-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 6px; }
+    .rf-title { font-size: 22px; font-weight: 600; letter-spacing: -0.025em; color: var(--bg); margin-bottom: 20px; }
+    .rf-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px; }
+    .rf-field { display: flex; flex-direction: column; gap: 4px; margin-bottom: 10px; }
+    .rf-label { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(240,237,230,0.4); }
+    .rf-input, .rf-textarea {
+      background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12);
+      color: var(--bg); font-family: 'Onest', sans-serif; font-weight: 400; font-size: 14px;
+      padding: 10px 13px; border-radius: 8px; outline: none; width: 100%;
+      transition: border-color 0.2s;
+    }
+    .rf-input::placeholder, .rf-textarea::placeholder { color: rgba(240,237,230,0.2); }
+    .rf-input:focus, .rf-textarea:focus { border-color: var(--accent); }
+    .rf-textarea { resize: vertical; min-height: 110px; line-height: 1.6; }
+    .rf-actions { margin-top: 18px; }
+    .rf-submit {
+      font-family: 'Onest', sans-serif; font-weight: 700; font-size: 14px;
+      color: var(--ink); background: var(--accent); padding: 11px 24px;
+      border: none; cursor: pointer; border-radius: 999px;
+      transition: background 0.2s, transform 0.2s; display: inline-flex; align-items: center; gap: 8px;
+    }
+    .rf-submit:hover:not(:disabled) { background: var(--accent-hover); color: white; transform: translateY(-1px); }
+    .rf-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+    .rf-error { display: none; font-size: 12px; color: #ff7070; margin-top: 10px; font-weight: 500; }
 
-  /* WHO REFERS */
-  .who-refers { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-top: 3rem; }
-  .who-card { background: var(--ink); padding: 2rem; }
-  .who-card-label { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--green); margin-bottom: 0.6rem; }
-  .who-card-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; color: var(--bg); line-height: 1; margin-bottom: 0.8rem; }
-  .who-card-desc { font-size: 0.88rem; font-weight: 300; color: rgba(240,237,230,0.6); line-height: 1.65; }
+    .referral-success { display: none; background: var(--accent-dim); border: 1px solid rgba(40,176,106,0.3); border-left: 3px solid var(--accent-hover); border-radius: 12px; padding: 28px; margin-top: 12px; }
+    .referral-success-title { font-size: 20px; font-weight: 600; letter-spacing: -0.02em; color: var(--ink); margin-bottom: 8px; }
+    .referral-success-body { font-size: 14.5px; color: var(--slate); line-height: 1.65; }
 
-  /* CTA */
-  .cta-section { background: var(--ink); overflow: hidden; position: relative; }
-  .cta-section::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 80% at 80% 50%, rgba(61,220,132,0.08), transparent 70%); }
-  .cta-inner { max-width: 1200px; margin: 0 auto; padding: 7rem 5vw; position: relative; display: grid; grid-template-columns: 1fr auto; gap: 4rem; align-items: center; }
-  .cta-headline { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 4.5vw, 4.5rem); line-height: 0.95; letter-spacing: 0.02em; color: var(--bg); margin-bottom: 1rem; }
-  .cta-headline span { color: var(--green); }
-  .cta-sub { font-size: 1.05rem; font-weight: 300; color: rgba(240,237,230,0.65); max-width: 520px; line-height: 1.7; }
-  .cta-actions { display: flex; flex-direction: column; gap: 1rem; min-width: 220px; }
-  .btn-primary { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.9rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); background: var(--green); padding: 1rem 2.2rem; text-decoration: none; display: inline-block; transition: background 0.2s, color 0.2s; text-align: center; }
-  .btn-primary:hover { background: var(--green-dark); color: var(--white); }
-  .btn-ghost { font-family: 'Barlow Condensed', sans-serif; font-weight: 500; font-size: 0.9rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--bg); border: 1px solid rgba(240,237,230,0.25); padding: 1rem 2.2rem; text-decoration: none; display: inline-block; transition: border-color 0.2s, color 0.2s; text-align: center; }
-  .btn-ghost:hover { border-color: var(--green); color: var(--green); }
+    .referral-email-note { background: var(--accent-dim); border: 1px solid rgba(40,176,106,0.25); border-left: 3px solid var(--accent-hover); border-radius: 10px; padding: 18px 22px; margin-top: 12px; }
+    .referral-email-note p { font-size: 14.5px; font-weight: 500; color: var(--ink); line-height: 1.6; }
+    .referral-email-note a { color: var(--accent-hover); text-decoration: none; }
+    .referral-email-note a:hover { text-decoration: underline; }
 
-  /* FOOTER */
-  footer { background: var(--bg-alt); border-top: 1px solid var(--rule); width: 100%; display: block; }
-  .footer-top { width: 100%; max-width: 1200px; margin: 0 auto; padding: 4rem 5vw 3rem; display: flex; justify-content: space-between; gap: 4rem; flex-wrap: wrap; }
-  .footer-brand { display: flex; flex-direction: column; gap: 0.8rem; }
-  .footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; letter-spacing: 0.12em; color: var(--ink); text-decoration: none; }
-  .footer-logo span { color: var(--green); }
-  .footer-tagline { font-family: 'Barlow Condensed', sans-serif; font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-dim); }
-  .footer-linkedin { display: inline-flex; align-items: center; gap: 0.5rem; font-family: 'Barlow Condensed', sans-serif; font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-dim); text-decoration: none; margin-top: 0.4rem; transition: color 0.2s; }
-  .footer-linkedin:hover { color: var(--green-dark); }
-  .footer-nav-group { display: flex; gap: 4rem; flex-wrap: wrap; }
-  .footer-nav-col { display: flex; flex-direction: column; gap: 1rem; }
-  .footer-nav-heading { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink); }
-  .footer-nav-links { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
-  .footer-nav-links a { font-family: 'Barlow Condensed', sans-serif; font-size: 0.88rem; letter-spacing: 0.08em; color: var(--ink-dim); text-decoration: none; transition: color 0.2s; }
-  .footer-nav-links a:hover { color: var(--green-dark); }
-  .footer-bottom { border-top: 1px solid var(--rule); padding: 1.5rem 5vw; width: 100%; }
-  .footer-copy { font-family: 'Barlow Condensed', sans-serif; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-dim); max-width: 1200px; margin: 0 auto; }
+    /* ==========================================================
+       CTA
+    ========================================================== */
+    .cta-section { background: var(--ink); position: relative; overflow: hidden; padding: 96px 0; }
+    .cta-section::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 90% at 75% 50%, rgba(61,220,132,0.09), transparent 65%); }
+    .cta-inner { position: relative; display: grid; grid-template-columns: 1fr auto; gap: 64px; align-items: center; }
+    .cta-headline { font-size: clamp(28px, 4vw, 52px); font-weight: 500; line-height: 1.0; letter-spacing: -0.03em; color: var(--bg); margin-bottom: 16px; }
+    .cta-headline em { font-family: 'Instrument Serif', serif; font-style: italic; color: var(--accent); font-weight: 400; }
+    .cta-sub { font-size: 16px; color: rgba(240,237,230,0.65); max-width: 480px; line-height: 1.68; }
+    .cta-actions { display: flex; flex-direction: column; gap: 12px; min-width: 230px; }
 
-   .footer-bottom-inner { 
-  max-width: 1200px; 
-  margin: 0 auto; 
-  display: flex; 
-  align-items: center; 
-  justify-content: space-between; 
-  flex-wrap: wrap; 
-  gap: 1rem; 
-}
-.footer-legal { display: flex; gap: 2rem; }
-.footer-legal a { 
-  font-family: 'Barlow Condensed', sans-serif; 
-  font-size: 0.72rem; 
-  letter-spacing: 0.1em; 
-  text-transform: uppercase; 
-  color: var(--ink-dim); 
-  text-decoration: none; 
-  transition: color 0.2s; 
-}
-.footer-legal a:hover { color: var(--green-dark); }
+    /* ==========================================================
+       FOOTER
+    ========================================================== */
+    .footer { background: var(--footer-bg); color: var(--footer-text); padding: 80px 0 32px; }
+    .footer-top { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 60px; padding-bottom: 56px; border-bottom: 1px solid rgba(255,255,255,0.07); }
+    .footer-logo { text-decoration: none; display: block; margin-bottom: 20px; }
+    .footer-logo img { height: 96px; width: auto; display: block; filter: brightness(0) invert(1); }
+    .footer-tagline { font-size: 14.5px; line-height: 1.65; color: var(--footer-text); max-width: 340px; margin-bottom: 28px; }
+    .footer-icons { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+    .footer-aws-link { display: inline-block; transition: opacity 0.2s; }
+    .footer-aws-link img { height: 52px; width: auto; display: block; }
+    .footer-aws-link:hover { opacity: 0.6; }
+    .footer-linkedin-icon { display: inline-block; text-decoration: none; }
+    .footer-linkedin-icon img { height: 28px; width: auto; display: block; }
+    .footer-linkedin-icon .li-default { display: block; }
+    .footer-linkedin-icon .li-hover { display: none; }
+    .footer-linkedin-icon:hover .li-default { display: none; }
+    .footer-linkedin-icon:hover .li-hover { display: block; }
+    .footer-col h4 { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: white; font-weight: 700; margin-bottom: 18px; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 11px; }
+    .footer-col a { color: var(--footer-text); text-decoration: none; font-size: 14px; transition: color 0.2s; }
+    .footer-col a:hover { color: white; }
+    .footer-bottom { padding-top: 28px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--slate-light); flex-wrap: wrap; gap: 14px; }
+    .footer-legal { display: flex; gap: 22px; }
+    .footer-legal a { color: var(--slate-light); text-decoration: none; transition: color 0.2s; }
+    .footer-legal a:hover { color: white; }
 
-  @media (max-width: 900px) {
-    .page-hero { grid-template-columns: 1fr; gap: 2rem; padding-top: 8rem; }
-    .credentials-grid { grid-template-columns: 1fr; }
-    .testimonials-grid { grid-template-columns: 1fr; }
-    .case-grid { grid-template-columns: 1fr; }
-    .referral-layout { grid-template-columns: 1fr; gap: 3rem; }
-    .referral-left { position: static; }
-    .who-refers { grid-template-columns: 1fr; }
-    .cta-inner { grid-template-columns: 1fr; }
-    .badge-strip-inner { flex-direction: column; }
-    .nav-links { display: none; }
-  }
-</style>
+    /* ==========================================================
+       RESPONSIVE
+    ========================================================== */
+    @media (max-width: 1024px) {
+      .page-hero-grid { grid-template-columns: 1fr; gap: 40px; }
+      .credentials-grid { grid-template-columns: 1fr; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .case-grid { grid-template-columns: 1fr; }
+      .referral-layout { grid-template-columns: 1fr; gap: 48px; }
+      .referral-left { position: static; }
+      .badge-strip-inner { flex-direction: column; gap: 32px; }
+      .cta-inner { grid-template-columns: 1fr; gap: 32px; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 36px; }
+    }
+    @media (max-width: 700px) {
+      .nav-links { display: none; }
+      .nav-email { display: none; }
+      .rf-grid { grid-template-columns: 1fr; }
+      .who-refers { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr; }
+      .container { padding: 0 20px; }
+    }
+
+  </style>
 </head>
 <body>
 
-<nav id="mainNav">
-  <a class="nav-logo" href="/"><span>G</span>RNMRK GROUP</a>
-  <ul class="nav-links">
-    <li class="nav-item has-dropdown">
-      <a href="/services">Services</a>
-      <div class="nav-dropdown">
-        <a href="/services">Services Overview</a>
-        <a href="/services/aws-marketplace">AWS Marketplace</a>
-        <a href="/services/managed-operations">Managed Operations</a>
-        <a href="/services/strategy-consulting">Strategy Consulting</a>
-        <a href="/services/fractional-alliances-leader">Fractional Alliances Leader</a>
-        <a href="/services/partner-revenue-generation">Revenue Generation</a>
-        <a href="/services/foundational-technical-review">FTR Preparation</a>
-        <a href="/services/fractional-pdm">Fractional PDM</a>
-      </div>
-    </li>
-    <li><a href="/pricing">Pricing</a></li>
-    <li class="nav-item has-dropdown">
-      <a href="/company/about">Company</a>
-      <div class="nav-dropdown">
-        <a href="/company/about">About</a>
-        <a href="/company/case-studies">Case Studies</a>
-        <a href="/company/contact">Contact</a>
-        <a href="/company/partners">Partners</a>
-        <a href="/company/careers">Careers</a>
-        <a href="/blogs">Blog</a>
-      </div>
-    </li>
-    <li class="nav-item has-dropdown">
-      <a href="/resources">Resources</a>
-      <div class="nav-dropdown">
-        <a href="/resources/aws-map-funding-checklist">MAP Funding Checklist</a>
-        <a href="/resources/aws-mdf-funding-checklist">MDF Funding Checklist</a>
-        <a href="/resources/aws-ftr-checklist">FTR Checklist</a>
-        <a href="/resources/aws-marketplace-gtm-readiness-guide">Marketplace GTM Guide</a>
-        <li><a href="/resources/aws-co-sell-playbook">Co-Sell Playbook</a></li>
-      </div>
-    </li>
-    <li><a href="/company/contact">Contact</a></li>
-  </ul>
-  <div class="nav-right">
-    <a class="nav-ghost" href="mailto:hello@grnmrk.com">hello@grnmrk.com</a>
-    <a class="nav-cta" href="https://calendly.com/grnmrk/30-min-consultation" target="_blank" rel="noopener noreferrer">Book a Call</a>
-  </div>
-</nav>
-
-<!-- PAGE HERO -->
-<div class="page-hero">
-  <div>
-    <div class="page-eyebrow">Partners</div>
-    <h1 class="page-title">Built on<br>Real AWS<br>Relationships.</h1>
-  </div>
-  <p class="page-intro">
-    Our work is grounded in deep AWS ecosystem experience — the credentials we hold, the partners we've helped grow, and the referral relationships we've built with people who know what good AWS partnership advisory looks like. This page covers all three.
-  </p>
-</div>
-
-<div class="divider"></div>
-
-<!-- AWS CREDENTIALS -->
-<section class="credentials" id="aws-credentials">
-  <div class="section-inner">
-    <div class="section-label">Our AWS Standing</div>
-    <h2 class="section-title">Program Credentials<br>& Validations.</h2>
-    <p class="section-body">These aren't vanity badges. Each credential represents a specific validation from AWS that we hold the expertise, the program standing, and the ecosystem relationships to deliver on our services.</p>
-
-    <div class="credentials-grid">
-      <div class="credential-card">
-        <div class="credential-badge">Active</div>
-        <div class="credential-name">AWS Partner Network Member</div>
-        <p class="credential-desc">Active member of the <a href="https://aws.amazon.com/partners/" target="_blank" rel="noopener noreferrer">AWS Partner Network</a> — the foundation of our ecosystem standing and the basis through which we access co-sell tools, program resources, and field relationships on behalf of our clients.</p>
-        <a class="credential-link" href="https://aws.amazon.com/partners/paths/" target="_blank" rel="noopener noreferrer">Learn about AWS Partner Paths →</a>
-      </div>
-
-      <div class="credential-card">
-        <div class="credential-badge">Active</div>
-        <div class="credential-name">AWS Partner — Qualified Software</div>
-        <p class="credential-desc">The <a href="https://aws.amazon.com/partners/foundational-technical-review/" target="_blank" rel="noopener noreferrer">Foundational Technical Review</a> (FTR) validates that software meets AWS Well-Architected standards across security, reliability, and operational excellence. FTR approval is what earns the Qualified Software badge and gates ISV Accelerate enrollment.</p>
-        <a class="credential-link" href="/blogs/aws-ftr-guide">What the FTR means for ISVs →</a>
-      </div>
-
-      <div class="credential-card">
-        <div class="credential-badge">Active</div>
-        <div class="credential-name">ISV Accelerate Program</div>
-        <p class="credential-desc">Enrolled in the <a href="https://aws.amazon.com/partners/programs/isv-accelerate/" target="_blank" rel="noopener noreferrer">AWS ISV Accelerate Program</a> — the co-sell program that connects ISVs with AWS account executives, PSMs, and field teams. This is the program we help our ISV clients enroll in and activate.</p>
-        <a class="credential-link" href="/blogs/aws-isv-accelerate-new-benefits">Latest ISV Accelerate benefits →</a>
+  <!-- ============================================================
+       NAVIGATION
+  ============================================================ -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a class="logo" href="/"><img src="/grnmrk-banner-2026-transparent-background.png" alt="Grnmrk Group"></a>
+      <ul class="nav-links">
+        <li class="nav-item has-dropdown">
+          <a href="/services">Services</a>
+          <div class="nav-dropdown"><div class="nav-dropdown-inner">
+            <a href="/services">Services Overview</a>
+            <a href="/services/aws-marketplace">AWS Marketplace</a>
+            <a href="/services/managed-operations">Managed Operations</a>
+            <a href="/services/strategy-consulting">Strategy Consulting</a>
+            <a href="/services/fractional-alliances-leader">Fractional Alliances Leader</a>
+            <a href="/services/partner-revenue-generation">Revenue Generation</a>
+            <a href="/services/foundational-technical-review">FTR Preparation</a>
+            <a href="/services/fractional-pdm">Fractional PDM</a>
+          </div></div>
+        </li>
+        <li><a href="/pricing">Pricing</a></li>
+        <li class="nav-item has-dropdown">
+          <a href="/company/about">Company</a>
+          <div class="nav-dropdown"><div class="nav-dropdown-inner">
+            <a href="/company/about">About</a>
+            <a href="/company/case-studies">Case Studies</a>
+            <a href="/company/contact">Contact</a>
+            <a href="/company/partners">Partners</a>
+            <a href="/company/careers">Careers</a>
+            <a href="/blogs">Blog</a>
+          </div></div>
+        </li>
+        <li class="nav-item has-dropdown">
+          <a href="/resources">Resources</a>
+          <div class="nav-dropdown"><div class="nav-dropdown-inner">
+            <a href="/resources/aws-map-funding-checklist">MAP Funding Checklist</a>
+            <a href="/resources/aws-mdf-funding-checklist">MDF Funding Checklist</a>
+            <a href="/resources/aws-ftr-checklist">FTR Checklist</a>
+            <a href="/resources/aws-marketplace-gtm-readiness-guide">Marketplace GTM Guide</a>
+            <a href="/resources/aws-co-sell-playbook">Co-Sell Playbook</a>
+          </div></div>
+        </li>
+        <li><a href="/company/contact">Contact</a></li>
+      </ul>
+      <div class="nav-cta-group">
+        <a class="nav-email" href="mailto:hello@grnmrk.com">hello@grnmrk.com</a>
+        <a class="btn btn-primary" href="https://calendly.com/grnmrk/30-min-consultation" target="_blank" rel="noopener noreferrer">Book a Call <span class="btn-arrow">&#8594;</span></a>
       </div>
     </div>
-  </div>
-</section>
+  </nav>
 
-<!-- AWS PARTNER BADGE STRIP -->
-<div class="badge-strip">
-  <div class="badge-strip-inner">
-    <div class="badge-strip-text">
-      <h2>Recognized by <span>AWS</span> as a<br>Qualified Partner.</h2>
-      <p>Our AWS Partner standing is the foundation of everything we do. It gives us direct access to the co-sell tools, field relationships, and program resources that we use every day on behalf of our clients.</p>
+  <!-- ============================================================
+       PAGE HERO
+  ============================================================ -->
+  <section class="page-hero">
+    <div class="container">
+      <div class="page-hero-grid">
+        <div>
+          <div class="section-eyebrow">Partners</div>
+          <h1>Built on real <em>AWS relationships.</em></h1>
+        </div>
+        <p class="hero-intro">Our work is grounded in deep AWS ecosystem experience: the credentials we hold, the partners we have helped grow, and the referral relationships we have built with people who know what good AWS partnership advisory looks like.</p>
+      </div>
     </div>
-    <div class="badge-strip-logo">
-      <img src="/aws-logo_copy.png" alt="AWS Partner" style="height: 120px;">
-    </div>
-  </div>
-</div>
+  </section>
 
-<div class="divider"></div>
+  <!-- ============================================================
+       AWS CREDENTIALS
+  ============================================================ -->
+  <section class="credentials" id="aws-credentials">
+    <div class="container">
+      <div class="section-eyebrow">Our AWS Standing</div>
+      <h2 class="section-title">Program credentials <em>and validations.</em></h2>
+      <p class="section-body">These are not vanity badges. Each credential represents a specific validation from AWS that we hold the expertise, the program standing, and the ecosystem relationships to deliver on our services.</p>
 
-<!-- TESTIMONIALS -->
-<section class="testimonials" id="testimonials">
-  <div class="section-inner">
-    <div class="section-label">What Partners Say</div>
-    <h2 class="section-title">Results From<br>The Ecosystem.</h2>
-    <p class="section-body">We work with a select group of AWS partners at any given time. Here's what they say about working with us.</p>
-
-    <div class="testimonials-grid">
-
-      <div class="testimonial-card placeholder">
-        <p class="testimonial-quote">We'd been at Select tier for almost two years. We knew we were close but couldn't figure out what was actually blocking us. Grnmrk audited our partner profile, identified three specific gaps we'd completely overlooked, and had us at Advanced in under four months. The PDM relationship they built for us in the process has been worth as much as the tier itself.</p>
-        <div class="testimonial-author">
-          <span class="testimonial-title">VP of Alliances · Series B ISV</span>
+      <div class="credentials-grid">
+        <div class="credential-card">
+          <div class="credential-badge">Active</div>
+          <div class="credential-name">AWS Partner Network Member</div>
+          <p class="credential-desc">Active member of the <a href="https://aws.amazon.com/partners/" target="_blank" rel="noopener noreferrer">AWS Partner Network</a>: the foundation of our ecosystem standing and the basis through which we access co-sell tools, program resources, and field relationships on behalf of our clients.</p>
+          <a class="credential-link" href="https://aws.amazon.com/partners/paths/" target="_blank" rel="noopener noreferrer">Learn about AWS Partner Paths &#8594;</a>
+        </div>
+        <div class="credential-card">
+          <div class="credential-badge">Active</div>
+          <div class="credential-name">AWS Partner: Qualified Software</div>
+          <p class="credential-desc">The <a href="https://aws.amazon.com/partners/foundational-technical-review/" target="_blank" rel="noopener noreferrer">Foundational Technical Review</a> validates that software meets AWS Well-Architected standards across security, reliability, and operational excellence. FTR approval earns the Qualified Software badge and gates SaaS Co-sell Benefit enrollment.</p>
+          <a class="credential-link" href="/blogs/aws-ftr-guide">What the FTR means for ISVs &#8594;</a>
+        </div>
+        <div class="credential-card">
+          <div class="credential-badge">Active</div>
+          <div class="credential-name">SaaS Co-sell Benefit (ISV Accelerate)</div>
+          <p class="credential-desc">Enrolled in the <a href="https://aws.amazon.com/partners/programs/isv-accelerate/" target="_blank" rel="noopener noreferrer">AWS SaaS Co-sell Benefit program</a>: the co-sell program that connects ISVs with AWS account executives, PSMs, and field teams. This is the program we help our ISV clients enroll in and activate.</p>
+          <a class="credential-link" href="/blogs/aws-isv-accelerate-new-benefits">Latest co-sell benefit updates &#8594;</a>
         </div>
       </div>
+    </div>
+  </section>
 
-      <div class="testimonial-card placeholder">
-        <p class="testimonial-quote">I hired Grnmrk because I was tired of leaving MAP funding on the table. We had active migration engagements and no idea the money was sitting there. They rebuilt our ACE pipeline from scratch, submitted three MAP applications, and we captured over $150K in the first quarter. That more than covered their fees for the year.</p>
-        <div class="testimonial-author">
-          <span class="testimonial-title">CEO · Managed Services Provider</span>
+  <!-- ============================================================
+       BADGE STRIP
+  ============================================================ -->
+  <div class="badge-strip">
+    <div class="container">
+      <div class="badge-strip-inner">
+        <div class="badge-strip-text">
+          <h2 class="badge-strip-title">Recognized by <em>AWS</em> as a qualified partner.</h2>
+          <p>Our AWS Partner standing is the foundation of everything we do. It gives us direct access to the co-sell tools, field relationships, and program resources we use every day on behalf of our clients.</p>
+        </div>
+        <div class="badge-strip-logo">
+          <img src="/aws-logo_copy.png" alt="AWS Partner">
         </div>
       </div>
-
     </div>
   </div>
-</section>
 
-<div class="divider"></div>
+  <!-- ============================================================
+       TESTIMONIALS
+  ============================================================ -->
+  <section class="testimonials" id="testimonials">
+    <div class="container">
+      <div class="section-eyebrow">What Partners Say</div>
+      <h2 class="section-title">Results from <em>the ecosystem.</em></h2>
+      <p class="section-body">We work with a select group of AWS partners at any given time. Here is what they say about working with us.</p>
 
-<!-- CASE STUDIES -->
-<section class="case-studies" id="case-studies">
-  <div class="section-inner">
-    <div class="section-label">Case Studies</div>
-    <h2 class="section-title">What We've<br>Actually Delivered.</h2>
-    <p class="section-body">Anonymized results from real engagements. We don't publish client names without permission, but the outcomes are real.</p>
-
-    <div class="case-grid">
-
-      <div class="case-card">
-        <span class="case-tag">Funding</span>
-        <div class="case-type">ISV · Select Tier</div>
-        <div class="case-title">$180K in MAP Funding Captured in One Quarter</div>
-        <p class="case-desc">An early-stage ISV with active migration engagements had never submitted a MAP application. We audited their pipeline, built the ACE opportunities correctly, submitted three MAP applications across active customer engagements, and managed proof of execution on all three.</p>
-        <ul class="case-outcomes">
-          <li>$180K in MAP funding approved</li>
-          <li>3 engagements submitted and approved</li>
-          <li>ACE pipeline rebuilt from scratch</li>
-          <li>PDM relationship reestablished</li>
-        </ul>
-      </div>
-
-      <div class="case-card">
-        <span class="case-tag">Tier Advancement</span>
-        <div class="case-type">MSP · Select Tier</div>
-        <div class="case-title">Select to Advanced in 4 Months</div>
-        <p class="case-desc">An MSP that had been stuck at Select tier for over 18 months. We audited their partner profile, identified the specific gaps holding them back — certification drift, unsubmitted customer references, and stale ACE pipeline — and executed a 90-day advancement plan.</p>
-        <ul class="case-outcomes">
-          <li>Advanced tier achieved in 4 months</li>
-          <li>6 customer references submitted & validated</li>
-          <li>Certification gap fully closed</li>
-          <li>PDM advancement endorsement secured</li>
-        </ul>
-      </div>
-
-      <div class="case-card">
-        <span class="case-tag">Co-Sell</span>
-        <div class="case-type">ISV · Advanced Tier</div>
-        <div class="case-title">Co-Sell Motion Built From Zero to Active Pipeline</div>
-        <p class="case-desc">An Advanced-tier ISV with no repeatable co-sell motion — every AWS field engagement started from scratch. We designed the co-sell playbook, built out ACE submission standards, facilitated PDM introductions, and ran the first three co-sell cycles alongside their team.</p>
-        <ul class="case-outcomes">
-          <li>Co-sell playbook built and deployed</li>
-          <li>3 AWS field reps engaged in first 60 days</li>
-          <li>Pipeline generated from co-sell in Q1</li>
-          <li>ACE co-sell acceptance rate above 60%</li>
-        </ul>
-      </div>
-
-      <div class="case-card placeholder">
-        <span class="case-tag" style="background: var(--bg-alt); color: var(--ink-dim); border: 1px solid var(--rule);">Coming Soon</span>
-        <div class="case-type">More Case Studies</div>
-        <div class="case-title">Additional Results Being Documented</div>
-        <p class="case-desc">We're documenting additional client outcomes across FTR completion, ISV Accelerate activation, MDF capture, and Marketplace GTM. Check back as we add more.</p>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- REFERRAL PROGRAM -->
-<section class="referral" id="referral">
-  <div class="section-inner">
-    <div class="section-label">Referral Program</div>
-
-    <div class="referral-layout">
-      <div class="referral-left">
-        <h2 class="section-title">Know a Partner<br>Who Needs This?</h2>
-        <p style="font-size: 1rem; font-weight: 300; color: var(--ink-mid); line-height: 1.8; margin-bottom: 2rem;">
-          We work with a small number of partners at any given time, which means referrals matter. If you know an ISV, MSP, or channel partner who's struggling with their AWS program — tier advancement, funding, co-sell, FTR — we want to talk to them.
-        </p>
-        <p style="font-size: 1rem; font-weight: 300; color: var(--ink-mid); line-height: 1.8; margin-bottom: 2.5rem;">
-          For every referred partner who becomes a client, we pay a referral fee and keep you in the loop on the engagement. Simple, transparent, no strings.
-        </p>
-        <div id="referralWrap">
-  <form id="referralForm" style="display: flex; flex-direction: column; gap: 1rem;">
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
-      <div style="display: flex; flex-direction: column; gap: 0.4rem;">
-        <label style="font-family:'Barlow Condensed'; font-size:0.72rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--green-dark);">Your Name</label>
-        <input type="text" id="refYourName" placeholder="Jane Smith" required style="background:var(--white); border:1px solid rgba(17,17,17,0.15); color:var(--ink); font-family:'Barlow',sans-serif; font-weight:300; font-size:0.97rem; padding:0.9rem 1.1rem; outline:none; border-radius:0; appearance:none; -webkit-appearance:none; transition:border-color 0.2s;" onfocus="this.style.borderColor='var(--green-dark)'" onblur="this.style.borderColor='rgba(17,17,17,0.15)'">
-      </div>
-      <div style="display: flex; flex-direction: column; gap: 0.4rem;">
-        <label style="font-family:'Barlow Condensed'; font-size:0.72rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--green-dark);">Your Email</label>
-        <input type="email" id="refYourEmail" placeholder="jane@company.com" required style="background:var(--white); border:1px solid rgba(17,17,17,0.15); color:var(--ink); font-family:'Barlow',sans-serif; font-weight:300; font-size:0.97rem; padding:0.9rem 1.1rem; outline:none; border-radius:0; appearance:none; -webkit-appearance:none; transition:border-color 0.2s;" onfocus="this.style.borderColor='var(--green-dark)'" onblur="this.style.borderColor='rgba(17,17,17,0.15)'">
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <span class="testimonial-mark">"</span>
+          <p class="testimonial-quote">We had been at Select tier for almost two years. We knew we were close but could not figure out what was blocking us. Grnmrk audited our partner profile, identified three specific gaps we had completely overlooked, and had us at Advanced in under four months. The PDM relationship they built for us in the process has been worth as much as the tier itself.</p>
+          <div class="testimonial-author">
+            <span class="testimonial-title-text">VP of Alliances, Series B ISV</span>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <span class="testimonial-mark">"</span>
+          <p class="testimonial-quote">I hired Grnmrk because I was tired of leaving MAP funding on the table. We had active migration engagements and no idea the money was sitting there. They rebuilt our ACE pipeline from scratch, submitted three MAP applications, and we captured over $150K in the first quarter. That more than covered their fees for the year.</p>
+          <div class="testimonial-author">
+            <span class="testimonial-title-text">CEO, Managed Services Provider</span>
+          </div>
+        </div>
       </div>
     </div>
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
-      <div style="display: flex; flex-direction: column; gap: 0.4rem;">
-        <label style="font-family:'Barlow Condensed'; font-size:0.72rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--green-dark);">Partner Name</label>
-        <input type="text" id="refPartnerName" placeholder="Referred person's name" required style="background:var(--white); border:1px solid rgba(17,17,17,0.15); color:var(--ink); font-family:'Barlow',sans-serif; font-weight:300; font-size:0.97rem; padding:0.9rem 1.1rem; outline:none; border-radius:0; appearance:none; -webkit-appearance:none; transition:border-color 0.2s;" onfocus="this.style.borderColor='var(--green-dark)'" onblur="this.style.borderColor='rgba(17,17,17,0.15)'">
+  </section>
+
+  <!-- ============================================================
+       CASE STUDIES
+  ============================================================ -->
+  <section class="case-studies" id="case-studies">
+    <div class="container">
+      <div class="section-eyebrow">Case Studies</div>
+      <h2 class="section-title">What we have <em>delivered.</em></h2>
+      <p class="section-body">Anonymized results from real engagements. We do not publish client names without permission, but the outcomes are real.</p>
+
+      <div class="case-grid">
+        <div class="case-card">
+          <span class="case-tag">Funding</span>
+          <div class="case-type">ISV · Select Tier</div>
+          <div class="case-title">$180K in MAP Funding Captured in One Quarter</div>
+          <p class="case-desc">An early-stage ISV with active migration engagements had never submitted a MAP application. We audited their pipeline, built the ACE opportunities correctly, submitted three MAP applications across active customer engagements, and managed proof of execution on all three.</p>
+          <ul class="case-outcomes">
+            <li>$180K in MAP funding approved</li>
+            <li>3 engagements submitted and approved</li>
+            <li>ACE pipeline rebuilt from scratch</li>
+            <li>PDM relationship reestablished</li>
+          </ul>
+        </div>
+        <div class="case-card">
+          <span class="case-tag">Tier Advancement</span>
+          <div class="case-type">MSP · Select Tier</div>
+          <div class="case-title">Select to Advanced in 4 Months</div>
+          <p class="case-desc">An MSP stuck at Select tier for over 18 months. We audited their partner profile, identified the specific gaps holding them back: certification drift, unsubmitted customer references, and stale ACE pipeline, then executed a 90-day advancement plan.</p>
+          <ul class="case-outcomes">
+            <li>Advanced tier achieved in 4 months</li>
+            <li>6 customer references submitted and validated</li>
+            <li>Certification gap fully closed</li>
+            <li>PDM advancement endorsement secured</li>
+          </ul>
+        </div>
+        <div class="case-card">
+          <span class="case-tag">Co-Sell</span>
+          <div class="case-type">ISV · Advanced Tier</div>
+          <div class="case-title">Co-Sell Motion Built From Zero to Active Pipeline</div>
+          <p class="case-desc">An Advanced-tier ISV with no repeatable co-sell motion. Every AWS field engagement started from scratch. We designed the co-sell playbook, built out ACE submission standards, facilitated PDM introductions, and ran the first three co-sell cycles alongside their team.</p>
+          <ul class="case-outcomes">
+            <li>Co-sell playbook built and deployed</li>
+            <li>3 AWS field reps engaged in first 60 days</li>
+            <li>Pipeline generated from co-sell in Q1</li>
+            <li>ACE co-sell acceptance rate above 60%</li>
+          </ul>
+        </div>
+        <div class="case-card placeholder">
+          <span class="case-tag">Coming Soon</span>
+          <div class="case-type">More Case Studies</div>
+          <div class="case-title">Additional Results Being Documented</div>
+          <p class="case-desc">We are documenting additional client outcomes across FTR completion, SaaS Co-sell Benefit activation, MDF capture, and Marketplace GTM. Check back as we add more.</p>
+        </div>
       </div>
-      <div style="display: flex; flex-direction: column; gap: 0.4rem;">
-        <label style="font-family:'Barlow Condensed'; font-size:0.72rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--green-dark);">Partner Company</label>
-        <input type="text" id="refPartnerCompany" placeholder="Their company" required style="background:var(--white); border:1px solid rgba(17,17,17,0.15); color:var(--ink); font-family:'Barlow',sans-serif; font-weight:300; font-size:0.97rem; padding:0.9rem 1.1rem; outline:none; border-radius:0; appearance:none; -webkit-appearance:none; transition:border-color 0.2s;" onfocus="this.style.borderColor='var(--green-dark)'" onblur="this.style.borderColor='rgba(17,17,17,0.15)'">
+    </div>
+  </section>
+
+  <!-- ============================================================
+       REFERRAL PROGRAM
+  ============================================================ -->
+  <section class="referral" id="referral">
+    <div class="container">
+      <div class="section-eyebrow">Referral Program</div>
+
+      <div class="referral-layout">
+        <div class="referral-left">
+          <h2 class="section-title">Know a partner <em>who needs this?</em></h2>
+          <p class="referral-intro">We work with a small number of partners at any given time, which means referrals matter. If you know an ISV, MSP, or channel partner who is struggling with their AWS program: tier advancement, funding, co-sell, FTR, we want to talk to them.</p>
+          <p class="referral-intro">For every referred partner who becomes a client, we pay a referral fee and keep you in the loop on the engagement. Simple and transparent.</p>
+
+          <div class="referral-how">
+            <div class="referral-step">
+              <div class="referral-step-num">01</div>
+              <div>
+                <div class="referral-step-title">Fill out the form</div>
+                <div class="referral-step-desc">Give us the partner's name, company, and a quick description of their AWS situation.</div>
+              </div>
+            </div>
+            <div class="referral-step">
+              <div class="referral-step-num">02</div>
+              <div>
+                <div class="referral-step-title">We follow up within one business day</div>
+                <div class="referral-step-desc">We reach out to the referred partner directly and offer them a free 30-minute strategy call.</div>
+              </div>
+            </div>
+            <div class="referral-step">
+              <div class="referral-step-num">03</div>
+              <div>
+                <div class="referral-step-title">You get paid when they sign</div>
+                <div class="referral-step-desc">If the partner becomes a client, we pay a referral fee and keep you informed throughout.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="who-refers">
+            <div class="who-card">
+              <div class="who-card-label">Good Fit</div>
+              <div class="who-card-title">AWS Field Reps &amp; PDMs</div>
+              <p class="who-card-desc">You see which partners are underperforming in their program. We fix that. Partners you refer show up better in ACE and co-sell conversations.</p>
+            </div>
+            <div class="who-card">
+              <div class="who-card-label">Good Fit</div>
+              <div class="who-card-title">VCs &amp; Investors</div>
+              <p class="who-card-desc">Portfolio companies building on AWS: their partner program standing directly affects go-to-market velocity. We get them moving faster.</p>
+            </div>
+            <div class="who-card">
+              <div class="who-card-label">Good Fit</div>
+              <div class="who-card-title">AWS Consultants &amp; SIs</div>
+              <p class="who-card-desc">If your clients need AWS partner advisory outside your core practice, we are a clean referral. We do not compete on implementation work.</p>
+            </div>
+            <div class="who-card">
+              <div class="who-card-label">Good Fit</div>
+              <div class="who-card-title">Former Colleagues</div>
+              <p class="who-card-desc">If you know someone who just took an alliances role and is building the AWS program from scratch, that is exactly who we help.</p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="referral-benefits">
+            <div class="referral-benefit">
+              <div class="referral-benefit-label">What You Get</div>
+              <div class="referral-benefit-title">Referral Fee on Signed Engagements</div>
+              <p class="referral-benefit-desc">We pay a referral fee for every partner you introduce who becomes a paying client. Fee structure shared on request: reach out to hello@grnmrk.com to discuss.</p>
+            </div>
+            <div class="referral-benefit">
+              <div class="referral-benefit-label">What They Get</div>
+              <div class="referral-benefit-title">A Free 30-Minute Discovery Call</div>
+              <p class="referral-benefit-desc">Every referred partner gets a complimentary strategy call. We assess their current partner standing and tell them exactly where the gaps are, whether they work with us or not.</p>
+            </div>
+            <div class="referral-benefit">
+              <div class="referral-benefit-label">Our Commitment</div>
+              <div class="referral-benefit-title">We Treat Your Referrals with Care</div>
+              <p class="referral-benefit-desc">Your reputation is on the line when you refer someone. We take that seriously: every referral gets a prompt response, a thoughtful assessment, and honest advice regardless of whether there is a fit.</p>
+            </div>
+          </div>
+
+          <!-- REFERRAL FORM -->
+          <div class="referral-form-wrap" id="referralWrap">
+            <div class="referral-form-inner">
+              <div id="referralFormFields">
+                <div class="rf-eyebrow">Submit a Referral</div>
+                <h3 class="rf-title">Refer a partner</h3>
+                <div class="rf-grid">
+                  <div class="rf-field">
+                    <label class="rf-label" for="refYourName">Your Name</label>
+                    <input class="rf-input" type="text" id="refYourName" placeholder="Jane Smith" required>
+                  </div>
+                  <div class="rf-field">
+                    <label class="rf-label" for="refYourEmail">Your Email</label>
+                    <input class="rf-input" type="email" id="refYourEmail" placeholder="jane@company.com" required>
+                  </div>
+                </div>
+                <div class="rf-grid">
+                  <div class="rf-field">
+                    <label class="rf-label" for="refPartnerName">Partner Name</label>
+                    <input class="rf-input" type="text" id="refPartnerName" placeholder="Referred person's name" required>
+                  </div>
+                  <div class="rf-field">
+                    <label class="rf-label" for="refPartnerCompany">Partner Company</label>
+                    <input class="rf-input" type="text" id="refPartnerCompany" placeholder="Their company" required>
+                  </div>
+                </div>
+                <div class="rf-field">
+                  <label class="rf-label" for="refContext">What's Their AWS Situation?</label>
+                  <textarea class="rf-textarea" id="refContext" placeholder="e.g. They are stuck at Select tier and cannot figure out why, or they have migration engagements but have not applied for MAP funding..." required></textarea>
+                </div>
+                <div class="rf-actions">
+                  <button class="rf-submit" id="referralBtn" type="button" onclick="handleReferral()">
+                    Submit Referral <span class="btn-arrow">&#8594;</span>
+                  </button>
+                </div>
+                <p class="rf-error" id="referralError">Something went wrong. Email us directly at hello@grnmrk.com.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="referral-success" id="referralSuccess">
+            <div class="referral-success-title">Referral Received.</div>
+            <p class="referral-success-body">Thanks for the intro. We will follow up with your referral within one business day and keep you in the loop.</p>
+          </div>
+
+          <div class="referral-email-note">
+            <p>Prefer email? Send the partner's name, company, and a one-line description of their AWS situation to <a href="mailto:hello@grnmrk.com?subject=Referral">hello@grnmrk.com</a>. We will follow up within one business day.</p>
+          </div>
+        </div>
       </div>
     </div>
-    <div style="display: flex; flex-direction: column; gap: 0.4rem;">
-      <label style="font-family:'Barlow Condensed'; font-size:0.72rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--green-dark);">What's Their AWS Situation?</label>
-      <textarea id="refContext" placeholder="e.g. They're stuck at Select tier and can't figure out why, or they have migration engagements but haven't applied for MAP funding..." required rows="4" style="background:var(--white); border:1px solid rgba(17,17,17,0.15); color:var(--ink); font-family:'Barlow',sans-serif; font-weight:300; font-size:0.97rem; padding:0.9rem 1.1rem; outline:none; border-radius:0; appearance:none; resize:vertical; line-height:1.7; transition:border-color 0.2s;" onfocus="this.style.borderColor='var(--green-dark)'" onblur="this.style.borderColor='rgba(17,17,17,0.15)'"></textarea>
+  </section>
+
+  <!-- ============================================================
+       CTA
+  ============================================================ -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-inner">
+        <div>
+          <h2 class="cta-headline">Want to work <em>with Grnmrk?</em></h2>
+          <p class="cta-sub">Whether you are an AWS partner looking for advisory support or someone with a referral, we are easy to reach. Start with a 30-minute call.</p>
+        </div>
+        <div class="cta-actions">
+          <a class="btn btn-accent" href="https://calendly.com/grnmrk/30-min-consultation" target="_blank" rel="noopener noreferrer">Book a Free Strategy Call <span class="btn-arrow">&#8594;</span></a>
+          <a class="btn btn-ghost-light" href="mailto:hello@grnmrk.com">Send an Email</a>
+        </div>
+      </div>
     </div>
-    <div style="display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap;">
-      <button type="button" id="referralBtn" onclick="handleReferral()" style="font-family:'Barlow Condensed'; font-weight:700; font-size:0.9rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--ink); background:var(--green); padding:1rem 2.2rem; border:none; cursor:pointer; transition:background 0.2s;">Submit Referral →</button>
-      <p id="referralError" style="display:none; font-family:'Barlow Condensed'; font-size:0.82rem; letter-spacing:0.06em; color:#c0392b;">Something went wrong. Email us directly at hello@grnmrk.com.</p>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <a class="footer-logo" href="/"><img src="/grnmrk-banner-2026-transparent-background.png" alt="Grnmrk Group"></a>
+          <p class="footer-tagline">Grnmrk Group runs AWS partner programs for ISVs, MSPs, and channel partners, delivering pipeline, funding, and Marketplace revenue.</p>
+          <div class="footer-icons">
+            <a class="footer-aws-link" href="https://aws.amazon.com/marketplace/" target="_blank" rel="noopener noreferrer" aria-label="AWS Partner Network"><img src="/aws-logo_copy.png" alt="AWS Partner"></a>
+            <a class="footer-linkedin-icon" href="https://www.linkedin.com/company/grnmrk-group/" target="_blank" rel="noopener noreferrer" aria-label="Grnmrk Group on LinkedIn">
+              <img class="li-default" src="/LinkedIn_Symbol_1.png" alt="LinkedIn">
+              <img class="li-hover" src="/LinkedIn_Symbol_1 copy.png" alt="LinkedIn">
+            </a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="/services">Services Overview</a></li>
+            <li><a href="/services/managed-operations">Managed Operations</a></li>
+            <li><a href="/services/strategy-consulting">Strategy Consulting</a></li>
+            <li><a href="/services/aws-marketplace">AWS Marketplace</a></li>
+            <li><a href="/services/fractional-alliances-leader">Fractional Alliances Leader</a></li>
+            <li><a href="/services/partner-revenue-generation">Revenue Generation</a></li>
+            <li><a href="/services/foundational-technical-review">FTR Preparation</a></li>
+            <li><a href="/services/fractional-pdm">Fractional PDM</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="/pricing">Pricing</a></li>
+            <li><a href="/company/case-studies">Case Studies</a></li>
+            <li><a href="/company/about">About</a></li>
+            <li><a href="/company/contact">Contact</a></li>
+            <li><a href="/company/partners">Partners</a></li>
+            <li><a href="/company/careers">Careers</a></li>
+            <li><a href="/blogs">Blog</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="/resources/aws-map-funding-checklist">MAP Funding Checklist</a></li>
+            <li><a href="/resources/aws-mdf-funding-checklist">MDF Funding Checklist</a></li>
+            <li><a href="/resources/aws-ftr-checklist">FTR Checklist</a></li>
+            <li><a href="/resources/aws-marketplace-gtm-readiness-guide">Marketplace GTM Guide</a></li>
+            <li><a href="/resources/aws-co-sell-playbook">Co-Sell Playbook</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2025 Grnmrk Group LLC. All rights reserved.</span>
+        <div class="footer-legal">
+          <a href="/terms">Terms of Service</a>
+          <a href="/privacy">Privacy Policy</a>
+          <a href="https://www.linkedin.com/company/grnmrk-group/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </div>
+      </div>
     </div>
-  </form>
+  </footer>
 
-  <div id="referralSuccess" style="display:none; background:var(--green-dim); border-left:3px solid var(--green); padding:2rem;">
-    <div style="font-family:'Bebas Neue'; font-size:1.8rem; color:var(--ink); margin-bottom:0.5rem;">Referral Received.</div>
-    <p style="font-size:0.95rem; font-weight:300; color:var(--ink-mid); line-height:1.75;">Thanks for the intro. We'll follow up with your referral within one business day and keep you in the loop.</p>
-  </div>
-</div>
+  <!-- ============================================================
+       JAVASCRIPT
+  ============================================================ -->
+  <script>
+    async function handleReferral() {
+      const yourName       = document.getElementById('refYourName').value.trim();
+      const yourEmail      = document.getElementById('refYourEmail').value.trim();
+      const partnerName    = document.getElementById('refPartnerName').value.trim();
+      const partnerCompany = document.getElementById('refPartnerCompany').value.trim();
+      const context        = document.getElementById('refContext').value.trim();
+      const btn            = document.getElementById('referralBtn');
+      const errorEl        = document.getElementById('referralError');
 
-<script>
-  async function handleReferral() {
-    const yourName       = document.getElementById('refYourName').value.trim();
-    const yourEmail      = document.getElementById('refYourEmail').value.trim();
-    const partnerName    = document.getElementById('refPartnerName').value.trim();
-    const partnerCompany = document.getElementById('refPartnerCompany').value.trim();
-    const context        = document.getElementById('refContext').value.trim();
-    const btn            = document.getElementById('referralBtn');
-    const errorEl        = document.getElementById('referralError');
+      errorEl.style.display = 'none';
 
-    errorEl.style.display = 'none';
-
-    const fields = [
-      document.getElementById('refYourName'),
-      document.getElementById('refYourEmail'),
-      document.getElementById('refPartnerName'),
-      document.getElementById('refPartnerCompany'),
-      document.getElementById('refContext')
-    ];
-    let valid = true;
-    fields.forEach(f => {
-      if (!f.value.trim()) {
-        f.style.borderColor = '#c0392b';
-        f.addEventListener('input', () => { f.style.borderColor = ''; }, { once: true });
-        valid = false;
-      }
-    });
-    if (!valid) return;
-
-    btn.textContent = 'Sending…';
-    btn.disabled = true;
-
-    try {
-      const res = await fetch('https://formspree.io/f/meerbgvp', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify({
-          _subject: `New Partner Referral — ${partnerName} at ${partnerCompany}`,
-          _replyto: yourEmail,
-          'Referred By': yourName,
-          'Referrer Email': yourEmail,
-          'Partner Name': partnerName,
-          'Partner Company': partnerCompany,
-          'AWS Situation': context
-        })
+      const fields = [
+        document.getElementById('refYourName'),
+        document.getElementById('refYourEmail'),
+        document.getElementById('refPartnerName'),
+        document.getElementById('refPartnerCompany'),
+        document.getElementById('refContext')
+      ];
+      let valid = true;
+      fields.forEach(f => {
+        if (!f.value.trim()) {
+          f.style.borderColor = '#ff7070';
+          f.addEventListener('input', () => { f.style.borderColor = ''; }, { once: true });
+          valid = false;
+        }
       });
-      if (res.ok) {
-        document.getElementById('referralForm').style.display = 'none';
-        document.getElementById('referralSuccess').style.display = 'block';
-      } else { throw new Error(); }
-    } catch {
-      btn.textContent = 'Submit Referral →';
-      btn.disabled = false;
-      errorEl.style.display = 'block';
+      if (!valid) return;
+
+      btn.textContent = 'Sending...';
+      btn.disabled = true;
+
+      try {
+        const res = await fetch('https://formspree.io/f/meerbgvp', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({
+            _subject: `New Partner Referral from ${yourName}: ${partnerName} at ${partnerCompany}`,
+            _replyto: yourEmail,
+            'Referred By': yourName,
+            'Referrer Email': yourEmail,
+            'Partner Name': partnerName,
+            'Partner Company': partnerCompany,
+            'AWS Situation': context
+          })
+        });
+        if (res.ok) {
+          document.getElementById('referralFormFields').style.display = 'none';
+          document.getElementById('referralSuccess').style.display = 'block';
+        } else { throw new Error(); }
+      } catch {
+        btn.innerHTML = 'Submit Referral <span class="btn-arrow">&#8594;</span>';
+        btn.disabled = false;
+        errorEl.style.display = 'block';
+      }
     }
-  }
-</script>
-
-        <div class="who-refers">
-          <div class="who-card">
-            <div class="who-card-label">Good Fit</div>
-            <div class="who-card-title">AWS Field Reps & PDMs</div>
-            <p class="who-card-desc">You see which partners are underperforming in their program. We fix that. Partners you refer to us show up better in ACE and in co-sell conversations.</p>
-          </div>
-          <div class="who-card">
-            <div class="who-card-label">Good Fit</div>
-            <div class="who-card-title">VCs & Investors</div>
-            <p class="who-card-desc">If you have portfolio companies building on AWS, their partner program standing directly affects their go-to-market velocity. We get them moving faster.</p>
-          </div>
-          <div class="who-card">
-            <div class="who-card-label">Good Fit</div>
-            <div class="who-card-title">AWS Consultants & SIs</div>
-            <p class="who-card-desc">If your clients need AWS partner advisory that's outside your core practice, we're a clean referral. We don't compete on implementation work.</p>
-          </div>
-          <div class="who-card">
-            <div class="who-card-label">Good Fit</div>
-            <div class="who-card-title">Former Colleagues</div>
-            <p class="who-card-desc">If you know someone who just took an alliances role and is building the AWS program from scratch, that's exactly who we help. Send them our way.</p>
-          </div>
-        </div>
-      </div>
-
-      <div>
-        <div class="referral-benefits">
-          <div class="referral-benefit">
-            <div class="referral-benefit-label">What You Get</div>
-            <div class="referral-benefit-title">Referral Fee on Signed Engagements</div>
-            <p class="referral-benefit-desc">We pay a referral fee for every partner you introduce who becomes a paying client. Fee structure shared on request — reach out to hello@grnmrk.com to discuss.</p>
-          </div>
-          <div class="referral-benefit">
-            <div class="referral-benefit-label">What They Get</div>
-            <div class="referral-benefit-title">A Free 30-Minute Discovery Call</div>
-            <p class="referral-benefit-desc">Every referred partner gets a complimentary strategy call — we assess their current partner standing and tell them exactly where the gaps are, whether they work with us or not.</p>
-          </div>
-          <div class="referral-benefit">
-            <div class="referral-benefit-label">How It Works</div>
-            <div class="referral-benefit-title">Email Us or Make the Intro</div>
-            <p class="referral-benefit-desc">Either email hello@grnmrk.com with the partner's name and context, or make a direct email introduction. We'll take it from there and keep you in the loop.</p>
-          </div>
-          <div class="referral-benefit">
-            <div class="referral-benefit-label">Our Commitment</div>
-            <div class="referral-benefit-title">We Treat Your Referrals with Care</div>
-            <p class="referral-benefit-desc">Your reputation is on the line when you refer someone. We take that seriously — every referral gets a prompt response, a thoughtful assessment, and honest advice regardless of whether there's a fit.</p>
-          </div>
-        </div>
-
-        <div style="margin-top: 2rem; background: var(--green-dim); border-left: 3px solid var(--green); padding: 1.5rem 2rem;">
-          <p style="font-family: 'Barlow Condensed'; font-size: 1.1rem; font-weight: 500; color: var(--ink); line-height: 1.5;">Ready to refer a partner? Email <a href="mailto:hello@grnmrk.com?subject=Referral" style="color: var(--green-dark);">hello@grnmrk.com</a> with their name, company, and a one-line description of their AWS situation. We'll follow up within one business day.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CTA -->
-<section class="cta-section">
-  <div class="cta-inner">
-    <div>
-      <h2 class="cta-headline">Want to Work<br>With <span>Grnmrk?</span></h2>
-      <p class="cta-sub">Whether you're an AWS partner looking for advisory support or someone with a referral, we're easy to reach. Start with a 30-minute call — no commitment required.</p>
-    </div>
-    <div class="cta-actions">
-      <a class="btn-primary" href="https://calendly.com/grnmrk/30-min-consultation" target="_blank" rel="noopener noreferrer">Book a Free Strategy Call</a>
-      <a class="btn-ghost" href="mailto:hello@grnmrk.com">Send an Email</a>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <div class="footer-top">
-    <div class="footer-brand">
-      <a class="footer-logo" href="/"><span>G</span>RNMRK GROUP</a>
-      <p class="footer-tagline">AWS Partner Growth Advisors</p>
-      <a class="footer-linkedin" href="https://www.linkedin.com/company/grnmrk-group/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-        LinkedIn
-      </a>
-    <img src="/aws-logo_copy.png" alt="AWS Partner Network" style="height:188px; margin-top:1.5rem;">
-    </div>
-    <div class="footer-nav-group">
-      <div class="footer-nav-col">
-        <div class="footer-nav-heading">Services</div>
-        <ul class="footer-nav-links">
-          <li><a href="/services">Services Overview</a></li>
-          <li><a href="/services/managed-operations">Managed Operations</a></li>
-          <li><a href="/services/strategy-consulting">Strategy Consulting</a></li>
-          <li><a href="/services/aws-marketplace">AWS Marketplace</a></li>
-          <li><a href="/services/fractional-alliances-leader">Fractional Alliances Leader</a></li>
-          <li><a href="/services/partner-revenue-generation">Revenue Generation</a></li>
-          <li><a href="/services/foundational-technical-review">FTR Preparation</a></li>
-          <li><a href="/services/fractional-pdm">Fractional PDM</a></li>
-        </ul>
-      </div>
-      <div class="footer-nav-col">
-        <div class="footer-nav-heading">Company</div>
-        <ul class="footer-nav-links">
-          <li><a href="/pricing">Pricing</a></li>
-          <li><a href="/company/case-studies">Case Studies</a></li>
-          <li><a href="/company/about">About</a></li>
-          <li><a href="/company/contact">Contact</a></li>
-          <li><a href="/company/partners">Partners</a></li>
-          <li><a href="/company/careers">Careers</a></li>
-          <li><a href="/blogs">Blog</a></li>
-        </ul>
-      </div>
-      <div class="footer-nav-col">
-        <div class="footer-nav-heading">Resources</div>
-        <ul class="footer-nav-links">
-          <li><a href="/resources/aws-map-funding-checklist">MAP Funding Checklist</a></li>
-          <li><a href="/resources/aws-mdf-funding-checklist">MDF Funding Checklist</a></li>
-          <li><a href="/resources/aws-ftr-checklist">FTR Checklist</a></li>
-          <li><a href="/resources/aws-marketplace-gtm-readiness-guide">Marketplace GTM Guide</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <div class="footer-bottom-inner">
-      <p class="footer-copy">© 2025 Grnmrk Group LLC. All rights reserved.</p>
-      <div class="footer-legal">
-        <a href="/terms">Terms of Service</a>
-        <a href="/privacy">Privacy Policy</a>
-      </div>
-    </div>
-  </div>
-</footer>
+  </script>
 
 </body>
 </html>

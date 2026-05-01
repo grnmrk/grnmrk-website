@@ -1,698 +1,751 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Complete Guide to AWS ACE Pipeline Management — Grnmrk Group</title>
-<meta name="description" content="ACE is more than a CRM — it's how AWS decides which partners get co-sell priority. Here's how to manage your ACE pipeline in a way that actually moves your PDM to act.">
-<link rel="icon" type="image/png" href="/favicon-transparent.png">
-<link rel="apple-touch-icon" href="/favicon-transparent.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;1,300&family=Barlow+Condensed:wght@500;700&display=swap" rel="stylesheet">
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  :root {
-    --bg:          #F0EDE6;
-    --bg-alt:      #E8E4DC;
-    --ink:         #111111;
-    --ink-mid:     #3A3A3A;
-    --ink-dim:     #7A7369;
-    --green:       #3DDC84;
-    --green-dark:  #28B06A;
-    --green-dim:   #D4F5E5;
-    --rule:        rgba(17,17,17,0.1);
-    --white:       #FFFFFF;
-    --linkedin-blue: #0077B5;
-  }
+  <!-- ============================================================
+       META & SEO
+  ============================================================ -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Complete Guide to AWS ACE Pipeline Management — Grnmrk Group</title>
+  <meta name="description" content="ACE is more than a CRM. It is how AWS decides which partners get co-sell priority. Here is how to manage your ACE pipeline in a way that moves your PDM to act.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.grnmrk.com/blogs/aws-ace-pipeline-management">
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
 
-  html { scroll-behavior: smooth; }
-  body { background: var(--bg); color: var(--ink); font-family: 'Barlow', sans-serif; font-weight: 300; font-size: 17px; line-height: 1.7; overflow-x: hidden; }
+  <meta property="og:title" content="The Complete Guide to AWS ACE Pipeline Management — Grnmrk Group">
+  <meta property="og:description" content="ACE is the primary signal AWS uses to decide which partners get co-sell priority. Here is how to manage it like the lever it is.">
+  <meta property="og:url" content="https://www.grnmrk.com/blogs/aws-ace-pipeline-management">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Grnmrk Group">
 
-  /* NAV */
-nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 1.2rem 5vw;
-  background: rgba(240,237,230,0.94);
-  backdrop-filter: blur(14px);
-  border-bottom: 1px solid var(--rule);
-  transition: padding 0.3s;
-}
-nav.scrolled { padding: 0.9rem 5vw; }
-.nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.7rem; letter-spacing: 0.12em; color: var(--ink); text-decoration: none; }
-.nav-logo span { color: var(--green); }
-.nav-links { display: flex; gap: 2rem; list-style: none; }
-.nav-links a { font-family: 'Barlow Condensed', sans-serif; font-weight: 500; font-size: 0.82rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-dim); text-decoration: none; transition: color 0.2s; }
-.nav-links a:hover { color: var(--ink); }
-/* DROPDOWNS */
-.nav-item { position: relative; }
+  <!-- ============================================================
+       ASSETS
+  ============================================================ -->
+  <link rel="icon" type="image/png" href="/favicon-transparent.png">
+  <link rel="apple-touch-icon" href="/favicon-transparent.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 
-.nav-dropdown {
-  display: none;
-  position: absolute;
-  top: calc(100%);
-  left: 50%;
-  transform: translateX(-50%);
-  background: var(--white);
-  border: 1px solid var(--rule);
-  box-shadow: 0 8px 32px rgba(17,17,17,0.1);
-  min-width: 220px;
-  padding: 0.6rem 0;
-  z-index: 200;
-}
+  <!-- Crisp Chat -->
+  <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="f635b745-e538-474c-a47f-3e1f4466424c";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
 
-.nav-dropdown::before {
-  content: '';
-  position: absolute;
-  top: -6px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 10px;
-  height: 10px;
-  background: var(--white);
-  border-left: 1px solid var(--rule);
-  border-top: 1px solid var(--rule);
-  rotate: 45deg;
-}
+  <!-- ============================================================
+       STYLES
+  ============================================================ -->
+  <style>
 
-.nav-dropdown a {
-  display: block;
-  padding: 0.55rem 1.4rem;
-  font-family: 'Barlow Condensed', sans-serif;
-  font-weight: 500;
-  font-size: 0.82rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--ink-dim);
-  text-decoration: none;
-  transition: color 0.15s, background 0.15s;
-  white-space: nowrap;
-}
+    /* ==========================================================
+       TOKENS
+    ========================================================== */
+    :root {
+      --bg:           #F0EDE6;
+      --bg-soft:      #E8E4DC;
+      --ink:          #111111;
+      --ink-soft:     #2A2A2A;
+      --slate:        #7A7369;
+      --slate-light:  #A09890;
+      --line:         #D8D4CC;
+      --accent:       #3DDC84;
+      --accent-hover: #28B06A;
+      --accent-dim:   #D4F5E5;
+      --footer-bg:    #0D0D0D;
+      --footer-text:  #9A9490;
+    }
 
-.nav-dropdown a:hover {
-  color: var(--ink);
-  background: var(--bg);
-}
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Onest', -apple-system, sans-serif;
+      background: var(--bg); color: var(--ink);
+      font-weight: 400; line-height: 1.55;
+      -webkit-font-smoothing: antialiased; overflow-x: hidden;
+    }
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 32px; }
 
-.has-dropdown:hover .nav-dropdown { display: block; }
-.has-dropdown > a::after {
-  content: ' ↓';
-  font-size: 0.65rem;
-  opacity: 0.5;
-  letter-spacing: 0;
-}
-.nav-right { display: flex; align-items: center; gap: 1.5rem; }
-.nav-ghost { font-family: 'Barlow Condensed', sans-serif; font-weight: 500; font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-dim); text-decoration: none; transition: color 0.2s; }
-.nav-ghost:hover { color: var(--ink); }
-.nav-cta { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); background: var(--green); padding: 0.5rem 1.3rem; text-decoration: none; transition: background 0.2s; }
-.nav-cta:hover { background: var(--green-dark); color: var(--white); }
+    /* ==========================================================
+       NAVIGATION
+    ========================================================== */
+    .nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(240,237,230,0.88);
+      backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      height: 72px; padding: 0 32px;
+      max-width: 1280px; margin: 0 auto;
+    }
+    .logo { text-decoration: none; display: flex; align-items: center; }
+    .logo img { height: 96px; width: auto; display: block; }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a { color: var(--ink); text-decoration: none; font-size: 14.5px; font-weight: 500; display: flex; align-items: center; gap: 4px; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--accent-hover); }
+    .nav-item { position: relative; }
+    .nav-dropdown { display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); padding-top: 8px; background: transparent; z-index: 200; }
+    .nav-dropdown-inner { background: white; border: 1px solid var(--line); border-radius: 12px; box-shadow: 0 12px 40px rgba(17,17,17,0.12); min-width: 220px; padding: 8px 0; }
+    .nav-dropdown a { display: block; padding: 9px 20px; font-size: 13.5px; font-weight: 500; color: var(--slate); transition: color 0.15s, background 0.15s; white-space: nowrap; text-decoration: none; }
+    .nav-dropdown a:hover { color: var(--ink); background: var(--bg); }
+    .has-dropdown:hover .nav-dropdown { display: block; }
+    .has-dropdown > a::after { content: ' ↓'; font-size: 10px; opacity: 0.45; }
+    .nav-cta-group { display: flex; align-items: center; gap: 20px; }
+    .nav-email { color: var(--slate); text-decoration: none; font-size: 13.5px; font-weight: 500; transition: color 0.2s; }
+    .nav-email:hover { color: var(--ink); }
 
-  /* HERO */
-  .article-hero { background: var(--ink); padding: 9rem 5vw 5rem; position: relative; overflow: hidden; }
-  .article-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 80% at 85% 50%, rgba(61,220,132,0.07), transparent 70%); }
-  .article-hero-inner { max-width: 860px; margin: 0 auto; position: relative; }
-  .article-meta { display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap; }
-  .article-tag { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink); background: var(--green); padding: 0.25rem 0.8rem; }
-  .article-read-time { font-family: 'Barlow Condensed', sans-serif; font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(240,237,230,0.4); }
-  .article-dot { color: rgba(240,237,230,0.2); }
-  .article-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.8rem, 6vw, 5.5rem); line-height: 0.95; letter-spacing: 0.02em; color: var(--bg); margin-bottom: 1.5rem; }
-  .article-deck { font-size: 1.15rem; font-weight: 300; color: rgba(240,237,230,0.65); line-height: 1.75; max-width: 680px; }
+    /* ==========================================================
+       BUTTONS
+    ========================================================== */
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 11px 22px; border-radius: 999px; font-size: 14px; font-weight: 600; font-family: inherit; text-decoration: none; border: none; cursor: pointer; transition: all 0.2s ease; letter-spacing: -0.01em; }
+    .btn-primary { background: var(--ink); color: var(--bg); }
+    .btn-primary:hover { background: var(--accent-hover); color: white; transform: translateY(-1px); }
+    .btn-accent { background: var(--accent); color: var(--ink); }
+    .btn-accent:hover { background: var(--accent-hover); color: white; transform: translateY(-1px); }
+    .btn-ghost-light { background: transparent; color: var(--bg); border: 1.5px solid rgba(240,237,230,0.35); }
+    .btn-ghost-light:hover { border-color: var(--accent); color: var(--accent); }
+    .btn-arrow { display: inline-block; transition: transform 0.2s; }
+    .btn:hover .btn-arrow { transform: translateX(3px); }
 
-  /* BREADCRUMB */
-  .breadcrumb-wrap { background: var(--bg-alt); border-bottom: 1px solid var(--rule); }
-  .breadcrumb { max-width: 860px; margin: 0 auto; padding: 1.5rem 5vw; display: flex; align-items: center; gap: 0.5rem; }
-  .breadcrumb a { font-family: 'Barlow Condensed', sans-serif; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-dim); text-decoration: none; transition: color 0.2s; }
-  .breadcrumb a:hover { color: var(--green-dark); }
-  .breadcrumb-sep { font-family: 'Barlow Condensed', sans-serif; font-size: 0.78rem; color: var(--ink-dim); }
-  .breadcrumb-current { font-family: 'Barlow Condensed', sans-serif; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-mid); }
+    /* ==========================================================
+       ARTICLE HERO
+    ========================================================== */
+    .article-hero {
+      background: var(--ink); padding: 72px 0 56px;
+      position: relative; overflow: hidden;
+    }
+    .article-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 80% at 85% 50%, rgba(61,220,132,0.07), transparent 70%); }
+    .article-hero-inner { max-width: 860px; margin: 0 auto; padding: 0 32px; position: relative; }
+    .article-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; flex-wrap: wrap; }
+    .article-tag { display: inline-flex; align-items: center; padding: 4px 12px; background: var(--accent); border-radius: 999px; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); }
+    .article-dot { color: rgba(240,237,230,0.25); }
+    .article-read-time { font-size: 12.5px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(240,237,230,0.4); }
+    .article-title { font-size: clamp(30px, 5vw, 54px); font-weight: 600; line-height: 1.05; letter-spacing: -0.03em; color: var(--bg); margin-bottom: 20px; }
+    .article-title em { font-family: 'Instrument Serif', serif; font-weight: 400; font-style: italic; color: var(--accent); }
+    .article-deck { font-size: 17px; color: rgba(240,237,230,0.65); line-height: 1.72; max-width: 680px; }
 
-  /* LAYOUT */
-  .article-wrap { max-width: 860px; margin: 0 auto; padding: 4rem 5vw 6rem; display: grid; grid-template-columns: 1fr 220px; gap: 5rem; align-items: start; }
+    /* ==========================================================
+       BREADCRUMB
+    ========================================================== */
+    .breadcrumb-wrap { background: var(--bg-soft); border-bottom: 1px solid var(--line); }
+    .breadcrumb { max-width: 860px; margin: 0 auto; padding: 14px 32px; display: flex; align-items: center; gap: 8px; }
+    .breadcrumb a { font-size: 13px; font-weight: 500; color: var(--slate); text-decoration: none; transition: color 0.2s; }
+    .breadcrumb a:hover { color: var(--accent-hover); }
+    .breadcrumb-sep { font-size: 13px; color: var(--slate); opacity: 0.4; }
+    .breadcrumb-current { font-size: 13px; font-weight: 500; color: var(--ink-soft); }
 
-  /* BODY */
-  .article-body h2 { font-family: 'Bebas Neue', sans-serif; font-size: 2.2rem; letter-spacing: 0.03em; color: var(--ink); line-height: 1; margin: 3rem 0 1.2rem; padding-top: 3rem; border-top: 1px solid var(--rule); }
-  .article-body h2:first-child { margin-top: 0; padding-top: 0; border-top: none; }
-  .article-body h3 { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.1rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink); margin: 2rem 0 0.8rem; }
-  .article-body p { font-size: 1.02rem; font-weight: 300; color: var(--ink-mid); line-height: 1.85; margin-bottom: 1.4rem; }
-  .article-body strong { font-weight: 600; color: var(--ink); }
-  .article-body ul, .article-body ol { margin: 1rem 0 1.5rem 1.2rem; }
-  .article-body li { font-size: 1rem; font-weight: 300; color: var(--ink-mid); line-height: 1.8; margin-bottom: 0.5rem; padding-left: 0.4rem; }
-  .article-body a { color: var(--green-dark); text-decoration: underline; text-decoration-color: rgba(40,176,106,0.3); transition: text-decoration-color 0.2s; }
-  .article-body a:hover { text-decoration-color: var(--green-dark); }
+    /* ==========================================================
+       ARTICLE LAYOUT
+    ========================================================== */
+    .article-wrap { max-width: 1100px; margin: 0 auto; padding: 48px 32px 80px; display: grid; grid-template-columns: 1fr 240px; gap: 64px; align-items: start; }
 
-  .callout { background: var(--green-dim); border-left: 3px solid var(--green); padding: 1.5rem 2rem; margin: 2rem 0; }
-  .callout p { font-family: 'Barlow Condensed', sans-serif; font-size: 1.15rem; font-weight: 500; line-height: 1.5; color: var(--ink); letter-spacing: 0.01em; margin-bottom: 0; }
+    /* ==========================================================
+       ARTICLE BODY
+    ========================================================== */
+    .article-body h2 {
+      font-size: 26px; font-weight: 600; letter-spacing: -0.025em;
+      color: var(--ink); line-height: 1.15;
+      margin: 48px 0 16px; padding-top: 48px; border-top: 1px solid var(--line);
+    }
+    .article-body h2:first-child { margin-top: 0; padding-top: 0; border-top: none; }
+    .article-body h3 { font-size: 16px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--ink); margin: 28px 0 10px; }
+    .article-body p { font-size: 16.5px; color: var(--slate); line-height: 1.78; margin-bottom: 18px; }
+    .article-body p:last-child { margin-bottom: 0; }
+    .article-body strong { font-weight: 600; color: var(--ink); }
+    .article-body ul, .article-body ol { margin: 12px 0 20px 20px; }
+    .article-body li { font-size: 16px; color: var(--slate); line-height: 1.72; margin-bottom: 8px; padding-left: 6px; }
+    .article-body a { color: var(--accent-hover); text-decoration: underline; text-decoration-color: rgba(40,176,106,0.35); transition: text-decoration-color 0.2s; }
+    .article-body a:hover { text-decoration-color: var(--accent-hover); }
 
-  .insight-box { background: var(--ink); padding: 2rem 2.5rem; margin: 2.5rem 0; }
-  .insight-box-label { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--green); margin-bottom: 0.8rem; }
-  .insight-box p { font-size: 0.97rem; font-weight: 300; color: rgba(240,237,230,0.75); line-height: 1.75; margin-bottom: 0; }
+    /* Callout */
+    .callout { background: var(--accent-dim); border: 1px solid rgba(40,176,106,0.2); border-left: 3px solid var(--accent-hover); border-radius: 10px; padding: 20px 24px; margin: 28px 0; }
+    .callout p { font-size: 16px; font-weight: 500; line-height: 1.62; color: var(--ink); letter-spacing: -0.01em; margin-bottom: 0; }
 
-  .req-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0 2rem; font-size: 0.92rem; }
-  .req-table th { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--ink); text-align: left; padding: 0.8rem 1rem; background: var(--bg-alt); border-bottom: 2px solid var(--ink); }
-  .req-table td { padding: 0.8rem 1rem; font-weight: 300; color: var(--ink-mid); border-bottom: 1px solid var(--rule); vertical-align: top; line-height: 1.6; }
-  .req-table td:first-child { font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: 0.88rem; letter-spacing: 0.05em; color: var(--ink); }
-  .req-table tr:last-child td { border-bottom: none; }
+    /* Insight box */
+    .insight-box { background: var(--ink); border-radius: 12px; padding: 28px 32px; margin: 28px 0; }
+    .insight-box-label { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+    .insight-box p { font-size: 15px; color: rgba(240,237,230,0.7); line-height: 1.72; margin-bottom: 0; }
 
-  .step-block { display: flex; gap: 1.5rem; margin: 1.5rem 0; align-items: flex-start; }
-  .step-num-large { font-family: 'Bebas Neue', sans-serif; font-size: 2.5rem; color: var(--green); line-height: 1; flex-shrink: 0; width: 3rem; text-align: center; }
-  .step-content h3 { margin-top: 0.2rem; }
-  .step-content p { margin-bottom: 0; }
+    /* Field grid */
+    .field-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 20px 0 28px; }
+    .field-card { background: var(--bg-soft); border: 1px solid var(--line); border-radius: 10px; padding: 20px; transition: border-color 0.25s; }
+    .field-card:hover { border-color: var(--ink); }
+    .field-name { font-size: 13px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink); margin-bottom: 6px; }
+    .field-why { font-size: 13.5px; color: var(--slate); line-height: 1.62; }
+    .field-importance { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-hover); margin-top: 8px; }
 
-  /* ACE field grid */
-  .field-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin: 1.5rem 0 2rem; }
-  .field-card { background: var(--bg-alt); padding: 1.5rem; border-top: 2px solid transparent; transition: border-color 0.3s; }
-  .field-card:hover { border-color: var(--green); }
-  .field-name { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); margin-bottom: 0.4rem; }
-  .field-why { font-size: 0.88rem; font-weight: 300; color: var(--ink-mid); line-height: 1.6; }
-  .field-importance { font-family: 'Barlow Condensed', sans-serif; font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--green-dark); margin-top: 0.4rem; }
+    /* Step blocks */
+    .step-block { display: flex; gap: 20px; margin: 20px 0; align-items: flex-start; padding: 20px; background: var(--bg-soft); border: 1px solid var(--line); border-radius: 12px; }
+    .step-num-large { font-family: 'Instrument Serif', serif; font-style: italic; font-size: 32px; color: var(--accent-hover); line-height: 1; flex-shrink: 0; width: 44px; text-align: center; }
+    .step-content h3 { margin-top: 2px; }
+    .step-content p { margin-bottom: 0; font-size: 15px; }
 
-  /* SIDEBAR */
-  .article-sidebar { position: sticky; top: 7rem; display: flex; flex-direction: column; gap: 2rem; }
-  .toc { background: var(--bg-alt); padding: 1.5rem; }
-  .toc-label { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink); margin-bottom: 1rem; }
-  .toc-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
-  .toc-list a { font-family: 'Barlow Condensed', sans-serif; font-size: 0.85rem; letter-spacing: 0.04em; color: var(--ink-dim); text-decoration: none; transition: color 0.2s; display: block; line-height: 1.4; }
-  .toc-list a:hover { color: var(--green-dark); }
-  .sidebar-cta { background: var(--ink); padding: 1.5rem; }
-  .sidebar-cta-label { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--green); margin-bottom: 0.8rem; }
-  .sidebar-cta-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; letter-spacing: 0.04em; color: var(--bg); line-height: 1.1; margin-bottom: 0.8rem; }
-  .sidebar-cta p { font-size: 0.85rem; font-weight: 300; color: rgba(240,237,230,0.6); line-height: 1.65; margin-bottom: 1.2rem; }
-  .sidebar-btn { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); background: var(--green); padding: 0.8rem 1rem; text-decoration: none; display: block; text-align: center; transition: background 0.2s; }
-  .sidebar-btn:hover { background: var(--green-dark); color: var(--white); }
+    /* Table */
+    .req-table { width: 100%; border-collapse: collapse; margin: 20px 0 28px; font-size: 14px; border-radius: 10px; overflow: hidden; border: 1px solid var(--line); }
+    .req-table th { font-size: 11.5px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); text-align: left; padding: 12px 16px; background: var(--bg-soft); border-bottom: 2px solid var(--ink); }
+    .req-table td { padding: 12px 16px; color: var(--slate); border-bottom: 1px solid var(--line); vertical-align: top; line-height: 1.58; }
+    .req-table td:first-child { font-size: 13px; font-weight: 600; color: var(--ink); }
+    .req-table tr:last-child td { border-bottom: none; }
+    .req-table tr:hover td { background: white; }
 
-  .divider { width: 100%; height: 1px; background: var(--rule); }
+    /* ==========================================================
+       SIDEBAR
+    ========================================================== */
+    .article-sidebar { position: sticky; top: 88px; display: flex; flex-direction: column; gap: 16px; }
 
-  /* BOTTOM CTA */
-  .bottom-cta { background: var(--ink); overflow: hidden; position: relative; }
-  .bottom-cta::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 80% at 80% 50%, rgba(61,220,132,0.08), transparent 70%); }
-  .bottom-cta-inner { max-width: 1200px; margin: 0 auto; padding: 6rem 5vw; position: relative; display: grid; grid-template-columns: 1fr auto; gap: 4rem; align-items: center; }
-  .bottom-cta h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.2rem, 4vw, 4rem); line-height: 0.95; color: var(--bg); margin-bottom: 0.8rem; }
-  .bottom-cta h2 span { color: var(--green); }
-  .bottom-cta p { font-size: 1rem; font-weight: 300; color: rgba(240,237,230,0.6); max-width: 500px; line-height: 1.7; }
-  .cta-actions { display: flex; flex-direction: column; gap: 1rem; min-width: 220px; }
-  .btn-primary { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.9rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); background: var(--green); padding: 1rem 2.2rem; text-decoration: none; display: block; text-align: center; transition: background 0.2s, color 0.2s; }
-  .btn-primary:hover { background: var(--green-dark); color: var(--white); }
-  .btn-ghost { font-family: 'Barlow Condensed', sans-serif; font-weight: 500; font-size: 0.9rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--bg); border: 1px solid rgba(240,237,230,0.25); padding: 1rem 2.2rem; text-decoration: none; display: block; text-align: center; transition: border-color 0.2s, color 0.2s; }
-  .btn-ghost:hover { border-color: var(--green); color: var(--green); }
+    .toc { background: var(--bg-soft); border: 1px solid var(--line); border-radius: 12px; padding: 20px; }
+    .toc-label { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--slate); margin-bottom: 14px; }
+    .toc-list { list-style: none; display: flex; flex-direction: column; gap: 2px; }
+    .toc-list a { font-size: 13.5px; font-weight: 500; color: var(--slate); text-decoration: none; transition: color 0.2s; display: block; line-height: 1.5; padding: 4px 0; border-bottom: 1px solid var(--line); }
+    .toc-list li:last-child a { border-bottom: none; }
+    .toc-list a:hover { color: var(--accent-hover); }
 
-  /* RELATED */
-  .related { max-width: 1200px; margin: 0 auto; padding: 5rem 5vw; }
-  .related-label { font-family: 'Barlow Condensed', sans-serif; font-weight: 500; font-size: 0.78rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--green-dark); display: flex; align-items: center; gap: 0.8rem; margin-bottom: 2.5rem; }
-  .related-label::before { content: ''; display: inline-block; width: 24px; height: 1px; background: var(--green-dark); }
-  .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
-  .related-card { background: var(--bg-alt); padding: 2rem; text-decoration: none; display: block; position: relative; overflow: hidden; transition: background 0.3s; }
-  .related-card:hover { background: var(--white); }
-  .related-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--green); transform: scaleX(0); transform-origin: left; transition: transform 0.4s ease; }
-  .related-card:hover::before { transform: scaleX(1); }
-  .related-tag { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink); background: var(--green); padding: 0.2rem 0.6rem; display: inline-block; margin-bottom: 1rem; }
-  .related-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.3rem; line-height: 1.05; letter-spacing: 0.02em; color: var(--ink); margin-bottom: 0.8rem; }
-  .related-excerpt { font-size: 0.88rem; font-weight: 300; color: var(--ink-mid); line-height: 1.7; }
+    .sidebar-cta { background: var(--ink); border-radius: 12px; padding: 22px; position: relative; overflow: hidden; }
+    .sidebar-cta::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 80% 70% at 90% 10%, rgba(61,220,132,0.12), transparent 65%); pointer-events: none; }
+    .sidebar-cta-inner { position: relative; }
+    .sidebar-cta-label { font-size: 10.5px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 6px; }
+    .sidebar-cta-title { font-size: 18px; font-weight: 600; letter-spacing: -0.02em; color: var(--bg); line-height: 1.2; margin-bottom: 10px; }
+    .sidebar-cta p { font-size: 13px; color: rgba(240,237,230,0.6); line-height: 1.65; margin-bottom: 16px; }
+    .sidebar-btn { font-family: 'Onest', sans-serif; font-weight: 700; font-size: 13px; color: var(--ink); background: var(--accent); padding: 10px 16px; text-decoration: none; display: block; text-align: center; border-radius: 999px; transition: background 0.2s; }
+    .sidebar-btn:hover { background: var(--accent-hover); color: white; }
 
-  /* FOOTER */
-  footer { background: var(--bg-alt); border-top: 1px solid var(--rule); width: 100%; display: block; }
-  .footer-top { width: 100%; max-width: 1200px; margin: 0 auto; padding: 4rem 5vw 3rem; display: flex; justify-content: space-between; gap: 4rem; flex-wrap: wrap; }
-  .footer-brand { display: flex; flex-direction: column; gap: 0.8rem; }
-  .footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; letter-spacing: 0.12em; color: var(--ink); text-decoration: none; }
-  .footer-logo span { color: var(--green); }
-  .footer-tagline { font-family: 'Barlow Condensed', sans-serif; font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-dim); }
-  .footer-linkedin { display: inline-flex; align-items: center; gap: 0.5rem; font-family: 'Barlow Condensed', sans-serif; font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-dim); text-decoration: none; margin-top: 0.4rem; transition: color 0.2s; }
-  .footer-linkedin:hover { color: var(--linkedin-blue); }
-  .footer-nav-group { display: flex; gap: 4rem; flex-wrap: wrap; }
-  .footer-nav-col { display: flex; flex-direction: column; gap: 1rem; }
-  .footer-nav-heading { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink); }
-  .footer-nav-links { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
-  .footer-nav-links a { font-family: 'Barlow Condensed', sans-serif; font-size: 0.88rem; letter-spacing: 0.08em; color: var(--ink-dim); text-decoration: none; transition: color 0.2s; }
-  .footer-nav-links a:hover { color: var(--green-dark); }
-  .footer-bottom { border-top: 1px solid var(--rule); padding: 1.5rem 5vw; width: 100%; }
-  .footer-copy { font-family: 'Barlow Condensed', sans-serif; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-dim); max-width: 1200px; margin: 0 auto; }
+    /* ==========================================================
+       RELATED POSTS
+    ========================================================== */
+    .related { border-top: 1px solid var(--line); padding: 56px 0; }
+    .related-inner { max-width: 1100px; margin: 0 auto; padding: 0 32px; }
+    .section-eyebrow { font-size: 12.5px; color: var(--slate); letter-spacing: 0.09em; text-transform: uppercase; font-weight: 600; position: relative; padding-left: 22px; margin-bottom: 32px; display: inline-block; }
+    .section-eyebrow::before { content: ''; position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 14px; height: 1px; background: var(--accent-hover); }
+    .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .related-card { background: var(--bg-soft); border: 1px solid var(--line); border-radius: 14px; padding: 24px; text-decoration: none; display: block; position: relative; overflow: hidden; transition: all 0.3s; }
+    .related-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform 0.35s ease; }
+    .related-card:hover { border-color: var(--ink); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(17,17,17,0.07); }
+    .related-card:hover::before { transform: scaleX(1); }
+    .related-tag { display: inline-flex; align-items: center; padding: 3px 10px; background: var(--accent-dim); border-radius: 999px; font-size: 10.5px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent-hover); margin-bottom: 12px; }
+    .related-title { font-size: 17px; font-weight: 600; letter-spacing: -0.02em; color: var(--ink); line-height: 1.3; margin-bottom: 10px; }
+    .related-excerpt { font-size: 14px; color: var(--slate); line-height: 1.65; }
 
-  .footer-bottom-inner { 
-  max-width: 1200px; 
-  margin: 0 auto; 
-  display: flex; 
-  align-items: center; 
-  justify-content: space-between; 
-  flex-wrap: wrap; 
-  gap: 1rem; 
-}
-.footer-legal { display: flex; gap: 2rem; }
-.footer-legal a { 
-  font-family: 'Barlow Condensed', sans-serif; 
-  font-size: 0.72rem; 
-  letter-spacing: 0.1em; 
-  text-transform: uppercase; 
-  color: var(--ink-dim); 
-  text-decoration: none; 
-  transition: color 0.2s; 
-}
-.footer-legal a:hover { color: var(--green-dark); }
-  @media (max-width: 900px) {
-    .article-wrap { grid-template-columns: 1fr; }
-    .article-sidebar { position: static; }
-    .bottom-cta-inner { grid-template-columns: 1fr; }
-    .related-grid { grid-template-columns: 1fr; }
-    .field-grid { grid-template-columns: 1fr; }
-    .nav-links { display: none; }
-  }
+    /* ==========================================================
+       BOTTOM CTA
+    ========================================================== */
+    .bottom-cta { background: var(--ink); overflow: hidden; position: relative; padding: 80px 0; }
+    .bottom-cta::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 90% at 75% 50%, rgba(61,220,132,0.09), transparent 65%); }
+    .bottom-cta-inner { position: relative; display: grid; grid-template-columns: 1fr auto; gap: 64px; align-items: center; }
+    .bottom-cta-title { font-size: clamp(26px, 3.8vw, 48px); font-weight: 500; line-height: 1.0; letter-spacing: -0.03em; color: var(--bg); margin-bottom: 14px; }
+    .bottom-cta-title em { font-family: 'Instrument Serif', serif; font-style: italic; color: var(--accent); font-weight: 400; }
+    .bottom-cta p { font-size: 16px; color: rgba(240,237,230,0.65); max-width: 500px; line-height: 1.68; }
+    .cta-actions { display: flex; flex-direction: column; gap: 12px; min-width: 230px; }
 
-</style>
+    /* ==========================================================
+       FOOTER
+    ========================================================== */
+    .footer { background: var(--footer-bg); color: var(--footer-text); padding: 80px 0 32px; }
+    .footer-top { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 60px; padding-bottom: 56px; border-bottom: 1px solid rgba(255,255,255,0.07); }
+    .footer-logo { text-decoration: none; display: block; margin-bottom: 20px; }
+    .footer-logo img { height: 96px; width: auto; display: block; filter: brightness(0) invert(1); }
+    .footer-tagline { font-size: 14.5px; line-height: 1.65; color: var(--footer-text); max-width: 340px; margin-bottom: 28px; }
+    .footer-icons { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+    .footer-aws-link { display: inline-block; transition: opacity 0.2s; }
+    .footer-aws-link img { height: 52px; width: auto; display: block; }
+    .footer-aws-link:hover { opacity: 0.6; }
+    .footer-linkedin-icon { display: inline-block; text-decoration: none; }
+    .footer-linkedin-icon img { height: 28px; width: auto; display: block; }
+    .footer-linkedin-icon .li-default { display: block; }
+    .footer-linkedin-icon .li-hover { display: none; }
+    .footer-linkedin-icon:hover .li-default { display: none; }
+    .footer-linkedin-icon:hover .li-hover { display: block; }
+    .footer-col h4 { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: white; font-weight: 700; margin-bottom: 18px; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 11px; }
+    .footer-col a { color: var(--footer-text); text-decoration: none; font-size: 14px; transition: color 0.2s; }
+    .footer-col a:hover { color: white; }
+    .footer-bottom { padding-top: 28px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--slate-light); flex-wrap: wrap; gap: 14px; }
+    .footer-legal { display: flex; gap: 22px; }
+    .footer-legal a { color: var(--slate-light); text-decoration: none; transition: color 0.2s; }
+    .footer-legal a:hover { color: white; }
+
+    /* ==========================================================
+       RESPONSIVE
+    ========================================================== */
+    @media (max-width: 1024px) {
+      .article-wrap { grid-template-columns: 1fr; gap: 48px; }
+      .article-sidebar { position: static; }
+      .bottom-cta-inner { grid-template-columns: 1fr; gap: 32px; }
+      .related-grid { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 36px; }
+    }
+    @media (max-width: 700px) {
+      .nav-links { display: none; }
+      .nav-email { display: none; }
+      .field-grid { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr; }
+      .container { padding: 0 20px; }
+      .article-hero-inner, .breadcrumb, .article-wrap, .related-inner, .bottom-cta-inner { padding-left: 20px; padding-right: 20px; }
+    }
+
+  </style>
 </head>
 <body>
 
-<nav id="mainNav">
-  <a class="nav-logo" href="/"><span>G</span>RNMRK GROUP</a>
-  <ul class="nav-links">
-    <li class="nav-item has-dropdown">
-      <a href="/services">Services</a>
-      <div class="nav-dropdown">
-        <a href="/services">Services Overview</a>
-        <a href="/services/aws-marketplace">AWS Marketplace</a>
-        <a href="/services/managed-operations">Managed Operations</a>
-        <a href="/services/strategy-consulting">Strategy Consulting</a>
-        <a href="/services/fractional-alliances-leader">Fractional Alliances Leader</a>
-        <a href="/services/partner-revenue-generation">Revenue Generation</a>
-        <a href="/services/foundational-technical-review">FTR Preparation</a>
-        <a href="/services/fractional-pdm">Fractional PDM</a>
-      </div>
-    </li>
-    <li><a href="/pricing">Pricing</a></li>
-    <li class="nav-item has-dropdown">
-      <a href="/company/about">Company</a>
-      <div class="nav-dropdown">
-        <a href="/company/about">About</a>
-        <a href="/company/case-studies">Case Studies</a>
-        <a href="/company/contact">Contact</a>
-        <a href="/company/partners">Partners</a>
-        <a href="/company/careers">Careers</a>
-        <a href="/blogs">Blog</a>
-      </div>
-    </li>
-    <li class="nav-item has-dropdown">
-      <a href="/resources">Resources</a>
-      <div class="nav-dropdown">
-        <a href="/resources/aws-map-funding-checklist">MAP Funding Checklist</a>
-        <a href="/resources/aws-mdf-funding-checklist">MDF Funding Checklist</a>
-        <a href="/resources/aws-ftr-checklist">FTR Checklist</a>
-        <a href="/resources/aws-marketplace-gtm-readiness-guide">Marketplace GTM Guide</a>
-      </div>
-    </li>
-    <li><a href="/company/contact">Contact</a></li>
-  </ul>
-  <div class="nav-right">
-    <a class="nav-ghost" href="mailto:hello@grnmrk.com">hello@grnmrk.com</a>
-    <a class="nav-cta" href="https://calendly.com/grnmrk/30-min-consultation" target="_blank" rel="noopener noreferrer">Book a Call</a>
-  </div>
-</nav>
-
-<div class="article-hero">
-  <div class="article-hero-inner">
-    <div class="article-meta">
-      <span class="article-tag">ACE Pipeline</span>
-      <span class="article-dot">·</span>
-      <span class="article-read-time">14 min read</span>
-    </div>
-    <h1 class="article-title">The Complete Guide to AWS ACE Pipeline Management</h1>
-    <p class="article-deck">ACE is more than a CRM — it's the primary signal AWS uses to decide which partners get co-sell priority, funding access, and field rep attention. Most partners manage it like an afterthought. Here's how to manage it like it's the lever it actually is.</p>
-  </div>
-</div>
-
-<div class="breadcrumb-wrap">
-  <div class="breadcrumb">
-    <a href="/">Home</a>
-    <span class="breadcrumb-sep">→</span>
-    <a href="/blogs">Blog</a>
-    <span class="breadcrumb-sep">→</span>
-    <span class="breadcrumb-current">ACE Pipeline Management</span>
-  </div>
-</div>
-
-<div class="article-wrap">
-
-  <article class="article-body">
-
-    <h2 id="what-is-ace">What ACE Actually Is — and Why Most Partners Misunderstand It</h2>
-
-    <p>ACE stands for AWS Customer Engagements. On the surface it looks like a deal registration tool — a place to log opportunities so AWS knows what you're working on. That's how most partners treat it. That's a mistake.</p>
-
-    <p>ACE is the primary data source AWS uses to evaluate partners. Your PDM looks at your ACE pipeline before every conversation with you. The AWS funding team looks at it when reviewing MAP and MDF applications. The field reps who decide whether to bring you into a deal look at it when they're assessing whether you're worth co-selling with.</p>
-
-    <p>Every data point in ACE — the quality of your submissions, the velocity of your pipeline, the co-sell acceptance rate, the win rate — is a signal about what kind of partner you are. Partners who understand this manage ACE differently. Partners who don't treat it like a form they fill out when they remember to.</p>
-
-    <div class="callout">
-      <p>Your ACE pipeline is your resume with AWS. Every entry tells a story about your co-sell maturity, your pipeline quality, and whether you're a partner worth investing in. Most partners are submitting a blank page.</p>
-    </div>
-
-    <h2 id="ace-vs-crm">ACE vs. Your CRM: Understanding the Difference</h2>
-
-    <p>One of the most persistent misconceptions about ACE is that it's a replacement for or mirror of your internal CRM. It isn't. They serve completely different purposes, and conflating them creates problems in both directions.</p>
-
-    <p>Your CRM tracks your entire sales pipeline — every opportunity regardless of whether AWS is involved. ACE tracks a specific subset: the opportunities where AWS should be involved in the co-sell motion. Not every deal belongs in ACE. But every deal where there's a legitimate AWS angle — where the customer's stack runs on AWS, where AWS is part of the conversation, where you want AWS field alignment — belongs in ACE and should be submitted promptly.</p>
-
-    <p>The practical implication: you need a process for identifying which opportunities get submitted to ACE and when. Left to individual reps, it becomes inconsistent. Some deals get submitted immediately, others never get submitted at all, and the ACE picture AWS sees is a fraction of your actual co-sell activity.</p>
-
-    <div class="insight-box">
-      <div class="insight-box-label">Common Mistake</div>
-      <p>Partners who sync their entire CRM to ACE create noise — irrelevant opportunities that don't have a real AWS angle dilute the signal of the ones that do. ACE quality matters as much as ACE volume. Submit the right opportunities, not all of them.</p>
-    </div>
-
-    <h2 id="anatomy">The Anatomy of a Good ACE Submission</h2>
-
-    <p>ACE submissions have required fields and optional fields. Most partners fill in the minimum required to save the record and move on. That's leaving signal on the table. Here's what matters and why.</p>
-
-    <div class="field-grid">
-      <div class="field-card">
-        <div class="field-name">Customer Name & Domain</div>
-        <div class="field-why">AWS cross-references this against their own customer data. Accuracy here determines whether your opportunity gets matched to an AWS account team — which is the first step toward co-sell engagement.</div>
-        <div class="field-importance">Critical</div>
-      </div>
-      <div class="field-card">
-        <div class="field-name">Projected AWS ARR</div>
-        <div class="field-why">This is how AWS assesses the business value of the opportunity. Opportunities with higher ARR projections get more attention. Be realistic but don't understate — a $500K ARR deal flagged at $50K looks like you don't understand your own customers.</div>
-        <div class="field-importance">Critical</div>
-      </div>
-      <div class="field-card">
-        <div class="field-name">Use Case & Workload</div>
-        <div class="field-why">AWS routes opportunities to the right field team based on workload type. Generalist submissions don't get routed well. Be specific: "AI/ML on SageMaker" gets to the right person. "Cloud migration" gets lost.</div>
-        <div class="field-importance">High</div>
-      </div>
-      <div class="field-card">
-        <div class="field-name">Expected Close Date</div>
-        <div class="field-why">Stale close dates signal an inactive pipeline. Keep close dates current. An opportunity with a close date six months in the past tells AWS you're not managing your pipeline — or that the deal is dead and you forgot to close it out.</div>
-        <div class="field-importance">High</div>
-      </div>
-      <div class="field-card">
-        <div class="field-name">Stage & Next Steps</div>
-        <div class="field-why">Stage progression is how AWS measures pipeline velocity. Opportunities that sit at the same stage for months look stale regardless of what's actually happening. Update stages as deals progress, and always document a concrete next step.</div>
-        <div class="field-importance">High</div>
-      </div>
-      <div class="field-card">
-        <div class="field-name">Co-Sell Request</div>
-        <div class="field-why">This is the field that initiates actual co-sell engagement — it signals to AWS that you want a field rep involved. Most partners never check this box. The ones who do are the ones who get AWS field support.</div>
-        <div class="field-importance">Critical for co-sell</div>
-      </div>
-    </div>
-
-    <h2 id="co-sell">The Co-Sell Mechanism: How ACE Actually Connects You to AWS Field Teams</h2>
-
-    <p>The co-sell motion in ACE starts with a simple action: requesting co-sell support on an opportunity. When you do this, AWS routes the request to the appropriate field team — typically a PDM, PSM, or account executive depending on the customer and the workload. From there, one of three things happens: the request gets accepted, it gets declined, or it sits unacknowledged.</p>
-
-    <p>What most partners don't realize is that the acceptance rate of their co-sell requests is a metric AWS tracks at the partner level. If you're submitting co-sell requests and AWS field reps are consistently declining them, that's a signal — either your opportunities aren't qualified, your submissions don't have enough information, or you haven't built the relationships that make field reps want to engage.</p>
-
-    <p>A healthy co-sell motion looks like this:</p>
-
-    <ul>
-      <li><strong>Qualified opportunities</strong> — you're only requesting co-sell on deals where AWS involvement genuinely makes sense and where the customer is aware of and open to AWS engagement</li>
-      <li><strong>Rich submissions</strong> — the opportunity record has enough detail that a field rep can assess it without having to call you first</li>
-      <li><strong>Warm PDM relationship</strong> — you've briefed your PDM on the opportunity before the co-sell request lands in the system, so they're not seeing it cold</li>
-      <li><strong>Follow-through</strong> — when a field rep accepts a co-sell request, you respond quickly and come prepared</li>
-    </ul>
-
-    <div class="callout">
-      <p>The partners who get consistent co-sell engagement from AWS aren't submitting more requests — they're submitting better ones. Quality beats volume every time in ACE.</p>
-    </div>
-
-    <h2 id="pipeline-hygiene">Pipeline Hygiene: The Ongoing Work Most Partners Skip</h2>
-
-    <p>Submitting opportunities to ACE is the easy part. Keeping the pipeline clean over time is where most partners fall apart. A neglected ACE pipeline is worse than a thin one — it tells AWS you can't manage your own program, which is exactly the opposite of the signal you want to send.</p>
-
-    <h3>What a Clean Pipeline Looks Like</h3>
-    <ul>
-      <li>Every open opportunity has a close date that's either current or within the next 90 days</li>
-      <li>Every opportunity has been updated within the last 30 days — stage, notes, or next step</li>
-      <li>Won opportunities are marked as won with actual closed ARR documented</li>
-      <li>Lost opportunities are marked as lost with a loss reason — AWS uses this data</li>
-      <li>No opportunities sitting at Stage 1 for more than 60 days without a documented reason</li>
-      <li>Co-sell requests have been responded to or followed up on within 5 business days</li>
-    </ul>
-
-    <h3>What a Dirty Pipeline Looks Like</h3>
-    <ul>
-      <li>Opportunities with close dates from 6–12 months ago still marked as open</li>
-      <li>Dozens of submissions with no updates since they were created</li>
-      <li>Win/loss data missing across most closed opportunities</li>
-      <li>Co-sell requests that have been accepted by AWS but never followed up on</li>
-      <li>Duplicate entries for the same customer or opportunity</li>
-    </ul>
-
-    <div class="insight-box">
-      <div class="insight-box-label">From the Field</div>
-      <p>We've seen partners go into PDM meetings with 200+ open opportunities in ACE, 80% of which are stale or inaccurate. The PDM knows this. They can see the timestamps. Walking into that meeting trying to advance a funding application or co-sell request is an uphill battle that didn't need to happen. Clean pipeline before you ask for anything.</p>
-    </div>
-
-    <h2 id="submission-cadence">Submission Cadence: Timing Matters More Than You Think</h2>
-
-    <p>How you submit to ACE — not just what you submit — sends a signal. AWS can see your submission history over time, and the pattern tells a story.</p>
-
-    <h3>The Wrong Pattern: Batch Submissions</h3>
-    <p>The most common mistake is submitting opportunities in batches — nothing for two months, then 20 submissions in one week. This happens when teams treat ACE as a quarterly compliance exercise rather than an ongoing sales tool. AWS can see this pattern. It looks like gaming the system, not like an active co-sell partner.</p>
-
-    <h3>The Right Pattern: Steady-State Submission</h3>
-    <p>The partners who get the most from ACE submit consistently — a handful of new opportunities every week or two as they enter the pipeline, updated regularly as they progress, and closed out promptly when they conclude. This creates a pipeline picture that looks like an active, well-managed program, because it is.</p>
-
-    <table class="req-table">
-      <thead>
-        <tr>
-          <th>Activity</th>
-          <th>Recommended Cadence</th>
-          <th>Why It Matters</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>New opportunity submission</td>
-          <td>Within 48 hours of qualification</td>
-          <td>Timestamps are visible; early submission signals an active co-sell program</td>
-        </tr>
-        <tr>
-          <td>Stage updates</td>
-          <td>Every 2–3 weeks minimum</td>
-          <td>Stale stages signal an unmanaged pipeline regardless of actual deal activity</td>
-        </tr>
-        <tr>
-          <td>Close date maintenance</td>
-          <td>Weekly review; update before expiry</td>
-          <td>Expired close dates are the #1 sign of pipeline neglect</td>
-        </tr>
-        <tr>
-          <td>Win/loss capture</td>
-          <td>Within 1 week of close</td>
-          <td>AWS uses close rate data to evaluate co-sell program quality</td>
-        </tr>
-        <tr>
-          <td>Co-sell request follow-up</td>
-          <td>Within 5 business days of acceptance</td>
-          <td>Slow follow-up damages the relationship with the field rep who accepted</td>
-        </tr>
-        <tr>
-          <td>Full pipeline audit</td>
-          <td>Monthly</td>
-          <td>Catches drift before it compounds; ensures what AWS sees matches reality</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <h2 id="ace-and-funding">How ACE Connects to Funding Programs</h2>
-
-    <p>Your ACE pipeline isn't just a co-sell tool — it's the foundation of most AWS funding programs. MAP, MDF, POC credits, and other co-investment programs all require a healthy ACE pipeline as a prerequisite. Here's how the connection works in practice.</p>
-
-    <h3>MAP (Migration Acceleration Program)</h3>
-    <p>Every MAP application requires a corresponding ACE opportunity. The ACE entry needs to document the migration scope, the projected AWS ARR, and the engagement timeline. If the ACE opportunity doesn't exist or doesn't have the right information, the MAP application doesn't go through. We've seen partners lose significant MAP funding because the ACE entry was incomplete or submitted after the application window closed.</p>
-
-    <h3>MDF (Market Development Funds)</h3>
-    <p>MDF applications are evaluated in the context of your overall partner health, and ACE pipeline is a key component of that health assessment. A strong, active ACE pipeline signals that you're a serious co-sell partner — which is exactly the profile that gets MDF approved. A thin or neglected pipeline raises questions about whether the marketing investment is worth making.</p>
-
-    <h3>Funding Program Applications Generally</h3>
-    <p>When your PDM sponsors a funding application internally, they're putting their credibility behind you. PDMs sponsor the partners whose ACE pipelines back up the story they're telling. If your pipeline is weak, your PDM has nothing to point to. If it's strong, the conversation is easy.</p>
-
-    <div class="callout">
-      <p>Think of your ACE pipeline as the collateral for every funding conversation you want to have with AWS. The stronger and cleaner it is, the more leverage you have when you ask for co-investment.</p>
-    </div>
-
-    <h2 id="ace-and-tier">ACE and Tier Advancement</h2>
-
-    <p>ACE pipeline activity is one of the evaluated dimensions in partner tier advancement from Select to Advanced and from Advanced to Premier. The specific thresholds vary and are subject to change, but the underlying principle is consistent: AWS wants to see that you're actively co-selling before it recognizes you as an Advanced co-sell partner.</p>
-
-    <p>What this means practically: if you're working toward Advanced tier and your ACE pipeline is thin, you're making the advancement process harder than it needs to be. Not because ACE volume is the only thing that matters, but because your PDM needs to see evidence of co-sell maturity before they'll advocate for your advancement internally. A healthy ACE pipeline is that evidence.</p>
-
-    <h2 id="building-the-habit">Building the ACE Management Habit: A Practical System</h2>
-
-    <p>The biggest obstacle to good ACE management isn't knowledge — it's process. Most partners know they should be doing this better. What they're missing is a system that makes it happen consistently without requiring heroic effort from someone.</p>
-
-    <div class="step-block">
-      <div class="step-num-large">01</div>
-      <div class="step-content">
-        <h3>Assign an ACE Owner</h3>
-        <p>Someone needs to own ACE — not as a side responsibility, but as a defined part of their role. This person reviews the pipeline weekly, chases down updates from the sales team, and is accountable for the health of the pipeline that AWS sees. At smaller companies this might be a founder or VP. At larger ones it might be a dedicated alliances person. The point is that it's owned, not shared.</p>
-      </div>
-    </div>
-
-    <div class="step-block">
-      <div class="step-num-large">02</div>
-      <div class="step-content">
-        <h3>Build ACE Into the Sales Process</h3>
-        <p>Define exactly when opportunities get submitted to ACE. A reasonable trigger: any qualified opportunity where the customer is running on AWS or where AWS involvement would accelerate the deal gets submitted within 48 hours of qualification. Make this part of the opportunity checklist, not an optional step.</p>
-      </div>
-    </div>
-
-    <div class="step-block">
-      <div class="step-num-large">03</div>
-      <div class="step-content">
-        <h3>Run a Weekly ACE Review</h3>
-        <p>30 minutes every week. Review every open opportunity: are close dates current, has the stage updated, do any opportunities need a co-sell request submitted, are there any accepted co-sell requests that haven't been followed up on? This keeps the pipeline from accumulating debt that compounds into a multi-day cleanup project.</p>
-      </div>
-    </div>
-
-    <div class="step-block">
-      <div class="step-num-large">04</div>
-      <div class="step-content">
-        <h3>Report ACE Metrics to Leadership Monthly</h3>
-        <p>Pull a monthly snapshot: total active opportunities, new submissions in the period, stage distribution, co-sell request acceptance rate, and closed ARR. Review this in your alliances team meeting. When leadership sees ACE data regularly, they understand why it matters — and they're more likely to hold the sales team accountable for submitting and updating opportunities.</p>
-      </div>
-    </div>
-
-    <div class="step-block">
-      <div class="step-num-large">05</div>
-      <div class="step-content">
-        <h3>Brief Your PDM Before You Submit Co-Sell Requests</h3>
-        <p>Never let your PDM see a co-sell request cold. Before you submit a co-sell request on a significant opportunity, send your PDM a one-paragraph brief: customer name, deal size, why AWS is relevant, and what you're hoping the field rep will do. This gives your PDM context, signals that you're organized, and dramatically improves the likelihood that the request gets accepted and acted on.</p>
-      </div>
-    </div>
-
-    <h2 id="bottom-line">The Bottom Line</h2>
-
-    <p>ACE is not a compliance checkbox. It's the most direct line you have to AWS co-sell support, field rep engagement, and funding program access. The partners who get the most from the AWS ecosystem aren't the ones with the most certifications or the biggest logos — they're the ones whose ACE pipelines tell a consistent, credible story of active co-sell engagement.</p>
-
-    <p>Building that story requires discipline, process, and someone who owns it every week. It's not complicated, but it is consistent work — and most partners aren't doing it.</p>
-
-    <p>If you want someone to run this for you, <a href="/services">ACE pipeline management is one of our core managed services</a>. We maintain the pipeline, brief your PDM, manage co-sell requests, and make sure what AWS sees reflects the program you're actually running. <a href="/contact">Reach out</a> if you want to talk through what that looks like for your team.</p>
-
-  </article>
-
-  <aside class="article-sidebar">
-    <div class="toc">
-      <div class="toc-label">In This Guide</div>
-      <ul class="toc-list">
-        <li><a href="#what-is-ace">What ACE Actually Is</a></li>
-        <li><a href="#ace-vs-crm">ACE vs. Your CRM</a></li>
-        <li><a href="#anatomy">Anatomy of a Good Submission</a></li>
-        <li><a href="#co-sell">The Co-Sell Mechanism</a></li>
-        <li><a href="#pipeline-hygiene">Pipeline Hygiene</a></li>
-        <li><a href="#submission-cadence">Submission Cadence</a></li>
-        <li><a href="#ace-and-funding">ACE & Funding Programs</a></li>
-        <li><a href="#ace-and-tier">ACE & Tier Advancement</a></li>
-        <li><a href="#building-the-habit">Building the Habit</a></li>
-        <li><a href="#bottom-line">The Bottom Line</a></li>
+  <!-- ============================================================
+       NAVIGATION
+  ============================================================ -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a class="logo" href="/"><img src="/grnmrk-banner-2026-transparent-background.png" alt="Grnmrk Group"></a>
+      <ul class="nav-links">
+        <li class="nav-item has-dropdown">
+          <a href="/services">Services</a>
+          <div class="nav-dropdown"><div class="nav-dropdown-inner">
+            <a href="/services">Services Overview</a>
+            <a href="/services/aws-marketplace">AWS Marketplace</a>
+            <a href="/services/managed-operations">Managed Operations</a>
+            <a href="/services/strategy-consulting">Strategy Consulting</a>
+            <a href="/services/fractional-alliances-leader">Fractional Alliances Leader</a>
+            <a href="/services/partner-revenue-generation">Revenue Generation</a>
+            <a href="/services/foundational-technical-review">FTR Preparation</a>
+            <a href="/services/fractional-pdm">Fractional PDM</a>
+          </div></div>
+        </li>
+        <li><a href="/pricing">Pricing</a></li>
+        <li class="nav-item has-dropdown">
+          <a href="/company/about">Company</a>
+          <div class="nav-dropdown"><div class="nav-dropdown-inner">
+            <a href="/company/about">About</a>
+            <a href="/company/case-studies">Case Studies</a>
+            <a href="/company/contact">Contact</a>
+            <a href="/company/partners">Partners</a>
+            <a href="/company/careers">Careers</a>
+            <a href="/blogs">Blog</a>
+          </div></div>
+        </li>
+        <li class="nav-item has-dropdown">
+          <a href="/resources">Resources</a>
+          <div class="nav-dropdown"><div class="nav-dropdown-inner">
+            <a href="/resources/aws-map-funding-checklist">MAP Funding Checklist</a>
+            <a href="/resources/aws-mdf-funding-checklist">MDF Funding Checklist</a>
+            <a href="/resources/aws-ftr-checklist">FTR Checklist</a>
+            <a href="/resources/aws-marketplace-gtm-readiness-guide">Marketplace GTM Guide</a>
+            <a href="/resources/aws-co-sell-playbook">Co-Sell Playbook</a>
+          </div></div>
+        </li>
+        <li><a href="/company/contact">Contact</a></li>
       </ul>
+      <div class="nav-cta-group">
+        <a class="nav-email" href="mailto:hello@grnmrk.com">hello@grnmrk.com</a>
+        <a class="btn btn-primary" href="https://calendly.com/grnmrk/30-min-consultation" target="_blank" rel="noopener noreferrer">Book a Call <span class="btn-arrow">&#8594;</span></a>
+      </div>
     </div>
+  </nav>
 
-    <div class="sidebar-cta">
-      <div class="sidebar-cta-label">We Own This For You</div>
-      <div class="sidebar-cta-title">ACE Pipeline Management.</div>
-      <p>We manage your ACE pipeline daily — submissions, stage updates, co-sell requests, and PDM briefs — so what AWS sees reflects the program you're actually running.</p>
-      <a class="sidebar-btn" href="https://calendly.com/grnmrk/30-min-consultation" target="_blank" rel="noopener noreferrer">Book a Free Call</a>
-    </div>
-  </aside>
-
-</div>
-
-<div class="divider"></div>
-
-<div class="related">
-  <div class="related-label">Keep Reading</div>
-  <div class="related-grid">
-    <a class="related-card" href="/blogs/aws-select-to-advanced-partner-tier">
-      <div class="related-tag">Tier Advancement</div>
-      <div class="related-title">How to Advance from AWS Select to Advanced Partner Tier</div>
-      <p class="related-excerpt">ACE is one of the key signals in tier advancement. Here's the full 90-day plan to close the gap.</p>
-    </a>
-    <a class="related-card" href="/blogs/aws-map-funding-guide">
-      <div class="related-tag">Funding</div>
-      <div class="related-title">AWS MAP Funding: What It Is and How to Qualify</div>
-      <p class="related-excerpt">MAP applications live and die on your ACE pipeline. Here's everything you need to know to qualify.</p>
-    </a>
-    <a class="related-card" href="/blogs/how-to-build-aws-co-sell-motion">
-      <div class="related-tag">Co-Sell</div>
-      <div class="related-title">How to Build a Co-Sell Motion with AWS Field Reps</div>
-      <p class="related-excerpt">ACE is the mechanism. The co-sell motion is the strategy. Here's how to build one that's repeatable.</p>
-    </a>
-  </div>
-</div>
-
-<div class="divider"></div>
-
-<div class="bottom-cta">
-  <div class="bottom-cta-inner">
-    <div>
-      <h2>Want Us to Manage<br><span>Your ACE Pipeline?</span></h2>
-      <p>We own your ACE pipeline end-to-end — daily hygiene, co-sell requests, PDM briefs, and monthly reporting. You focus on closing deals. We make sure AWS sees a partner worth co-selling with.</p>
-    </div>
-    <div class="cta-actions">
-      <a class="btn-primary" href="https://calendly.com/grnmrk/30-min-consultation" target="_blank" rel="noopener noreferrer">Book a Free Strategy Call</a>
-      <a class="btn-ghost" href="/services">View All Services</a>
+  <!-- ============================================================
+       ARTICLE HERO
+  ============================================================ -->
+  <div class="article-hero">
+    <div class="article-hero-inner">
+      <div class="article-meta">
+        <span class="article-tag">ACE Pipeline</span>
+        <span class="article-dot">&middot;</span>
+        <span class="article-read-time">14 min read</span>
+      </div>
+      <h1 class="article-title">The Complete Guide to AWS <em>ACE Pipeline Management</em></h1>
+      <p class="article-deck">ACE is more than a CRM. It is the primary signal AWS uses to decide which partners get co-sell priority, funding access, and field rep attention. Most partners manage it like an afterthought. Here is how to manage it like the lever it is.</p>
     </div>
   </div>
-</div>
 
-<footer>
-  <div class="footer-top">
-    <div class="footer-brand">
-      <a class="footer-logo" href="/"><span>G</span>RNMRK GROUP</a>
-      <p class="footer-tagline">AWS Partner Growth Advisors</p>
-      <a class="footer-linkedin" href="https://www.linkedin.com/company/grnmrk-group/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-        LinkedIn
-      </a>
-    <img src="/aws-logo_copy.png" alt="AWS Partner Network" style="height:188px; margin-top:1.5rem;">
+  <!-- ============================================================
+       BREADCRUMB
+  ============================================================ -->
+  <div class="breadcrumb-wrap">
+    <div class="breadcrumb">
+      <a href="/">Home</a>
+      <span class="breadcrumb-sep">&#8594;</span>
+      <a href="/blogs">Blog</a>
+      <span class="breadcrumb-sep">&#8594;</span>
+      <span class="breadcrumb-current">ACE Pipeline Management</span>
     </div>
-    <div class="footer-nav-group">
-      <div class="footer-nav-col">
-        <div class="footer-nav-heading">Services</div>
-        <ul class="footer-nav-links">
-          <li><a href="/services">Services Overview</a></li>
-          <li><a href="/services/managed-operations">Managed Operations</a></li>
-          <li><a href="/services/strategy-consulting">Strategy Consulting</a></li>
-          <li><a href="/services/aws-marketplace">AWS Marketplace</a></li>
-          <li><a href="/services/fractional-alliances-leader">Fractional Alliances Leader</a></li>
-          <li><a href="/services/partner-revenue-generation">Revenue Generation</a></li>
-          <li><a href="/services/foundational-technical-review">FTR Preparation</a></li>
-          <li><a href="/services/fractional-pdm">Fractional PDM</a></li>
+  </div>
+
+  <!-- ============================================================
+       ARTICLE
+  ============================================================ -->
+  <div class="article-wrap">
+
+    <article class="article-body">
+
+      <h2 id="what-is-ace">What ACE Is and Why Most Partners Misunderstand It</h2>
+
+      <p>ACE stands for AWS Customer Engagements. On the surface it looks like a deal registration tool: a place to log opportunities so AWS knows what you are working on. That is how most partners treat it. That is a mistake.</p>
+
+      <p>ACE is the primary data source AWS uses to evaluate partners. Your PDM looks at your ACE pipeline before every conversation with you. The AWS funding team looks at it when reviewing MAP and MDF applications. The field reps who decide whether to bring you into a deal look at it when they are assessing whether you are worth co-selling with.</p>
+
+      <p>Every data point in ACE, including the quality of your submissions, the velocity of your pipeline, the co-sell acceptance rate, and the win rate, is a signal about what kind of partner you are. Partners who understand this manage ACE differently. Partners who do not treat it like a form they fill out when they remember to.</p>
+
+      <div class="callout">
+        <p>Your ACE pipeline is your resume with AWS. Every entry tells a story about your co-sell maturity, your pipeline quality, and whether you are a partner worth investing in. Most partners are submitting a blank page.</p>
+      </div>
+
+      <h2 id="ace-vs-crm">ACE vs. Your CRM: Understanding the Difference</h2>
+
+      <p>One of the most persistent misconceptions about ACE is that it is a replacement for or mirror of your internal CRM. It is not. They serve completely different purposes, and conflating them creates problems in both directions.</p>
+
+      <p>Your CRM tracks your entire sales pipeline: every opportunity regardless of whether AWS is involved. ACE tracks a specific subset: the opportunities where AWS should be involved in the co-sell motion. Not every deal belongs in ACE. But every deal where there is a legitimate AWS angle, where the customer's stack runs on AWS, where AWS is part of the conversation, where you want AWS field alignment, belongs in ACE and should be submitted promptly.</p>
+
+      <p>The practical implication: you need a process for identifying which opportunities get submitted to ACE and when. Left to individual reps, it becomes inconsistent. Some deals get submitted immediately, others never get submitted at all, and the ACE picture AWS sees is a fraction of your actual co-sell activity.</p>
+
+      <div class="insight-box">
+        <div class="insight-box-label">Common Mistake</div>
+        <p>Partners who sync their entire CRM to ACE create noise: irrelevant opportunities that do not have a real AWS angle dilute the signal of the ones that do. ACE quality matters as much as ACE volume. Submit the right opportunities, not all of them.</p>
+      </div>
+
+      <h2 id="anatomy">The Anatomy of a Good ACE Submission</h2>
+
+      <p>ACE submissions have required fields and optional fields. Most partners fill in the minimum required to save the record and move on. That is leaving signal on the table. Here is what matters and why.</p>
+
+      <div class="field-grid">
+        <div class="field-card">
+          <div class="field-name">Customer Name &amp; Domain</div>
+          <div class="field-why">AWS cross-references this against their own customer data. Accuracy here determines whether your opportunity gets matched to an AWS account team, which is the first step toward co-sell engagement.</div>
+          <div class="field-importance">Critical</div>
+        </div>
+        <div class="field-card">
+          <div class="field-name">Projected AWS ARR</div>
+          <div class="field-why">This is how AWS assesses the business value of the opportunity. Opportunities with higher ARR projections get more attention. Be realistic but do not understate: a $500K ARR deal flagged at $50K looks like you do not understand your own customers.</div>
+          <div class="field-importance">Critical</div>
+        </div>
+        <div class="field-card">
+          <div class="field-name">Use Case &amp; Workload</div>
+          <div class="field-why">AWS routes opportunities to the right field team based on workload type. Generalist submissions do not get routed well. Be specific: "AI/ML on SageMaker" gets to the right person. "Cloud migration" gets lost.</div>
+          <div class="field-importance">High</div>
+        </div>
+        <div class="field-card">
+          <div class="field-name">Expected Close Date</div>
+          <div class="field-why">Stale close dates signal an inactive pipeline. Keep close dates current. An opportunity with a close date six months in the past tells AWS you are not managing your pipeline, or that the deal is dead and you forgot to close it out.</div>
+          <div class="field-importance">High</div>
+        </div>
+        <div class="field-card">
+          <div class="field-name">Stage &amp; Next Steps</div>
+          <div class="field-why">Stage progression is how AWS measures pipeline velocity. Opportunities that sit at the same stage for months look stale regardless of what is happening. Update stages as deals progress, and always document a concrete next step.</div>
+          <div class="field-importance">High</div>
+        </div>
+        <div class="field-card">
+          <div class="field-name">Co-Sell Request</div>
+          <div class="field-why">This is the field that initiates actual co-sell engagement: it signals to AWS that you want a field rep involved. Most partners never check this box. The ones who do are the ones who get AWS field support.</div>
+          <div class="field-importance">Critical for Co-Sell</div>
+        </div>
+      </div>
+
+      <h2 id="co-sell">The Co-Sell Mechanism: How ACE Connects You to AWS Field Teams</h2>
+
+      <p>The co-sell motion in ACE starts with a simple action: requesting co-sell support on an opportunity. When you do this, AWS routes the request to the appropriate field team, typically a PDM, PSM, or account executive depending on the customer and the workload. From there, one of three things happens: the request gets accepted, it gets declined, or it sits unacknowledged.</p>
+
+      <p>What most partners do not realize is that the acceptance rate of their co-sell requests is a metric AWS tracks at the partner level. If you are submitting co-sell requests and AWS field reps are consistently declining them, that is a signal: either your opportunities are not qualified, your submissions do not have enough information, or you have not built the relationships that make field reps want to engage.</p>
+
+      <p>A healthy co-sell motion looks like this:</p>
+
+      <ul>
+        <li><strong>Qualified opportunities:</strong> you are only requesting co-sell on deals where AWS involvement genuinely makes sense and where the customer is aware of and open to AWS engagement</li>
+        <li><strong>Rich submissions:</strong> the opportunity record has enough detail that a field rep can assess it without having to call you first</li>
+        <li><strong>Warm PDM relationship:</strong> you have briefed your PDM on the opportunity before the co-sell request lands in the system, so they are not seeing it cold</li>
+        <li><strong>Follow-through:</strong> when a field rep accepts a co-sell request, you respond quickly and come prepared</li>
+      </ul>
+
+      <div class="callout">
+        <p>The partners who get consistent co-sell engagement from AWS are not submitting more requests: they are submitting better ones. Quality beats volume every time in ACE.</p>
+      </div>
+
+      <h2 id="pipeline-hygiene">Pipeline Hygiene: The Ongoing Work Most Partners Skip</h2>
+
+      <p>Submitting opportunities to ACE is the easy part. Keeping the pipeline clean over time is where most partners fall apart. A neglected ACE pipeline is worse than a thin one: it tells AWS you cannot manage your own program, which is exactly the opposite of the signal you want to send.</p>
+
+      <h3>What a Clean Pipeline Looks Like</h3>
+      <ul>
+        <li>Every open opportunity has a close date that is either current or within the next 90 days</li>
+        <li>Every opportunity has been updated within the last 30 days: stage, notes, or next step</li>
+        <li>Won opportunities are marked as won with actual closed ARR documented</li>
+        <li>Lost opportunities are marked as lost with a loss reason (AWS uses this data)</li>
+        <li>No opportunities sitting at Stage 1 for more than 60 days without a documented reason</li>
+        <li>Co-sell requests have been responded to or followed up on within 5 business days</li>
+      </ul>
+
+      <h3>What a Dirty Pipeline Looks Like</h3>
+      <ul>
+        <li>Opportunities with close dates from 6 to 12 months ago still marked as open</li>
+        <li>Dozens of submissions with no updates since they were created</li>
+        <li>Win/loss data missing across most closed opportunities</li>
+        <li>Co-sell requests that have been accepted by AWS but never followed up on</li>
+        <li>Duplicate entries for the same customer or opportunity</li>
+      </ul>
+
+      <div class="insight-box">
+        <div class="insight-box-label">From the Field</div>
+        <p>We have seen partners go into PDM meetings with 200+ open opportunities in ACE, 80% of which are stale or inaccurate. The PDM knows this. They can see the timestamps. Walking into that meeting trying to advance a funding application or co-sell request is an uphill battle that did not need to happen. Clean pipeline before you ask for anything.</p>
+      </div>
+
+      <h2 id="submission-cadence">Submission Cadence: Timing Matters More Than You Think</h2>
+
+      <p>How you submit to ACE, not just what you submit, sends a signal. AWS can see your submission history over time, and the pattern tells a story.</p>
+
+      <h3>The Wrong Pattern: Batch Submissions</h3>
+      <p>The most common mistake is submitting opportunities in batches: nothing for two months, then 20 submissions in one week. This happens when teams treat ACE as a quarterly compliance exercise rather than an ongoing sales tool. AWS can see this pattern. It looks like gaming the system, not like an active co-sell partner.</p>
+
+      <h3>The Right Pattern: Steady-State Submission</h3>
+      <p>The partners who get the most from ACE submit consistently: a handful of new opportunities every week or two as they enter the pipeline, updated regularly as they progress, and closed out promptly when they conclude. This creates a pipeline picture that looks like an active, well-managed program, because it is.</p>
+
+      <table class="req-table">
+        <thead>
+          <tr>
+            <th>Activity</th>
+            <th>Recommended Cadence</th>
+            <th>Why It Matters</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>New opportunity submission</td>
+            <td>Within 48 hours of qualification</td>
+            <td>Timestamps are visible; early submission signals an active co-sell program</td>
+          </tr>
+          <tr>
+            <td>Stage updates</td>
+            <td>Every 2 to 3 weeks minimum</td>
+            <td>Stale stages signal an unmanaged pipeline regardless of actual deal activity</td>
+          </tr>
+          <tr>
+            <td>Close date maintenance</td>
+            <td>Weekly review; update before expiry</td>
+            <td>Expired close dates are the #1 sign of pipeline neglect</td>
+          </tr>
+          <tr>
+            <td>Win/loss capture</td>
+            <td>Within 1 week of close</td>
+            <td>AWS uses close rate data to evaluate co-sell program quality</td>
+          </tr>
+          <tr>
+            <td>Co-sell request follow-up</td>
+            <td>Within 5 business days of acceptance</td>
+            <td>Slow follow-up damages the relationship with the field rep who accepted</td>
+          </tr>
+          <tr>
+            <td>Full pipeline audit</td>
+            <td>Monthly</td>
+            <td>Catches drift before it compounds; ensures what AWS sees matches reality</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2 id="ace-and-funding">How ACE Connects to Funding Programs</h2>
+
+      <p>Your ACE pipeline is not just a co-sell tool: it is the foundation of most AWS funding programs. MAP, MDF, POC credits, and other co-investment programs all require a healthy ACE pipeline as a prerequisite. Here is how the connection works in practice.</p>
+
+      <h3>MAP (Migration Acceleration Program)</h3>
+      <p>Every MAP application requires a corresponding ACE opportunity. The ACE entry needs to document the migration scope, the projected AWS ARR, and the engagement timeline. If the ACE opportunity does not exist or does not have the right information, the MAP application does not go through. We have seen partners lose significant MAP funding because the ACE entry was incomplete or submitted after the application window closed.</p>
+
+      <h3>MDF (Market Development Funds)</h3>
+      <p>MDF applications are evaluated in the context of your overall partner health, and ACE pipeline is a key component of that health assessment. A strong, active ACE pipeline signals that you are a serious co-sell partner, which is exactly the profile that gets MDF approved. A thin or neglected pipeline raises questions about whether the marketing investment is worth making.</p>
+
+      <h3>Funding Program Applications Generally</h3>
+      <p>When your PDM sponsors a funding application internally, they are putting their credibility behind you. PDMs sponsor the partners whose ACE pipelines back up the story they are telling. If your pipeline is weak, your PDM has nothing to point to. If it is strong, the conversation is easy.</p>
+
+      <div class="callout">
+        <p>Think of your ACE pipeline as the collateral for every funding conversation you want to have with AWS. The stronger and cleaner it is, the more leverage you have when you ask for co-investment.</p>
+      </div>
+
+      <h2 id="ace-and-tier">ACE and Tier Advancement</h2>
+
+      <p>ACE pipeline activity is one of the evaluated dimensions in partner tier advancement from Select to Advanced and from Advanced to Premier. The specific thresholds vary and are subject to change, but the underlying principle is consistent: AWS wants to see that you are actively co-selling before it recognizes you as an Advanced co-sell partner.</p>
+
+      <p>What this means practically: if you are working toward Advanced tier and your ACE pipeline is thin, you are making the advancement process harder than it needs to be. Not because ACE volume is the only thing that matters, but because your PDM needs to see evidence of co-sell maturity before they will advocate for your advancement internally. A healthy ACE pipeline is that evidence.</p>
+
+      <h2 id="building-the-habit">Building the ACE Management Habit: A Practical System</h2>
+
+      <p>The biggest obstacle to good ACE management is not knowledge: it is process. Most partners know they should be doing this better. What they are missing is a system that makes it happen consistently without requiring heroic effort from someone.</p>
+
+      <div class="step-block">
+        <div class="step-num-large">01</div>
+        <div class="step-content">
+          <h3>Assign an ACE Owner</h3>
+          <p>Someone needs to own ACE: not as a side responsibility, but as a defined part of their role. This person reviews the pipeline weekly, chases down updates from the sales team, and is accountable for the health of the pipeline that AWS sees. At smaller companies this might be a founder or VP. At larger ones it might be a dedicated alliances person. The point is that it is owned, not shared.</p>
+        </div>
+      </div>
+
+      <div class="step-block">
+        <div class="step-num-large">02</div>
+        <div class="step-content">
+          <h3>Build ACE Into the Sales Process</h3>
+          <p>Define exactly when opportunities get submitted to ACE. A reasonable trigger: any qualified opportunity where the customer is running on AWS or where AWS involvement would accelerate the deal gets submitted within 48 hours of qualification. Make this part of the opportunity checklist, not an optional step.</p>
+        </div>
+      </div>
+
+      <div class="step-block">
+        <div class="step-num-large">03</div>
+        <div class="step-content">
+          <h3>Run a Weekly ACE Review</h3>
+          <p>30 minutes every week. Review every open opportunity: are close dates current, has the stage updated, do any opportunities need a co-sell request submitted, are there any accepted co-sell requests that have not been followed up on? This keeps the pipeline from accumulating debt that compounds into a multi-day cleanup project.</p>
+        </div>
+      </div>
+
+      <div class="step-block">
+        <div class="step-num-large">04</div>
+        <div class="step-content">
+          <h3>Report ACE Metrics to Leadership Monthly</h3>
+          <p>Pull a monthly snapshot: total active opportunities, new submissions in the period, stage distribution, co-sell request acceptance rate, and closed ARR. Review this in your alliances team meeting. When leadership sees ACE data regularly, they understand why it matters and they are more likely to hold the sales team accountable for submitting and updating opportunities.</p>
+        </div>
+      </div>
+
+      <div class="step-block">
+        <div class="step-num-large">05</div>
+        <div class="step-content">
+          <h3>Brief Your PDM Before You Submit Co-Sell Requests</h3>
+          <p>Never let your PDM see a co-sell request cold. Before you submit a co-sell request on a significant opportunity, send your PDM a one-paragraph brief: customer name, deal size, why AWS is relevant, and what you are hoping the field rep will do. This gives your PDM context, signals that you are organized, and dramatically improves the likelihood that the request gets accepted and acted on.</p>
+        </div>
+      </div>
+
+      <h2 id="bottom-line">The Bottom Line</h2>
+
+      <p>ACE is not a compliance checkbox. It is the most direct line you have to AWS co-sell support, field rep engagement, and funding program access. The partners who get the most from the AWS ecosystem are not the ones with the most certifications or the biggest logos: they are the ones whose ACE pipelines tell a consistent, credible story of active co-sell engagement.</p>
+
+      <p>Building that story requires discipline, process, and someone who owns it every week. It is not complicated, but it is consistent work, and most partners are not doing it.</p>
+
+      <p>If you want someone to run this for you, <a href="/services">ACE pipeline management is one of our core managed services</a>. We maintain the pipeline, brief your PDM, manage co-sell requests, and make sure what AWS sees reflects the program you are running. <a href="/company/contact">Reach out</a> if you want to talk through what that looks like for your team.</p>
+
+    </article>
+
+    <aside class="article-sidebar">
+      <div class="toc">
+        <div class="toc-label">In This Guide</div>
+        <ul class="toc-list">
+          <li><a href="#what-is-ace">What ACE Is</a></li>
+          <li><a href="#ace-vs-crm">ACE vs. Your CRM</a></li>
+          <li><a href="#anatomy">Anatomy of a Good Submission</a></li>
+          <li><a href="#co-sell">The Co-Sell Mechanism</a></li>
+          <li><a href="#pipeline-hygiene">Pipeline Hygiene</a></li>
+          <li><a href="#submission-cadence">Submission Cadence</a></li>
+          <li><a href="#ace-and-funding">ACE &amp; Funding Programs</a></li>
+          <li><a href="#ace-and-tier">ACE &amp; Tier Advancement</a></li>
+          <li><a href="#building-the-habit">Building the Habit</a></li>
+          <li><a href="#bottom-line">The Bottom Line</a></li>
         </ul>
       </div>
-      <div class="footer-nav-col">
-        <div class="footer-nav-heading">Company</div>
-        <ul class="footer-nav-links">
-          <li><a href="/pricing">Pricing</a></li>
-          <li><a href="/company/case-studies">Case Studies</a></li>
-          <li><a href="/company/about">About</a></li>
-          <li><a href="/company/contact">Contact</a></li>
-          <li><a href="/company/partners">Partners</a></li>
-          <li><a href="/company/careers">Careers</a></li>
-          <li><a href="/blogs">Blog</a></li>
-        </ul>
+
+      <div class="sidebar-cta">
+        <div class="sidebar-cta-inner">
+          <div class="sidebar-cta-label">We Own This For You</div>
+          <div class="sidebar-cta-title">ACE Pipeline Management</div>
+          <p>We manage your ACE pipeline daily: submissions, stage updates, co-sell requests, and PDM briefs, so what AWS sees reflects the program you are running.</p>
+          <a class="sidebar-btn" href="https://calendly.com/grnmrk/30-min-consultation" target="_blank" rel="noopener noreferrer">Book a Free Call</a>
+        </div>
       </div>
-      <div class="footer-nav-col">
-        <div class="footer-nav-heading">Resources</div>
-        <ul class="footer-nav-links">
-          <li><a href="/resources/aws-map-funding-checklist">MAP Funding Checklist</a></li>
-          <li><a href="/resources/aws-mdf-funding-checklist">MDF Funding Checklist</a></li>
-          <li><a href="/resources/aws-ftr-checklist">FTR Checklist</a></li>
-          <li><a href="/resources/aws-marketplace-gtm-readiness-guide">Marketplace GTM Guide</a></li>
-          <li><a href="/resources/aws-co-sell-playbook">Co-Sell Playbook</a></li>
-        </ul>
+    </aside>
+
+  </div>
+
+  <!-- ============================================================
+       RELATED POSTS
+  ============================================================ -->
+  <div class="related">
+    <div class="related-inner">
+      <div class="section-eyebrow">Keep Reading</div>
+      <div class="related-grid">
+        <a class="related-card" href="/blogs/aws-select-to-advanced-partner-tier">
+          <div class="related-tag">Tier Advancement</div>
+          <div class="related-title">How to Advance from AWS Select to Advanced Partner Tier</div>
+          <p class="related-excerpt">ACE is one of the key signals in tier advancement. Here is the full 90-day plan to close the gap.</p>
+        </a>
+        <a class="related-card" href="/blogs/aws-map-funding-guide">
+          <div class="related-tag">Funding</div>
+          <div class="related-title">AWS MAP Funding: What It Is and How to Qualify</div>
+          <p class="related-excerpt">MAP applications live and die on your ACE pipeline. Here is everything you need to know to qualify.</p>
+        </a>
+        <a class="related-card" href="/blogs/how-to-build-aws-co-sell-motion">
+          <div class="related-tag">Co-Sell</div>
+          <div class="related-title">How to Build a Co-Sell Motion with AWS Field Reps</div>
+          <p class="related-excerpt">ACE is the mechanism. The co-sell motion is the strategy. Here is how to build one that is repeatable.</p>
+        </a>
       </div>
     </div>
   </div>
-  <div class="footer-bottom">
-    <div class="footer-bottom-inner">
-      <p class="footer-copy">© 2025 Grnmrk Group LLC. All rights reserved.</p>
-      <div class="footer-legal">
-        <a href="/terms">Terms of Service</a>
-        <a href="/privacy">Privacy Policy</a>
+
+  <!-- ============================================================
+       BOTTOM CTA
+  ============================================================ -->
+  <div class="bottom-cta">
+    <div class="container">
+      <div class="bottom-cta-inner">
+        <div>
+          <h2 class="bottom-cta-title">Want us to manage <em>your ACE pipeline?</em></h2>
+          <p>We own your ACE pipeline end-to-end: daily hygiene, co-sell requests, PDM briefs, and monthly reporting. You focus on closing deals. We make sure AWS sees a partner worth co-selling with.</p>
+        </div>
+        <div class="cta-actions">
+          <a class="btn btn-accent" href="https://calendly.com/grnmrk/30-min-consultation" target="_blank" rel="noopener noreferrer">Book a Free Strategy Call <span class="btn-arrow">&#8594;</span></a>
+          <a class="btn btn-ghost-light" href="/services">View All Services</a>
+        </div>
       </div>
     </div>
   </div>
-</footer>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <a class="footer-logo" href="/"><img src="/grnmrk-banner-2026-transparent-background.png" alt="Grnmrk Group"></a>
+          <p class="footer-tagline">Grnmrk Group runs AWS partner programs for ISVs, MSPs, and channel partners, delivering pipeline, funding, and Marketplace revenue.</p>
+          <div class="footer-icons">
+            <a class="footer-aws-link" href="https://aws.amazon.com/marketplace/" target="_blank" rel="noopener noreferrer" aria-label="AWS Partner Network"><img src="/aws-logo_copy.png" alt="AWS Partner"></a>
+            <a class="footer-linkedin-icon" href="https://www.linkedin.com/company/grnmrk-group/" target="_blank" rel="noopener noreferrer" aria-label="Grnmrk Group on LinkedIn">
+              <img class="li-default" src="/LinkedIn_Symbol_1.png" alt="LinkedIn">
+              <img class="li-hover" src="/LinkedIn_Symbol_1 copy.png" alt="LinkedIn">
+            </a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="/services">Services Overview</a></li>
+            <li><a href="/services/managed-operations">Managed Operations</a></li>
+            <li><a href="/services/strategy-consulting">Strategy Consulting</a></li>
+            <li><a href="/services/aws-marketplace">AWS Marketplace</a></li>
+            <li><a href="/services/fractional-alliances-leader">Fractional Alliances Leader</a></li>
+            <li><a href="/services/partner-revenue-generation">Revenue Generation</a></li>
+            <li><a href="/services/foundational-technical-review">FTR Preparation</a></li>
+            <li><a href="/services/fractional-pdm">Fractional PDM</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="/pricing">Pricing</a></li>
+            <li><a href="/company/case-studies">Case Studies</a></li>
+            <li><a href="/company/about">About</a></li>
+            <li><a href="/company/contact">Contact</a></li>
+            <li><a href="/company/partners">Partners</a></li>
+            <li><a href="/company/careers">Careers</a></li>
+            <li><a href="/blogs">Blog</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="/resources/aws-map-funding-checklist">MAP Funding Checklist</a></li>
+            <li><a href="/resources/aws-mdf-funding-checklist">MDF Funding Checklist</a></li>
+            <li><a href="/resources/aws-ftr-checklist">FTR Checklist</a></li>
+            <li><a href="/resources/aws-marketplace-gtm-readiness-guide">Marketplace GTM Guide</a></li>
+            <li><a href="/resources/aws-co-sell-playbook">Co-Sell Playbook</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2025 Grnmrk Group LLC. All rights reserved.</span>
+        <div class="footer-legal">
+          <a href="/terms">Terms of Service</a>
+          <a href="/privacy">Privacy Policy</a>
+          <a href="https://www.linkedin.com/company/grnmrk-group/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </footer>
 
 </body>
 </html>

@@ -1,578 +1,765 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AWS Marketplace GTM Readiness Guide — Grnmrk Group</title>
-<meta name="description" content="Free interactive guide: everything you need in place before your AWS Marketplace listing actually transacts. Covers FTR, listings, SaaS Co-sell Benefit, private offers, and CPPO.">
-<link rel="icon" type="image/png" href="/favicon-transparent.png">
-<link rel="apple-touch-icon" href="/favicon-transparent.png">
-<link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;1,300&family=Barlow+Condensed:wght@500;700&display=swap" rel="stylesheet">
-<style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root {
-  --bg: #F0EDE6;
-  --bg-alt: #E8E4DC;
-  --ink: #111111;
-  --ink-mid: #3A3A3A;
-  --ink-dim: #7A7369;
-  --green: #3DDC84;
-  --green-dark: #28B06A;
-  --green-dim: #D4F5E5;
-  --rule: rgba(17,17,17,0.1);
-  --white: #FFFFFF;
-  --linkedin-blue: #0077B5;
-}
+  <!-- ============================================================
+       META & SEO
+  ============================================================ -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AWS Marketplace GTM Readiness Guide — Free Interactive Resource | Grnmrk Group</title>
+  <meta name="description" content="Free interactive guide: everything you need in place before your AWS Marketplace listing transacts. Covers FTR, listings, SaaS Co-sell Benefit, private offers, and CPPO.">
+  <meta name="keywords" content="AWS Marketplace GTM guide, AWS Marketplace checklist, FTR Marketplace, SaaS Co-sell Benefit, AWS private offer strategy, CPPO channel motion, AWS Marketplace readiness, ISV Accelerate">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Grnmrk Group">
+  <link rel="canonical" href="https://www.grnmrk.com/resources/aws-marketplace-gtm-readiness-guide">
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
 
-html { scroll-behavior: smooth; }
-body { background: var(--bg); color: var(--ink); font-family: 'Barlow', sans-serif; font-weight: 300; font-size: 16px; line-height: 1.7; overflow-x: hidden; }
+  <meta property="og:title" content="AWS Marketplace GTM Readiness Guide — Grnmrk Group">
+  <meta property="og:description" content="Five sections covering everything you need before your Marketplace listing transacts: FTR, listing quality, SaaS Co-sell Benefit, private offers, and CPPO.">
+  <meta property="og:url" content="https://www.grnmrk.com/resources/aws-marketplace-gtm-readiness-guide">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Grnmrk Group">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AWS Marketplace GTM Readiness Guide — Grnmrk Group">
+  <meta name="twitter:description" content="Everything you need before your AWS Marketplace listing transacts. Free interactive guide from Grnmrk Group.">
 
-/* =============================================================
-   NAVIGATION
-   ============================================================= */
-nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 1.2rem 5vw;
-  background: rgba(240,237,230,0.94);
-  backdrop-filter: blur(14px);
-  border-bottom: 1px solid var(--rule);
-  transition: padding 0.3s;
-}
-nav.scrolled { padding: 0.9rem 5vw; }
-.nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.7rem; letter-spacing: 0.12em; color: var(--ink); text-decoration: none; }
-.nav-logo span { color: var(--green); }
-.nav-links { display: flex; gap: 2rem; list-style: none; }
-.nav-links a { font-family: 'Barlow Condensed', sans-serif; font-weight: 500; font-size: 0.82rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-dim); text-decoration: none; transition: color 0.2s; }
-.nav-links a:hover { color: var(--ink); }
-.nav-item { position: relative; }
-.nav-dropdown { display: none; position: absolute; top: calc(100%); left: 50%; transform: translateX(-50%); background: var(--white); border: 1px solid var(--rule); box-shadow: 0 8px 32px rgba(17,17,17,0.1); min-width: 220px; padding: 0.6rem 0; z-index: 200; }
-.nav-dropdown::before { content: ''; position: absolute; top: -6px; left: 50%; transform: translateX(-50%); width: 10px; height: 10px; background: var(--white); border-left: 1px solid var(--rule); border-top: 1px solid var(--rule); rotate: 45deg; }
-.nav-dropdown a { display: block; padding: 0.55rem 1.4rem; font-family: 'Barlow Condensed', sans-serif; font-weight: 500; font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-dim); text-decoration: none; transition: color 0.15s, background 0.15s; white-space: nowrap; }
-.nav-dropdown a:hover { color: var(--ink); background: var(--bg); }
-.has-dropdown:hover .nav-dropdown { display: block; }
-.has-dropdown > a::after { content: ' ↓'; font-size: 0.65rem; opacity: 0.5; letter-spacing: 0; }
-.nav-right { display: flex; align-items: center; gap: 1.5rem; }
-.nav-ghost { font-family: 'Barlow Condensed', sans-serif; font-weight: 500; font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-dim); text-decoration: none; transition: color 0.2s; }
-.nav-ghost:hover { color: var(--ink); }
-.nav-cta { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); background: var(--green); padding: 0.5rem 1.3rem; text-decoration: none; transition: background 0.2s; }
-.nav-cta:hover { background: var(--green-dark); color: var(--white); }
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "AWS Marketplace GTM Readiness Guide",
+    "description": "Free interactive guide covering FTR, listing quality, SaaS Co-sell Benefit enrollment, private offer strategy, and CPPO channel motion for AWS Marketplace.",
+    "url": "https://www.grnmrk.com/resources/aws-marketplace-gtm-readiness-guide",
+    "provider": { "@type": "Organization", "name": "Grnmrk Group", "url": "https://www.grnmrk.com" }
+  }
+  </script>
 
-/* =============================================================
-   COVER / HERO
-   ============================================================= */
-.cover { background: var(--ink); min-height: 300px; padding: 7rem 5vw 3rem; position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: flex-end; }
-.cover::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 60% at 60% 20%, rgba(61,220,132,0.13), transparent 60%); }
-.cover-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.3rem; letter-spacing: 0.14em; color: rgba(240,237,230,0.45); margin-bottom: 2.5rem; position: relative; }
-.cover-logo span { color: var(--green); }
-.cover-tag { font-family: 'Barlow Condensed', sans-serif; font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--green); margin-bottom: 0.8rem; position: relative; display: flex; align-items: center; gap: 0.7rem; }
-.cover-tag::before { content: ''; width: 20px; height: 1px; background: var(--green); }
-.cover-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.8rem, 6vw, 5rem); line-height: 0.95; letter-spacing: 0.02em; color: var(--bg); position: relative; max-width: 820px; }
-.cover-title em { font-style: normal; color: var(--green); }
-.cover-sub { font-size: 1rem; font-weight: 300; color: rgba(240,237,230,0.6); margin-top: 1.2rem; max-width: 600px; line-height: 1.7; position: relative; }
+  <!-- ============================================================
+       ASSETS
+  ============================================================ -->
+  <link rel="icon" type="image/png" href="/favicon-transparent.png">
+  <link rel="apple-touch-icon" href="/favicon-transparent.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 
-/* =============================================================
-   META BAND
-   ============================================================= */
-.meta-band { background: var(--green-dark); padding: 0.9rem 5vw; display: flex; gap: 2.5rem; flex-wrap: wrap; }
-.meta-item { font-family: 'Barlow Condensed', sans-serif; font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink); }
-.meta-item strong { font-weight: 700; }
+  <!-- Crisp Chat -->
+  <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="f635b745-e538-474c-a47f-3e1f4466424c";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
 
-/* =============================================================
-   GATE SECTION
-   ============================================================= */
-.gate-wrap { max-width: 900px; margin: 0 auto; padding: 4rem 5vw 5rem; }
-.gate-intro p { font-size: 1rem; font-weight: 300; color: var(--ink-mid); line-height: 1.85; margin-bottom: 1rem; }
-.gate-intro strong { font-weight: 500; color: var(--ink); }
-.preview-label { font-family: 'Barlow Condensed', sans-serif; font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-dim); margin: 1.5rem 0 0.8rem; }
-.preview-list { list-style: none; display: flex; flex-direction: column; gap: 2px; pointer-events: none; }
-.preview-item { background: var(--bg-alt); padding: 0.85rem 1.2rem; display: flex; align-items: center; gap: 1rem; }
-.preview-check { width: 16px; height: 16px; border: 1.5px solid var(--rule); flex-shrink: 0; }
-.preview-text { font-size: 0.92rem; color: var(--ink-mid); }
-.preview-fade { position: relative; }
-.preview-fade::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 80px; background: linear-gradient(transparent, var(--bg)); }
+  <!-- ============================================================
+       STYLES
+  ============================================================ -->
+  <style>
 
-/* =============================================================
-   FORM PANEL
-   ============================================================= */
-.form-panel { background: var(--ink); padding: 3rem; position: relative; overflow: hidden; margin-top: 3rem; }
-.form-panel::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 80% at 90% 10%, rgba(61,220,132,0.1), transparent 60%); pointer-events: none; }
-.form-inner { position: relative; }
-.form-eyebrow { font-family: 'Barlow Condensed', sans-serif; font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--green); display: flex; align-items: center; gap: 0.7rem; margin-bottom: 0.8rem; }
-.form-eyebrow::before { content: ''; width: 18px; height: 1px; background: var(--green); }
-.form-title { font-family: 'Bebas Neue', sans-serif; font-size: 2.2rem; letter-spacing: 0.04em; color: var(--bg); line-height: 1; margin-bottom: 0.5rem; }
-.form-sub { font-size: 0.92rem; font-weight: 300; color: rgba(240,237,230,0.6); line-height: 1.65; margin-bottom: 2.5rem; max-width: 520px; }
-.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-.form-field { display: flex; flex-direction: column; gap: 0.4rem; }
-.form-field.full { grid-column: span 2; }
-.form-label { font-family: 'Barlow Condensed', sans-serif; font-size: 0.7rem; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(240,237,230,0.5); }
-.form-input { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); color: var(--bg); font-family: 'Barlow', sans-serif; font-weight: 300; font-size: 0.95rem; padding: 0.75rem 1rem; outline: none; transition: border-color 0.2s; width: 100%; }
-.form-input::placeholder { color: rgba(240,237,230,0.2); }
-.form-input:focus { border-color: var(--green); }
-.form-actions { display: flex; align-items: center; gap: 1.5rem; margin-top: 1.8rem; flex-wrap: wrap; }
-.btn-submit { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.88rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); background: var(--green); padding: 1rem 2.2rem; border: none; cursor: pointer; transition: background 0.2s; }
-.btn-submit:hover:not(:disabled) { background: var(--green-dark); color: var(--white); }
-.btn-submit:disabled { opacity: 0.6; cursor: not-allowed; }
-.form-or { font-family: 'Barlow Condensed', sans-serif; font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(240,237,230,0.35); }
-.btn-calendly { font-family: 'Barlow Condensed', sans-serif; font-weight: 500; font-size: 0.88rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(240,237,230,0.7); border: 1px solid rgba(240,237,230,0.2); padding: 1rem 1.8rem; text-decoration: none; transition: border-color 0.2s, color 0.2s; }
-.btn-calendly:hover { border-color: var(--green); color: var(--green); }
-.form-privacy { font-size: 0.78rem; font-weight: 300; color: rgba(240,237,230,0.3); margin-top: 1.2rem; }
-.form-error { font-family: 'Barlow Condensed', sans-serif; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: #ff6b6b; margin-top: 1rem; display: none; }
-.form-success { display: none; text-align: center; padding: 2rem 0; }
-.form-success-icon { font-size: 3rem; line-height: 1; margin-bottom: 0.8rem; }
-.form-success-title { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 0.04em; color: var(--green); margin-bottom: 0.5rem; }
-.form-success-text { font-size: 0.92rem; font-weight: 300; color: rgba(240,237,230,0.65); line-height: 1.7; }
+    /* ==========================================================
+       TOKENS
+    ========================================================== */
+    :root {
+      --bg:           #F0EDE6;
+      --bg-soft:      #E8E4DC;
+      --ink:          #111111;
+      --ink-soft:     #2A2A2A;
+      --slate:        #7A7369;
+      --slate-light:  #A09890;
+      --line:         #D8D4CC;
+      --accent:       #3DDC84;
+      --accent-hover: #28B06A;
+      --accent-dim:   #D4F5E5;
+      --footer-bg:    #0D0D0D;
+      --footer-text:  #9A9490;
+    }
 
-/* =============================================================
-   CHECKLIST CONTENT (locked until form submit)
-   ============================================================= */
-.checklist-content { display: none; }
-.checklist-content.unlocked { display: block; }
-.body-wrap { max-width: 900px; margin: 0 auto; padding: 4rem 5vw 2rem; }
-.progress-wrap { background: var(--bg-alt); padding: 1.2rem 1.8rem; margin-bottom: 3rem; display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; }
-.progress-label { font-family: 'Barlow Condensed', sans-serif; font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-dim); flex-shrink: 0; }
-.progress-bar-wrap { flex: 1; min-width: 150px; height: 5px; background: var(--rule); }
-.progress-bar { height: 100%; background: var(--green-dark); width: 0%; transition: width 0.3s; }
-.progress-count { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; color: var(--green-dark); line-height: 1; flex-shrink: 0; }
-.checklist-section { margin-bottom: 3rem; }
-.section-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.2rem; padding-bottom: 0.8rem; border-bottom: 2px solid var(--ink); }
-.section-num { font-family: 'Bebas Neue', sans-serif; font-size: 2.5rem; color: rgba(17,17,17,0.1); line-height: 1; flex-shrink: 0; }
-.section-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; letter-spacing: 0.04em; color: var(--ink); line-height: 1; }
-.section-note { font-family: 'Barlow Condensed', sans-serif; font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-dim); margin-left: auto; flex-shrink: 0; }
-.checklist { list-style: none; display: flex; flex-direction: column; gap: 2px; }
-.checklist-item { background: var(--bg-alt); transition: background 0.2s; }
-.checklist-item:hover { background: var(--white); }
-.checklist-label { display: flex; align-items: flex-start; gap: 1rem; padding: 1rem 1.2rem; cursor: pointer; }
-.checklist-label input[type="checkbox"] { flex-shrink: 0; width: 18px; height: 18px; accent-color: var(--green-dark); margin-top: 0.15rem; cursor: pointer; }
-.item-text { font-size: 0.95rem; font-weight: 400; color: var(--ink); line-height: 1.5; }
-.item-note { font-size: 0.82rem; font-weight: 300; color: var(--ink-dim); line-height: 1.5; margin-top: 0.3rem; }
-.checklist-item.checked { background: var(--green-dim); }
-.checklist-item.checked .item-text { color: var(--green-dark); text-decoration: line-through; text-decoration-color: rgba(40,176,106,0.4); }
-.tag-req { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.58rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink); background: var(--green); padding: 0.1rem 0.4rem; display: inline-block; margin-left: 0.5rem; vertical-align: middle; }
-.tag-opt { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.58rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--white); background: var(--ink-dim); padding: 0.1rem 0.4rem; display: inline-block; margin-left: 0.5rem; vertical-align: middle; }
-.explainer { background: var(--bg-alt); padding: 1.8rem 2rem; margin-top: 2px; }
-.explainer-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--green-dark); margin-bottom: 0.7rem; }
-.explainer p { font-size: 0.92rem; font-weight: 300; color: var(--ink-mid); line-height: 1.75; margin-bottom: 0.7rem; }
-.explainer strong { font-weight: 500; color: var(--ink); }
-.dark-summary { background: var(--ink); padding: 2.5rem; margin-top: 1rem; margin-bottom: 1rem; }
-.dark-summary-label { font-family: 'Barlow Condensed', sans-serif; font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--green); margin-bottom: 1.2rem; }
-.dark-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-.dark-card { background: rgba(255,255,255,0.04); padding: 1.2rem; }
-.dark-card-title { font-family: 'Barlow Condensed', sans-serif; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--green); margin-bottom: 0.4rem; }
-.dark-card-text { font-size: 0.85rem; font-weight: 300; color: rgba(240,237,230,0.5); line-height: 1.6; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Onest', -apple-system, sans-serif;
+      background: var(--bg); color: var(--ink);
+      font-weight: 400; line-height: 1.55;
+      -webkit-font-smoothing: antialiased; overflow-x: hidden;
+    }
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 32px; }
 
-/* =============================================================
-   BOTTOM CTA
-   ============================================================= */
-.bottom-cta { background: var(--ink); overflow: hidden; position: relative; }
-.bottom-cta::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 80% at 80% 50%, rgba(61,220,132,0.08), transparent 70%); }
-.bottom-cta-inner { max-width: 1200px; margin: 0 auto; padding: 6rem 5vw; position: relative; display: grid; grid-template-columns: 1fr auto; gap: 4rem; align-items: center; }
-.bottom-cta h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.2rem, 4vw, 4rem); line-height: 0.95; color: var(--bg); margin-bottom: 0.8rem; }
-.bottom-cta h2 span { color: var(--green); }
-.bottom-cta p { font-size: 1rem; font-weight: 300; color: rgba(240,237,230,0.6); max-width: 500px; line-height: 1.7; }
-.cta-actions { display: flex; flex-direction: column; gap: 1rem; min-width: 220px; }
-.btn-primary { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.9rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); background: var(--green); padding: 1rem 2.2rem; text-decoration: none; display: block; text-align: center; transition: background 0.2s, color 0.2s; }
-.btn-primary:hover { background: var(--green-dark); color: var(--white); }
-.btn-ghost { font-family: 'Barlow Condensed', sans-serif; font-weight: 500; font-size: 0.9rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--bg); border: 1px solid rgba(240,237,230,0.25); padding: 1rem 2.2rem; text-decoration: none; display: block; text-align: center; transition: border-color 0.2s, color 0.2s; }
-.btn-ghost:hover { border-color: var(--green); color: var(--green); }
+    /* ==========================================================
+       NAVIGATION
+    ========================================================== */
+    .nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(240,237,230,0.88);
+      backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      height: 72px; padding: 0 32px;
+      max-width: 1280px; margin: 0 auto;
+    }
+    .logo { text-decoration: none; display: flex; align-items: center; }
+    .logo img { height: 96px; width: auto; display: block; }
 
-/* =============================================================
-   FOOTER
-   ============================================================= */
-footer { background: var(--bg-alt); border-top: 1px solid var(--rule); width: 100%; display: block; }
-.footer-top { width: 100%; max-width: 1200px; margin: 0 auto; padding: 4rem 5vw 3rem; display: flex; justify-content: space-between; gap: 4rem; flex-wrap: wrap; }
-.footer-brand { display: flex; flex-direction: column; gap: 0.8rem; }
-.footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; letter-spacing: 0.12em; color: var(--ink); text-decoration: none; }
-.footer-logo span { color: var(--green); }
-.footer-tagline { font-family: 'Barlow Condensed', sans-serif; font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-dim); }
-.footer-linkedin { display: inline-flex; align-items: center; gap: 0.5rem; font-family: 'Barlow Condensed', sans-serif; font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-dim); text-decoration: none; margin-top: 0.4rem; transition: color 0.2s; }
-.footer-linkedin:hover { color: var(--linkedin-blue); }
-.footer-nav-group { display: flex; gap: 4rem; flex-wrap: wrap; }
-.footer-nav-col { display: flex; flex-direction: column; gap: 1rem; }
-.footer-nav-heading { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink); }
-.footer-nav-links { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
-.footer-nav-links a { font-family: 'Barlow Condensed', sans-serif; font-size: 0.88rem; letter-spacing: 0.08em; color: var(--ink-dim); text-decoration: none; transition: color 0.2s; }
-.footer-nav-links a:hover { color: var(--green-dark); }
-.footer-bottom { border-top: 1px solid var(--rule); padding: 1.5rem 5vw; width: 100%; }
-.footer-bottom-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
-.footer-copy { font-family: 'Barlow Condensed', sans-serif; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-dim); }
-.footer-legal { display: flex; gap: 2rem; }
-.footer-legal a { font-family: 'Barlow Condensed', sans-serif; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-dim); text-decoration: none; transition: color 0.2s; }
-.footer-legal a:hover { color: var(--green-dark); }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a {
+      color: var(--ink); text-decoration: none;
+      font-size: 14.5px; font-weight: 500;
+      display: flex; align-items: center; gap: 4px; transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--accent-hover); }
 
-/* =============================================================
-   RESPONSIVE
-   ============================================================= */
-@media (max-width: 700px) {
-  .form-grid { grid-template-columns: 1fr; }
-  .form-field.full { grid-column: span 1; }
-  .dark-cols { grid-template-columns: 1fr; }
-  .bottom-cta-inner { grid-template-columns: 1fr; gap: 2rem; }
-  .meta-band { gap: 1rem; }
-  .form-actions { flex-direction: column; align-items: flex-start; }
-  .nav-links, .nav-ghost { display: none; }
-}
-</style>
+    .nav-item { position: relative; }
+    .nav-dropdown {
+      display: none; position: absolute;
+      top: 100%; left: 50%; transform: translateX(-50%);
+      padding-top: 8px; background: transparent; z-index: 200;
+    }
+    .nav-dropdown-inner {
+      background: white; border: 1px solid var(--line);
+      border-radius: 12px; box-shadow: 0 12px 40px rgba(17,17,17,0.12);
+      min-width: 220px; padding: 8px 0;
+    }
+    .nav-dropdown a {
+      display: block; padding: 9px 20px;
+      font-size: 13.5px; font-weight: 500; color: var(--slate);
+      transition: color 0.15s, background 0.15s; white-space: nowrap; text-decoration: none;
+    }
+    .nav-dropdown a:hover { color: var(--ink); background: var(--bg); }
+    .has-dropdown:hover .nav-dropdown { display: block; }
+    .has-dropdown > a::after { content: ' ↓'; font-size: 10px; opacity: 0.45; }
+
+    .nav-cta-group { display: flex; align-items: center; gap: 20px; }
+    .nav-email { color: var(--slate); text-decoration: none; font-size: 13.5px; font-weight: 500; transition: color 0.2s; }
+    .nav-email:hover { color: var(--ink); }
+
+    /* ==========================================================
+       BUTTONS
+    ========================================================== */
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 11px 22px; border-radius: 999px;
+      font-size: 14px; font-weight: 600; font-family: inherit;
+      text-decoration: none; border: none; cursor: pointer;
+      transition: all 0.2s ease; letter-spacing: -0.01em;
+    }
+    .btn-primary { background: var(--ink); color: var(--bg); }
+    .btn-primary:hover { background: var(--accent-hover); color: white; transform: translateY(-1px); }
+    .btn-accent { background: var(--accent); color: var(--ink); }
+    .btn-accent:hover { background: var(--accent-hover); color: white; transform: translateY(-1px); }
+    .btn-ghost-light { background: transparent; color: var(--bg); border: 1.5px solid rgba(240,237,230,0.35); }
+    .btn-ghost-light:hover { border-color: var(--accent); color: var(--accent); }
+    .btn-arrow { display: inline-block; transition: transform 0.2s; }
+    .btn:hover .btn-arrow { transform: translateX(3px); }
+
+    /* ==========================================================
+       COVER / HERO
+    ========================================================== */
+    .cover {
+      background: var(--ink); padding: 64px 0 56px;
+      position: relative; overflow: hidden;
+    }
+    .cover::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 60% 20%, rgba(61,220,132,0.13), transparent 60%);
+    }
+    .cover-inner { position: relative; }
+    .cover-badge {
+      display: inline-flex; align-items: center;
+      padding: 5px 14px; background: rgba(61,220,132,0.15);
+      border-radius: 999px;
+      font-size: 12px; font-weight: 700; color: var(--accent);
+      margin-bottom: 24px;
+    }
+    .cover-title {
+      font-size: clamp(32px, 5vw, 60px);
+      font-weight: 600; line-height: 1.0; letter-spacing: -0.035em;
+      color: var(--bg); margin-bottom: 18px;
+    }
+    .cover-title em {
+      font-family: 'Instrument Serif', serif;
+      font-weight: 400; font-style: italic; color: var(--accent);
+    }
+    .cover-sub {
+      font-size: 16.5px; color: rgba(240,237,230,0.6);
+      max-width: 580px; line-height: 1.68;
+    }
+
+    /* Meta band */
+    .meta-band { background: var(--accent-hover); padding: 14px 0; }
+    .meta-band-inner { display: flex; gap: 32px; flex-wrap: wrap; align-items: center; }
+    .meta-item { font-size: 12.5px; font-weight: 600; color: var(--ink); letter-spacing: 0.04em; }
+    .meta-sep { width: 1px; height: 14px; background: rgba(17,17,17,0.2); flex-shrink: 0; }
+
+    /* ==========================================================
+       GATE SECTION
+    ========================================================== */
+    .gate-wrap { max-width: 880px; margin: 0 auto; padding: 52px 32px 64px; }
+    .gate-intro { margin-bottom: 28px; }
+    .gate-intro p { font-size: 16px; color: var(--slate); line-height: 1.72; margin-bottom: 14px; }
+    .gate-intro strong { color: var(--ink); font-weight: 600; }
+
+    .preview-label { font-size: 11.5px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--slate); margin-bottom: 10px; }
+    .preview-fade { position: relative; }
+    .preview-fade::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 80px; background: linear-gradient(transparent, var(--bg)); }
+    .preview-list { list-style: none; display: flex; flex-direction: column; gap: 2px; pointer-events: none; }
+    .preview-item { background: var(--bg-soft); border: 1px solid var(--line); padding: 12px 16px; display: flex; align-items: center; gap: 12px; }
+    .preview-check { width: 16px; height: 16px; border: 1.5px solid var(--line); border-radius: 3px; flex-shrink: 0; }
+    .preview-text { font-size: 14px; color: var(--slate); }
+
+    /* Form panel */
+    .form-panel { background: var(--ink); border-radius: 16px; padding: 40px; position: relative; overflow: hidden; margin-top: 32px; }
+    .form-panel::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 80% at 90% 10%, rgba(61,220,132,0.1), transparent 60%); pointer-events: none; }
+    .form-inner { position: relative; }
+    .form-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 6px; }
+    .form-title { font-size: 26px; font-weight: 600; letter-spacing: -0.025em; color: var(--bg); margin-bottom: 6px; }
+    .form-sub { font-size: 14px; color: rgba(240,237,230,0.6); line-height: 1.62; margin-bottom: 28px; max-width: 480px; }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .form-field { display: flex; flex-direction: column; gap: 5px; }
+    .form-field.full { grid-column: span 2; }
+    .form-label { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(240,237,230,0.45); }
+    .form-input { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); color: var(--bg); font-family: 'Onest', sans-serif; font-weight: 400; font-size: 14.5px; padding: 11px 14px; border-radius: 8px; outline: none; transition: border-color 0.2s; width: 100%; }
+    .form-input::placeholder { color: rgba(240,237,230,0.2); }
+    .form-input:focus { border-color: var(--accent); }
+    .form-actions { display: flex; align-items: center; gap: 16px; margin-top: 20px; flex-wrap: wrap; }
+    .btn-submit { font-family: 'Onest', sans-serif; font-weight: 700; font-size: 14px; letter-spacing: -0.01em; color: var(--ink); background: var(--accent); padding: 12px 28px; border: none; cursor: pointer; border-radius: 999px; transition: background 0.2s, transform 0.2s; }
+    .btn-submit:hover:not(:disabled) { background: var(--accent-hover); color: white; transform: translateY(-1px); }
+    .btn-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+    .form-or { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(240,237,230,0.3); font-weight: 600; }
+    .btn-calendly { font-family: 'Onest', sans-serif; font-weight: 600; font-size: 13.5px; color: rgba(240,237,230,0.65); border: 1.5px solid rgba(240,237,230,0.2); padding: 11px 20px; text-decoration: none; border-radius: 999px; transition: border-color 0.2s, color 0.2s; }
+    .btn-calendly:hover { border-color: var(--accent); color: var(--accent); }
+    .form-privacy { font-size: 12px; color: rgba(240,237,230,0.28); margin-top: 14px; line-height: 1.5; }
+    .form-error { font-size: 12px; color: #ff6b6b; margin-top: 10px; display: none; font-weight: 500; }
+    .form-success { display: none; text-align: center; padding: 20px 0; }
+    .form-success-icon { font-size: 2.5rem; line-height: 1; margin-bottom: 10px; }
+    .form-success-title { font-size: 26px; font-weight: 600; color: var(--accent); letter-spacing: -0.025em; margin-bottom: 8px; }
+    .form-success-text { font-size: 14px; color: rgba(240,237,230,0.65); line-height: 1.65; }
+
+    /* ==========================================================
+       CHECKLIST CONTENT
+    ========================================================== */
+    .checklist-content { display: none; }
+    .checklist-content.unlocked { display: block; }
+
+    .body-wrap { max-width: 880px; margin: 0 auto; padding: 48px 32px 32px; }
+
+    .progress-wrap { background: var(--bg-soft); border: 1px solid var(--line); border-radius: 12px; padding: 16px 24px; margin-bottom: 40px; display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+    .progress-label { font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--slate); flex-shrink: 0; }
+    .progress-bar-wrap { flex: 1; min-width: 120px; height: 5px; background: var(--line); border-radius: 999px; overflow: hidden; }
+    .progress-bar { height: 100%; background: var(--accent-hover); width: 0%; transition: width 0.3s; border-radius: 999px; }
+    .progress-count { font-size: 20px; font-weight: 600; color: var(--accent-hover); letter-spacing: -0.03em; line-height: 1; flex-shrink: 0; }
+
+    .checklist-section { margin-bottom: 36px; }
+    .section-header { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; padding-bottom: 12px; border-bottom: 2px solid var(--ink); }
+    .section-num { font-family: 'Instrument Serif', serif; font-size: 13px; color: var(--accent-hover); font-style: italic; flex-shrink: 0; }
+    .section-title { font-size: 20px; font-weight: 600; letter-spacing: -0.02em; color: var(--ink); line-height: 1; }
+    .section-note { font-size: 11.5px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--slate); margin-left: auto; flex-shrink: 0; }
+
+    .checklist { list-style: none; display: flex; flex-direction: column; gap: 2px; }
+    .checklist-item { background: var(--bg-soft); border: 1px solid var(--line); border-radius: 8px; transition: background 0.2s, border-color 0.2s; }
+    .checklist-item:hover { background: white; }
+    .checklist-label { display: flex; align-items: flex-start; gap: 12px; padding: 13px 16px; cursor: pointer; }
+    .checklist-label input[type="checkbox"] { flex-shrink: 0; width: 16px; height: 16px; accent-color: var(--accent-hover); margin-top: 2px; cursor: pointer; }
+    .item-text { font-size: 14.5px; font-weight: 500; color: var(--ink); line-height: 1.5; }
+    .item-note { font-size: 13px; color: var(--slate); line-height: 1.55; margin-top: 4px; font-weight: 400; }
+    .checklist-item.checked { background: var(--accent-dim); border-color: rgba(40,176,106,0.3); }
+    .checklist-item.checked .item-text { color: var(--accent-hover); text-decoration: line-through; text-decoration-color: rgba(40,176,106,0.4); }
+
+    .tag-req { font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); background: var(--accent); padding: 2px 5px; border-radius: 3px; display: inline; margin-left: 6px; vertical-align: middle; }
+    .tag-opt { font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(240,237,230,0.7); background: var(--slate); padding: 2px 5px; border-radius: 3px; display: inline; margin-left: 6px; vertical-align: middle; }
+
+    /* Explainer blocks */
+    .explainer {
+      background: var(--bg); border: 1px solid var(--line); border-radius: 10px;
+      padding: 20px 24px; margin-top: 8px;
+    }
+    .explainer-title { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-hover); margin-bottom: 10px; }
+    .explainer p { font-size: 14px; color: var(--slate); line-height: 1.68; margin-bottom: 8px; }
+    .explainer p:last-child { margin-bottom: 0; }
+    .explainer strong { color: var(--ink); font-weight: 600; }
+
+    /* Dark summary */
+    .dark-summary { background: var(--ink); border-radius: 14px; padding: 32px; margin: 24px 0; }
+    .dark-summary-label { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; }
+    .dark-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .dark-card { background: rgba(255,255,255,0.04); border-radius: 8px; padding: 16px; }
+    .dark-card-title { font-size: 13.5px; font-weight: 600; color: var(--accent); margin-bottom: 6px; letter-spacing: -0.01em; }
+    .dark-card-text { font-size: 13px; color: rgba(240,237,230,0.5); line-height: 1.6; }
+
+    /* ==========================================================
+       BOTTOM CTA
+    ========================================================== */
+    .bottom-cta { background: var(--ink); position: relative; overflow: hidden; padding: 80px 0; }
+    .bottom-cta::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 90% at 75% 50%, rgba(61,220,132,0.09), transparent 65%); }
+    .bottom-cta-inner { position: relative; display: grid; grid-template-columns: 1fr auto; gap: 64px; align-items: center; }
+    .bottom-cta-title { font-size: clamp(26px, 3.6vw, 46px); font-weight: 500; line-height: 1.0; letter-spacing: -0.03em; color: var(--bg); margin-bottom: 14px; }
+    .bottom-cta-title em { font-family: 'Instrument Serif', serif; font-style: italic; color: var(--accent); font-weight: 400; }
+    .bottom-cta-text { font-size: 16px; color: rgba(240,237,230,0.65); max-width: 480px; line-height: 1.68; }
+    .bottom-cta-actions { display: flex; flex-direction: column; gap: 12px; min-width: 230px; }
+
+    /* ==========================================================
+       FOOTER
+    ========================================================== */
+    .footer { background: var(--footer-bg); color: var(--footer-text); padding: 80px 0 32px; }
+    .footer-top { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 60px; padding-bottom: 56px; border-bottom: 1px solid rgba(255,255,255,0.07); }
+    .footer-logo { text-decoration: none; display: block; margin-bottom: 20px; }
+    .footer-logo img { height: 96px; width: auto; display: block; filter: brightness(0) invert(1); }
+    .footer-tagline { font-size: 14.5px; line-height: 1.65; color: var(--footer-text); max-width: 340px; margin-bottom: 28px; }
+    .footer-icons { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+    .footer-aws-link { display: inline-block; transition: opacity 0.2s; }
+    .footer-aws-link img { height: 96px; width: auto; display: block; }
+    .footer-aws-link:hover { opacity: 0.6; }
+    .footer-linkedin-icon { display: inline-block; text-decoration: none; }
+    .footer-linkedin-icon img { height: 28px; width: auto; display: block; }
+    .footer-linkedin-icon .li-default { display: block; }
+    .footer-linkedin-icon .li-hover { display: none; }
+    .footer-linkedin-icon:hover .li-default { display: none; }
+    .footer-linkedin-icon:hover .li-hover { display: block; }
+    .footer-col h4 { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: white; font-weight: 700; margin-bottom: 18px; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 11px; }
+    .footer-col a { color: var(--footer-text); text-decoration: none; font-size: 14px; transition: color 0.2s; }
+    .footer-col a:hover { color: white; }
+    .footer-bottom { padding-top: 28px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--slate-light); flex-wrap: wrap; gap: 14px; }
+    .footer-legal { display: flex; gap: 22px; }
+    .footer-legal a { color: var(--slate-light); text-decoration: none; transition: color 0.2s; }
+    .footer-legal a:hover { color: white; }
+
+    /* ==========================================================
+       RESPONSIVE
+    ========================================================== */
+    @media (max-width: 1024px) {
+      .bottom-cta-inner { grid-template-columns: 1fr; gap: 32px; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 36px; }
+    }
+    @media (max-width: 700px) {
+      .nav-links { display: none; }
+      .nav-email { display: none; }
+      .form-grid { grid-template-columns: 1fr; }
+      .form-field.full { grid-column: span 1; }
+      .dark-cols { grid-template-columns: 1fr; }
+      .form-actions { flex-direction: column; align-items: flex-start; }
+      .footer-top { grid-template-columns: 1fr; }
+      .container { padding: 0 20px; }
+      .gate-wrap { padding: 40px 20px 52px; }
+      .body-wrap { padding: 40px 20px 24px; }
+    }
+
+  </style>
 </head>
 <body>
 
-<!-- ============================================================
-     NAVIGATION
-     ============================================================ -->
-<nav id="mainNav">
-  <a class="nav-logo" href="/"><span>G</span>RNMRK GROUP</a>
-  <ul class="nav-links">
-    <li class="nav-item has-dropdown">
-      <a href="/services">Services</a>
-      <div class="nav-dropdown">
-        <a href="/services">Services Overview</a>
-        <a href="/services/aws-marketplace">AWS Marketplace</a>
-        <a href="/services/managed-operations">Managed Operations</a>
-        <a href="/services/strategy-consulting">Strategy Consulting</a>
-        <a href="/services/fractional-alliances-leader">Fractional Alliances Leader</a>
-        <a href="/services/partner-revenue-generation">Revenue Generation</a>
-        <a href="/services/foundational-technical-review">FTR Preparation</a>
-        <a href="/services/fractional-pdm">Fractional PDM</a>
-      </div>
-    </li>
-    <li><a href="/pricing">Pricing</a></li>
-    <li class="nav-item has-dropdown">
-      <a href="/company/about">Company</a>
-      <div class="nav-dropdown">
-        <a href="/company/about">About</a>
-        <a href="/company/case-studies">Case Studies</a>
-        <a href="/company/contact">Contact</a>
-        <a href="/company/partners">Partners</a>
-        <a href="/company/careers">Careers</a>
-        <a href="/blogs">Blog</a>
-      </div>
-    </li>
-    <li class="nav-item has-dropdown">
-      <a href="/resources">Resources</a>
-      <div class="nav-dropdown">
-        <a href="/resources/aws-map-funding-checklist">MAP Funding Checklist</a>
-        <a href="/resources/aws-mdf-funding-checklist">MDF Funding Checklist</a>
-        <a href="/resources/aws-ftr-checklist">FTR Checklist</a>
-        <a href="/resources/aws-marketplace-gtm-readiness-guide">Marketplace GTM Guide</a>
-        <a href="/resources/aws-co-sell-playbook">Co-Sell Playbook</a>
-      </div>
-    </li>
-    <li><a href="/company/contact">Contact</a></li>
-  </ul>
-  <div class="nav-right">
-    <a class="nav-ghost" href="mailto:hello@grnmrk.com">hello@grnmrk.com</a>
-    <a class="nav-cta" href="https://calendly.com/grnmrk/30-min-consultation" target="_blank" rel="noopener noreferrer">Book a Call</a>
-  </div>
-</nav>
-
-<!-- ============================================================
-     COVER / HERO
-     ============================================================ -->
-<div class="cover">
-  <div class="cover-logo"><span>G</span>RNMRK GROUP</div>
-  <div class="cover-tag">AWS Marketplace</div>
-  <h1 class="cover-title">AWS Marketplace GTM<br><em>Readiness Guide</em></h1>
-  <p class="cover-sub">Five sections covering everything you need in place before your Marketplace listing actually transacts — FTR, listing quality, SaaS Co-sell Benefit, private offers, and CPPO.</p>
-</div>
-
-<!-- ============================================================
-     META BAND
-     ============================================================ -->
-<div class="meta-band">
-  <div class="meta-item"><strong>Covers:</strong> Listings · FTR · SaaS Co-sell Benefit · Private Offers · CPPO</div>
-  <div class="meta-item"><strong>For:</strong> ISVs &amp; Channel Partners</div>
-  <div class="meta-item"><strong>Updated:</strong> 2025</div>
-</div>
-
-<!-- ============================================================
-     GATE SECTION
-     ============================================================ -->
-<div class="gate-wrap">
-  <div class="gate-intro">
-    <p>Most AWS Marketplace listings don't transact. Not because the product is wrong, but because the motion behind the listing is incomplete. A listing without a private offer strategy sits idle. SaaS Co-sell Benefit enrollment without active ACE pipeline produces no AWS-sourced deals. CPPO channel programs never get stood up.</p>
-    <p>This guide walks through each component of a Marketplace GTM motion that actually generates revenue. <strong>Work through each section and check off what you have in place — the gaps you find are your starting point.</strong></p>
-  </div>
-
-  <div class="preview-label">What's Inside</div>
-  <div class="preview-fade">
-    <ul class="preview-list">
-      <li class="preview-item"><div class="preview-check"></div><div class="preview-text">Technical foundation — FTR, ACE prerequisites, Marketplace seller registration</div></li>
-      <li class="preview-item"><div class="preview-check"></div><div class="preview-text">Listing quality — pricing model, dimensions, content, and buyer experience</div></li>
-      <li class="preview-item"><div class="preview-check"></div><div class="preview-text">Co-sell readiness — SaaS Co-sell Benefit enrollment, PDM cadence, ACE hygiene</div></li>
-      <li class="preview-item"><div class="preview-check"></div><div class="preview-text">Private offer strategy — deal mechanics, EDP, and first offer checklist</div></li>
-      <li class="preview-item"><div class="preview-check"></div><div class="preview-text">CPPO channel motion — partner authorization, enablement, and reseller pricing</div></li>
-    </ul>
-  </div>
-
-  <!-- FORM PANEL -->
-  <div class="form-panel" id="formWrap">
-    <div class="form-inner">
-      <div id="gateForm">
-        <div class="form-eyebrow">Get the full guide</div>
-        <h2 class="form-title">Access the Marketplace GTM Readiness Guide</h2>
-        <p class="form-sub">Enter your details and the full interactive guide unlocks immediately.</p>
-        <form id="leadForm">
-          <div class="form-grid">
-            <div class="form-field"><label class="form-label" for="fname">First Name</label><input class="form-input" type="text" id="fname" name="name" placeholder="Alex" required></div>
-            <div class="form-field"><label class="form-label" for="company">Company</label><input class="form-input" type="text" id="company" name="company" placeholder="Acme Corp" required></div>
-            <div class="form-field full"><label class="form-label" for="email">Work Email</label><input class="form-input" type="email" id="email" name="email" placeholder="alex@company.com" required></div>
-          </div>
-          <div class="form-actions">
-            <button class="btn-submit" type="submit" id="submitBtn">Get Access</button>
-            <span class="form-or">or</span>
-            <a class="btn-calendly" href="https://calendly.com/grnmrk/30-min-consultation" target="_blank" rel="noopener noreferrer">Book a Strategy Call Instead</a>
-          </div>
-          <div class="form-error" id="formError">Something went wrong. Please try again or email hello@grnmrk.com</div>
-          <p class="form-privacy">No spam. Your information is used only to send relevant AWS partner content from Grnmrk Group.</p>
-        </form>
-      </div>
-      <div class="form-success" id="formSuccess">
-        <div class="form-success-icon">✓</div>
-        <div class="form-success-title">You're in.</div>
-        <p class="form-success-text">Unlocking the guide now.</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ============================================================
-     CHECKLIST CONTENT (locked until form submit)
-     ============================================================ -->
-<div class="checklist-content" id="checklistContent">
-  <div class="body-wrap">
-    <div class="progress-wrap">
-      <span class="progress-label">Readiness Progress</span>
-      <div class="progress-bar-wrap"><div class="progress-bar" id="progressBar"></div></div>
-      <span class="progress-count" id="progressCount">0 / 29</span>
-    </div>
-
-    <!-- SECTION 01 -->
-    <div class="checklist-section">
-      <div class="section-header"><div class="section-num">01</div><div class="section-title">Technical Foundation</div><div class="section-note">FTR &amp; Infrastructure</div></div>
-      <ul class="checklist">
-        <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">AWS Foundational Technical Review (FTR) passed <span class="tag-req">Required for Transactable Listings</span></div><div class="item-note">FTR is the gate for transactable Marketplace listings and SaaS Co-sell Benefit. Without it you can list, but not transact.</div></div></label></li>
-        <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">At least one ACE opportunity submitted and active in Partner Central <span class="tag-req">Required</span></div><div class="item-note">Required as a prerequisite for FTR approval and SaaS Co-sell Benefit enrollment.</div></div></label></li>
-        <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">AWS Marketplace seller account registered and verified</div><div class="item-note">Marketplace seller registration is separate from APN partner registration. Complete this in the AWS Marketplace Management Portal.</div></div></label></li>
-        <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">Marketplace Metering Service or SaaS Contracts API integrated</div><div class="item-note">Required for SaaS listings. Your product must be able to meter usage or fulfill contracts through the Marketplace APIs. Scope this as an engineering task early.</div></div></label></li>
-      </ul>
-      <div class="explainer">
-        <div class="explainer-title">Why FTR Comes First</div>
-        <p>A non-transactable Marketplace listing has almost no GTM value. AWS field reps have no incentive to route deals to it. <strong>FTR is the unlock for everything else on this list.</strong> If you haven't passed FTR, that's your first action item — nothing else here applies yet.</p>
-      </div>
-    </div>
-
-    <!-- SECTION 02 -->
-    <div class="checklist-section">
-      <div class="section-header"><div class="section-num">02</div><div class="section-title">Listing Quality</div><div class="section-note">What Buyers See</div></div>
-      <ul class="checklist">
-        <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">Product title and description written for AWS buyers, not a generic audience</div><div class="item-note">Marketplace search is keyword-driven. Use the terms AWS customers search — infrastructure type, workload category, compliance frameworks, deployment model.</div></div></label></li>
-        <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">Pricing model selected and confirmed with your PDM for your deal shapes</div><div class="item-note">The wrong pricing structure makes private offers complicated and slows deal velocity. SaaS can be: subscription, usage-based, or contract-based.</div></div></label></li>
-        <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">Product dimensions configured to match how you actually sell</div><div class="item-note">Dimensions are the units by which you meter and bill. They must match the dimensions in private offers. Misaligned dimensions block deals.</div></div></label></li>
-        <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">Support information, EULA, and refund policy populated</div><div class="item-note">AWS reviewers check that support terms are realistic and the EULA is complete. Placeholder fields delay listing approval.</div></div></label></li>
-        <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">Product logo, screenshots, and overview video added</div><div class="item-note">Listings with complete media assets convert at higher rates. A video walkthrough meaningfully improves buyer confidence.</div></div></label></li>
-        <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">Listing reviewed by someone who hasn't worked on it</div><div class="item-note">Familiarity blindness is real. An outside reviewer will catch descriptions that assume product knowledge buyers don't have.</div></div></label></li>
-      </ul>
-    </div>
-
-    <!-- SECTION 03 -->
-    <div class="checklist-section">
-      <div class="section-header"><div class="section-num">03</div><div class="section-title">Co-Sell Readiness</div><div class="section-note">SaaS Co-sell Benefit &amp; AWS Field</div></div>
-      <ul class="checklist">
-        <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">SaaS Co-sell Benefit enrollment submitted (formerly ISV Accelerate)</div><div class="item-note">Requires a passed FTR, active ACE pipeline, and PDM eligibility confirmation. Enrollment is a separate application from FTR — not automatic.</div></div></label></li>
-        <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">ACE pipeline hygiene in place — regular submissions, no stale opportunities</div><div class="item-note">AWS field reps evaluate co-sell partners by ACE activity. A stale pipeline signals low engagement and reduces deals routed your way.</div></div></label></li>
-        <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">PDM relationship active with a defined meeting cadence</div><div class="item-note">Monthly check-ins are the minimum. Quarterly without a structured agenda is not enough.</div></div></label></li>
-        <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">AWS field reps in target territories know who you are</div><div class="item-note">PDMs can introduce you to field AEs. Having 2–3 field-level relationships in your priority segments significantly increases co-sell routing.</div></div></label></li>
-        <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">Co-sell pitch and one-pager prepared for AWS field use</div><div class="item-note">AWS field reps need a simple, credible brief they can use in a customer conversation. A partner-facing co-sell pitch and a customer-facing one-pager are the minimum.</div></div></label></li>
-        <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">Internal deal qualification criteria for Marketplace documented</div><div class="item-note">Your AEs need to know which deals to route through Marketplace vs. direct contract. Common criteria: customer has EDP, deal size threshold, regulated industry.</div></div></label></li>
-      </ul>
-    </div>
-
-    <!-- SECTION 04 -->
-    <div class="checklist-section">
-      <div class="section-header"><div class="section-num">04</div><div class="section-title">Private Offer Strategy</div><div class="section-note">How Enterprise Deals Close</div></div>
-      <ul class="checklist">
-        <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">Private offer mechanics understood by your sales team</div><div class="item-note">Your AEs need to know: what a private offer is, when to propose it, how to create it in AMMP, and what the buyer experience looks like. Run a 30-minute internal enablement session.</div></div></label></li>
-        <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">Standard private offer terms defined — pricing tiers, contract lengths, ramp schedules</div><div class="item-note">Pre-defined offer structures speed deal execution. Your team shouldn't be building offer terms from scratch on every deal.</div></div></label></li>
-        <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">EDP implications understood for target customers</div><div class="item-note">Many enterprise AWS customers have EDP commitments. Knowing which customers have EDP — and by how much — lets you target private offers where they reduce the most friction.</div></div></label></li>
-        <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">AWS Deal Room process understood for co-sell-sourced private offers</div><div class="item-note">For co-sold deals, the private offer should reference the ACE opportunity and be coordinated with the AWS field rep for proper attribution.</div></div></label></li>
-        <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">At least one pilot private offer created — even as an internal test</div><div class="item-note">The first private offer always takes longer than expected. Run a test offer before you're trying to close a real deal under time pressure.</div></div></label></li>
-      </ul>
-      <div class="explainer">
-        <div class="explainer-title">Why Private Offers Are the Core Revenue Motion</div>
-        <p>Most enterprise deals don't originate from a customer browsing the Marketplace catalog. They originate from a sales conversation — and then route to Marketplace via a private offer because the customer wants to use committed AWS spend. <strong>The listing is the infrastructure. The private offer is the revenue motion.</strong></p>
-      </div>
-    </div>
-
-    <!-- SECTION 05 -->
-    <div class="checklist-section">
-      <div class="section-header"><div class="section-num">05</div><div class="section-title">CPPO Channel Motion</div><div class="section-note">For ISVs with Channel Partners</div></div>
-      <ul class="checklist">
-        <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">CPPO eligibility confirmed — ISV must have a transactable Marketplace listing <span class="tag-req">Required</span></div><div class="item-note">CPPO requires a live, transactable ISV listing as the source. You cannot set up CPPO with a non-transactable listing.</div></div></label></li>
-        <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">Target channel partners identified — 2–5 committed partners to start</div><div class="item-note">Start with partners who already sell your product and have existing customer relationships. Don't try to onboard the entire channel at once.</div></div></label></li>
-        <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">Channel partners have AWS Marketplace seller accounts registered</div><div class="item-note">Partners must have their own Marketplace seller accounts to transact CPPO offers. A common early blocker — confirm this before building the motion.</div></div></label></li>
-        <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">Reseller pricing and margin structure defined for CPPO</div><div class="item-note">CPPO lets you set a reseller price lower than your public listing price. Define the margin structure — typically 10–30% discount to the channel — before enabling partners.</div></div></label></li>
-        <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">CPPO partner authorization configured in the Marketplace Management Portal</div><div class="item-note">You authorize specific channel partners to extend offers from your listing. This must be set up before any channel partner can create an offer.</div></div></label></li>
-        <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">Channel partner enablement session run on CPPO mechanics</div><div class="item-note">Your channel partners need to understand how to create CPPO offers, the buyer experience, and how to track the deal in ACE. Run a 1-hour session before expecting them to transact.</div></div></label></li>
-      </ul>
-    </div>
-
-    <!-- DARK SUMMARY -->
-    <div class="dark-summary">
-      <div class="dark-summary-label">GTM Readiness — What to Prioritize Based on Where You Are</div>
-      <div class="dark-cols">
-        <div class="dark-card"><div class="dark-card-title">Zero Marketplace transactions</div><div class="dark-card-text">Start with FTR (if not passed), fix the listing structure, then run one internal test private offer. First transaction matters more than the channel motion.</div></div>
-        <div class="dark-card"><div class="dark-card-title">Listing exists but never transacted</div><div class="dark-card-text">The problem is almost always the sales motion. Most teams have never actually created a private offer. Start there.</div></div>
-        <div class="dark-card"><div class="dark-card-title">Transacting but want more volume</div><div class="dark-card-text">Activate co-sell properly — SaaS Co-sell Benefit enrollment, ACE hygiene, PDM cadence. Then layer in CPPO to scale through the channel.</div></div>
-        <div class="dark-card"><div class="dark-card-title">Channel partners but no CPPO</div><div class="dark-card-text">CPPO unlocks Marketplace-native channel revenue. If you have 3+ partners selling your product, CPPO is likely leaving meaningful revenue uncaptured.</div></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- BOTTOM CTA -->
-  <div class="bottom-cta">
-    <div class="bottom-cta-inner">
-      <div>
-        <h2>Ready to Build a Marketplace Motion<br><span>That Actually Transacts?</span></h2>
-        <p>Grnmrk Group runs the full Marketplace motion for ISVs and channel partners — FTR through CPPO. Let's review your current setup and tell you where we would start.</p>
-      </div>
-      <div class="cta-actions">
-        <a class="btn-primary" href="https://calendly.com/grnmrk/30-min-consultation" target="_blank" rel="noopener noreferrer">Book a Free Strategy Call</a>
-        <a class="btn-ghost" href="mailto:hello@grnmrk.com">Send an Email</a>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ============================================================
-     FOOTER
-     ============================================================ -->
-<footer>
-  <div class="footer-top">
-    <div class="footer-brand">
-      <a class="footer-logo" href="/"><span>G</span>RNMRK GROUP</a>
-      <p class="footer-tagline">AWS Partner Growth Advisors</p>
-      <a class="footer-linkedin" href="https://www.linkedin.com/company/grnmrk-group/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-        LinkedIn
+  <!-- ============================================================
+       NAVIGATION
+  ============================================================ -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a class="logo" href="/">
+        <img src="/grnmrk-banner-2026-transparent-background.png" alt="Grnmrk Group">
       </a>
-      <img src="/aws-logo_copy.png" alt="AWS Partner Network" style="height:188px; margin-top:1.5rem;">
+
+      <ul class="nav-links">
+        <li class="nav-item has-dropdown">
+          <a href="/services">Services</a>
+          <div class="nav-dropdown"><div class="nav-dropdown-inner">
+            <a href="/services">Services Overview</a>
+            <a href="/services/aws-marketplace">AWS Marketplace</a>
+            <a href="/services/managed-operations">Managed Operations</a>
+            <a href="/services/strategy-consulting">Strategy Consulting</a>
+            <a href="/services/fractional-alliances-leader">Fractional Alliances Leader</a>
+            <a href="/services/partner-revenue-generation">Revenue Generation</a>
+            <a href="/services/foundational-technical-review">FTR Preparation</a>
+            <a href="/services/fractional-pdm">Fractional PDM</a>
+          </div></div>
+        </li>
+        <li><a href="/pricing">Pricing</a></li>
+        <li class="nav-item has-dropdown">
+          <a href="/company/about">Company</a>
+          <div class="nav-dropdown"><div class="nav-dropdown-inner">
+            <a href="/company/about">About</a>
+            <a href="/company/case-studies">Case Studies</a>
+            <a href="/company/contact">Contact</a>
+            <a href="/company/partners">Partners</a>
+            <a href="/company/careers">Careers</a>
+            <a href="/blogs">Blog</a>
+          </div></div>
+        </li>
+        <li class="nav-item has-dropdown">
+          <a href="/resources">Resources</a>
+          <div class="nav-dropdown"><div class="nav-dropdown-inner">
+            <a href="/resources/aws-map-funding-checklist">MAP Funding Checklist</a>
+            <a href="/resources/aws-mdf-funding-checklist">MDF Funding Checklist</a>
+            <a href="/resources/aws-ftr-checklist">FTR Checklist</a>
+            <a href="/resources/aws-marketplace-gtm-readiness-guide">Marketplace GTM Guide</a>
+            <a href="/resources/aws-co-sell-playbook">Co-Sell Playbook</a>
+          </div></div>
+        </li>
+        <li><a href="/company/contact">Contact</a></li>
+      </ul>
+
+      <div class="nav-cta-group">
+        <a class="nav-email" href="mailto:hello@grnmrk.com">hello@grnmrk.com</a>
+        <a class="btn btn-primary" href="https://calendly.com/grnmrk/30-min-consultation" target="_blank" rel="noopener noreferrer">
+          Book a Call <span class="btn-arrow">&#8594;</span>
+        </a>
+      </div>
     </div>
-    <div class="footer-nav-group">
-      <div class="footer-nav-col">
-        <div class="footer-nav-heading">Services</div>
-        <ul class="footer-nav-links">
-          <li><a href="/services">Services Overview</a></li>
-          <li><a href="/services/managed-operations">Managed Operations</a></li>
-          <li><a href="/services/strategy-consulting">Strategy Consulting</a></li>
-          <li><a href="/services/aws-marketplace">AWS Marketplace</a></li>
-          <li><a href="/services/fractional-alliances-leader">Fractional Alliances Leader</a></li>
-          <li><a href="/services/partner-revenue-generation">Revenue Generation</a></li>
-          <li><a href="/services/foundational-technical-review">FTR Preparation</a></li>
-          <li><a href="/services/fractional-pdm">Fractional PDM</a></li>
-        </ul>
-      </div>
-      <div class="footer-nav-col">
-        <div class="footer-nav-heading">Company</div>
-        <ul class="footer-nav-links">
-          <li><a href="/pricing">Pricing</a></li>
-          <li><a href="/company/case-studies">Case Studies</a></li>
-          <li><a href="/company/about">About</a></li>
-          <li><a href="/company/contact">Contact</a></li>
-          <li><a href="/company/partners">Partners</a></li>
-          <li><a href="/company/careers">Careers</a></li>
-          <li><a href="/blogs">Blog</a></li>
-        </ul>
-      </div>
-      <div class="footer-nav-col">
-        <div class="footer-nav-heading">Resources</div>
-        <ul class="footer-nav-links">
-          <li><a href="/resources/aws-map-funding-checklist">MAP Funding Checklist</a></li>
-          <li><a href="/resources/aws-mdf-funding-checklist">MDF Funding Checklist</a></li>
-          <li><a href="/resources/aws-ftr-checklist">FTR Checklist</a></li>
-          <li><a href="/resources/aws-marketplace-gtm-readiness-guide">Marketplace GTM Guide</a></li>
-          <li><a href="/resources/aws-co-sell-playbook">Co-Sell Playbook</a></li>
-        </ul>
+  </nav>
+
+  <!-- ============================================================
+       COVER / HERO
+  ============================================================ -->
+  <div class="cover">
+    <div class="container">
+      <div class="cover-inner">
+        <div class="cover-badge">AWS Marketplace</div>
+        <h1 class="cover-title">AWS Marketplace GTM<br><em>Readiness Guide</em></h1>
+        <p class="cover-sub">Five sections covering everything you need in place before your Marketplace listing transacts: FTR, listing quality, SaaS Co-sell Benefit, private offers, and CPPO.</p>
       </div>
     </div>
   </div>
-  <div class="footer-bottom">
-    <div class="footer-bottom-inner">
-      <p class="footer-copy">© 2025 Grnmrk Group LLC. All rights reserved.</p>
-      <div class="footer-legal">
-        <a href="/terms">Terms of Service</a>
-        <a href="/privacy">Privacy Policy</a>
+
+  <!-- Meta band -->
+  <div class="meta-band">
+    <div class="container">
+      <div class="meta-band-inner">
+        <span class="meta-item"><strong>Covers:</strong> Listings &middot; FTR &middot; SaaS Co-sell Benefit &middot; Private Offers &middot; CPPO</span>
+        <div class="meta-sep"></div>
+        <span class="meta-item"><strong>For:</strong> ISVs &amp; Channel Partners</span>
+        <div class="meta-sep"></div>
+        <span class="meta-item"><strong>Updated:</strong> 2025</span>
       </div>
     </div>
   </div>
-</footer>
 
-<!-- ============================================================
-     JAVASCRIPT
-     ============================================================ -->
-<script>
-  // Scrolled nav
-  const nav = document.getElementById('mainNav');
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 60);
-  });
+  <!-- ============================================================
+       GATE SECTION
+  ============================================================ -->
+  <div class="gate-wrap">
+    <div class="gate-intro">
+      <p>Most AWS Marketplace listings do not transact. Not because the product is wrong, but because the motion behind the listing is incomplete. A listing without a private offer strategy sits idle. SaaS Co-sell Benefit enrollment without active ACE pipeline produces no AWS-sourced deals. CPPO channel programs never get stood up.</p>
+      <p>This guide walks through each component of a Marketplace GTM motion that generates revenue. <strong>Work through each section and check off what you have in place: the gaps you find are your starting point.</strong></p>
+    </div>
 
-  // Form gate
-  const FORMSPREE = 'https://formspree.io/f/mojybjpd';
-  const STORAGE_KEY = 'grnmrk-mktplace';
+    <div class="preview-label">What's Inside</div>
+    <div class="preview-fade">
+      <ul class="preview-list">
+        <li class="preview-item"><div class="preview-check"></div><div class="preview-text">Technical foundation: FTR, ACE prerequisites, Marketplace seller registration</div></li>
+        <li class="preview-item"><div class="preview-check"></div><div class="preview-text">Listing quality: pricing model, dimensions, content, and buyer experience</div></li>
+        <li class="preview-item"><div class="preview-check"></div><div class="preview-text">Co-sell readiness: SaaS Co-sell Benefit enrollment, PDM cadence, ACE hygiene</div></li>
+        <li class="preview-item"><div class="preview-check"></div><div class="preview-text">Private offer strategy: deal mechanics, EDP, and first offer checklist</div></li>
+        <li class="preview-item"><div class="preview-check"></div><div class="preview-text">CPPO channel motion: partner authorization, enablement, and reseller pricing</div></li>
+      </ul>
+    </div>
 
-  (function() {
-    try {
-      if (localStorage.getItem(STORAGE_KEY + '-v') === '1') { unlock(); return; }
-    } catch(e) {}
+    <!-- FORM PANEL -->
+    <div class="form-panel" id="formWrap">
+      <div class="form-inner">
+        <div id="gateForm">
+          <div class="form-eyebrow">Get the Full Guide</div>
+          <h2 class="form-title">Access the Marketplace GTM Readiness Guide</h2>
+          <p class="form-sub">Enter your details and the full interactive guide unlocks immediately.</p>
+          <form id="leadForm">
+            <div class="form-grid">
+              <div class="form-field"><label class="form-label" for="fname">First Name</label><input class="form-input" type="text" id="fname" name="name" placeholder="Alex" required></div>
+              <div class="form-field"><label class="form-label" for="company">Company</label><input class="form-input" type="text" id="company" name="company" placeholder="Acme Corp" required></div>
+              <div class="form-field full"><label class="form-label" for="email">Work Email</label><input class="form-input" type="email" id="email" name="email" placeholder="alex@company.com" required></div>
+            </div>
+            <div class="form-actions">
+              <button class="btn-submit" type="submit" id="submitBtn">Get Access</button>
+              <span class="form-or">or</span>
+              <a class="btn-calendly" href="https://calendly.com/grnmrk/30-min-consultation" target="_blank" rel="noopener noreferrer">Book a Strategy Call Instead</a>
+            </div>
+            <div class="form-error" id="formError">Something went wrong. Please try again or email hello@grnmrk.com</div>
+            <p class="form-privacy">No spam. Used only to send relevant AWS partner content from Grnmrk Group.</p>
+          </form>
+        </div>
+        <div class="form-success" id="formSuccess">
+          <div class="form-success-icon">&#10003;</div>
+          <div class="form-success-title">You're in.</div>
+          <p class="form-success-text">Unlocking the guide now.</p>
+        </div>
+      </div>
+    </div>
+  </div>
 
-    document.getElementById('leadForm').addEventListener('submit', async function(e) {
-      e.preventDefault();
-      const btn = document.getElementById('submitBtn');
-      const err = document.getElementById('formError');
-      btn.textContent = 'Sending...'; btn.disabled = true; err.style.display = 'none';
+  <!-- ============================================================
+       CHECKLIST CONTENT (locked until form submit)
+  ============================================================ -->
+  <div class="checklist-content" id="checklistContent">
+    <div class="body-wrap">
+
+      <div class="progress-wrap">
+        <span class="progress-label">Readiness Progress</span>
+        <div class="progress-bar-wrap"><div class="progress-bar" id="progressBar"></div></div>
+        <span class="progress-count" id="progressCount">0 / 29</span>
+      </div>
+
+      <!-- SECTION 01 -->
+      <div class="checklist-section">
+        <div class="section-header">
+          <div class="section-num">01</div>
+          <div class="section-title">Technical Foundation</div>
+          <div class="section-note">FTR &amp; Infrastructure</div>
+        </div>
+        <ul class="checklist">
+          <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">AWS Foundational Technical Review (FTR) passed <span class="tag-req">Required for Transactable Listings</span></div><div class="item-note">FTR is the gate for transactable Marketplace listings and SaaS Co-sell Benefit. Without it you can list, but not transact.</div></div></label></li>
+          <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">At least one ACE opportunity submitted and active in Partner Central <span class="tag-req">Required</span></div><div class="item-note">Required as a prerequisite for FTR approval and SaaS Co-sell Benefit enrollment.</div></div></label></li>
+          <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">AWS Marketplace seller account registered and verified</div><div class="item-note">Marketplace seller registration is separate from APN partner registration. Complete this in the AWS Marketplace Management Portal.</div></div></label></li>
+          <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">Marketplace Metering Service or SaaS Contracts API integrated</div><div class="item-note">Required for SaaS listings. Your product must be able to meter usage or fulfill contracts through the Marketplace APIs. Scope this as an engineering task early.</div></div></label></li>
+        </ul>
+        <div class="explainer">
+          <div class="explainer-title">Why FTR Comes First</div>
+          <p>A non-transactable Marketplace listing has almost no GTM value. AWS field reps have no incentive to route deals to it. <strong>FTR is the unlock for everything else on this list.</strong> If you have not passed FTR, that is your first action item. Nothing else here applies yet.</p>
+        </div>
+      </div>
+
+      <!-- SECTION 02 -->
+      <div class="checklist-section">
+        <div class="section-header">
+          <div class="section-num">02</div>
+          <div class="section-title">Listing Quality</div>
+          <div class="section-note">What Buyers See</div>
+        </div>
+        <ul class="checklist">
+          <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">Product title and description written for AWS buyers, not a generic audience</div><div class="item-note">Marketplace search is keyword-driven. Use the terms AWS customers search: infrastructure type, workload category, compliance frameworks, deployment model.</div></div></label></li>
+          <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">Pricing model selected and confirmed with your PDM for your deal shapes</div><div class="item-note">The wrong pricing structure makes private offers complicated and slows deal velocity. SaaS can be: subscription, usage-based, or contract-based.</div></div></label></li>
+          <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">Product dimensions configured to match how you sell</div><div class="item-note">Dimensions are the units by which you meter and bill. They must match the dimensions in private offers. Misaligned dimensions block deals.</div></div></label></li>
+          <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">Support information, EULA, and refund policy populated</div><div class="item-note">AWS reviewers check that support terms are realistic and the EULA is complete. Placeholder fields delay listing approval.</div></div></label></li>
+          <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">Product logo, screenshots, and overview video added</div><div class="item-note">Listings with complete media assets convert at higher rates. A video walkthrough meaningfully improves buyer confidence.</div></div></label></li>
+          <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">Listing reviewed by someone who has not worked on it</div><div class="item-note">Familiarity blindness is real. An outside reviewer will catch descriptions that assume product knowledge buyers do not have.</div></div></label></li>
+        </ul>
+      </div>
+
+      <!-- SECTION 03 -->
+      <div class="checklist-section">
+        <div class="section-header">
+          <div class="section-num">03</div>
+          <div class="section-title">Co-Sell Readiness</div>
+          <div class="section-note">SaaS Co-sell Benefit &amp; AWS Field</div>
+        </div>
+        <ul class="checklist">
+          <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">SaaS Co-sell Benefit enrollment submitted (formerly ISV Accelerate)</div><div class="item-note">Requires a passed FTR, active ACE pipeline, and PDM eligibility confirmation. Enrollment is a separate application from FTR: not automatic.</div></div></label></li>
+          <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">ACE pipeline hygiene in place: regular submissions, no stale opportunities</div><div class="item-note">AWS field reps evaluate co-sell partners by ACE activity. A stale pipeline signals low engagement and reduces deals routed your way.</div></div></label></li>
+          <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">PDM relationship active with a defined meeting cadence</div><div class="item-note">Monthly check-ins are the minimum. Quarterly without a structured agenda is not enough.</div></div></label></li>
+          <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">AWS field reps in target territories know who you are</div><div class="item-note">PDMs can introduce you to field AEs. Having 2 to 3 field-level relationships in your priority segments significantly increases co-sell routing.</div></div></label></li>
+          <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">Co-sell pitch and one-pager prepared for AWS field use</div><div class="item-note">AWS field reps need a simple, credible brief they can use in a customer conversation. A partner-facing co-sell pitch and a customer-facing one-pager are the minimum.</div></div></label></li>
+          <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">Internal deal qualification criteria for Marketplace documented</div><div class="item-note">Your AEs need to know which deals to route through Marketplace vs. direct contract. Common criteria: customer has EDP, deal size threshold, regulated industry.</div></div></label></li>
+        </ul>
+      </div>
+
+      <!-- SECTION 04 -->
+      <div class="checklist-section">
+        <div class="section-header">
+          <div class="section-num">04</div>
+          <div class="section-title">Private Offer Strategy</div>
+          <div class="section-note">How Enterprise Deals Close</div>
+        </div>
+        <ul class="checklist">
+          <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">Private offer mechanics understood by your sales team</div><div class="item-note">Your AEs need to know: what a private offer is, when to propose it, how to create it in AMMP, and what the buyer experience looks like. Run a 30-minute internal enablement session.</div></div></label></li>
+          <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">Standard private offer terms defined: pricing tiers, contract lengths, ramp schedules</div><div class="item-note">Pre-defined offer structures speed deal execution. Your team should not be building offer terms from scratch on every deal.</div></div></label></li>
+          <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">EDP implications understood for target customers</div><div class="item-note">Many enterprise AWS customers have EDP commitments. Knowing which customers have EDP, and by how much, lets you target private offers where they reduce the most friction.</div></div></label></li>
+          <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">AWS Deal Room process understood for co-sell-sourced private offers</div><div class="item-note">For co-sold deals, the private offer should reference the ACE opportunity and be coordinated with the AWS field rep for proper attribution.</div></div></label></li>
+          <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">At least one pilot private offer created, even as an internal test</div><div class="item-note">The first private offer always takes longer than expected. Run a test offer before you are trying to close a real deal under time pressure.</div></div></label></li>
+        </ul>
+        <div class="explainer">
+          <div class="explainer-title">Why Private Offers Are the Core Revenue Motion</div>
+          <p>Most enterprise deals do not originate from a customer browsing the Marketplace catalog. They originate from a sales conversation and then route to Marketplace via a private offer because the customer wants to use committed AWS spend. <strong>The listing is the infrastructure. The private offer is the revenue motion.</strong></p>
+        </div>
+      </div>
+
+      <!-- SECTION 05 -->
+      <div class="checklist-section">
+        <div class="section-header">
+          <div class="section-num">05</div>
+          <div class="section-title">CPPO Channel Motion</div>
+          <div class="section-note">For ISVs with Channel Partners</div>
+        </div>
+        <ul class="checklist">
+          <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">CPPO eligibility confirmed: ISV must have a transactable Marketplace listing <span class="tag-req">Required</span></div><div class="item-note">CPPO requires a live, transactable ISV listing as the source. You cannot set up CPPO with a non-transactable listing.</div></div></label></li>
+          <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">Target channel partners identified: 2 to 5 committed partners to start</div><div class="item-note">Start with partners who already sell your product and have existing customer relationships. Do not try to onboard the entire channel at once.</div></div></label></li>
+          <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">Channel partners have AWS Marketplace seller accounts registered</div><div class="item-note">Partners must have their own Marketplace seller accounts to transact CPPO offers. A common early blocker: confirm this before building the motion.</div></div></label></li>
+          <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">Reseller pricing and margin structure defined for CPPO</div><div class="item-note">CPPO lets you set a reseller price lower than your public listing price. Define the margin structure (typically 10 to 30% discount to the channel) before enabling partners.</div></div></label></li>
+          <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">CPPO partner authorization configured in the Marketplace Management Portal</div><div class="item-note">You authorize specific channel partners to extend offers from your listing. This must be set up before any channel partner can create an offer.</div></div></label></li>
+          <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">Channel partner enablement session run on CPPO mechanics</div><div class="item-note">Your channel partners need to understand how to create CPPO offers, the buyer experience, and how to track the deal in ACE. Run a 1-hour session before expecting them to transact.</div></div></label></li>
+        </ul>
+      </div>
+
+      <!-- DARK SUMMARY -->
+      <div class="dark-summary">
+        <div class="dark-summary-label">GTM Readiness: What to Prioritize Based on Where You Are</div>
+        <div class="dark-cols">
+          <div class="dark-card">
+            <div class="dark-card-title">Zero Marketplace transactions</div>
+            <div class="dark-card-text">Start with FTR (if not passed), fix the listing structure, then run one internal test private offer. First transaction matters more than the channel motion.</div>
+          </div>
+          <div class="dark-card">
+            <div class="dark-card-title">Listing exists but never transacted</div>
+            <div class="dark-card-text">The problem is almost always the sales motion. Most teams have never created a private offer. Start there.</div>
+          </div>
+          <div class="dark-card">
+            <div class="dark-card-title">Transacting but want more volume</div>
+            <div class="dark-card-text">Activate co-sell properly: SaaS Co-sell Benefit enrollment, ACE hygiene, PDM cadence. Then layer in CPPO to scale through the channel.</div>
+          </div>
+          <div class="dark-card">
+            <div class="dark-card-title">Channel partners but no CPPO</div>
+            <div class="dark-card-text">CPPO unlocks Marketplace-native channel revenue. If you have 3+ partners selling your product, CPPO is likely leaving meaningful revenue uncaptured.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- BOTTOM CTA (inside checklist-content) -->
+    <div class="bottom-cta">
+      <div class="container">
+        <div class="bottom-cta-inner">
+          <div>
+            <h2 class="bottom-cta-title">Ready to build a Marketplace motion <em>that transacts?</em></h2>
+            <p class="bottom-cta-text">Grnmrk Group runs the full Marketplace motion for ISVs and channel partners: FTR through CPPO. Let's review your current setup and tell you where we would start.</p>
+          </div>
+          <div class="bottom-cta-actions">
+            <a class="btn btn-accent" href="https://calendly.com/grnmrk/30-min-consultation" target="_blank" rel="noopener noreferrer">
+              Book a Free Strategy Call <span class="btn-arrow">&#8594;</span>
+            </a>
+            <a class="btn btn-ghost-light" href="mailto:hello@grnmrk.com">Send an Email</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <a class="footer-logo" href="/">
+            <img src="/grnmrk-banner-2026-transparent-background.png" alt="Grnmrk Group">
+          </a>
+          <p class="footer-tagline">Grnmrk Group runs AWS partner programs for ISVs, MSPs, and channel partners, delivering pipeline, funding, and Marketplace revenue.</p>
+          <div class="footer-icons">
+            <a class="footer-aws-link" href="https://aws.amazon.com/marketplace/" target="_blank" rel="noopener noreferrer" aria-label="AWS Partner Network">
+              <img src="/aws-logo_copy.png" alt="AWS Partner">
+            </a>
+            <a class="footer-linkedin-icon" href="https://www.linkedin.com/company/grnmrk-group/" target="_blank" rel="noopener noreferrer" aria-label="Grnmrk Group on LinkedIn">
+              <img class="li-default" src="/LinkedIn_Symbol_1.png" alt="LinkedIn">
+              <img class="li-hover" src="/LinkedIn_Symbol_1 copy.png" alt="LinkedIn">
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="/services">Services Overview</a></li>
+            <li><a href="/services/managed-operations">Managed Operations</a></li>
+            <li><a href="/services/strategy-consulting">Strategy Consulting</a></li>
+            <li><a href="/services/aws-marketplace">AWS Marketplace</a></li>
+            <li><a href="/services/fractional-alliances-leader">Fractional Alliances Leader</a></li>
+            <li><a href="/services/partner-revenue-generation">Revenue Generation</a></li>
+            <li><a href="/services/foundational-technical-review">FTR Preparation</a></li>
+            <li><a href="/services/fractional-pdm">Fractional PDM</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="/pricing">Pricing</a></li>
+            <li><a href="/company/case-studies">Case Studies</a></li>
+            <li><a href="/company/about">About</a></li>
+            <li><a href="/company/contact">Contact</a></li>
+            <li><a href="/company/partners">Partners</a></li>
+            <li><a href="/company/careers">Careers</a></li>
+            <li><a href="/blogs">Blog</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="/resources/aws-map-funding-checklist">MAP Funding Checklist</a></li>
+            <li><a href="/resources/aws-mdf-funding-checklist">MDF Funding Checklist</a></li>
+            <li><a href="/resources/aws-ftr-checklist">FTR Checklist</a></li>
+            <li><a href="/resources/aws-marketplace-gtm-readiness-guide">Marketplace GTM Guide</a></li>
+            <li><a href="/resources/aws-co-sell-playbook">Co-Sell Playbook</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; 2025 Grnmrk Group LLC. All rights reserved.</span>
+        <div class="footer-legal">
+          <a href="/terms">Terms of Service</a>
+          <a href="/privacy">Privacy Policy</a>
+          <a href="https://www.linkedin.com/company/grnmrk-group/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       JAVASCRIPT
+  ============================================================ -->
+  <script>
+    const FORMSPREE   = 'https://formspree.io/f/mojybjpd';
+    const STORAGE_KEY = 'grnmrk-mktplace';
+
+    (function() {
       try {
-        const r = await fetch(FORMSPREE, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-          body: JSON.stringify({ name: this.name.value, email: this.email.value, company: this.company.value, source: 'Marketplace GTM Guide', page: window.location.href })
-        });
-        if (r.ok) {
-          document.getElementById('gateForm').style.display = 'none';
-          document.getElementById('formSuccess').style.display = 'block';
-          try { localStorage.setItem(STORAGE_KEY + '-v', '1'); } catch(e) {}
-          setTimeout(() => {
-            const fw = document.getElementById('formWrap');
-            fw.style.transition = 'opacity 0.5s'; fw.style.opacity = '0';
-            setTimeout(() => { fw.style.display = 'none'; unlock(); }, 500);
-          }, 1800);
-        } else { throw new Error(); }
-      } catch(e) {
-        err.style.display = 'block'; btn.textContent = 'Get Access'; btn.disabled = false;
-      }
-    });
-  })();
+        if (localStorage.getItem(STORAGE_KEY + '-v') === '1') { unlock(); return; }
+      } catch(e) {}
 
-  function unlock() {
-    const c = document.getElementById('checklistContent');
-    c.classList.add('unlocked');
-    c.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    const cbs = document.querySelectorAll('.checklist input[type="checkbox"]');
-    const bar = document.getElementById('progressBar');
-    const cnt = document.getElementById('progressCount');
-    const total = cbs.length;
-    function upd() {
-      const ch = [...cbs].filter(x => x.checked).length;
-      bar.style.width = (ch / total * 100) + '%';
-      cnt.textContent = ch + ' / ' + total;
-      cbs.forEach(cb => cb.closest('.checklist-item').classList.toggle('checked', cb.checked));
+      document.getElementById('leadForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const btn = document.getElementById('submitBtn');
+        const err = document.getElementById('formError');
+        btn.textContent = 'Sending...'; btn.disabled = true; err.style.display = 'none';
+        try {
+          const r = await fetch(FORMSPREE, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify({
+              name: this.name.value,
+              email: this.email.value,
+              company: this.company.value,
+              source: 'Marketplace GTM Guide',
+              page: window.location.href
+            })
+          });
+          if (r.ok) {
+            document.getElementById('gateForm').style.display = 'none';
+            document.getElementById('formSuccess').style.display = 'block';
+            try { localStorage.setItem(STORAGE_KEY + '-v', '1'); } catch(e) {}
+            setTimeout(() => {
+              const fw = document.getElementById('formWrap');
+              fw.style.transition = 'opacity 0.5s'; fw.style.opacity = '0';
+              setTimeout(() => { fw.style.display = 'none'; unlock(); }, 500);
+            }, 1800);
+          } else { throw new Error(); }
+        } catch(e) {
+          err.style.display = 'block'; btn.textContent = 'Get Access'; btn.disabled = false;
+        }
+      });
+    })();
+
+    function unlock() {
+      const c = document.getElementById('checklistContent');
+      c.classList.add('unlocked');
+      c.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      const cbs   = document.querySelectorAll('.checklist input[type="checkbox"]');
+      const bar   = document.getElementById('progressBar');
+      const cnt   = document.getElementById('progressCount');
+      const total = cbs.length;
+      function upd() {
+        const ch = [...cbs].filter(x => x.checked).length;
+        bar.style.width = (ch / total * 100) + '%';
+        cnt.textContent = ch + ' / ' + total;
+        cbs.forEach(cb => cb.closest('.checklist-item').classList.toggle('checked', cb.checked));
+      }
+      upd();
+      cbs.forEach(cb => cb.addEventListener('change', upd));
     }
-    upd();
-    cbs.forEach(cb => cb.addEventListener('change', upd));
-  }
-</script>
+  </script>
 
 </body>
 </html>

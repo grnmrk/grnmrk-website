@@ -1,994 +1,574 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Blog — Grnmrk Group</title>
-<meta name="description" content="Practical guides on AWS partner tier advancement, MAP funding, ACE pipeline management, co-sell motions, and everything in between.">
-<link rel="icon" type="image/png" href="/favicon-transparent.png">
-<link rel="apple-touch-icon" href="/favicon-transparent.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;1,300&family=Barlow+Condensed:wght@500;700&display=swap" rel="stylesheet">
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  :root {
-    --bg:          #F0EDE6;
-    --bg-alt:      #E8E4DC;
-    --ink:         #111111;
-    --ink-mid:     #3A3A3A;
-    --ink-dim:     #7A7369;
-    --green:       #3DDC84;
-    --green-dark:  #28B06A;
-    --green-dim:   #D4F5E5;
-    --rule:        rgba(17,17,17,0.1);
-    --white:       #FFFFFF;
-    --linkedin-blue: #0077B5;
-  }
+  <!-- ============================================================
+       META & SEO
+  ============================================================ -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog — Grnmrk Group</title>
+  <meta name="description" content="Practical guides on AWS partner tier advancement, MAP funding, ACE pipeline management, co-sell motions, and everything the AWS partner ecosystem does not make easy to figure out on your own.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.grnmrk.com/blogs">
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
 
-  html { scroll-behavior: smooth; }
+  <!-- ============================================================
+       ASSETS
+  ============================================================ -->
+  <link rel="icon" type="image/png" href="/favicon-transparent.png">
+  <link rel="apple-touch-icon" href="/favicon-transparent.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 
-  body {
-    background: var(--bg);
-    color: var(--ink);
-    font-family: 'Barlow', sans-serif;
-    font-weight: 300;
-    font-size: 17px;
-    line-height: 1.7;
-    overflow-x: hidden;
-  }
+  <!-- Crisp Chat -->
+  <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="f635b745-e538-474c-a47f-3e1f4466424c";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
 
-  /* ── NAV ── */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 1.4rem 5vw;
-    background: rgba(240,237,230,0.92);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--rule);
-  }
-  .nav-logo {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.7rem;
-    letter-spacing: 0.12em;
-    color: var(--ink);
-    text-decoration: none;
-  }
-  .nav-logo span { color: var(--green); }
-  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
-  .nav-links a {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 500;
-    font-size: 0.85rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--ink-dim);
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-  .nav-links a:hover, .nav-links a.active { color: var(--ink); }
-  .nav-cta {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 700;
-    font-size: 0.85rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--ink);
-    background: var(--green);
-    padding: 0.55rem 1.4rem;
-    text-decoration: none;
-    transition: background 0.2s;
-  }
-  .nav-cta:hover { background: var(--green-dark); color: var(--white); }
+  <!-- ============================================================
+       STYLES
+  ============================================================ -->
+  <style>
 
-  /* ── PAGE HERO ── */
-  .page-hero {
-    padding: 10rem 5vw 5rem;
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 6rem;
-    align-items: end;
-  }
-  .page-eyebrow {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.78rem;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--green-dark);
-    margin-bottom: 1rem;
-    display: flex; align-items: center; gap: 0.8rem;
-  }
-  .page-eyebrow::before {
-    content: '';
-    display: inline-block; width: 24px; height: 1px;
-    background: var(--green-dark);
-  }
-  .page-title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(3.5rem, 7vw, 7rem);
-    line-height: 0.92;
-    letter-spacing: 0.02em;
-    color: var(--ink);
-  }
-  .page-intro {
-    font-size: 1.1rem;
-    font-weight: 300;
-    color: var(--ink-mid);
-    line-height: 1.8;
-  }
+    /* ==========================================================
+       TOKENS
+    ========================================================== */
+    :root {
+      --bg:           #F0EDE6;
+      --bg-soft:      #E8E4DC;
+      --ink:          #111111;
+      --ink-soft:     #2A2A2A;
+      --slate:        #7A7369;
+      --slate-light:  #A09890;
+      --line:         #D8D4CC;
+      --accent:       #3DDC84;
+      --accent-hover: #28B06A;
+      --accent-dim:   #D4F5E5;
+      --footer-bg:    #0D0D0D;
+      --footer-text:  #9A9490;
+    }
 
-  .divider { width: 100%; height: 1px; background: var(--rule); }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Onest', -apple-system, sans-serif;
+      background: var(--bg); color: var(--ink);
+      font-weight: 400; line-height: 1.55;
+      -webkit-font-smoothing: antialiased; overflow-x: hidden;
+    }
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 32px; }
 
-  /* ── FEATURED POST ── */
-  .featured-wrap {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 5rem 5vw;
-  }
-  .featured-label {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 500;
-    font-size: 0.78rem;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--green-dark);
-    display: flex; align-items: center; gap: 0.8rem;
-    margin-bottom: 2rem;
-  }
-  .featured-label::before {
-    content: '';
-    display: inline-block; width: 24px; height: 1px;
-    background: var(--green-dark);
-  }
+    /* ==========================================================
+       NAVIGATION
+    ========================================================== */
+    .nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(240,237,230,0.88);
+      backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      height: 72px; padding: 0 32px;
+      max-width: 1280px; margin: 0 auto;
+    }
+    .logo { text-decoration: none; display: flex; align-items: center; }
+    .logo img { height: 96px; width: auto; display: block; }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a { color: var(--ink); text-decoration: none; font-size: 14.5px; font-weight: 500; display: flex; align-items: center; gap: 4px; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--accent-hover); }
+    .nav-item { position: relative; }
+    .nav-dropdown { display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); padding-top: 8px; background: transparent; z-index: 200; }
+    .nav-dropdown-inner { background: white; border: 1px solid var(--line); border-radius: 12px; box-shadow: 0 12px 40px rgba(17,17,17,0.12); min-width: 220px; padding: 8px 0; }
+    .nav-dropdown a { display: block; padding: 9px 20px; font-size: 13.5px; font-weight: 500; color: var(--slate); transition: color 0.15s, background 0.15s; white-space: nowrap; text-decoration: none; }
+    .nav-dropdown a:hover { color: var(--ink); background: var(--bg); }
+    .has-dropdown:hover .nav-dropdown { display: block; }
+    .has-dropdown > a::after { content: ' ↓'; font-size: 10px; opacity: 0.45; }
+    .nav-cta-group { display: flex; align-items: center; gap: 20px; }
+    .nav-email { color: var(--slate); text-decoration: none; font-size: 13.5px; font-weight: 500; transition: color 0.2s; }
+    .nav-email:hover { color: var(--ink); }
 
-  .featured-card {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0;
-    background: var(--ink);
-    text-decoration: none;
-    transition: opacity 0.2s;
-    position: relative;
-    overflow: hidden;
-  }
-  .featured-card:hover { opacity: 0.94; }
-  .featured-card::after {
-    content: '';
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    height: 3px;
-    background: var(--green);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.4s ease;
-  }
-  .featured-card:hover::after { transform: scaleX(1); }
+    /* ==========================================================
+       BUTTONS
+    ========================================================== */
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 11px 22px; border-radius: 999px; font-size: 14px; font-weight: 600; font-family: inherit; text-decoration: none; border: none; cursor: pointer; transition: all 0.2s ease; letter-spacing: -0.01em; }
+    .btn-primary { background: var(--ink); color: var(--bg); }
+    .btn-primary:hover { background: var(--accent-hover); color: white; transform: translateY(-1px); }
+    .btn-accent { background: var(--accent); color: var(--ink); }
+    .btn-accent:hover { background: var(--accent-hover); color: white; transform: translateY(-1px); }
+    .btn-arrow { display: inline-block; transition: transform 0.2s; }
+    .btn:hover .btn-arrow { transform: translateX(3px); }
 
-  .featured-visual {
-    background: var(--green-dim);
-    min-height: 360px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
-  }
-  .featured-visual::before {
-    content: '';
-    position: absolute; inset: 0;
-    background: radial-gradient(ellipse at 60% 40%, rgba(61,220,132,0.3), transparent 70%);
-  }
-  .featured-visual-text {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 8rem;
-    color: rgba(17,17,17,0.08);
-    line-height: 1;
-    position: relative;
-    user-select: none;
-  }
+    /* ==========================================================
+       PAGE HERO
+    ========================================================== */
+    .page-hero { padding: 80px 0 72px; border-bottom: 1px solid var(--line); }
+    .page-hero-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 80px; align-items: end; }
+    .section-eyebrow { font-size: 12.5px; color: var(--slate); letter-spacing: 0.09em; text-transform: uppercase; font-weight: 600; position: relative; padding-left: 22px; margin-bottom: 20px; display: inline-block; }
+    .section-eyebrow::before { content: ''; position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 14px; height: 1px; background: var(--accent-hover); }
+    .page-hero h1 { font-size: clamp(40px, 6vw, 76px); font-weight: 600; line-height: 1.0; letter-spacing: -0.035em; }
+    .page-hero h1 em { font-family: 'Instrument Serif', serif; font-weight: 400; font-style: italic; color: var(--accent-hover); }
+    .hero-intro { font-size: 16.5px; color: var(--slate); line-height: 1.68; }
 
-  .featured-content {
-    padding: 3.5rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-  .featured-meta {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
-  }
-  .post-tag {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 700;
-    font-size: 0.68rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--ink);
-    background: var(--green);
-    padding: 0.2rem 0.7rem;
-  }
-  .post-date {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.78rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: rgba(240,237,230,0.45);
-  }
-  .featured-title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(1.8rem, 3vw, 2.8rem);
-    line-height: 1;
-    letter-spacing: 0.02em;
-    color: var(--bg);
-    margin-bottom: 1.2rem;
-  }
-  .featured-excerpt {
-    font-size: 0.97rem;
-    font-weight: 300;
-    color: rgba(240,237,230,0.65);
-    line-height: 1.75;
-    margin-bottom: 2rem;
-  }
-  .read-more {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 700;
-    font-size: 0.85rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--green);
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
+    /* ==========================================================
+       FEATURED POST
+    ========================================================== */
+    .featured-wrap { padding: 64px 0; border-bottom: 1px solid var(--line); }
+    .featured-card {
+      display: grid; grid-template-columns: 1fr 1fr;
+      background: var(--ink); text-decoration: none;
+      border-radius: 20px; overflow: hidden;
+      transition: all 0.3s; position: relative;
+    }
+    .featured-card::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform 0.4s ease; }
+    .featured-card:hover { transform: translateY(-4px); box-shadow: 0 20px 48px rgba(17,17,17,0.18); }
+    .featured-card:hover::after { transform: scaleX(1); }
 
-  /* ── BLOG GRID ── */
-  .blog-section {
-    background: var(--bg-alt);
-    padding: 0 0 6rem;
-  }
-  .blog-section-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 5rem 5vw 0;
-  }
-  .blog-section-label {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 500;
-    font-size: 0.78rem;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--green-dark);
-    display: flex; align-items: center; gap: 0.8rem;
-    margin-bottom: 2.5rem;
-  }
-  .blog-section-label::before {
-    content: '';
-    display: inline-block; width: 24px; height: 1px;
-    background: var(--green-dark);
-  }
+    .featured-visual {
+      background: var(--accent-dim); min-height: 360px;
+      display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
+    }
+    .featured-visual::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 60% 40%, rgba(61,220,132,0.4), transparent 70%); }
+    .featured-visual-text { font-family: 'Instrument Serif', serif; font-style: italic; font-size: 120px; color: rgba(17,17,17,0.07); line-height: 1; position: relative; user-select: none; }
 
-  .posts-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2px;
-  }
+    .featured-content { padding: 44px; display: flex; flex-direction: column; justify-content: space-between; }
+    .featured-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+    .post-tag { display: inline-flex; align-items: center; padding: 4px 12px; background: var(--accent); border-radius: 999px; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); }
+    .post-date { font-size: 12.5px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(240,237,230,0.4); }
+    .featured-title { font-size: clamp(20px, 2.4vw, 28px); font-weight: 600; letter-spacing: -0.025em; line-height: 1.2; color: var(--bg); margin-bottom: 16px; }
+    .featured-excerpt { font-size: 15px; color: rgba(240,237,230,0.65); line-height: 1.72; margin-bottom: 28px; }
+    .read-more { font-size: 13.5px; font-weight: 600; color: var(--accent); display: flex; align-items: center; gap: 6px; transition: gap 0.2s; }
+    .featured-card:hover .read-more { gap: 10px; }
 
-  .post-card {
-    background: var(--bg);
-    padding: 2.5rem;
-    text-decoration: none;
-    display: block;
-    position: relative;
-    overflow: hidden;
-    transition: background 0.3s;
-  }
-  .post-card:hover { background: var(--white); }
-  .post-card::before {
-    content: '';
-    position: absolute; top: 0; left: 0; right: 0;
-    height: 2px;
-    background: var(--green);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.4s ease;
-  }
-  .post-card:hover::before { transform: scaleX(1); }
+    /* ==========================================================
+       BLOG GRID
+    ========================================================== */
+    .blog-section { padding: 64px 0 80px; background: var(--bg-soft); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .posts-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 32px; }
 
-  .post-card-meta {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 1.2rem;
-  }
-  .post-card-tag {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 700;
-    font-size: 0.68rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--ink);
-    background: var(--green);
-    padding: 0.2rem 0.7rem;
-  }
-  .post-card-date {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.78rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--ink-dim);
-  }
+    .post-card {
+      background: var(--bg); border: 1px solid var(--line); border-radius: 16px;
+      padding: 28px; text-decoration: none; display: block;
+      position: relative; overflow: hidden; transition: all 0.3s;
+    }
+    .post-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform 0.35s ease; }
+    .post-card:hover { border-color: var(--ink); transform: translateY(-3px); box-shadow: 0 10px 28px rgba(17,17,17,0.07); }
+    .post-card:hover::before { transform: scaleX(1); }
 
-  .post-card-title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.7rem;
-    line-height: 1.05;
-    letter-spacing: 0.02em;
-    color: var(--ink);
-    margin-bottom: 1rem;
-  }
+    .post-card.coming-soon { opacity: 0.5; cursor: default; }
+    .post-card.coming-soon:hover { transform: none; border-color: var(--line); box-shadow: none; }
+    .post-card.coming-soon::before { display: none; }
 
-  .post-card-excerpt {
-    font-size: 0.93rem;
-    font-weight: 300;
-    color: var(--ink-mid);
-    line-height: 1.75;
-    margin-bottom: 1.5rem;
-  }
+    .post-card-meta { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+    .post-card-tag { display: inline-flex; align-items: center; padding: 3px 10px; background: var(--accent-dim); border-radius: 999px; font-size: 10.5px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent-hover); }
+    .post-card.coming-soon .post-card-tag { background: var(--bg-soft); color: var(--slate); border: 1px solid var(--line); }
+    .post-card-date { font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--slate); }
+    .post-card-date.new-badge { color: var(--accent-hover); }
 
-  .post-card-footer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-top: 1px solid var(--rule);
-    padding-top: 1rem;
-  }
-  .post-read-time {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.78rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--ink-dim);
-  }
-  .post-arrow {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 700;
-    font-size: 0.82rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--green-dark);
-    transition: gap 0.2s;
-  }
+    .post-card-title { font-size: 20px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.3; color: var(--ink); margin-bottom: 12px; }
+    .post-card-excerpt { font-size: 14.5px; color: var(--slate); line-height: 1.65; margin-bottom: 20px; }
 
-  /* ── COMING SOON CARD ── */
-  .post-card.coming-soon {
-    opacity: 0.5;
-    cursor: default;
-  }
-  .post-card.coming-soon:hover { background: var(--bg); }
-  .post-card.coming-soon::before { display: none; }
-  .coming-soon-badge {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 700;
-    font-size: 0.68rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--ink-dim);
-    border: 1px solid var(--rule);
-    padding: 0.2rem 0.7rem;
-    display: inline-block;
-    margin-bottom: 1.2rem;
-  }
+    .post-card-footer { display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--line); padding-top: 14px; }
+    .post-read-time { font-size: 12.5px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--slate); }
+    .post-arrow { font-size: 13px; font-weight: 600; color: var(--accent-hover); transition: gap 0.2s; display: flex; align-items: center; gap: 4px; }
+    .post-card:hover .post-arrow { gap: 8px; }
 
-  /* ── TOPICS STRIP ── */
-  .topics-strip {
-    background: var(--ink);
-    padding: 3rem 5vw;
-  }
-  .topics-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 4rem;
-    align-items: center;
-  }
-  .topics-label {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.4rem;
-    letter-spacing: 0.06em;
-    color: var(--bg);
-    white-space: nowrap;
-  }
-  .topics-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.6rem;
-  }
-  .topic-pill {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 500;
-    font-size: 0.78rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: rgba(240,237,230,0.6);
-    border: 1px solid rgba(240,237,230,0.15);
-    padding: 0.35rem 0.9rem;
-    transition: color 0.2s, border-color 0.2s;
-    cursor: default;
-  }
-  .topic-pill:hover {
-    color: var(--green);
-    border-color: var(--green);
-  }
+    /* ==========================================================
+       TOPICS STRIP
+    ========================================================== */
+    .topics-strip { background: var(--ink); padding: 40px 0; }
+    .topics-inner { display: grid; grid-template-columns: auto 1fr; gap: 48px; align-items: center; }
+    .topics-label { font-size: 20px; font-weight: 600; letter-spacing: -0.02em; color: var(--bg); white-space: nowrap; }
+    .topics-list { display: flex; flex-wrap: wrap; gap: 8px; }
+    .topic-pill { font-size: 12.5px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(240,237,230,0.55); border: 1px solid rgba(240,237,230,0.15); padding: 5px 14px; border-radius: 999px; transition: color 0.2s, border-color 0.2s; cursor: default; }
+    .topic-pill:hover { color: var(--accent); border-color: var(--accent); }
 
-  /* ── NEWSLETTER / CTA ── */
-  .newsletter {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 6rem 5vw;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 6rem;
-    align-items: center;
-  }
-  .newsletter-title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(2.5rem, 4vw, 4rem);
-    line-height: 0.95;
-    letter-spacing: 0.02em;
-    color: var(--ink);
-    margin-bottom: 1rem;
-  }
-  .newsletter-title span { color: var(--green-dark); }
-  .newsletter-body {
-    font-size: 1rem;
-    font-weight: 300;
-    color: var(--ink-mid);
-    line-height: 1.8;
-  }
-  .newsletter-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-  .newsletter-form input {
-    background: var(--white);
-    border: 1px solid rgba(17,17,17,0.15);
-    color: var(--ink);
-    font-family: 'Barlow', sans-serif;
-    font-weight: 300;
-    font-size: 0.97rem;
-    padding: 0.9rem 1.1rem;
-    outline: none;
-    transition: border-color 0.2s;
-    border-radius: 0;
-    appearance: none;
-    -webkit-appearance: none;
-  }
-  .newsletter-form input:focus { border-color: var(--green-dark); }
-  .newsletter-form input::placeholder { color: var(--ink-dim); opacity: 0.6; }
-  .newsletter-btn {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 700;
-    font-size: 0.9rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--ink);
-    background: var(--green);
-    padding: 1rem 2rem;
-    border: none;
-    cursor: pointer;
-    transition: background 0.2s, color 0.2s;
-    text-align: center;
-  }
-  .newsletter-btn:hover { background: var(--green-dark); color: var(--white); }
-  .newsletter-note {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.75rem;
-    letter-spacing: 0.08em;
-    color: var(--ink-dim);
-  }
+    /* ==========================================================
+       NEWSLETTER
+    ========================================================== */
+    .newsletter-section { padding: 80px 0; border-top: 1px solid var(--line); }
+    .newsletter-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .newsletter-title { font-size: clamp(28px, 3.8vw, 48px); font-weight: 500; line-height: 1.0; letter-spacing: -0.03em; margin-bottom: 16px; }
+    .newsletter-title em { font-family: 'Instrument Serif', serif; font-style: italic; color: var(--accent-hover); font-weight: 400; }
+    .newsletter-body { font-size: 16px; color: var(--slate); line-height: 1.68; }
+    .newsletter-form { display: flex; flex-direction: column; gap: 10px; }
+    .nl-input {
+      background: white; border: 1px solid var(--line); color: var(--ink);
+      font-family: 'Onest', sans-serif; font-weight: 400; font-size: 15px;
+      padding: 12px 16px; border-radius: 10px; outline: none; width: 100%;
+      transition: border-color 0.2s;
+    }
+    .nl-input:focus { border-color: var(--accent-hover); }
+    .nl-input::placeholder { color: var(--slate); opacity: 0.6; }
+    .nl-btn {
+      font-family: 'Onest', sans-serif; font-weight: 700; font-size: 14px;
+      color: var(--ink); background: var(--accent); padding: 13px 24px;
+      border: none; cursor: pointer; border-radius: 999px;
+      transition: background 0.2s, color 0.2s; text-align: center;
+    }
+    .nl-btn:hover { background: var(--accent-hover); color: white; }
+    .newsletter-note { font-size: 12.5px; color: var(--slate); }
 
-  /* ── FOOTER ── */
-  footer {
-    background: var(--bg-alt);
-    border-top: 1px solid var(--rule);
-    width: 100%;
-    display: block;
-  }
-  .footer-top {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 4rem 5vw 3rem;
-    display: flex;
-    justify-content: space-between;
-    gap: 4rem;
-    flex-wrap: wrap;
-  }
-  .footer-brand { display: flex; flex-direction: column; gap: 0.8rem; }
-  .footer-logo {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.6rem;
-    letter-spacing: 0.12em;
-    color: var(--ink);
-    text-decoration: none;
-  }
-  .footer-logo span { color: var(--green); }
-  .footer-tagline {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.78rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--ink-dim);
-  }
-  .footer-linkedin {
-    display: inline-flex; align-items: center; gap: 0.5rem;
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.82rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--ink-dim);
-    text-decoration: none;
-    margin-top: 0.4rem;
-    transition: color 0.2s;
-  }
-  .footer-linkedin:hover { color: var(--linkedin-blue); }
-  .footer-nav-group { display: flex; gap: 4rem; flex-wrap: wrap; }
-  .footer-nav-col { display: flex; flex-direction: column; gap: 1rem; }
-  .footer-nav-heading {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 700;
-    font-size: 0.72rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--ink);
-  }
-  .footer-nav-links { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
-  .footer-nav-links a {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.88rem;
-    letter-spacing: 0.08em;
-    color: var(--ink-dim);
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-  .footer-nav-links a:hover { color: var(--green-dark); }
-  .footer-bottom {
-    border-top: 1px solid var(--rule);
-    padding: 1.5rem 5vw;
-    width: 100%;
-  }
-  .footer-copy {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.75rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--ink-dim);
-    max-width: 1200px;
-    margin: 0 auto;
-  }
+    /* ==========================================================
+       FOOTER
+    ========================================================== */
+    .footer { background: var(--footer-bg); color: var(--footer-text); padding: 80px 0 32px; }
+    .footer-top { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 60px; padding-bottom: 56px; border-bottom: 1px solid rgba(255,255,255,0.07); }
+    .footer-logo { text-decoration: none; display: block; margin-bottom: 20px; }
+    .footer-logo img { height: 96px; width: auto; display: block; filter: brightness(0) invert(1); }
+    .footer-tagline { font-size: 14.5px; line-height: 1.65; color: var(--footer-text); max-width: 340px; margin-bottom: 28px; }
+    .footer-icons { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+    .footer-aws-link { display: inline-block; transition: opacity 0.2s; }
+    .footer-aws-link img { height: 52px; width: auto; display: block; }
+    .footer-aws-link:hover { opacity: 0.6; }
+    .footer-linkedin-icon { display: inline-block; text-decoration: none; }
+    .footer-linkedin-icon img { height: 28px; width: auto; display: block; }
+    .footer-linkedin-icon .li-default { display: block; }
+    .footer-linkedin-icon .li-hover { display: none; }
+    .footer-linkedin-icon:hover .li-default { display: none; }
+    .footer-linkedin-icon:hover .li-hover { display: block; }
+    .footer-col h4 { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: white; font-weight: 700; margin-bottom: 18px; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 11px; }
+    .footer-col a { color: var(--footer-text); text-decoration: none; font-size: 14px; transition: color 0.2s; }
+    .footer-col a:hover { color: white; }
+    .footer-bottom { padding-top: 28px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--slate-light); flex-wrap: wrap; gap: 14px; }
+    .footer-legal { display: flex; gap: 22px; }
+    .footer-legal a { color: var(--slate-light); text-decoration: none; transition: color 0.2s; }
+    .footer-legal a:hover { color: white; }
 
-   .footer-bottom-inner { 
-  max-width: 1200px; 
-  margin: 0 auto; 
-  display: flex; 
-  align-items: center; 
-  justify-content: space-between; 
-  flex-wrap: wrap; 
-  gap: 1rem; 
-}
-.footer-legal { display: flex; gap: 2rem; }
-.footer-legal a { 
-  font-family: 'Barlow Condensed', sans-serif; 
-  font-size: 0.72rem; 
-  letter-spacing: 0.1em; 
-  text-transform: uppercase; 
-  color: var(--ink-dim); 
-  text-decoration: none; 
-  transition: color 0.2s; 
-}
-.footer-legal a:hover { color: var(--green-dark); }
+    /* ==========================================================
+       RESPONSIVE
+    ========================================================== */
+    @media (max-width: 1024px) {
+      .page-hero-grid { grid-template-columns: 1fr; gap: 40px; }
+      .featured-card { grid-template-columns: 1fr; }
+      .featured-visual { min-height: 200px; }
+      .newsletter-grid { grid-template-columns: 1fr; gap: 40px; }
+      .topics-inner { grid-template-columns: 1fr; gap: 20px; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 36px; }
+    }
+    @media (max-width: 700px) {
+      .nav-links { display: none; }
+      .nav-email { display: none; }
+      .posts-grid { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr; }
+      .container { padding: 0 20px; }
+    }
 
-nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 1.2rem 5vw;
-  background: rgba(240,237,230,0.94);
-  backdrop-filter: blur(14px);
-  border-bottom: 1px solid var(--rule);
-  transition: padding 0.3s;
-}
-nav.scrolled { padding: 0.9rem 5vw; }
-.nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.7rem; letter-spacing: 0.12em; color: var(--ink); text-decoration: none; }
-.nav-logo span { color: var(--green); }
-.nav-links { display: flex; gap: 2rem; list-style: none; }
-.nav-links a { font-family: 'Barlow Condensed', sans-serif; font-weight: 500; font-size: 0.82rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-dim); text-decoration: none; transition: color 0.2s; }
-.nav-links a:hover { color: var(--ink); }
-/* DROPDOWNS */
-.nav-item { position: relative; }
-
-.nav-dropdown {
-  display: none;
-  position: absolute;
-  top: calc(100%);
-  left: 50%;
-  transform: translateX(-50%);
-  background: var(--white);
-  border: 1px solid var(--rule);
-  box-shadow: 0 8px 32px rgba(17,17,17,0.1);
-  min-width: 220px;
-  padding: 0.6rem 0;
-  z-index: 200;
-}
-
-.nav-dropdown::before {
-  content: '';
-  position: absolute;
-  top: -6px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 10px;
-  height: 10px;
-  background: var(--white);
-  border-left: 1px solid var(--rule);
-  border-top: 1px solid var(--rule);
-  rotate: 45deg;
-}
-
-.nav-dropdown a {
-  display: block;
-  padding: 0.55rem 1.4rem;
-  font-family: 'Barlow Condensed', sans-serif;
-  font-weight: 500;
-  font-size: 0.82rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--ink-dim);
-  text-decoration: none;
-  transition: color 0.15s, background 0.15s;
-  white-space: nowrap;
-}
-
-.nav-dropdown a:hover {
-  color: var(--ink);
-  background: var(--bg);
-}
-
-.has-dropdown:hover .nav-dropdown { display: block; }
-.has-dropdown > a::after {
-  content: ' ↓';
-  font-size: 0.65rem;
-  opacity: 0.5;
-  letter-spacing: 0;
-}
-.nav-right { display: flex; align-items: center; gap: 1.5rem; }
-.nav-ghost { font-family: 'Barlow Condensed', sans-serif; font-weight: 500; font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-dim); text-decoration: none; transition: color 0.2s; }
-.nav-ghost:hover { color: var(--ink); }
-.nav-cta { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); background: var(--green); padding: 0.5rem 1.3rem; text-decoration: none; transition: background 0.2s; }
-.nav-cta:hover { background: var(--green-dark); color: var(--white); }
-
-  /* ── RESPONSIVE ── */
-  @media (max-width: 900px) {
-    .page-hero { grid-template-columns: 1fr; gap: 2rem; padding-top: 8rem; }
-    .featured-card { grid-template-columns: 1fr; }
-    .featured-visual { min-height: 200px; }
-    .posts-grid { grid-template-columns: 1fr; }
-    .topics-inner { grid-template-columns: 1fr; gap: 1.5rem; }
-    .newsletter { grid-template-columns: 1fr; gap: 3rem; }
-    .nav-links { display: none; }
-  }
-</style>
+  </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav id="mainNav">
-  <a class="nav-logo" href="/"><span>G</span>RNMRK GROUP</a>
-  <ul class="nav-links">
-    <li class="nav-item has-dropdown">
-      <a href="/services">Services</a>
-      <div class="nav-dropdown">
-        <a href="/services">Services Overview</a>
-        <a href="/services/aws-marketplace">AWS Marketplace</a>
-        <a href="/services/managed-operations">Managed Operations</a>
-        <a href="/services/strategy-consulting">Strategy Consulting</a>
-        <a href="/services/fractional-alliances-leader">Fractional Alliances Leader</a>
-        <a href="/services/partner-revenue-generation">Revenue Generation</a>
-        <a href="/services/foundational-technical-review">FTR Preparation</a>
-        <a href="/services/fractional-pdm">Fractional PDM</a>
+  <!-- ============================================================
+       NAVIGATION
+  ============================================================ -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a class="logo" href="/"><img src="/grnmrk-banner-2026-transparent-background.png" alt="Grnmrk Group"></a>
+      <ul class="nav-links">
+        <li class="nav-item has-dropdown">
+          <a href="/services">Services</a>
+          <div class="nav-dropdown"><div class="nav-dropdown-inner">
+            <a href="/services">Services Overview</a>
+            <a href="/services/aws-marketplace">AWS Marketplace</a>
+            <a href="/services/managed-operations">Managed Operations</a>
+            <a href="/services/strategy-consulting">Strategy Consulting</a>
+            <a href="/services/fractional-alliances-leader">Fractional Alliances Leader</a>
+            <a href="/services/partner-revenue-generation">Revenue Generation</a>
+            <a href="/services/foundational-technical-review">FTR Preparation</a>
+            <a href="/services/fractional-pdm">Fractional PDM</a>
+          </div></div>
+        </li>
+        <li><a href="/pricing">Pricing</a></li>
+        <li class="nav-item has-dropdown">
+          <a href="/company/about">Company</a>
+          <div class="nav-dropdown"><div class="nav-dropdown-inner">
+            <a href="/company/about">About</a>
+            <a href="/company/case-studies">Case Studies</a>
+            <a href="/company/contact">Contact</a>
+            <a href="/company/partners">Partners</a>
+            <a href="/company/careers">Careers</a>
+            <a href="/blogs">Blog</a>
+          </div></div>
+        </li>
+        <li class="nav-item has-dropdown">
+          <a href="/resources">Resources</a>
+          <div class="nav-dropdown"><div class="nav-dropdown-inner">
+            <a href="/resources/aws-map-funding-checklist">MAP Funding Checklist</a>
+            <a href="/resources/aws-mdf-funding-checklist">MDF Funding Checklist</a>
+            <a href="/resources/aws-ftr-checklist">FTR Checklist</a>
+            <a href="/resources/aws-marketplace-gtm-readiness-guide">Marketplace GTM Guide</a>
+            <a href="/resources/aws-co-sell-playbook">Co-Sell Playbook</a>
+          </div></div>
+        </li>
+        <li><a href="/company/contact">Contact</a></li>
+      </ul>
+      <div class="nav-cta-group">
+        <a class="nav-email" href="mailto:hello@grnmrk.com">hello@grnmrk.com</a>
+        <a class="btn btn-primary" href="https://calendly.com/grnmrk/30-min-consultation" target="_blank" rel="noopener noreferrer">Book a Call <span class="btn-arrow">&#8594;</span></a>
       </div>
-    </li>
-    <li><a href="/pricing">Pricing</a></li>
-    <li class="nav-item has-dropdown">
-      <a href="/company/about">Company</a>
-      <div class="nav-dropdown">
-        <a href="/company/about">About</a>
-        <a href="/company/case-studies">Case Studies</a>
-        <a href="/company/contact">Contact</a>
-        <a href="/company/partners">Partners</a>
-        <a href="/company/careers">Careers</a>
-        <a href="/blogs">Blog</a>
-      </div>
-    </li>
-    <li class="nav-item has-dropdown">
-      <a href="/resources">Resources</a>
-      <div class="nav-dropdown">
-        <a href="/resources/aws-map-funding-checklist">MAP Funding Checklist</a>
-        <a href="/resources/aws-mdf-funding-checklist">MDF Funding Checklist</a>
-        <a href="/resources/aws-ftr-checklist">FTR Checklist</a>
-        <a href="/resources/aws-marketplace-gtm-readiness-guide">Marketplace GTM Guide</a>
-      </div>
-    </li>
-    <li><a href="/company/contact">Contact</a></li>
-  </ul>
-  <div class="nav-right">
-    <a class="nav-ghost" href="mailto:hello@grnmrk.com">hello@grnmrk.com</a>
-    <a class="nav-cta" href="https://calendly.com/grnmrk/30-min-consultation" target="_blank" rel="noopener noreferrer">Book a Call</a>
-  </div>
-</nav>
-
-<!-- PAGE HERO -->
-<div class="page-hero">
-  <div>
-    <div class="page-eyebrow">Insights & Guides</div>
-    <h1 class="page-title">The AWS<br>Partner<br>Playbook.</h1>
-  </div>
-  <p class="page-intro">
-    Practical, no-fluff guides on AWS partner tier advancement, MAP and MDF funding, ACE pipeline management, co-sell motions, and everything else the AWS partner ecosystem doesn't make easy to figure out on your own.
-  </p>
-</div>
-
-<div class="divider"></div>
-
-<!-- FEATURED POST -->
-<div class="featured-wrap">
-  <div class="featured-label">Featured Article</div>
-
-  <a class="featured-card" href="/blogs/aws-select-to-advanced-partner-tier">
-    <div class="featured-visual">
-      <div class="featured-visual-text">01</div>
     </div>
-    <div class="featured-content">
-      <div>
-        <div class="featured-meta">
-          <span class="post-tag">Tier Advancement</span>
+  </nav>
+
+  <!-- ============================================================
+       PAGE HERO
+  ============================================================ -->
+  <section class="page-hero">
+    <div class="container">
+      <div class="page-hero-grid">
+        <div>
+          <div class="section-eyebrow">Insights &amp; Guides</div>
+          <h1>The AWS Partner <em>Playbook.</em></h1>
         </div>
-        <div class="featured-title">How to Advance from AWS Select to Advanced Partner Tier</div>
-        <p class="featured-excerpt">
-          Most partners hit Select and stall. The gap between Select and Advanced isn't just about checking more boxes — it's about understanding what AWS is actually evaluating and building a program that signals co-sell readiness. Here's exactly how to close that gap.
-        </p>
+        <p class="hero-intro">Practical, no-fluff guides on AWS partner tier advancement, MAP and MDF funding, ACE pipeline management, co-sell motions, and everything else the AWS partner ecosystem does not make easy to figure out on your own.</p>
       </div>
-      <div class="read-more">Read the Guide →</div>
     </div>
-  </a>
-</div>
+  </section>
 
-<div class="divider"></div>
-
-<!-- BLOG GRID -->
-<section class="blog-section">
-  <div class="blog-section-inner">
-    <div class="blog-section-label">All Articles</div>
-  </div>
-
-  <div style="max-width:1200px; margin:0 auto; padding: 0 5vw;">
-    <div class="posts-grid">
-
-      <!-- Post 1 -->
-      <a class="post-card" href="/blogs/aws-select-to-advanced-partner-tier">
-        <div class="post-card-meta">
-          <span class="post-card-tag">Tier Advancement</span>
+  <!-- ============================================================
+       FEATURED POST
+  ============================================================ -->
+  <div class="featured-wrap">
+    <div class="container">
+      <div class="section-eyebrow">Featured Article</div>
+      <a class="featured-card" href="/blogs/aws-select-to-advanced-partner-tier">
+        <div class="featured-visual">
+          <div class="featured-visual-text">01</div>
         </div>
-        <div class="post-card-title">How to Advance from AWS Select to Advanced Partner Tier</div>
-        <p class="post-card-excerpt">A step-by-step breakdown of the requirements, the gaps most partners miss, and the 90-day plan to get there.</p>
-        <div class="post-card-footer">
-          <span class="post-read-time">12 min read</span>
-          <span class="post-arrow">Read →</span>
+        <div class="featured-content">
+          <div>
+            <div class="featured-meta">
+              <span class="post-tag">Tier Advancement</span>
+            </div>
+            <div class="featured-title">How to Advance from AWS Select to Advanced Partner Tier</div>
+            <p class="featured-excerpt">Most partners hit Select and stall. The gap between Select and Advanced is not just about checking more boxes: it is about understanding what AWS is evaluating and building a program that signals co-sell readiness. Here is exactly how to close that gap.</p>
+          </div>
+          <div class="read-more">Read the Guide &#8594;</div>
         </div>
       </a>
-
-      <!-- Post 2 -->
-      <a class="post-card" href="/blogs/aws-map-funding-guide">
-        <div class="post-card-meta">
-          <span class="post-card-tag">Funding</span>
-        </div>
-        <div class="post-card-title">AWS MAP Funding: What It Is and How to Qualify</div>
-        <p class="post-card-excerpt">MAP is one of the most valuable and underutilized funding programs in the AWS ecosystem. Here's what it covers, who qualifies, and how to apply before the window closes.</p>
-        <div class="post-card-footer">
-          <span class="post-read-time">10 min read</span>
-          <span class="post-arrow">Read →</span>
-        </div>
-      </a>
-
-      <!-- Post 3 -->
-      <a class="post-card" href="/blogs/aws-ace-pipeline-management-guide">
-        <div class="post-card-meta">
-          <span class="post-card-tag">ACE Pipeline</span>
-        </div>
-        <div class="post-card-title">The Complete Guide to AWS ACE Pipeline Management</div>
-        <p class="post-card-excerpt">ACE is more than a CRM — it's how AWS decides which partners get co-sell priority. Here's how to manage it in a way that actually moves your PDM to act.</p>
-        <div class="post-card-footer">
-          <span class="post-read-time">14 min read</span>
-          <span class="post-arrow">Read →</span>
-        </div>
-      </a>
-
-      <!-- Post 4 -->
-      <a class="post-card" href="/blogs/aws-mdf-funding-how-to-apply">
-        <div class="post-card-meta">
-          <span class="post-card-tag">Funding</span>
-        </div>
-        <div class="post-card-title">AWS MDF Funding: How to Apply and Actually Get Approved</div>
-        <p class="post-card-excerpt">Market Development Funds are available to most AWS partners — but the approval rate for first-time applicants is low. This guide covers what reviewers are actually looking for.</p>
-        <div class="post-card-footer">
-          <span class="post-read-time">9 min read</span>
-          <span class="post-arrow">Read →</span>
-        </div>
-      </a>
-
-      <!-- Post 5 -->
-      <a class="post-card" href="/blogs/aws-isv-accelerate-new-benefits">
-        <div class="post-card-meta">
-          <span class="post-card-tag">ISV Accelerate</span>
-          <span class="post-card-date">New</span>
-        </div>
-        <div class="post-card-title">AWS ISV Accelerate Just Got Better — Here's What the New Benefits Mean for Your Co-Sell Motion</div>
-        <p class="post-card-excerpt">AWS expanded ISV Accelerate with up to $25K in MDF, new co-sell workshops, and agentic pipeline tools. Here's what changed, who qualifies, and how to capture these benefits.</p>
-        <div class="post-card-footer">
-          <span class="post-read-time">8 min read</span>
-          <span class="post-arrow">Read →</span>
-        </div>
-      </a>
-
-      <!-- Post 6 -->
-<a class="post-card" href="/blogs/aws-ftr-guide">
-  <div class="post-card-meta">
-    <span class="post-card-tag">Strategy</span>
-    <span class="post-card-date">New</span>
+    </div>
   </div>
-  <div class="post-card-title">What Is the AWS Foundational Technical Review — and Do You Need One?</div>
-  <p class="post-card-excerpt">The FTR unlocks ISV Accelerate, the Qualified Software badge, co-sell priority, and funding access. Here's what it covers, what you need to pass it, and why most ISVs should complete it sooner than they do.</p>
-  <div class="post-card-footer">
-    <span class="post-read-time">10 min read</span>
-    <span class="post-arrow">Read →</span>
-  </div>
-</a>
 
-      <!-- Post 7 — Coming Soon -->
-      <a class="post-card" href="/blogs/aws-co-sell-playbook/">
-        <div class="post-card-meta">
-          <span class="post-card-tag">Co-Sell</span>
-          <span class="post-card-date">Coming Soon</span>
-        </div>
-        <div class="post-card-title">How to Build a Co-Sell Motion with AWS Field Reps</div>
-        <p class="post-card-excerpt">Co-selling with AWS isn't about having a good product — it's about building the right relationships and showing up the right way. Here's the playbook for making it repeatable.</p>
-        <div class="post-card-footer">
-          <span class="post-read-time">11 min read</span>
-          <span class="post-arrow">Read →</span>
-        </div>
-      </a>
+  <!-- ============================================================
+       BLOG GRID
+  ============================================================ -->
+  <section class="blog-section">
+    <div class="container">
+      <div class="section-eyebrow">All Articles</div>
+      <div class="posts-grid">
 
-      <!-- Placeholder -->
-      <div class="post-card coming-soon">
-        <div class="coming-soon-badge">More Coming</div>
-        <div class="post-card-title">More Guides on the Way</div>
-        <p class="post-card-excerpt">We're publishing new guides on AWS Marketplace GTM, CPPO strategy, partner program operations, and more. Subscribe below to get notified.</p>
-        <div class="post-card-footer">
-          <span class="post-read-time">Subscribe below</span>
+        <a class="post-card" href="/blogs/aws-select-to-advanced-partner-tier">
+          <div class="post-card-meta">
+            <span class="post-card-tag">Tier Advancement</span>
+          </div>
+          <div class="post-card-title">How to Advance from AWS Select to Advanced Partner Tier</div>
+          <p class="post-card-excerpt">A step-by-step breakdown of the requirements, the gaps most partners miss, and the 90-day plan to get there.</p>
+          <div class="post-card-footer">
+            <span class="post-read-time">12 min read</span>
+            <span class="post-arrow">Read &#8594;</span>
+          </div>
+        </a>
+
+        <a class="post-card" href="/blogs/aws-map-funding-guide">
+          <div class="post-card-meta">
+            <span class="post-card-tag">Funding</span>
+          </div>
+          <div class="post-card-title">AWS MAP Funding: What It Is and How to Qualify</div>
+          <p class="post-card-excerpt">MAP is one of the most valuable and underutilized funding programs in the AWS ecosystem. Here is what it covers, who qualifies, and how to apply before the window closes.</p>
+          <div class="post-card-footer">
+            <span class="post-read-time">10 min read</span>
+            <span class="post-arrow">Read &#8594;</span>
+          </div>
+        </a>
+
+        <a class="post-card" href="/blogs/aws-ace-pipeline-management-guide">
+          <div class="post-card-meta">
+            <span class="post-card-tag">ACE Pipeline</span>
+          </div>
+          <div class="post-card-title">The Complete Guide to AWS ACE Pipeline Management</div>
+          <p class="post-card-excerpt">ACE is more than a CRM. It is how AWS decides which partners get co-sell priority. Here is how to manage it in a way that moves your PDM to act.</p>
+          <div class="post-card-footer">
+            <span class="post-read-time">14 min read</span>
+            <span class="post-arrow">Read &#8594;</span>
+          </div>
+        </a>
+
+        <a class="post-card" href="/blogs/aws-mdf-funding-how-to-apply">
+          <div class="post-card-meta">
+            <span class="post-card-tag">Funding</span>
+          </div>
+          <div class="post-card-title">AWS MDF Funding: How to Apply and Get Approved</div>
+          <p class="post-card-excerpt">Market Development Funds are available to most AWS partners, but the approval rate for first-time applicants is low. This guide covers what reviewers are looking for.</p>
+          <div class="post-card-footer">
+            <span class="post-read-time">9 min read</span>
+            <span class="post-arrow">Read &#8594;</span>
+          </div>
+        </a>
+
+        <a class="post-card" href="/blogs/aws-isv-accelerate-new-benefits">
+          <div class="post-card-meta">
+            <span class="post-card-tag">SaaS Co-sell Benefit</span>
+            <span class="post-card-date new-badge">New</span>
+          </div>
+          <div class="post-card-title">AWS SaaS Co-sell Benefit Got Better. Here Is What the New Benefits Mean for Your Co-Sell Motion.</div>
+          <p class="post-card-excerpt">AWS expanded the SaaS Co-sell Benefit with up to $25K in MDF, new co-sell workshops, and agentic pipeline tools. Here is what changed, who qualifies, and how to capture these benefits.</p>
+          <div class="post-card-footer">
+            <span class="post-read-time">8 min read</span>
+            <span class="post-arrow">Read &#8594;</span>
+          </div>
+        </a>
+
+        <a class="post-card" href="/blogs/aws-ftr-guide">
+          <div class="post-card-meta">
+            <span class="post-card-tag">Strategy</span>
+            <span class="post-card-date new-badge">New</span>
+          </div>
+          <div class="post-card-title">What Is the AWS Foundational Technical Review, and Do You Need One?</div>
+          <p class="post-card-excerpt">The FTR unlocks the SaaS Co-sell Benefit, the Qualified Software badge, co-sell priority, and funding access. Here is what it covers, what you need to pass it, and why most ISVs should complete it sooner than they do.</p>
+          <div class="post-card-footer">
+            <span class="post-read-time">10 min read</span>
+            <span class="post-arrow">Read &#8594;</span>
+          </div>
+        </a>
+
+        <a class="post-card" href="/blogs/aws-co-sell-playbook/">
+          <div class="post-card-meta">
+            <span class="post-card-tag">Co-Sell</span>
+            <span class="post-card-date">Coming Soon</span>
+          </div>
+          <div class="post-card-title">How to Build a Co-Sell Motion with AWS Field Reps</div>
+          <p class="post-card-excerpt">Co-selling with AWS is not about having a good product. It is about building the right relationships and showing up the right way. Here is the playbook for making it repeatable.</p>
+          <div class="post-card-footer">
+            <span class="post-read-time">11 min read</span>
+            <span class="post-arrow">Read &#8594;</span>
+          </div>
+        </a>
+
+        <div class="post-card coming-soon">
+          <div class="post-card-meta">
+            <span class="post-card-tag">More Coming</span>
+          </div>
+          <div class="post-card-title">More Guides on the Way</div>
+          <p class="post-card-excerpt">We are publishing new guides on AWS Marketplace GTM, CPPO strategy, partner program operations, and more. Subscribe below to get notified.</p>
+          <div class="post-card-footer">
+            <span class="post-read-time">Subscribe below</span>
+          </div>
         </div>
+
       </div>
-
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- TOPICS STRIP -->
-<div class="topics-strip">
-  <div class="topics-inner">
-    <div class="topics-label">Topics We Cover</div>
-    <div class="topics-list">
-      <span class="topic-pill">Tier Advancement</span>
-      <span class="topic-pill">MAP Funding</span>
-      <span class="topic-pill">MDF Funding</span>
-      <span class="topic-pill">ACE Pipeline</span>
-      <span class="topic-pill">Co-Sell Motions</span>
-      <span class="topic-pill">AWS Marketplace</span>
-      <span class="topic-pill">CPPO Strategy</span>
-      <span class="topic-pill">ISV Accelerate</span>
-      <span class="topic-pill">PDM Relationships</span>
-      <span class="topic-pill">Partner Operations</span>
-      <span class="topic-pill">Field Alignment</span>
-      <span class="topic-pill">QBR Prep</span>
-    </div>
-  </div>
-</div>
-
-<!-- NEWSLETTER SIGNUP -->
-<div style="background: var(--bg);">
-  <div class="newsletter">
-    <div>
-      <div class="featured-label" style="margin-bottom:1.2rem;">Stay in the Loop</div>
-      <h2 class="newsletter-title">Get New Guides<br><span>When They Drop.</span></h2>
-      <p class="newsletter-body">
-        We publish practical, no-fluff guides on the AWS partner ecosystem — written from inside the program, not from a press release. No spam. Unsubscribe anytime.
-      </p>
-    </div>
-    <div class="newsletter-form">
-      <input type="text" placeholder="First name">
-      <input type="email" placeholder="Work email">
-      <button class="newsletter-btn">Subscribe →</button>
-      <p class="newsletter-note">No spam. Unsubscribe any time. We typically send 1–2 emails per month.</p>
-    </div>
-  </div>
-</div>
-
-<div class="divider"></div>
-
-<!-- FOOTER -->
-<footer>
-  <div class="footer-top">
-    <div class="footer-brand">
-      <a class="footer-logo" href="/"><span>G</span>RNMRK GROUP</a>
-      <p class="footer-tagline">AWS Partner Growth Advisors</p>
-      <a class="footer-linkedin" href="https://www.linkedin.com/company/grnmrk-group/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-        LinkedIn
-      </a>
-    <img src="/aws-logo_copy.png" alt="AWS Partner Network" style="height:188px; margin-top:1.5rem;">
-    </div>
-    <div class="footer-nav-group">
-      <div class="footer-nav-col">
-        <div class="footer-nav-heading">Services</div>
-        <ul class="footer-nav-links">
-          <li><a href="/services">Services Overview</a></li>
-          <li><a href="/services/managed-operations">Managed Operations</a></li>
-          <li><a href="/services/strategy-consulting">Strategy Consulting</a></li>
-          <li><a href="/services/aws-marketplace">AWS Marketplace</a></li>
-          <li><a href="/services/fractional-alliances-leader">Fractional Alliances Leader</a></li>
-          <li><a href="/services/partner-revenue-generation">Revenue Generation</a></li>
-          <li><a href="/services/foundational-technical-review">FTR Preparation</a></li>
-          <li><a href="/services/fractional-pdm">Fractional PDM</a></li>
-        </ul>
-      </div>
-      <div class="footer-nav-col">
-        <div class="footer-nav-heading">Company</div>
-        <ul class="footer-nav-links">
-          <li><a href="/pricing">Pricing</a></li>
-          <li><a href="/company/case-studies">Case Studies</a></li>
-          <li><a href="/company/about">About</a></li>
-          <li><a href="/company/contact">Contact</a></li>
-          <li><a href="/company/partners">Partners</a></li>
-          <li><a href="/company/careers">Careers</a></li>
-          <li><a href="/blogs">Blog</a></li>
-        </ul>
-      </div>
-      <div class="footer-nav-col">
-        <div class="footer-nav-heading">Resources</div>
-        <ul class="footer-nav-links">
-          <li><a href="/resources/aws-map-funding-checklist">MAP Funding Checklist</a></li>
-          <li><a href="/resources/aws-mdf-funding-checklist">MDF Funding Checklist</a></li>
-          <li><a href="/resources/aws-ftr-checklist">FTR Checklist</a></li>
-          <li><a href="/resources/aws-marketplace-gtm-readiness-guide">Marketplace GTM Guide</a></li>
-          <li><a href="/resources/aws-co-sell-playbook">Co-Sell Playbook</a></li>
-        </ul>
+  <!-- ============================================================
+       TOPICS STRIP
+  ============================================================ -->
+  <div class="topics-strip">
+    <div class="container">
+      <div class="topics-inner">
+        <div class="topics-label">Topics We Cover</div>
+        <div class="topics-list">
+          <span class="topic-pill">Tier Advancement</span>
+          <span class="topic-pill">MAP Funding</span>
+          <span class="topic-pill">MDF Funding</span>
+          <span class="topic-pill">ACE Pipeline</span>
+          <span class="topic-pill">Co-Sell Motions</span>
+          <span class="topic-pill">AWS Marketplace</span>
+          <span class="topic-pill">CPPO Strategy</span>
+          <span class="topic-pill">SaaS Co-sell Benefit</span>
+          <span class="topic-pill">PDM Relationships</span>
+          <span class="topic-pill">Partner Operations</span>
+          <span class="topic-pill">Field Alignment</span>
+          <span class="topic-pill">QBR Prep</span>
+        </div>
       </div>
     </div>
   </div>
-  <div class="footer-bottom">
-    <div class="footer-bottom-inner">
-      <p class="footer-copy">© 2025 Grnmrk Group LLC. All rights reserved.</p>
-      <div class="footer-legal">
-        <a href="/terms">Terms of Service</a>
-        <a href="/privacy">Privacy Policy</a>
+
+  <!-- ============================================================
+       NEWSLETTER
+  ============================================================ -->
+  <section class="newsletter-section">
+    <div class="container">
+      <div class="newsletter-grid">
+        <div>
+          <div class="section-eyebrow">Stay in the Loop</div>
+          <h2 class="newsletter-title">Get new guides <em>when they drop.</em></h2>
+          <p class="newsletter-body">We publish practical, no-fluff guides on the AWS partner ecosystem: written from inside the program, not from a press release. No spam. Unsubscribe any time.</p>
+        </div>
+        <div class="newsletter-form">
+          <input class="nl-input" type="text" placeholder="First name">
+          <input class="nl-input" type="email" placeholder="Work email">
+          <button class="nl-btn">Subscribe &#8594;</button>
+          <p class="newsletter-note">No spam. Unsubscribe any time. Typically 1 to 2 emails per month.</p>
+        </div>
       </div>
     </div>
-  </div>
-</footer>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <a class="footer-logo" href="/"><img src="/grnmrk-banner-2026-transparent-background.png" alt="Grnmrk Group"></a>
+          <p class="footer-tagline">Grnmrk Group runs AWS partner programs for ISVs, MSPs, and channel partners, delivering pipeline, funding, and Marketplace revenue.</p>
+          <div class="footer-icons">
+            <a class="footer-aws-link" href="https://aws.amazon.com/marketplace/" target="_blank" rel="noopener noreferrer" aria-label="AWS Partner Network"><img src="/aws-logo_copy.png" alt="AWS Partner"></a>
+            <a class="footer-linkedin-icon" href="https://www.linkedin.com/company/grnmrk-group/" target="_blank" rel="noopener noreferrer" aria-label="Grnmrk Group on LinkedIn">
+              <img class="li-default" src="/LinkedIn_Symbol_1.png" alt="LinkedIn">
+              <img class="li-hover" src="/LinkedIn_Symbol_1 copy.png" alt="LinkedIn">
+            </a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="/services">Services Overview</a></li>
+            <li><a href="/services/managed-operations">Managed Operations</a></li>
+            <li><a href="/services/strategy-consulting">Strategy Consulting</a></li>
+            <li><a href="/services/aws-marketplace">AWS Marketplace</a></li>
+            <li><a href="/services/fractional-alliances-leader">Fractional Alliances Leader</a></li>
+            <li><a href="/services/partner-revenue-generation">Revenue Generation</a></li>
+            <li><a href="/services/foundational-technical-review">FTR Preparation</a></li>
+            <li><a href="/services/fractional-pdm">Fractional PDM</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="/pricing">Pricing</a></li>
+            <li><a href="/company/case-studies">Case Studies</a></li>
+            <li><a href="/company/about">About</a></li>
+            <li><a href="/company/contact">Contact</a></li>
+            <li><a href="/company/partners">Partners</a></li>
+            <li><a href="/company/careers">Careers</a></li>
+            <li><a href="/blogs">Blog</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="/resources/aws-map-funding-checklist">MAP Funding Checklist</a></li>
+            <li><a href="/resources/aws-mdf-funding-checklist">MDF Funding Checklist</a></li>
+            <li><a href="/resources/aws-ftr-checklist">FTR Checklist</a></li>
+            <li><a href="/resources/aws-marketplace-gtm-readiness-guide">Marketplace GTM Guide</a></li>
+            <li><a href="/resources/aws-co-sell-playbook">Co-Sell Playbook</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2025 Grnmrk Group LLC. All rights reserved.</span>
+        <div class="footer-legal">
+          <a href="/terms">Terms of Service</a>
+          <a href="/privacy">Privacy Policy</a>
+          <a href="https://www.linkedin.com/company/grnmrk-group/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </footer>
 
 </body>
 </html>

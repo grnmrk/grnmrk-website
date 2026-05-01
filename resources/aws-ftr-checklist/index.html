@@ -1,575 +1,810 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AWS FTR Preparation Checklist — Grnmrk Group</title>
-<meta name="description" content="Free interactive checklist: everything required to prepare and pass the AWS Foundational Technical Review on the first submission.">
-<link rel="icon" type="image/png" href="/favicon-transparent.png">
-<link rel="apple-touch-icon" href="/favicon-transparent.png">
-<link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;1,300&family=Barlow+Condensed:wght@500;700&display=swap" rel="stylesheet">
-<style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root {
-  --bg: #F0EDE6;
-  --bg-alt: #E8E4DC;
-  --ink: #111111;
-  --ink-mid: #3A3A3A;
-  --ink-dim: #7A7369;
-  --green: #3DDC84;
-  --green-dark: #28B06A;
-  --green-dim: #D4F5E5;
-  --rule: rgba(17,17,17,0.1);
-  --white: #FFFFFF;
-  --linkedin-blue: #0077B5;
-}
+  <!-- ============================================================
+       META & SEO
+  ============================================================ -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AWS FTR Preparation Checklist — Free Interactive Resource | Grnmrk Group</title>
+  <meta name="description" content="Free interactive checklist: everything required to prepare and pass the AWS Foundational Technical Review on the first submission. Covers prerequisites, security, reliability, and evidence packaging.">
+  <meta name="keywords" content="AWS FTR checklist, AWS Foundational Technical Review checklist, FTR preparation, AWS partner checklist, AWS Marketplace FTR, SaaS Co-sell Benefit FTR, AWS security review checklist">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Grnmrk Group">
+  <link rel="canonical" href="https://www.grnmrk.com/resources/aws-ftr-checklist">
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
 
-html { scroll-behavior: smooth; }
-body { background: var(--bg); color: var(--ink); font-family: 'Barlow', sans-serif; font-weight: 300; font-size: 16px; line-height: 1.7; overflow-x: hidden; }
+  <meta property="og:title" content="AWS FTR Preparation Checklist — Grnmrk Group">
+  <meta property="og:description" content="Free interactive checklist: everything required to pass the AWS Foundational Technical Review on the first submission.">
+  <meta property="og:url" content="https://www.grnmrk.com/resources/aws-ftr-checklist">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Grnmrk Group">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AWS FTR Preparation Checklist — Grnmrk Group">
+  <meta name="twitter:description" content="Everything required to pass the AWS FTR on the first submission. Free interactive checklist from Grnmrk Group.">
 
-/* =============================================================
-   NAVIGATION
-   ============================================================= */
-nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 1.2rem 5vw;
-  background: rgba(240,237,230,0.94);
-  backdrop-filter: blur(14px);
-  border-bottom: 1px solid var(--rule);
-  transition: padding 0.3s;
-}
-nav.scrolled { padding: 0.9rem 5vw; }
-.nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.7rem; letter-spacing: 0.12em; color: var(--ink); text-decoration: none; }
-.nav-logo span { color: var(--green); }
-.nav-links { display: flex; gap: 2rem; list-style: none; }
-.nav-links a { font-family: 'Barlow Condensed', sans-serif; font-weight: 500; font-size: 0.82rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-dim); text-decoration: none; transition: color 0.2s; }
-.nav-links a:hover { color: var(--ink); }
-.nav-item { position: relative; }
-.nav-dropdown { display: none; position: absolute; top: calc(100%); left: 50%; transform: translateX(-50%); background: var(--white); border: 1px solid var(--rule); box-shadow: 0 8px 32px rgba(17,17,17,0.1); min-width: 220px; padding: 0.6rem 0; z-index: 200; }
-.nav-dropdown::before { content: ''; position: absolute; top: -6px; left: 50%; transform: translateX(-50%); width: 10px; height: 10px; background: var(--white); border-left: 1px solid var(--rule); border-top: 1px solid var(--rule); rotate: 45deg; }
-.nav-dropdown a { display: block; padding: 0.55rem 1.4rem; font-family: 'Barlow Condensed', sans-serif; font-weight: 500; font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-dim); text-decoration: none; transition: color 0.15s, background 0.15s; white-space: nowrap; }
-.nav-dropdown a:hover { color: var(--ink); background: var(--bg); }
-.has-dropdown:hover .nav-dropdown { display: block; }
-.has-dropdown > a::after { content: ' ↓'; font-size: 0.65rem; opacity: 0.5; letter-spacing: 0; }
-.nav-right { display: flex; align-items: center; gap: 1.5rem; }
-.nav-ghost { font-family: 'Barlow Condensed', sans-serif; font-weight: 500; font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-dim); text-decoration: none; transition: color 0.2s; }
-.nav-ghost:hover { color: var(--ink); }
-.nav-cta { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); background: var(--green); padding: 0.5rem 1.3rem; text-decoration: none; transition: background 0.2s; }
-.nav-cta:hover { background: var(--green-dark); color: var(--white); }
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "AWS FTR Preparation Checklist",
+    "description": "Free interactive checklist covering prerequisites, security, reliability, operational excellence, and evidence packaging for the AWS Foundational Technical Review.",
+    "url": "https://www.grnmrk.com/resources/aws-ftr-checklist",
+    "provider": { "@type": "Organization", "name": "Grnmrk Group", "url": "https://www.grnmrk.com" }
+  }
+  </script>
 
-/* =============================================================
-   COVER / HERO
-   ============================================================= */
-.cover { background: var(--ink); min-height: 300px; padding: 7rem 5vw 3rem; position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: flex-end; }
-.cover::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 50% 70% at 90% 10%, rgba(61,220,132,0.14), transparent 60%); }
-.cover-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.3rem; letter-spacing: 0.14em; color: rgba(240,237,230,0.45); margin-bottom: 2.5rem; position: relative; }
-.cover-logo span { color: var(--green); }
-.cover-tag { font-family: 'Barlow Condensed', sans-serif; font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--green); margin-bottom: 0.8rem; position: relative; display: flex; align-items: center; gap: 0.7rem; }
-.cover-tag::before { content: ''; width: 20px; height: 1px; background: var(--green); }
-.cover-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.8rem, 6vw, 5rem); line-height: 0.95; letter-spacing: 0.02em; color: var(--bg); position: relative; max-width: 820px; }
-.cover-title em { font-style: normal; color: var(--green); }
-.cover-sub { font-size: 1rem; font-weight: 300; color: rgba(240,237,230,0.6); margin-top: 1.2rem; max-width: 600px; line-height: 1.7; position: relative; }
+  <!-- ============================================================
+       ASSETS
+  ============================================================ -->
+  <link rel="icon" type="image/png" href="/favicon-transparent.png">
+  <link rel="apple-touch-icon" href="/favicon-transparent.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 
-/* =============================================================
-   META BAND
-   ============================================================= */
-.meta-band { background: var(--green-dark); padding: 0.9rem 5vw; display: flex; gap: 2.5rem; flex-wrap: wrap; }
-.meta-item { font-family: 'Barlow Condensed', sans-serif; font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink); }
-.meta-item strong { font-weight: 700; }
+  <!-- ============================================================
+       STYLES
+  ============================================================ -->
+  <style>
 
-/* =============================================================
-   GATE SECTION
-   ============================================================= */
-.gate-wrap { max-width: 900px; margin: 0 auto; padding: 4rem 5vw 5rem; }
-.gate-intro p { font-size: 1rem; font-weight: 300; color: var(--ink-mid); line-height: 1.85; margin-bottom: 1rem; }
-.gate-intro strong { font-weight: 500; color: var(--ink); }
-.preview-label { font-family: 'Barlow Condensed', sans-serif; font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-dim); margin: 1.5rem 0 0.8rem; }
-.preview-list { list-style: none; display: flex; flex-direction: column; gap: 2px; pointer-events: none; }
-.preview-item { background: var(--bg-alt); padding: 0.85rem 1.2rem; display: flex; align-items: center; gap: 1rem; }
-.preview-check { width: 16px; height: 16px; border: 1.5px solid var(--rule); flex-shrink: 0; }
-.preview-text { font-size: 0.92rem; color: var(--ink-mid); }
-.preview-fade { position: relative; }
-.preview-fade::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 80px; background: linear-gradient(transparent, var(--bg)); }
+    /* ==========================================================
+       TOKENS
+    ========================================================== */
+    :root {
+      --bg:           #F0EDE6;
+      --bg-soft:      #E8E4DC;
+      --ink:          #111111;
+      --ink-soft:     #2A2A2A;
+      --slate:        #7A7369;
+      --slate-light:  #A09890;
+      --line:         #D8D4CC;
+      --accent:       #3DDC84;
+      --accent-hover: #28B06A;
+      --accent-dim:   #D4F5E5;
+      --footer-bg:    #0D0D0D;
+      --footer-text:  #9A9490;
+    }
 
-/* =============================================================
-   FORM PANEL
-   ============================================================= */
-.form-panel { background: var(--ink); padding: 3rem; position: relative; overflow: hidden; margin-top: 3rem; }
-.form-panel::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 80% at 90% 10%, rgba(61,220,132,0.1), transparent 60%); pointer-events: none; }
-.form-inner { position: relative; }
-.form-eyebrow { font-family: 'Barlow Condensed', sans-serif; font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--green); display: flex; align-items: center; gap: 0.7rem; margin-bottom: 0.8rem; }
-.form-eyebrow::before { content: ''; width: 18px; height: 1px; background: var(--green); }
-.form-title { font-family: 'Bebas Neue', sans-serif; font-size: 2.2rem; letter-spacing: 0.04em; color: var(--bg); line-height: 1; margin-bottom: 0.5rem; }
-.form-sub { font-size: 0.92rem; font-weight: 300; color: rgba(240,237,230,0.6); line-height: 1.65; margin-bottom: 2.5rem; max-width: 520px; }
-.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-.form-field { display: flex; flex-direction: column; gap: 0.4rem; }
-.form-field.full { grid-column: span 2; }
-.form-label { font-family: 'Barlow Condensed', sans-serif; font-size: 0.7rem; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(240,237,230,0.5); }
-.form-input { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); color: var(--bg); font-family: 'Barlow', sans-serif; font-weight: 300; font-size: 0.95rem; padding: 0.75rem 1rem; outline: none; transition: border-color 0.2s; width: 100%; }
-.form-input::placeholder { color: rgba(240,237,230,0.2); }
-.form-input:focus { border-color: var(--green); }
-.form-actions { display: flex; align-items: center; gap: 1.5rem; margin-top: 1.8rem; flex-wrap: wrap; }
-.btn-submit { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.88rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); background: var(--green); padding: 1rem 2.2rem; border: none; cursor: pointer; transition: background 0.2s; }
-.btn-submit:hover:not(:disabled) { background: var(--green-dark); color: var(--white); }
-.btn-submit:disabled { opacity: 0.6; cursor: not-allowed; }
-.form-or { font-family: 'Barlow Condensed', sans-serif; font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(240,237,230,0.35); }
-.btn-calendly { font-family: 'Barlow Condensed', sans-serif; font-weight: 500; font-size: 0.88rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(240,237,230,0.7); border: 1px solid rgba(240,237,230,0.2); padding: 1rem 1.8rem; text-decoration: none; transition: border-color 0.2s, color 0.2s; }
-.btn-calendly:hover { border-color: var(--green); color: var(--green); }
-.form-privacy { font-size: 0.78rem; font-weight: 300; color: rgba(240,237,230,0.3); margin-top: 1.2rem; }
-.form-error { font-family: 'Barlow Condensed', sans-serif; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: #ff6b6b; margin-top: 1rem; display: none; }
-.form-success { display: none; text-align: center; padding: 2rem 0; }
-.form-success-icon { font-size: 3rem; line-height: 1; margin-bottom: 0.8rem; }
-.form-success-title { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 0.04em; color: var(--green); margin-bottom: 0.5rem; }
-.form-success-text { font-size: 0.92rem; font-weight: 300; color: rgba(240,237,230,0.65); line-height: 1.7; }
+    /* ==========================================================
+       RESET & BASE
+    ========================================================== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Onest', -apple-system, sans-serif;
+      background: var(--bg); color: var(--ink);
+      font-weight: 400; line-height: 1.55;
+      -webkit-font-smoothing: antialiased; overflow-x: hidden;
+    }
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 32px; }
 
-/* =============================================================
-   CHECKLIST CONTENT (locked until form submit)
-   ============================================================= */
-.checklist-content { display: none; }
-.checklist-content.unlocked { display: block; }
-.body-wrap { max-width: 900px; margin: 0 auto; padding: 4rem 5vw 2rem; }
-.progress-wrap { background: var(--bg-alt); padding: 1.2rem 1.8rem; margin-bottom: 3rem; display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; }
-.progress-label { font-family: 'Barlow Condensed', sans-serif; font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-dim); flex-shrink: 0; }
-.progress-bar-wrap { flex: 1; min-width: 150px; height: 5px; background: var(--rule); }
-.progress-bar { height: 100%; background: var(--green-dark); width: 0%; transition: width 0.3s; }
-.progress-count { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; color: var(--green-dark); line-height: 1; flex-shrink: 0; }
-.checklist-section { margin-bottom: 3rem; }
-.section-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.2rem; padding-bottom: 0.8rem; border-bottom: 2px solid var(--ink); }
-.section-num { font-family: 'Bebas Neue', sans-serif; font-size: 2.5rem; color: rgba(17,17,17,0.1); line-height: 1; flex-shrink: 0; }
-.section-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; letter-spacing: 0.04em; color: var(--ink); line-height: 1; }
-.section-note { font-family: 'Barlow Condensed', sans-serif; font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-dim); margin-left: auto; flex-shrink: 0; }
-.checklist { list-style: none; display: flex; flex-direction: column; gap: 2px; }
-.checklist-item { background: var(--bg-alt); transition: background 0.2s; }
-.checklist-item:hover { background: var(--white); }
-.checklist-label { display: flex; align-items: flex-start; gap: 1rem; padding: 1rem 1.2rem; cursor: pointer; }
-.checklist-label input[type="checkbox"] { flex-shrink: 0; width: 18px; height: 18px; accent-color: var(--green-dark); margin-top: 0.15rem; cursor: pointer; }
-.item-text { font-size: 0.95rem; font-weight: 400; color: var(--ink); line-height: 1.5; }
-.item-note { font-size: 0.82rem; font-weight: 300; color: var(--ink-dim); line-height: 1.5; margin-top: 0.3rem; }
-.checklist-item.checked { background: var(--green-dim); }
-.checklist-item.checked .item-text { color: var(--green-dark); text-decoration: line-through; text-decoration-color: rgba(40,176,106,0.4); }
-.tag-req { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.58rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink); background: var(--green); padding: 0.1rem 0.4rem; display: inline-block; margin-left: 0.5rem; vertical-align: middle; }
-.tag-opt { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.58rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--white); background: var(--ink-dim); padding: 0.1rem 0.4rem; display: inline-block; margin-left: 0.5rem; vertical-align: middle; }
-.info-box { background: var(--ink); padding: 2.5rem; margin-top: 1rem; margin-bottom: 1rem; }
-.info-label { font-family: 'Barlow Condensed', sans-serif; font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--green); margin-bottom: 1.2rem; }
-.info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-.info-card { background: rgba(255,255,255,0.04); padding: 1.2rem; }
-.info-card-title { font-family: 'Barlow Condensed', sans-serif; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(240,237,230,0.85); margin-bottom: 0.4rem; }
-.info-card-text { font-size: 0.85rem; font-weight: 300; color: rgba(240,237,230,0.5); line-height: 1.6; }
+    /* ==========================================================
+       NAVIGATION
+    ========================================================== */
+    .nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(240,237,230,0.88);
+      backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      height: 72px; padding: 0 32px;
+      max-width: 1280px; margin: 0 auto;
+    }
+    .logo { text-decoration: none; display: flex; align-items: center; }
+    .logo img { height: 96px; width: auto; display: block; }
 
-/* =============================================================
-   BOTTOM CTA
-   ============================================================= */
-.bottom-cta { background: var(--ink); overflow: hidden; position: relative; }
-.bottom-cta::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 80% at 80% 50%, rgba(61,220,132,0.08), transparent 70%); }
-.bottom-cta-inner { max-width: 1200px; margin: 0 auto; padding: 6rem 5vw; position: relative; display: grid; grid-template-columns: 1fr auto; gap: 4rem; align-items: center; }
-.bottom-cta h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.2rem, 4vw, 4rem); line-height: 0.95; color: var(--bg); margin-bottom: 0.8rem; }
-.bottom-cta h2 span { color: var(--green); }
-.bottom-cta p { font-size: 1rem; font-weight: 300; color: rgba(240,237,230,0.6); max-width: 500px; line-height: 1.7; }
-.cta-actions { display: flex; flex-direction: column; gap: 1rem; min-width: 220px; }
-.btn-primary { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.9rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); background: var(--green); padding: 1rem 2.2rem; text-decoration: none; display: block; text-align: center; transition: background 0.2s, color 0.2s; }
-.btn-primary:hover { background: var(--green-dark); color: var(--white); }
-.btn-ghost { font-family: 'Barlow Condensed', sans-serif; font-weight: 500; font-size: 0.9rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--bg); border: 1px solid rgba(240,237,230,0.25); padding: 1rem 2.2rem; text-decoration: none; display: block; text-align: center; transition: border-color 0.2s, color 0.2s; }
-.btn-ghost:hover { border-color: var(--green); color: var(--green); }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a {
+      color: var(--ink); text-decoration: none;
+      font-size: 14.5px; font-weight: 500;
+      display: flex; align-items: center; gap: 4px; transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--accent-hover); }
 
-/* =============================================================
-   FOOTER
-   ============================================================= */
-footer { background: var(--bg-alt); border-top: 1px solid var(--rule); width: 100%; display: block; }
-.footer-top { width: 100%; max-width: 1200px; margin: 0 auto; padding: 4rem 5vw 3rem; display: flex; justify-content: space-between; gap: 4rem; flex-wrap: wrap; }
-.footer-brand { display: flex; flex-direction: column; gap: 0.8rem; }
-.footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; letter-spacing: 0.12em; color: var(--ink); text-decoration: none; }
-.footer-logo span { color: var(--green); }
-.footer-tagline { font-family: 'Barlow Condensed', sans-serif; font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-dim); }
-.footer-linkedin { display: inline-flex; align-items: center; gap: 0.5rem; font-family: 'Barlow Condensed', sans-serif; font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-dim); text-decoration: none; margin-top: 0.4rem; transition: color 0.2s; }
-.footer-linkedin:hover { color: var(--linkedin-blue); }
-.footer-nav-group { display: flex; gap: 4rem; flex-wrap: wrap; }
-.footer-nav-col { display: flex; flex-direction: column; gap: 1rem; }
-.footer-nav-heading { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink); }
-.footer-nav-links { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
-.footer-nav-links a { font-family: 'Barlow Condensed', sans-serif; font-size: 0.88rem; letter-spacing: 0.08em; color: var(--ink-dim); text-decoration: none; transition: color 0.2s; }
-.footer-nav-links a:hover { color: var(--green-dark); }
-.footer-bottom { border-top: 1px solid var(--rule); padding: 1.5rem 5vw; width: 100%; }
-.footer-bottom-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
-.footer-copy { font-family: 'Barlow Condensed', sans-serif; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-dim); }
-.footer-legal { display: flex; gap: 2rem; }
-.footer-legal a { font-family: 'Barlow Condensed', sans-serif; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-dim); text-decoration: none; transition: color 0.2s; }
-.footer-legal a:hover { color: var(--green-dark); }
+    .nav-item { position: relative; }
+    .nav-dropdown {
+      display: none; position: absolute;
+      top: 100%; left: 50%; transform: translateX(-50%);
+      padding-top: 8px; background: transparent; z-index: 200;
+    }
+    .nav-dropdown-inner {
+      background: white; border: 1px solid var(--line);
+      border-radius: 12px; box-shadow: 0 12px 40px rgba(17,17,17,0.12);
+      min-width: 220px; padding: 8px 0;
+    }
+    .nav-dropdown a {
+      display: block; padding: 9px 20px;
+      font-size: 13.5px; font-weight: 500; color: var(--slate);
+      transition: color 0.15s, background 0.15s; white-space: nowrap; text-decoration: none;
+    }
+    .nav-dropdown a:hover { color: var(--ink); background: var(--bg); }
+    .has-dropdown:hover .nav-dropdown { display: block; }
+    .has-dropdown > a::after { content: ' ↓'; font-size: 10px; opacity: 0.45; }
 
-/* =============================================================
-   RESPONSIVE
-   ============================================================= */
-@media (max-width: 700px) {
-  .form-grid { grid-template-columns: 1fr; }
-  .form-field.full { grid-column: span 1; }
-  .info-grid { grid-template-columns: 1fr; }
-  .bottom-cta-inner { grid-template-columns: 1fr; gap: 2rem; }
-  .meta-band { gap: 1rem; }
-  .form-actions { flex-direction: column; align-items: flex-start; }
-  .nav-links, .nav-ghost { display: none; }
-}
-</style>
+    .nav-cta-group { display: flex; align-items: center; gap: 20px; }
+    .nav-email { color: var(--slate); text-decoration: none; font-size: 13.5px; font-weight: 500; transition: color 0.2s; }
+    .nav-email:hover { color: var(--ink); }
+
+    /* ==========================================================
+       BUTTONS
+    ========================================================== */
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 11px 22px; border-radius: 999px;
+      font-size: 14px; font-weight: 600; font-family: inherit;
+      text-decoration: none; border: none; cursor: pointer;
+      transition: all 0.2s ease; letter-spacing: -0.01em;
+    }
+    .btn-primary { background: var(--ink); color: var(--bg); }
+    .btn-primary:hover { background: var(--accent-hover); color: white; transform: translateY(-1px); }
+    .btn-accent { background: var(--accent); color: var(--ink); }
+    .btn-accent:hover { background: var(--accent-hover); color: white; transform: translateY(-1px); }
+    .btn-ghost-light { background: transparent; color: var(--bg); border: 1.5px solid rgba(240,237,230,0.35); }
+    .btn-ghost-light:hover { border-color: var(--accent); color: var(--accent); }
+    .btn-arrow { display: inline-block; transition: transform 0.2s; }
+    .btn:hover .btn-arrow { transform: translateX(3px); }
+
+    /* ==========================================================
+       COVER / HERO
+    ========================================================== */
+    .cover {
+      background: var(--ink); padding: 64px 0 56px;
+      position: relative; overflow: hidden;
+    }
+    .cover::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse 50% 70% at 90% 10%, rgba(61,220,132,0.14), transparent 60%);
+    }
+    .cover-inner { position: relative; }
+    .cover-badge {
+      display: inline-flex; align-items: center;
+      padding: 5px 14px; background: rgba(61,220,132,0.15);
+      border-radius: 999px;
+      font-size: 12px; font-weight: 700; color: var(--accent);
+      margin-bottom: 24px;
+    }
+    .cover-title {
+      font-size: clamp(32px, 5vw, 60px);
+      font-weight: 600; line-height: 1.0; letter-spacing: -0.035em;
+      color: var(--bg); margin-bottom: 18px;
+    }
+    .cover-title em {
+      font-family: 'Instrument Serif', serif;
+      font-weight: 400; font-style: italic; color: var(--accent);
+    }
+    .cover-sub {
+      font-size: 16.5px; color: rgba(240,237,230,0.6);
+      max-width: 580px; line-height: 1.68;
+    }
+
+    /* Meta band */
+    .meta-band {
+      background: var(--accent-hover); padding: 14px 0;
+    }
+    .meta-band-inner { display: flex; gap: 32px; flex-wrap: wrap; align-items: center; }
+    .meta-item { font-size: 12.5px; font-weight: 600; color: var(--ink); letter-spacing: 0.04em; }
+    .meta-sep { width: 1px; height: 14px; background: rgba(17,17,17,0.2); flex-shrink: 0; }
+
+    /* ==========================================================
+       GATE SECTION
+    ========================================================== */
+    .gate-wrap { max-width: 880px; margin: 0 auto; padding: 52px 32px 64px; }
+
+    .gate-intro p {
+      font-size: 16px; color: var(--slate); line-height: 1.72; margin-bottom: 14px;
+    }
+    .gate-intro strong { color: var(--ink); font-weight: 600; }
+
+    .preview-label {
+      font-size: 11.5px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--slate); margin: 24px 0 10px;
+    }
+    .preview-fade { position: relative; }
+    .preview-fade::after {
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+      height: 80px; background: linear-gradient(transparent, var(--bg));
+    }
+    .preview-list { list-style: none; display: flex; flex-direction: column; gap: 2px; pointer-events: none; }
+    .preview-item {
+      background: var(--bg-soft); border: 1px solid var(--line);
+      padding: 12px 16px; display: flex; align-items: center; gap: 12px;
+    }
+    .preview-check { width: 16px; height: 16px; border: 1.5px solid var(--line); border-radius: 3px; flex-shrink: 0; }
+    .preview-text { font-size: 14px; color: var(--slate); }
+
+    /* Form panel */
+    .form-panel {
+      background: var(--ink); border-radius: 16px;
+      padding: 40px; position: relative; overflow: hidden; margin-top: 32px;
+    }
+    .form-panel::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse 60% 80% at 90% 10%, rgba(61,220,132,0.1), transparent 60%);
+      pointer-events: none;
+    }
+    .form-inner { position: relative; }
+    .form-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 6px; }
+    .form-title { font-size: 26px; font-weight: 600; letter-spacing: -0.025em; color: var(--bg); margin-bottom: 6px; }
+    .form-sub { font-size: 14px; color: rgba(240,237,230,0.6); line-height: 1.62; margin-bottom: 28px; max-width: 480px; }
+
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .form-field { display: flex; flex-direction: column; gap: 5px; }
+    .form-field.full { grid-column: span 2; }
+    .form-label { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(240,237,230,0.45); }
+    .form-input {
+      background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12);
+      color: var(--bg); font-family: 'Onest', sans-serif; font-weight: 400;
+      font-size: 14.5px; padding: 11px 14px; border-radius: 8px;
+      outline: none; transition: border-color 0.2s; width: 100%;
+    }
+    .form-input::placeholder { color: rgba(240,237,230,0.2); }
+    .form-input:focus { border-color: var(--accent); }
+
+    .form-actions { display: flex; align-items: center; gap: 16px; margin-top: 20px; flex-wrap: wrap; }
+    .btn-submit {
+      font-family: 'Onest', sans-serif; font-weight: 700; font-size: 14px; letter-spacing: -0.01em;
+      color: var(--ink); background: var(--accent); padding: 12px 28px;
+      border: none; cursor: pointer; border-radius: 999px;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .btn-submit:hover:not(:disabled) { background: var(--accent-hover); color: white; transform: translateY(-1px); }
+    .btn-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+
+    .form-or { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(240,237,230,0.3); font-weight: 600; }
+    .btn-calendly {
+      font-family: 'Onest', sans-serif; font-weight: 600; font-size: 13.5px;
+      color: rgba(240,237,230,0.65); border: 1.5px solid rgba(240,237,230,0.2);
+      padding: 11px 20px; text-decoration: none; border-radius: 999px;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-calendly:hover { border-color: var(--accent); color: var(--accent); }
+    .form-privacy { font-size: 12px; color: rgba(240,237,230,0.28); margin-top: 14px; line-height: 1.5; }
+    .form-error { font-size: 12px; color: #ff6b6b; margin-top: 10px; display: none; font-weight: 500; }
+
+    .form-success { display: none; text-align: center; padding: 20px 0; }
+    .form-success-icon { font-size: 2.5rem; line-height: 1; margin-bottom: 10px; }
+    .form-success-title { font-size: 26px; font-weight: 600; color: var(--accent); letter-spacing: -0.025em; margin-bottom: 8px; }
+    .form-success-text { font-size: 14px; color: rgba(240,237,230,0.65); line-height: 1.65; }
+
+    /* ==========================================================
+       CHECKLIST CONTENT
+    ========================================================== */
+    .checklist-content { display: none; }
+    .checklist-content.unlocked { display: block; }
+
+    .body-wrap { max-width: 880px; margin: 0 auto; padding: 48px 32px 32px; }
+
+    .progress-wrap {
+      background: var(--bg-soft); border: 1px solid var(--line);
+      border-radius: 12px; padding: 16px 24px; margin-bottom: 40px;
+      display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
+    }
+    .progress-label { font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--slate); flex-shrink: 0; }
+    .progress-bar-wrap { flex: 1; min-width: 120px; height: 5px; background: var(--line); border-radius: 999px; overflow: hidden; }
+    .progress-bar { height: 100%; background: var(--accent-hover); width: 0%; transition: width 0.3s; border-radius: 999px; }
+    .progress-count { font-size: 20px; font-weight: 600; color: var(--accent-hover); letter-spacing: -0.03em; line-height: 1; flex-shrink: 0; }
+
+    .checklist-section { margin-bottom: 36px; }
+    .section-header {
+      display: flex; align-items: center; gap: 14px;
+      margin-bottom: 14px; padding-bottom: 12px;
+      border-bottom: 2px solid var(--ink);
+    }
+    .section-num { font-family: 'Instrument Serif', serif; font-size: 13px; color: var(--accent-hover); font-style: italic; flex-shrink: 0; }
+    .section-title { font-size: 20px; font-weight: 600; letter-spacing: -0.02em; color: var(--ink); line-height: 1; }
+    .section-note { font-size: 11.5px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--slate); margin-left: auto; flex-shrink: 0; }
+
+    .checklist { list-style: none; display: flex; flex-direction: column; gap: 2px; }
+    .checklist-item { background: var(--bg-soft); border: 1px solid var(--line); border-radius: 8px; transition: background 0.2s, border-color 0.2s; }
+    .checklist-item:hover { background: white; border-color: var(--line); }
+    .checklist-label { display: flex; align-items: flex-start; gap: 12px; padding: 13px 16px; cursor: pointer; }
+    .checklist-label input[type="checkbox"] { flex-shrink: 0; width: 16px; height: 16px; accent-color: var(--accent-hover); margin-top: 2px; cursor: pointer; }
+    .item-text { font-size: 14.5px; font-weight: 500; color: var(--ink); line-height: 1.5; }
+    .item-note { font-size: 13px; color: var(--slate); line-height: 1.55; margin-top: 4px; font-weight: 400; }
+    .checklist-item.checked { background: var(--accent-dim); border-color: rgba(40,176,106,0.3); }
+    .checklist-item.checked .item-text { color: var(--accent-hover); text-decoration: line-through; text-decoration-color: rgba(40,176,106,0.4); }
+
+    .tag-req {
+      font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--ink); background: var(--accent); padding: 2px 5px; border-radius: 3px;
+      display: inline; margin-left: 6px; vertical-align: middle;
+    }
+    .tag-opt {
+      font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+      color: rgba(240,237,230,0.7); background: var(--slate); padding: 2px 5px; border-radius: 3px;
+      display: inline; margin-left: 6px; vertical-align: middle;
+    }
+
+    .info-box { background: var(--ink); border-radius: 14px; padding: 32px; margin: 24px 0; }
+    .info-label { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; }
+    .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .info-card { background: rgba(255,255,255,0.04); border-radius: 8px; padding: 16px; }
+    .info-card-title { font-size: 13.5px; font-weight: 600; color: rgba(240,237,230,0.88); margin-bottom: 6px; letter-spacing: -0.01em; }
+    .info-card-text { font-size: 13px; color: rgba(240,237,230,0.5); line-height: 1.6; }
+
+    /* ==========================================================
+       BOTTOM CTA
+    ========================================================== */
+    .bottom-cta { background: var(--ink); position: relative; overflow: hidden; padding: 80px 0; }
+    .bottom-cta::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 90% at 75% 50%, rgba(61,220,132,0.09), transparent 65%); }
+    .bottom-cta-inner { position: relative; display: grid; grid-template-columns: 1fr auto; gap: 64px; align-items: center; }
+    .bottom-cta-title { font-size: clamp(26px, 3.6vw, 46px); font-weight: 500; line-height: 1.0; letter-spacing: -0.03em; color: var(--bg); margin-bottom: 14px; }
+    .bottom-cta-title em { font-family: 'Instrument Serif', serif; font-style: italic; color: var(--accent); font-weight: 400; }
+    .bottom-cta-text { font-size: 16px; color: rgba(240,237,230,0.65); max-width: 480px; line-height: 1.68; }
+    .bottom-cta-actions { display: flex; flex-direction: column; gap: 12px; min-width: 230px; }
+
+    /* ==========================================================
+       FOOTER
+    ========================================================== */
+    .footer { background: var(--footer-bg); color: var(--footer-text); padding: 80px 0 32px; }
+    .footer-top { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 60px; padding-bottom: 56px; border-bottom: 1px solid rgba(255,255,255,0.07); }
+    .footer-logo { text-decoration: none; display: block; margin-bottom: 20px; }
+    .footer-logo img { height: 96px; width: auto; display: block; filter: brightness(0) invert(1); }
+    .footer-tagline { font-size: 14.5px; line-height: 1.65; color: var(--footer-text); max-width: 340px; margin-bottom: 28px; }
+    .footer-icons { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+    .footer-aws-link { display: inline-block; transition: opacity 0.2s; }
+    .footer-aws-link img { height: 52px; width: auto; display: block; }
+    .footer-aws-link:hover { opacity: 0.6; }
+    .footer-linkedin-icon { display: inline-block; text-decoration: none; }
+    .footer-linkedin-icon img { height: 28px; width: auto; display: block; }
+    .footer-linkedin-icon .li-default { display: block; }
+    .footer-linkedin-icon .li-hover { display: none; }
+    .footer-linkedin-icon:hover .li-default { display: none; }
+    .footer-linkedin-icon:hover .li-hover { display: block; }
+    .footer-col h4 { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: white; font-weight: 700; margin-bottom: 18px; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 11px; }
+    .footer-col a { color: var(--footer-text); text-decoration: none; font-size: 14px; transition: color 0.2s; }
+    .footer-col a:hover { color: white; }
+    .footer-bottom { padding-top: 28px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--slate-light); flex-wrap: wrap; gap: 14px; }
+    .footer-legal { display: flex; gap: 22px; }
+    .footer-legal a { color: var(--slate-light); text-decoration: none; transition: color 0.2s; }
+    .footer-legal a:hover { color: white; }
+
+    /* ==========================================================
+       RESPONSIVE
+    ========================================================== */
+    @media (max-width: 1024px) {
+      .bottom-cta-inner { grid-template-columns: 1fr; gap: 32px; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 36px; }
+    }
+    @media (max-width: 700px) {
+      .nav-links { display: none; }
+      .nav-email { display: none; }
+      .form-grid { grid-template-columns: 1fr; }
+      .form-field.full { grid-column: span 1; }
+      .info-grid { grid-template-columns: 1fr; }
+      .form-actions { flex-direction: column; align-items: flex-start; }
+      .footer-top { grid-template-columns: 1fr; }
+      .container { padding: 0 20px; }
+      .gate-wrap { padding: 40px 20px 52px; }
+      .body-wrap { padding: 40px 20px 24px; }
+    }
+
+  </style>
 </head>
 <body>
 
-<!-- ============================================================
-     NAVIGATION
-     ============================================================ -->
-<nav id="mainNav">
-  <a class="nav-logo" href="/"><span>G</span>RNMRK GROUP</a>
-  <ul class="nav-links">
-    <li class="nav-item has-dropdown">
-      <a href="/services">Services</a>
-      <div class="nav-dropdown">
-        <a href="/services">Services Overview</a>
-        <a href="/services/aws-marketplace">AWS Marketplace</a>
-        <a href="/services/managed-operations">Managed Operations</a>
-        <a href="/services/strategy-consulting">Strategy Consulting</a>
-        <a href="/services/fractional-alliances-leader">Fractional Alliances Leader</a>
-        <a href="/services/partner-revenue-generation">Revenue Generation</a>
-        <a href="/services/foundational-technical-review">FTR Preparation</a>
-        <a href="/services/fractional-pdm">Fractional PDM</a>
-      </div>
-    </li>
-    <li><a href="/pricing">Pricing</a></li>
-    <li class="nav-item has-dropdown">
-      <a href="/company/about">Company</a>
-      <div class="nav-dropdown">
-        <a href="/company/about">About</a>
-        <a href="/company/case-studies">Case Studies</a>
-        <a href="/company/contact">Contact</a>
-        <a href="/company/partners">Partners</a>
-        <a href="/company/careers">Careers</a>
-        <a href="/blogs">Blog</a>
-      </div>
-    </li>
-    <li class="nav-item has-dropdown">
-      <a href="/resources">Resources</a>
-      <div class="nav-dropdown">
-        <a href="/resources/aws-map-funding-checklist">MAP Funding Checklist</a>
-        <a href="/resources/aws-mdf-funding-checklist">MDF Funding Checklist</a>
-        <a href="/resources/aws-ftr-checklist">FTR Checklist</a>
-        <a href="/resources/aws-marketplace-gtm-readiness-guide">Marketplace GTM Guide</a>
-        <a href="/resources/aws-co-sell-playbook">Co-Sell Playbook</a>
-      </div>
-    </li>
-    <li><a href="/company/contact">Contact</a></li>
-  </ul>
-  <div class="nav-right">
-    <a class="nav-ghost" href="mailto:hello@grnmrk.com">hello@grnmrk.com</a>
-    <a class="nav-cta" href="https://calendly.com/grnmrk/30-min-consultation" target="_blank" rel="noopener noreferrer">Book a Call</a>
-  </div>
-</nav>
-
-<!-- ============================================================
-     COVER / HERO
-     ============================================================ -->
-<div class="cover">
-  <div class="cover-logo"><span>G</span>RNMRK GROUP</div>
-  <div class="cover-tag">AWS Technical Validation</div>
-  <h1 class="cover-title">AWS Foundational Technical Review<br><em>Checklist</em></h1>
-  <p class="cover-sub">Prerequisites, evidence documentation, and submission steps — everything you need to pass FTR on the first try and unlock Marketplace and SaaS Co-sell Benefit.</p>
-</div>
-
-<!-- ============================================================
-     META BAND
-     ============================================================ -->
-<div class="meta-band">
-  <div class="meta-item"><strong>Program:</strong> Foundational Technical Review (FTR)</div>
-  <div class="meta-item"><strong>Unlocks:</strong> Marketplace Listings · SaaS Co-sell Benefit</div>
-  <div class="meta-item"><strong>First-pass rate:</strong> 100% for Grnmrk-managed submissions</div>
-</div>
-
-<!-- ============================================================
-     GATE SECTION
-     ============================================================ -->
-<div class="gate-wrap">
-  <div class="gate-intro">
-    <p>FTR is the technical gate for AWS Marketplace transactable listings and SaaS Co-sell Benefit enrollment. Most partners know they need it. Far fewer know what AWS is actually looking for — which is why the first-submission pass rate across the ecosystem is well below 50%.</p>
-    <p>This checklist covers prerequisites, security, reliability, operational excellence, and evidence packaging. <strong>The most common failure mode is submitting prematurely with incomplete evidence.</strong> Work through this before you touch Partner Central.</p>
-  </div>
-
-  <div class="preview-label">What's Inside</div>
-  <div class="preview-fade">
-    <ul class="preview-list">
-      <li class="preview-item"><div class="preview-check"></div><div class="preview-text">Prerequisites — ACE opportunity, PSA engagement, account setup</div></li>
-      <li class="preview-item"><div class="preview-check"></div><div class="preview-text">Security pillar — the most common FTR failure area</div></li>
-      <li class="preview-item"><div class="preview-check"></div><div class="preview-text">Reliability and operational excellence evidence requirements</div></li>
-      <li class="preview-item"><div class="preview-check"></div><div class="preview-text">Evidence package preparation and submission checklist</div></li>
-      <li class="preview-item"><div class="preview-check"></div><div class="preview-text">Top failure reasons — what to check twice before submitting</div></li>
-    </ul>
-  </div>
-
-  <!-- FORM PANEL -->
-  <div class="form-panel" id="formWrap">
-    <div class="form-inner">
-      <div id="gateForm">
-        <div class="form-eyebrow">Get the full checklist</div>
-        <h2 class="form-title">Access the FTR Checklist</h2>
-        <p class="form-sub">Enter your details and the full interactive checklist unlocks immediately.</p>
-        <form id="leadForm">
-          <div class="form-grid">
-            <div class="form-field">
-              <label class="form-label" for="fname">First Name</label>
-              <input class="form-input" type="text" id="fname" name="name" placeholder="Alex" required>
-            </div>
-            <div class="form-field">
-              <label class="form-label" for="company">Company</label>
-              <input class="form-input" type="text" id="company" name="company" placeholder="Acme Corp" required>
-            </div>
-            <div class="form-field full">
-              <label class="form-label" for="email">Work Email</label>
-              <input class="form-input" type="email" id="email" name="email" placeholder="alex@company.com" required>
-            </div>
-          </div>
-          <div class="form-actions">
-            <button class="btn-submit" type="submit" id="submitBtn">Get Access</button>
-            <span class="form-or">or</span>
-            <a class="btn-calendly" href="https://calendly.com/grnmrk/30-min-consultation" target="_blank" rel="noopener noreferrer">Book a Strategy Call Instead</a>
-          </div>
-          <div class="form-error" id="formError">Something went wrong. Please try again or email hello@grnmrk.com</div>
-          <p class="form-privacy">No spam. Your information is used only to send relevant AWS partner content from Grnmrk Group.</p>
-        </form>
-      </div>
-      <div class="form-success" id="formSuccess">
-        <div class="form-success-icon">✓</div>
-        <div class="form-success-title">You're in.</div>
-        <p class="form-success-text">Unlocking the checklist now.</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ============================================================
-     CHECKLIST CONTENT (locked until form submit)
-     ============================================================ -->
-<div class="checklist-content" id="checklistContent">
-  <div class="body-wrap">
-    <div class="progress-wrap">
-      <span class="progress-label">Checklist Progress</span>
-      <div class="progress-bar-wrap"><div class="progress-bar" id="progressBar"></div></div>
-      <span class="progress-count" id="progressCount">0 / 27</span>
-    </div>
-
-    <!-- SECTION 01 -->
-    <div class="checklist-section">
-      <div class="section-header"><div class="section-num">01</div><div class="section-title">Prerequisites</div><div class="section-note">Before You Start</div></div>
-      <ul class="checklist">
-        <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">Active APN partner account in Partner Central <span class="tag-req">Required</span></div><div class="item-note">FTR is submitted through Partner Central. Confirm your account is active and you have the right user permissions.</div></div></label></li>
-        <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">At least one ACE opportunity exists and is submitted for your product <span class="tag-req">Required</span></div><div class="item-note">AWS requires an active ACE opportunity before FTR can be approved. Create and submit it before applying.</div></div></label></li>
-        <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">Your product is deployed on AWS or meaningfully uses AWS services</div><div class="item-note">FTR validates how your product uses AWS. Products with no meaningful AWS integration will not pass.</div></div></label></li>
-        <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">Production workloads are NOT running from the AWS root account <span class="tag-req">Required</span></div><div class="item-note">Operating production workloads from root is a known FTR failure point. Use IAM roles with least-privilege instead.</div></div></label></li>
-        <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">AWS Partner Solutions Architect (PSA) engaged for pre-review</div><div class="item-note">A PSA review before submission significantly improves first-pass rates. Request one through Partner Central if you don't have a direct relationship.</div></div></label></li>
-      </ul>
-    </div>
-
-    <!-- SECTION 02 -->
-    <div class="checklist-section">
-      <div class="section-header"><div class="section-num">02</div><div class="section-title">Security Pillar</div><div class="section-note">Most Common Failure Area</div></div>
-      <ul class="checklist">
-        <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">IAM policies follow least-privilege — no wildcard (*) permissions in production <span class="tag-req">Required</span></div><div class="item-note">Any iam:*, s3:*, or *:* in production IAM policies will fail. Audit every role before submitting.</div></div></label></li>
-        <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">MFA enforced for all human IAM users with console access <span class="tag-req">Required</span></div><div class="item-note">Screenshot from IAM console showing MFA status for all human users. Service accounts using roles are exempt.</div></div></label></li>
-        <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">No long-term IAM access keys in use for EC2/Lambda workloads <span class="tag-req">Required</span></div><div class="item-note">Use IAM instance profiles and execution roles. Hardcoded or stored access keys are one of the top FTR failure reasons.</div></div></label></li>
-        <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">CloudTrail enabled in all regions used by your product <span class="tag-req">Required</span></div><div class="item-note">Provide a screenshot from the CloudTrail console showing an all-regions trail with S3 logging enabled.</div></div></label></li>
-        <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">Customer data encrypted at rest across all data stores</div><div class="item-note">S3 SSE, RDS encryption, EBS encrypted volumes. Document each data store and its encryption configuration.</div></div></label></li>
-        <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">Data encrypted in transit — TLS 1.2 or higher on all endpoints <span class="tag-req">Required</span></div><div class="item-note">TLS 1.0 and 1.1 should be disabled. Provide certificate details or load balancer listener configuration as evidence.</div></div></label></li>
-        <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">VPC with public/private subnet separation deployed</div><div class="item-note">Sensitive data stores (RDS, ElastiCache) should be in private subnets with no direct internet access.</div></div></label></li>
-        <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">Security groups restrict to required ports only — no 0.0.0.0/0 on SSH/RDP</div><div class="item-note">Use SSM Session Manager instead of open SSH. Document security group rules for your core workloads.</div></div></label></li>
-      </ul>
-    </div>
-
-    <!-- SECTION 03 -->
-    <div class="checklist-section">
-      <div class="section-header"><div class="section-num">03</div><div class="section-title">Reliability Pillar</div><div class="section-note">Architecture Evidence</div></div>
-      <ul class="checklist">
-        <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">Multi-AZ deployment configured for production workloads</div><div class="item-note">At minimum, your database tier should span multiple Availability Zones. Document your AZ configuration.</div></div></label></li>
-        <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">Auto-scaling configured for compute resources</div><div class="item-note">EC2 Auto Scaling Groups, ECS service auto-scaling, or Lambda's inherent scaling. Provide evidence of scaling policy configuration.</div></div></label></li>
-        <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">Backup and recovery process documented and tested <span class="tag-req">Required</span></div><div class="item-note">RDS automated backups, S3 versioning, or equivalent. Document your RTO/RPO targets and how your backup approach supports them.</div></div></label></li>
-        <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">Operational runbook exists for common failure scenarios</div><div class="item-note">A basic runbook covering the top 3–5 incident scenarios is sufficient. AWS reviewers look for evidence your team can respond to failures.</div></div></label></li>
-      </ul>
-    </div>
-
-    <!-- SECTION 04 -->
-    <div class="checklist-section">
-      <div class="section-header"><div class="section-num">04</div><div class="section-title">Operational Excellence</div><div class="section-note">Monitoring &amp; Observability</div></div>
-      <ul class="checklist">
-        <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">CloudWatch monitoring enabled with dashboards for key metrics</div><div class="item-note">Screenshot of your CloudWatch dashboard showing CPU, memory, error rates, and latency for core services.</div></div></label></li>
-        <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">CloudWatch Alarms configured for critical thresholds</div><div class="item-note">Alarms covering high CPU, elevated error rates, low disk space, and unhealthy hosts. Provide evidence of alarm configuration.</div></div></label></li>
-        <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">Application logs centralized in CloudWatch Logs or equivalent</div><div class="item-note">Logs must be retained, searchable, and accessible. Ephemeral logs on EC2 that disappear on termination will flag during review.</div></div></label></li>
-        <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">Infrastructure changes managed through IaC</div><div class="item-note">CloudFormation, Terraform, or CDK. Not strictly required, but unmanaged manual changes are viewed as a reliability risk.</div></div></label></li>
-      </ul>
-    </div>
-
-    <!-- SECTION 05 -->
-    <div class="checklist-section">
-      <div class="section-header"><div class="section-num">05</div><div class="section-title">Evidence Package &amp; Submission</div><div class="section-note">Before You Hit Submit</div></div>
-      <ul class="checklist">
-        <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">Current architecture diagram prepared — labeled, showing all AWS services and data flows</div><div class="item-note">This is the most important single evidence document. Label every service, show data flows, network boundaries, and AZ placement.</div></div></label></li>
-        <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">All evidence screenshots labeled by checklist section</div><div class="item-note">Name files clearly: "02-CloudTrail-AllRegions.png" not "screenshot-042.png". Unlabeled screenshots slow the review significantly.</div></div></label></li>
-        <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">Every required checklist item has at least one piece of supporting evidence <span class="tag-req">Required</span></div><div class="item-note">The most common denial reason. AWS reviewers require proof — not assertions. A checked box without evidence fails review.</div></div></label></li>
-        <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">Second-set-of-eyes review completed on the full submission</div><div class="item-note">Have someone unfamiliar with the submission review it. What's obvious to you is often unclear to the AWS reviewer.</div></div></label></li>
-        <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">Submission made through Partner Central FTR portal — not via email <span class="tag-req">Required</span></div><div class="item-note">Navigate to Partner Central > Solutions > FTR. Do not email submissions to AWS contacts.</div></div></label></li>
-        <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">PDM or PSA notified that submission is in</div><div class="item-note">A heads-up to your AWS contact helps prevent the submission sitting in a queue. Most FTR reviews complete in 2–4 weeks.</div></div></label></li>
-      </ul>
-    </div>
-
-    <!-- INFO BOX -->
-    <div class="info-box">
-      <div class="info-label">Top FTR Failure Reasons — What to Check Twice</div>
-      <div class="info-grid">
-        <div class="info-card"><div class="info-card-title">Wildcard IAM permissions</div><div class="info-card-text">Any iam:*, s3:*, or *:* in production policies will fail. Audit every role before submitting.</div></div>
-        <div class="info-card"><div class="info-card-title">Hardcoded access keys</div><div class="info-card-text">Long-term access keys embedded in code or stored on EC2 instances. Use IAM instance profiles instead.</div></div>
-        <div class="info-card"><div class="info-card-title">No ACE opportunity on file</div><div class="info-card-text">Required before FTR can be approved. Create and submit at least one ACE opportunity first.</div></div>
-        <div class="info-card"><div class="info-card-title">Evidence without context</div><div class="info-card-text">Screenshots that don't clearly prove what they're meant to show. Label everything and crop to the relevant section.</div></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- BOTTOM CTA -->
-  <div class="bottom-cta">
-    <div class="bottom-cta-inner">
-      <div>
-        <h2>Want to Pass FTR on the<br><span>First Submission?</span></h2>
-        <p>Grnmrk Group manages FTR preparation and submission for AWS partners. We have maintained a 100% first-submission pass rate across all client engagements. Let's talk about yours.</p>
-      </div>
-      <div class="cta-actions">
-        <a class="btn-primary" href="https://calendly.com/grnmrk/30-min-consultation" target="_blank" rel="noopener noreferrer">Book a Free Strategy Call</a>
-        <a class="btn-ghost" href="mailto:hello@grnmrk.com">Send an Email</a>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ============================================================
-     FOOTER
-     ============================================================ -->
-<footer>
-  <div class="footer-top">
-    <div class="footer-brand">
-      <a class="footer-logo" href="/"><span>G</span>RNMRK GROUP</a>
-      <p class="footer-tagline">AWS Partner Growth Advisors</p>
-      <a class="footer-linkedin" href="https://www.linkedin.com/company/grnmrk-group/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-        LinkedIn
+  <!-- ============================================================
+       NAVIGATION
+  ============================================================ -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a class="logo" href="/">
+        <img src="/grnmrk-banner-2026-transparent-background.png" alt="Grnmrk Group">
       </a>
-      <img src="/aws-logo_copy.png" alt="AWS Partner Network" style="height:188px; margin-top:1.5rem;">
+
+      <ul class="nav-links">
+        <li class="nav-item has-dropdown">
+          <a href="/services">Services</a>
+          <div class="nav-dropdown"><div class="nav-dropdown-inner">
+            <a href="/services">Services Overview</a>
+            <a href="/services/aws-marketplace">AWS Marketplace</a>
+            <a href="/services/managed-operations">Managed Operations</a>
+            <a href="/services/strategy-consulting">Strategy Consulting</a>
+            <a href="/services/fractional-alliances-leader">Fractional Alliances Leader</a>
+            <a href="/services/partner-revenue-generation">Revenue Generation</a>
+            <a href="/services/foundational-technical-review">FTR Preparation</a>
+            <a href="/services/fractional-pdm">Fractional PDM</a>
+          </div></div>
+        </li>
+        <li><a href="/pricing">Pricing</a></li>
+        <li class="nav-item has-dropdown">
+          <a href="/company/about">Company</a>
+          <div class="nav-dropdown"><div class="nav-dropdown-inner">
+            <a href="/company/about">About</a>
+            <a href="/company/case-studies">Case Studies</a>
+            <a href="/company/contact">Contact</a>
+            <a href="/company/partners">Partners</a>
+            <a href="/company/careers">Careers</a>
+            <a href="/blogs">Blog</a>
+          </div></div>
+        </li>
+        <li class="nav-item has-dropdown">
+          <a href="/resources">Resources</a>
+          <div class="nav-dropdown"><div class="nav-dropdown-inner">
+            <a href="/resources/aws-map-funding-checklist">MAP Funding Checklist</a>
+            <a href="/resources/aws-mdf-funding-checklist">MDF Funding Checklist</a>
+            <a href="/resources/aws-ftr-checklist">FTR Checklist</a>
+            <a href="/resources/aws-marketplace-gtm-readiness-guide">Marketplace GTM Guide</a>
+            <a href="/resources/aws-co-sell-playbook">Co-Sell Playbook</a>
+          </div></div>
+        </li>
+        <li><a href="/company/contact">Contact</a></li>
+      </ul>
+
+      <div class="nav-cta-group">
+        <a class="nav-email" href="mailto:hello@grnmrk.com">hello@grnmrk.com</a>
+        <a class="btn btn-primary" href="https://calendly.com/grnmrk/30-min-consultation" target="_blank" rel="noopener noreferrer">
+          Book a Call <span class="btn-arrow">&#8594;</span>
+        </a>
+      </div>
     </div>
-    <div class="footer-nav-group">
-      <div class="footer-nav-col">
-        <div class="footer-nav-heading">Services</div>
-        <ul class="footer-nav-links">
-          <li><a href="/services">Services Overview</a></li>
-          <li><a href="/services/managed-operations">Managed Operations</a></li>
-          <li><a href="/services/strategy-consulting">Strategy Consulting</a></li>
-          <li><a href="/services/aws-marketplace">AWS Marketplace</a></li>
-          <li><a href="/services/fractional-alliances-leader">Fractional Alliances Leader</a></li>
-          <li><a href="/services/partner-revenue-generation">Revenue Generation</a></li>
-          <li><a href="/services/foundational-technical-review">FTR Preparation</a></li>
-          <li><a href="/services/fractional-pdm">Fractional PDM</a></li>
-        </ul>
-      </div>
-      <div class="footer-nav-col">
-        <div class="footer-nav-heading">Company</div>
-        <ul class="footer-nav-links">
-          <li><a href="/pricing">Pricing</a></li>
-          <li><a href="/company/case-studies">Case Studies</a></li>
-          <li><a href="/company/about">About</a></li>
-          <li><a href="/company/contact">Contact</a></li>
-          <li><a href="/company/partners">Partners</a></li>
-          <li><a href="/company/careers">Careers</a></li>
-          <li><a href="/blogs">Blog</a></li>
-        </ul>
-      </div>
-      <div class="footer-nav-col">
-        <div class="footer-nav-heading">Resources</div>
-        <ul class="footer-nav-links">
-          <li><a href="/resources/aws-map-funding-checklist">MAP Funding Checklist</a></li>
-          <li><a href="/resources/aws-mdf-funding-checklist">MDF Funding Checklist</a></li>
-          <li><a href="/resources/aws-ftr-checklist">FTR Checklist</a></li>
-          <li><a href="/resources/aws-marketplace-gtm-readiness-guide">Marketplace GTM Guide</a></li>
-          <li><a href="/resources/aws-co-sell-playbook">Co-Sell Playbook</a></li>
-        </ul>
+  </nav>
+
+  <!-- ============================================================
+       COVER / HERO
+  ============================================================ -->
+  <div class="cover">
+    <div class="container">
+      <div class="cover-inner">
+        <div class="cover-badge">AWS Technical Validation</div>
+        <h1 class="cover-title">AWS Foundational<br>Technical Review <em>Checklist</em></h1>
+        <p class="cover-sub">Prerequisites, evidence documentation, and submission steps: everything you need to pass FTR on the first try and unlock Marketplace listings and SaaS Co-sell Benefit.</p>
       </div>
     </div>
   </div>
-  <div class="footer-bottom">
-    <div class="footer-bottom-inner">
-      <p class="footer-copy">© 2025 Grnmrk Group LLC. All rights reserved.</p>
-      <div class="footer-legal">
-        <a href="/terms">Terms of Service</a>
-        <a href="/privacy">Privacy Policy</a>
+
+  <!-- Meta band -->
+  <div class="meta-band">
+    <div class="container">
+      <div class="meta-band-inner">
+        <span class="meta-item"><strong>Program:</strong> Foundational Technical Review (FTR)</span>
+        <div class="meta-sep"></div>
+        <span class="meta-item"><strong>Unlocks:</strong> Marketplace Listings &middot; SaaS Co-sell Benefit</span>
+        <div class="meta-sep"></div>
+        <span class="meta-item"><strong>First-pass rate:</strong> 100% for Grnmrk-managed submissions</span>
       </div>
     </div>
   </div>
-</footer>
 
-<!-- ============================================================
-     JAVASCRIPT
-     ============================================================ -->
-<script>
-  // Scrolled nav
-  const nav = document.getElementById('mainNav');
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 60);
-  });
+  <!-- ============================================================
+       GATE SECTION
+  ============================================================ -->
+  <div class="gate-wrap">
+    <div class="gate-intro">
+      <p>FTR is the technical gate for AWS Marketplace transactable listings and SaaS Co-sell Benefit enrollment. Most partners know they need it. Far fewer know what AWS is looking for, which is why the first-submission pass rate across the ecosystem is well below 50%.</p>
+      <p>This checklist covers prerequisites, security, reliability, operational excellence, and evidence packaging. <strong>The most common failure mode is submitting prematurely with incomplete evidence.</strong> Work through this before you touch Partner Central.</p>
+    </div>
 
-  // Form gate
-  const FORMSPREE = 'https://formspree.io/f/xyklvkbz';
-  const STORAGE_KEY = 'grnmrk-ftr';
+    <div class="preview-label">What's Inside</div>
+    <div class="preview-fade">
+      <ul class="preview-list">
+        <li class="preview-item"><div class="preview-check"></div><div class="preview-text">Prerequisites: ACE opportunity, PSA engagement, account setup</div></li>
+        <li class="preview-item"><div class="preview-check"></div><div class="preview-text">Security pillar: the most common FTR failure area</div></li>
+        <li class="preview-item"><div class="preview-check"></div><div class="preview-text">Reliability and operational excellence evidence requirements</div></li>
+        <li class="preview-item"><div class="preview-check"></div><div class="preview-text">Evidence package preparation and submission checklist</div></li>
+        <li class="preview-item"><div class="preview-check"></div><div class="preview-text">Top failure reasons: what to check twice before submitting</div></li>
+      </ul>
+    </div>
 
-  (function() {
-    try {
-      if (localStorage.getItem(STORAGE_KEY + '-v') === '1') { unlock(); return; }
-    } catch(e) {}
+    <!-- FORM PANEL -->
+    <div class="form-panel" id="formWrap">
+      <div class="form-inner">
+        <div id="gateForm">
+          <div class="form-eyebrow">Get the Full Checklist</div>
+          <h2 class="form-title">Access the FTR Checklist</h2>
+          <p class="form-sub">Enter your details and the full interactive checklist unlocks immediately.</p>
+          <form id="leadForm">
+            <div class="form-grid">
+              <div class="form-field">
+                <label class="form-label" for="fname">First Name</label>
+                <input class="form-input" type="text" id="fname" name="name" placeholder="Alex" required>
+              </div>
+              <div class="form-field">
+                <label class="form-label" for="company">Company</label>
+                <input class="form-input" type="text" id="company" name="company" placeholder="Acme Corp" required>
+              </div>
+              <div class="form-field full">
+                <label class="form-label" for="email">Work Email</label>
+                <input class="form-input" type="email" id="email" name="email" placeholder="alex@company.com" required>
+              </div>
+            </div>
+            <div class="form-actions">
+              <button class="btn-submit" type="submit" id="submitBtn">Get Access</button>
+              <span class="form-or">or</span>
+              <a class="btn-calendly" href="https://calendly.com/grnmrk/30-min-consultation" target="_blank" rel="noopener noreferrer">Book a Strategy Call Instead</a>
+            </div>
+            <div class="form-error" id="formError">Something went wrong. Please try again or email hello@grnmrk.com</div>
+            <p class="form-privacy">No spam. Used only to send relevant AWS partner content from Grnmrk Group.</p>
+          </form>
+        </div>
+        <div class="form-success" id="formSuccess">
+          <div class="form-success-icon">&#10003;</div>
+          <div class="form-success-title">You're in.</div>
+          <p class="form-success-text">Unlocking the checklist now.</p>
+        </div>
+      </div>
+    </div>
+  </div>
 
-    document.getElementById('leadForm').addEventListener('submit', async function(e) {
-      e.preventDefault();
-      const btn = document.getElementById('submitBtn');
-      const err = document.getElementById('formError');
-      btn.textContent = 'Sending...'; btn.disabled = true; err.style.display = 'none';
+  <!-- ============================================================
+       CHECKLIST CONTENT (locked until form submit)
+  ============================================================ -->
+  <div class="checklist-content" id="checklistContent">
+    <div class="body-wrap">
+
+      <div class="progress-wrap">
+        <span class="progress-label">Checklist Progress</span>
+        <div class="progress-bar-wrap"><div class="progress-bar" id="progressBar"></div></div>
+        <span class="progress-count" id="progressCount">0 / 27</span>
+      </div>
+
+      <!-- SECTION 01 -->
+      <div class="checklist-section">
+        <div class="section-header">
+          <div class="section-num">01</div>
+          <div class="section-title">Prerequisites</div>
+          <div class="section-note">Before You Start</div>
+        </div>
+        <ul class="checklist">
+          <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">Active APN partner account in Partner Central <span class="tag-req">Required</span></div><div class="item-note">FTR is submitted through Partner Central. Confirm your account is active and you have the right user permissions.</div></div></label></li>
+          <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">At least one ACE opportunity exists and is submitted for your product <span class="tag-req">Required</span></div><div class="item-note">AWS requires an active ACE opportunity before FTR can be approved. Create and submit it before applying.</div></div></label></li>
+          <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">Your product is deployed on AWS or meaningfully uses AWS services</div><div class="item-note">FTR validates how your product uses AWS. Products with no meaningful AWS integration will not pass.</div></div></label></li>
+          <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">Production workloads are NOT running from the AWS root account <span class="tag-req">Required</span></div><div class="item-note">Operating production workloads from root is a known FTR failure point. Use IAM roles with least-privilege instead.</div></div></label></li>
+          <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">AWS Partner Solutions Architect (PSA) engaged for pre-review</div><div class="item-note">A PSA review before submission significantly improves first-pass rates. Request one through Partner Central if you do not have a direct relationship.</div></div></label></li>
+        </ul>
+      </div>
+
+      <!-- SECTION 02 -->
+      <div class="checklist-section">
+        <div class="section-header">
+          <div class="section-num">02</div>
+          <div class="section-title">Security Pillar</div>
+          <div class="section-note">Most Common Failure Area</div>
+        </div>
+        <ul class="checklist">
+          <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">IAM policies follow least-privilege, no wildcard (*) permissions in production <span class="tag-req">Required</span></div><div class="item-note">Any iam:*, s3:*, or *:* in production IAM policies will fail. Audit every role before submitting.</div></div></label></li>
+          <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">MFA enforced for all human IAM users with console access <span class="tag-req">Required</span></div><div class="item-note">Screenshot from IAM console showing MFA status for all human users. Service accounts using roles are exempt.</div></div></label></li>
+          <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">No long-term IAM access keys in use for EC2/Lambda workloads <span class="tag-req">Required</span></div><div class="item-note">Use IAM instance profiles and execution roles. Hardcoded or stored access keys are one of the top FTR failure reasons.</div></div></label></li>
+          <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">CloudTrail enabled in all regions used by your product <span class="tag-req">Required</span></div><div class="item-note">Provide a screenshot from the CloudTrail console showing an all-regions trail with S3 logging enabled.</div></div></label></li>
+          <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">Customer data encrypted at rest across all data stores</div><div class="item-note">S3 SSE, RDS encryption, EBS encrypted volumes. Document each data store and its encryption configuration.</div></div></label></li>
+          <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">Data encrypted in transit: TLS 1.2 or higher on all endpoints <span class="tag-req">Required</span></div><div class="item-note">TLS 1.0 and 1.1 should be disabled. Provide certificate details or load balancer listener configuration as evidence.</div></div></label></li>
+          <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">VPC with public/private subnet separation deployed</div><div class="item-note">Sensitive data stores (RDS, ElastiCache) should be in private subnets with no direct internet access.</div></div></label></li>
+          <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">Security groups restrict to required ports only, no 0.0.0.0/0 on SSH/RDP</div><div class="item-note">Use SSM Session Manager instead of open SSH. Document security group rules for your core workloads.</div></div></label></li>
+        </ul>
+      </div>
+
+      <!-- SECTION 03 -->
+      <div class="checklist-section">
+        <div class="section-header">
+          <div class="section-num">03</div>
+          <div class="section-title">Reliability Pillar</div>
+          <div class="section-note">Architecture Evidence</div>
+        </div>
+        <ul class="checklist">
+          <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">Multi-AZ deployment configured for production workloads</div><div class="item-note">At minimum, your database tier should span multiple Availability Zones. Document your AZ configuration.</div></div></label></li>
+          <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">Auto-scaling configured for compute resources</div><div class="item-note">EC2 Auto Scaling Groups, ECS service auto-scaling, or Lambda's inherent scaling. Provide evidence of scaling policy configuration.</div></div></label></li>
+          <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">Backup and recovery process documented and tested <span class="tag-req">Required</span></div><div class="item-note">RDS automated backups, S3 versioning, or equivalent. Document your RTO/RPO targets and how your backup approach supports them.</div></div></label></li>
+          <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">Operational runbook exists for common failure scenarios</div><div class="item-note">A basic runbook covering the top 3 to 5 incident scenarios is sufficient. AWS reviewers look for evidence your team can respond to failures.</div></div></label></li>
+        </ul>
+      </div>
+
+      <!-- SECTION 04 -->
+      <div class="checklist-section">
+        <div class="section-header">
+          <div class="section-num">04</div>
+          <div class="section-title">Operational Excellence</div>
+          <div class="section-note">Monitoring and Observability</div>
+        </div>
+        <ul class="checklist">
+          <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">CloudWatch monitoring enabled with dashboards for key metrics</div><div class="item-note">Screenshot of your CloudWatch dashboard showing CPU, memory, error rates, and latency for core services.</div></div></label></li>
+          <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">CloudWatch Alarms configured for critical thresholds</div><div class="item-note">Alarms covering high CPU, elevated error rates, low disk space, and unhealthy hosts. Provide evidence of alarm configuration.</div></div></label></li>
+          <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">Application logs centralized in CloudWatch Logs or equivalent</div><div class="item-note">Logs must be retained, searchable, and accessible. Ephemeral logs on EC2 that disappear on termination will flag during review.</div></div></label></li>
+          <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">Infrastructure changes managed through IaC</div><div class="item-note">CloudFormation, Terraform, or CDK. Not strictly required, but unmanaged manual changes are viewed as a reliability risk.</div></div></label></li>
+        </ul>
+      </div>
+
+      <!-- SECTION 05 -->
+      <div class="checklist-section">
+        <div class="section-header">
+          <div class="section-num">05</div>
+          <div class="section-title">Evidence Package &amp; Submission</div>
+          <div class="section-note">Before You Hit Submit</div>
+        </div>
+        <ul class="checklist">
+          <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">Current architecture diagram prepared: labeled, showing all AWS services and data flows</div><div class="item-note">This is the most important single evidence document. Label every service, show data flows, network boundaries, and AZ placement.</div></div></label></li>
+          <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">All evidence screenshots labeled by checklist section</div><div class="item-note">Name files clearly: "02-CloudTrail-AllRegions.png" not "screenshot-042.png". Unlabeled screenshots slow the review significantly.</div></div></label></li>
+          <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">Every required checklist item has at least one piece of supporting evidence <span class="tag-req">Required</span></div><div class="item-note">The most common denial reason. AWS reviewers require proof, not assertions. A checked box without evidence fails review.</div></div></label></li>
+          <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">Second-set-of-eyes review completed on the full submission</div><div class="item-note">Have someone unfamiliar with the submission review it. What is obvious to you is often unclear to the AWS reviewer.</div></div></label></li>
+          <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">Submission made through Partner Central FTR portal, not via email <span class="tag-req">Required</span></div><div class="item-note">Navigate to Partner Central > Solutions > FTR. Do not email submissions to AWS contacts.</div></div></label></li>
+          <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">PDM or PSA notified that submission is in</div><div class="item-note">A heads-up to your AWS contact helps prevent the submission sitting in a queue. Most FTR reviews complete in 2 to 4 weeks.</div></div></label></li>
+        </ul>
+      </div>
+
+      <!-- INFO BOX -->
+      <div class="info-box">
+        <div class="info-label">Top FTR Failure Reasons: What to Check Twice</div>
+        <div class="info-grid">
+          <div class="info-card">
+            <div class="info-card-title">Wildcard IAM permissions</div>
+            <div class="info-card-text">Any iam:*, s3:*, or *:* in production policies will fail. Audit every role before submitting.</div>
+          </div>
+          <div class="info-card">
+            <div class="info-card-title">Hardcoded access keys</div>
+            <div class="info-card-text">Long-term access keys embedded in code or stored on EC2 instances. Use IAM instance profiles instead.</div>
+          </div>
+          <div class="info-card">
+            <div class="info-card-title">No ACE opportunity on file</div>
+            <div class="info-card-text">Required before FTR can be approved. Create and submit at least one ACE opportunity first.</div>
+          </div>
+          <div class="info-card">
+            <div class="info-card-title">Evidence without context</div>
+            <div class="info-card-text">Screenshots that do not clearly prove what they are meant to show. Label everything and crop to the relevant section.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- BOTTOM CTA (inside checklist-content) -->
+    <div class="bottom-cta">
+      <div class="container">
+        <div class="bottom-cta-inner">
+          <div>
+            <h2 class="bottom-cta-title">Want to pass FTR on the <em>first submission?</em></h2>
+            <p class="bottom-cta-text">Grnmrk Group manages FTR preparation and submission for AWS partners. We have maintained a 100% first-submission pass rate across all client engagements.</p>
+          </div>
+          <div class="bottom-cta-actions">
+            <a class="btn btn-accent" href="https://calendly.com/grnmrk/30-min-consultation" target="_blank" rel="noopener noreferrer">
+              Book a Free Strategy Call <span class="btn-arrow">&#8594;</span>
+            </a>
+            <a class="btn btn-ghost-light" href="mailto:hello@grnmrk.com">Send an Email</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <a class="footer-logo" href="/">
+            <img src="/grnmrk-banner-2026-transparent-background.png" alt="Grnmrk Group">
+          </a>
+          <p class="footer-tagline">Grnmrk Group runs AWS partner programs for ISVs, MSPs, and channel partners, delivering pipeline, funding, and Marketplace revenue.</p>
+          <div class="footer-icons">
+            <a class="footer-aws-link" href="https://aws.amazon.com/marketplace/" target="_blank" rel="noopener noreferrer" aria-label="AWS Partner Network">
+              <img src="/aws-logo_copy.png" alt="AWS Partner">
+            </a>
+            <a class="footer-linkedin-icon" href="https://www.linkedin.com/company/grnmrk-group/" target="_blank" rel="noopener noreferrer" aria-label="Grnmrk Group on LinkedIn">
+              <img class="li-default" src="/LinkedIn_Symbol_1.png" alt="LinkedIn">
+              <img class="li-hover" src="/LinkedIn_Symbol_1 copy.png" alt="LinkedIn">
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="/services">Services Overview</a></li>
+            <li><a href="/services/managed-operations">Managed Operations</a></li>
+            <li><a href="/services/strategy-consulting">Strategy Consulting</a></li>
+            <li><a href="/services/aws-marketplace">AWS Marketplace</a></li>
+            <li><a href="/services/fractional-alliances-leader">Fractional Alliances Leader</a></li>
+            <li><a href="/services/partner-revenue-generation">Revenue Generation</a></li>
+            <li><a href="/services/foundational-technical-review">FTR Preparation</a></li>
+            <li><a href="/services/fractional-pdm">Fractional PDM</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="/pricing">Pricing</a></li>
+            <li><a href="/company/case-studies">Case Studies</a></li>
+            <li><a href="/company/about">About</a></li>
+            <li><a href="/company/contact">Contact</a></li>
+            <li><a href="/company/partners">Partners</a></li>
+            <li><a href="/company/careers">Careers</a></li>
+            <li><a href="/blogs">Blog</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="/resources/aws-map-funding-checklist">MAP Funding Checklist</a></li>
+            <li><a href="/resources/aws-mdf-funding-checklist">MDF Funding Checklist</a></li>
+            <li><a href="/resources/aws-ftr-checklist">FTR Checklist</a></li>
+            <li><a href="/resources/aws-marketplace-gtm-readiness-guide">Marketplace GTM Guide</a></li>
+            <li><a href="/resources/aws-co-sell-playbook">Co-Sell Playbook</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; 2025 Grnmrk Group LLC. All rights reserved.</span>
+        <div class="footer-legal">
+          <a href="/terms">Terms of Service</a>
+          <a href="/privacy">Privacy Policy</a>
+          <a href="https://www.linkedin.com/company/grnmrk-group/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       JAVASCRIPT
+  ============================================================ -->
+  <script>
+    const FORMSPREE   = 'https://formspree.io/f/xyklvkbz';
+    const STORAGE_KEY = 'grnmrk-ftr';
+
+    (function() {
       try {
-        const r = await fetch(FORMSPREE, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-          body: JSON.stringify({ name: this.name.value, email: this.email.value, company: this.company.value, source: 'FTR Checklist', page: window.location.href })
-        });
-        if (r.ok) {
-          document.getElementById('gateForm').style.display = 'none';
-          document.getElementById('formSuccess').style.display = 'block';
-          try { localStorage.setItem(STORAGE_KEY + '-v', '1'); } catch(e) {}
-          setTimeout(() => {
-            const fw = document.getElementById('formWrap');
-            fw.style.transition = 'opacity 0.5s'; fw.style.opacity = '0';
-            setTimeout(() => { fw.style.display = 'none'; unlock(); }, 500);
-          }, 1800);
-        } else { throw new Error(); }
-      } catch(e) {
-        err.style.display = 'block'; btn.textContent = 'Get Access'; btn.disabled = false;
-      }
-    });
-  })();
+        if (localStorage.getItem(STORAGE_KEY + '-v') === '1') { unlock(); return; }
+      } catch(e) {}
 
-  function unlock() {
-    const c = document.getElementById('checklistContent');
-    c.classList.add('unlocked');
-    c.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    const cbs = document.querySelectorAll('.checklist input[type="checkbox"]');
-    const bar = document.getElementById('progressBar');
-    const cnt = document.getElementById('progressCount');
-    const total = cbs.length;
-    function upd() {
-      const ch = [...cbs].filter(x => x.checked).length;
-      bar.style.width = (ch / total * 100) + '%';
-      cnt.textContent = ch + ' / ' + total;
-      cbs.forEach(cb => cb.closest('.checklist-item').classList.toggle('checked', cb.checked));
+      document.getElementById('leadForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const btn = document.getElementById('submitBtn');
+        const err = document.getElementById('formError');
+        btn.textContent = 'Sending...'; btn.disabled = true; err.style.display = 'none';
+        try {
+          const r = await fetch(FORMSPREE, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify({
+              name: this.name.value,
+              email: this.email.value,
+              company: this.company.value,
+              source: 'FTR Checklist',
+              page: window.location.href
+            })
+          });
+          if (r.ok) {
+            document.getElementById('gateForm').style.display = 'none';
+            document.getElementById('formSuccess').style.display = 'block';
+            try { localStorage.setItem(STORAGE_KEY + '-v', '1'); } catch(e) {}
+            setTimeout(() => {
+              const fw = document.getElementById('formWrap');
+              fw.style.transition = 'opacity 0.5s'; fw.style.opacity = '0';
+              setTimeout(() => { fw.style.display = 'none'; unlock(); }, 500);
+            }, 1800);
+          } else { throw new Error(); }
+        } catch(e) {
+          err.style.display = 'block'; btn.textContent = 'Get Access'; btn.disabled = false;
+        }
+      });
+    })();
+
+    function unlock() {
+      const c = document.getElementById('checklistContent');
+      c.classList.add('unlocked');
+      c.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      const cbs   = document.querySelectorAll('.checklist input[type="checkbox"]');
+      const bar   = document.getElementById('progressBar');
+      const cnt   = document.getElementById('progressCount');
+      const total = cbs.length;
+      function upd() {
+        const ch = [...cbs].filter(x => x.checked).length;
+        bar.style.width = (ch / total * 100) + '%';
+        cnt.textContent = ch + ' / ' + total;
+        cbs.forEach(cb => cb.closest('.checklist-item').classList.toggle('checked', cb.checked));
+      }
+      upd();
+      cbs.forEach(cb => cb.addEventListener('change', upd));
     }
-    upd();
-    cbs.forEach(cb => cb.addEventListener('change', upd));
-  }
-</script>
+  </script>
 
 </body>
 </html>

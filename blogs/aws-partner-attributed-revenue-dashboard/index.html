@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- ============================================================
+       META & SEO
+  ============================================================ -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AWS Attributed Revenue Dashboard: What It Is and Why It Changes How AWS Measures You | Grnmrk Group</title>
+  <meta name="description" content="AWS launched the Attributed Revenue Dashboard in Partner Central in April 2026. Here is what Partner Revenue Measurement is, how it works, and why partners who have not implemented it yet are at risk of losing funding access by July 31, 2026.">
+  <meta name="keywords" content="AWS Attributed Revenue Dashboard, Partner Revenue Measurement, AWS Partner Central, resource tagging AWS, user agent string AWS, AWS Marketplace Metering, AWS partner funding, APFP, co-sell attribution, AWS partner program 2026">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Grnmrk Group">
+  <link rel="canonical" href="https://www.grnmrk.com/blogs/aws-attributed-revenue-dashboard">
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+
+  <meta property="og:title" content="AWS Attributed Revenue Dashboard: What It Is and Why It Changes How AWS Measures You">
+  <meta property="og:description" content="AWS launched the Attributed Revenue Dashboard in April 2026. Partners who have not implemented Partner Revenue Measurement by July 31, 2026 lose access to AWS funding programs. Here is what you need to know.">
+  <meta property="og:url" content="https://www.grnmrk.com/blogs/aws-attributed-revenue-dashboard">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Grnmrk Group">
+  <meta property="article:published_time" content="2026-05-04">
+  <meta property="article:author" content="Grnmrk Group">
+  <meta property="article:section" content="AWS Partner Strategy">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "AWS Attributed Revenue Dashboard: What It Is and Why It Changes How AWS Measures You",
+    "description": "AWS launched the Attributed Revenue Dashboard in Partner Central in April 2026. Here is what Partner Revenue Measurement is, how to implement it, and the July 31 deadline partners need to know about.",
+    "author": { "@type": "Organization", "name": "Grnmrk Group", "url": "https://www.grnmrk.com" },
+    "publisher": { "@type": "Organization", "name": "Grnmrk Group", "url": "https://www.grnmrk.com" },
+    "datePublished": "2026-05-04",
+    "url": "https://www.grnmrk.com/blogs/aws-attributed-revenue-dashboard",
+    "keywords": ["Partner Revenue Measurement", "Attributed Revenue Dashboard", "AWS Partner Central", "AWS partner funding", "APFP deadline"]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.grnmrk.com" },
+      { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.grnmrk.com/blogs" },
+      { "@type": "ListItem", "position": 3, "name": "AWS Attributed Revenue Dashboard", "item": "https://www.grnmrk.com/blogs/aws-attributed-revenue-dashboard" }
+    ]
+  }
+  </script>
+
+  <!-- ============================================================
+       ASSETS
+  ============================================================ -->
+  <link rel="icon" type="image/png" href="/favicon-transparent.png">
+  <link rel="apple-touch-icon" href="/favicon-transparent.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+
+  <!-- Crisp Chat -->
+  <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="f635b745-e538-474c-a47f-3e1f4466424c";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
+
+  <!-- ============================================================
+       STYLES
+  ============================================================ -->
+  <style>
+
+    :root {
+      --bg:           #F0EDE6;
+      --bg-soft:      #E8E4DC;
+      --ink:          #111111;
+      --ink-soft:     #2A2A2A;
+      --slate:        #7A7369;
+      --slate-light:  #A09890;
+      --line:         #D8D4CC;
+      --accent:       #3DDC84;
+      --accent-hover: #28B06A;
+      --accent-dim:   #D4F5E5;
+      --footer-bg:    #0D0D0D;
+      --footer-text:  #9A9490;
+      --warning:      #FEF3C7;
+      --warning-border: #F59E0B;
+      --warning-text: #92400E;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Onest', -apple-system, sans-serif; background: var(--bg); color: var(--ink); font-weight: 400; line-height: 1.55; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 32px; }
+
+    /* NAV */
+    .nav { position: sticky; top: 0; z-index: 100; background: rgba(240,237,230,0.88); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid var(--line); }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 72px; padding: 0 32px; max-width: 1280px; margin: 0 auto; }
+    .logo { text-decoration: none; display: flex; align-items: center; }
+    .logo img { height: 96px; width: auto; display: block; }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a { color: var(--ink); text-decoration: none; font-size: 14.5px; font-weight: 500; display: flex; align-items: center; gap: 4px; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--accent-hover); }
+    .nav-item { position: relative; }
+    .nav-dropdown { display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); padding-top: 8px; background: transparent; z-index: 200; }
+    .nav-dropdown-inner { background: white; border: 1px solid var(--line); border-radius: 12px; box-shadow: 0 12px 40px rgba(17,17,17,0.12); min-width: 220px; padding: 8px 0; }
+    .nav-dropdown a { display: block; padding: 9px 20px; font-size: 13.5px; font-weight: 500; color: var(--slate); transition: color 0.15s, background 0.15s; white-space: nowrap; text-decoration: none; }
+    .nav-dropdown a:hover { color: var(--ink); background: var(--bg); }
+    .has-dropdown:hover .nav-dropdown { display: block; }
+    .has-dropdown > a::after { content: ' ↓'; font-size: 10px; opacity: 0.45; }
+    .nav-cta-group { display: flex; align-items: center; gap: 20px; }
+    .nav-email { color: var(--slate); text-decoration: none; font-size: 13.5px; font-weight: 500; transition: color 0.2s; }
+    .nav-email:hover { color: var(--ink); }
+
+    /* BUTTONS */
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 11px 22px; border-radius: 999px; font-size: 14px; font-weight: 600; font-family: inherit; text-decoration: none; border: none; cursor: pointer; transition: all 0.2s ease; letter-spacing: -0.01em; }
+    .btn-primary { background: var(--ink); color: var(--bg); }
+    .btn-primary:hover { background: var(--accent-hover); color: white; transform: translateY(-1px); }
+    .btn-accent { background: var(--accent); color: var(--ink); }
+    .btn-accent:hover { background: var(--accent-hover); color: white; transform: translateY(-1px); }
+    .btn-ghost-light { background: transparent; color: var(--bg); border: 1.5px solid rgba(240,237,230,0.35); }
+    .btn-ghost-light:hover { border-color: var(--accent); color: var(--accent); }
+    .btn-arrow { display: inline-block; transition: transform 0.2s; }
+    .btn:hover .btn-arrow { transform: translateX(3px); }
+
+    /* ARTICLE HERO */
+    .article-hero { background: var(--ink); padding: 72px 0 56px; position: relative; overflow: hidden; }
+    .article-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 80% at 85% 50%, rgba(61,220,132,0.07), transparent 70%); }
+    .article-hero-inner { max-width: 860px; margin: 0 auto; padding: 0 32px; position: relative; }
+    .article-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; flex-wrap: wrap; }
+    .article-tag { display: inline-flex; align-items: center; padding: 4px 12px; background: var(--accent); border-radius: 999px; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); }
+    .article-tag-new { display: inline-flex; align-items: center; padding: 4px 12px; border: 1.5px solid rgba(61,220,132,0.45); border-radius: 999px; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); }
+    .article-dot { color: rgba(240,237,230,0.25); }
+    .article-read-time { font-size: 12.5px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(240,237,230,0.4); }
+    .article-title { font-size: clamp(28px, 4.5vw, 50px); font-weight: 600; line-height: 1.08; letter-spacing: -0.03em; color: var(--bg); margin-bottom: 20px; }
+    .article-title em { font-family: 'Instrument Serif', serif; font-weight: 400; font-style: italic; color: var(--accent); }
+    .article-deck { font-size: 17px; color: rgba(240,237,230,0.65); line-height: 1.72; max-width: 680px; }
+
+    /* BREADCRUMB */
+    .breadcrumb-wrap { background: var(--bg-soft); border-bottom: 1px solid var(--line); }
+    .breadcrumb { max-width: 860px; margin: 0 auto; padding: 14px 32px; display: flex; align-items: center; gap: 8px; }
+    .breadcrumb a { font-size: 13px; font-weight: 500; color: var(--slate); text-decoration: none; transition: color 0.2s; }
+    .breadcrumb a:hover { color: var(--accent-hover); }
+    .breadcrumb-sep { font-size: 13px; color: var(--slate); opacity: 0.4; }
+    .breadcrumb-current { font-size: 13px; font-weight: 500; color: var(--ink-soft); }
+
+    /* DEADLINE BANNER */
+    .deadline-banner { background: var(--warning); border-bottom: 2px solid var(--warning-border); padding: 14px 0; }
+    .deadline-banner-inner { max-width: 1100px; margin: 0 auto; padding: 0 32px; display: flex; align-items: center; gap: 12px; }
+    .deadline-icon { font-size: 18px; flex-shrink: 0; }
+    .deadline-text { font-size: 14px; font-weight: 600; color: var(--warning-text); line-height: 1.5; }
+    .deadline-text strong { font-weight: 800; }
+
+    /* ARTICLE LAYOUT */
+    .article-wrap { max-width: 1100px; margin: 0 auto; padding: 48px 32px 80px; display: grid; grid-template-columns: 1fr 240px; gap: 64px; align-items: start; }
+
+    /* ARTICLE BODY */
+    .article-body h2 { font-size: 26px; font-weight: 600; letter-spacing: -0.025em; color: var(--ink); line-height: 1.15; margin: 48px 0 16px; padding-top: 48px; border-top: 1px solid var(--line); }
+    .article-body h2:first-child { margin-top: 0; padding-top: 0; border-top: none; }
+    .article-body h3 { font-size: 16px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--ink); margin: 28px 0 10px; }
+    .article-body p { font-size: 16.5px; color: var(--slate); line-height: 1.78; margin-bottom: 18px; }
+    .article-body p:last-child { margin-bottom: 0; }
+    .article-body strong { font-weight: 600; color: var(--ink); }
+    .article-body code { font-family: 'Courier New', monospace; font-size: 13.5px; background: var(--bg-soft); border: 1px solid var(--line); border-radius: 4px; padding: 2px 6px; color: var(--ink-soft); }
+    .article-body ul, .article-body ol { margin: 12px 0 20px 20px; }
+    .article-body li { font-size: 16px; color: var(--slate); line-height: 1.72; margin-bottom: 8px; padding-left: 6px; }
+    .article-body a { color: var(--accent-hover); text-decoration: underline; text-decoration-color: rgba(40,176,106,0.35); transition: text-decoration-color 0.2s; }
+    .article-body a:hover { text-decoration-color: var(--accent-hover); }
+
+    /* Callout */
+    .callout { background: var(--accent-dim); border: 1px solid rgba(40,176,106,0.2); border-left: 3px solid var(--accent-hover); border-radius: 10px; padding: 20px 24px; margin: 28px 0; }
+    .callout p { font-size: 16px; font-weight: 500; line-height: 1.62; color: var(--ink); letter-spacing: -0.01em; margin-bottom: 0; }
+
+    /* Warning callout */
+    .callout-warning { background: var(--warning); border: 1px solid rgba(245,158,11,0.3); border-left: 3px solid var(--warning-border); border-radius: 10px; padding: 20px 24px; margin: 28px 0; }
+    .callout-warning p { font-size: 16px; font-weight: 500; line-height: 1.62; color: var(--warning-text); letter-spacing: -0.01em; margin-bottom: 0; }
+
+    /* Insight box */
+    .insight-box { background: var(--ink); border-radius: 12px; padding: 28px 32px; margin: 28px 0; }
+    .insight-box-label { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+    .insight-box p { font-size: 15px; color: rgba(240,237,230,0.7); line-height: 1.72; margin-bottom: 0; }
+
+    /* Implementation method cards */
+    .method-grid { display: grid; grid-template-columns: 1fr; gap: 10px; margin: 20px 0 28px; }
+    .method-card { background: var(--bg-soft); border: 1px solid var(--line); border-radius: 12px; padding: 24px; border-left: 3px solid var(--accent-hover); }
+    .method-num { font-family: 'Instrument Serif', serif; font-style: italic; font-size: 28px; color: var(--accent-hover); line-height: 1; margin-bottom: 8px; opacity: 0.7; }
+    .method-title { font-size: 18px; font-weight: 600; letter-spacing: -0.02em; color: var(--ink); margin-bottom: 8px; }
+    .method-tag { display: inline-flex; padding: 3px 10px; background: var(--accent-dim); border-radius: 999px; font-size: 10.5px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent-hover); margin-bottom: 10px; }
+    .method-card p { font-size: 15px; color: var(--slate); line-height: 1.68; margin-bottom: 8px; }
+    .method-card p:last-child { margin-bottom: 0; }
+    .method-detail { font-size: 13px; font-weight: 600; color: var(--ink); margin-top: 10px; }
+
+    /* Dashboard metrics strip */
+    .metrics-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 20px 0 28px; }
+    .metric-card { background: var(--ink); border-radius: 12px; padding: 22px; text-align: center; }
+    .metric-num { font-family: 'Instrument Serif', serif; font-style: italic; font-size: 36px; color: var(--accent); line-height: 1; margin-bottom: 8px; }
+    .metric-label { font-size: 13px; font-weight: 500; color: rgba(240,237,230,0.6); letter-spacing: 0.04em; text-transform: uppercase; line-height: 1.4; }
+
+    /* SIDEBAR */
+    .article-sidebar { position: sticky; top: 88px; display: flex; flex-direction: column; gap: 16px; }
+    .toc { background: var(--bg-soft); border: 1px solid var(--line); border-radius: 12px; padding: 20px; }
+    .toc-label { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--slate); margin-bottom: 14px; }
+    .toc-list { list-style: none; display: flex; flex-direction: column; gap: 2px; }
+    .toc-list a { font-size: 13.5px; font-weight: 500; color: var(--slate); text-decoration: none; transition: color 0.2s; display: block; line-height: 1.5; padding: 4px 0; border-bottom: 1px solid var(--line); }
+    .toc-list li:last-child a { border-bottom: none; }
+    .toc-list a:hover { color: var(--accent-hover); }
+    .sidebar-deadline { background: var(--warning); border: 1px solid rgba(245,158,11,0.4); border-radius: 12px; padding: 18px; }
+    .sidebar-deadline-label { font-size: 10.5px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--warning-text); margin-bottom: 6px; }
+    .sidebar-deadline-date { font-size: 22px; font-weight: 800; color: var(--warning-text); margin-bottom: 6px; letter-spacing: -0.02em; }
+    .sidebar-deadline p { font-size: 12.5px; color: var(--warning-text); line-height: 1.55; }
+    .sidebar-cta { background: var(--ink); border-radius: 12px; padding: 22px; position: relative; overflow: hidden; }
+    .sidebar-cta::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 80% 70% at 90% 10%, rgba(61,220,132,0.12), transparent 65%); pointer-events: none; }
+    .sidebar-cta-inner { position: relative; }
+    .sidebar-cta-label { font-size: 10.5px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 6px; }
+    .sidebar-cta-title { font-size: 17px; font-weight: 600; letter-spacing: -0.02em; color: var(--bg); line-height: 1.2; margin-bottom: 10px; }
+    .sidebar-cta p { font-size: 13px; color: rgba(240,237,230,0.6); line-height: 1.65; margin-bottom: 16px; }
+    .sidebar-btn { font-family: 'Onest', sans-serif; font-weight: 700; font-size: 13px; color: var(--ink); background: var(--accent); padding: 10px 16px; text-decoration: none; display: block; text-align: center; border-radius: 999px; transition: background 0.2s; }
+    .sidebar-btn:hover { background: var(--accent-hover); color: white; }
+
+    /* RELATED */
+    .related { border-top: 1px solid var(--line); padding: 56px 0; }
+    .related-inner { max-width: 1100px; margin: 0 auto; padding: 0 32px; }
+    .section-eyebrow { font-size: 12.5px; color: var(--slate); letter-spacing: 0.09em; text-transform: uppercase; font-weight: 600; position: relative; padding-left: 22px; margin-bottom: 32px; display: inline-block; }
+    .section-eyebrow::before { content: ''; position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 14px; height: 1px; background: var(--accent-hover); }
+    .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .related-card { background: var(--bg-soft); border: 1px solid var(--line); border-radius: 14px; padding: 24px; text-decoration: none; display: block; position: relative; overflow: hidden; transition: all 0.3s; }
+    .related-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform 0.35s ease; }
+    .related-card:hover { border-color: var(--ink); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(17,17,17,0.07); }
+    .related-card:hover::before { transform: scaleX(1); }
+    .related-tag { display: inline-flex; align-items: center; padding: 3px 10px; background: var(--accent-dim); border-radius: 999px; font-size: 10.5px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent-hover); margin-bottom: 12px; }
+    .related-title { font-size: 17px; font-weight: 600; letter-spacing: -0.02em; color: var(--ink); line-height: 1.3; margin-bottom: 10px; }
+    .related-excerpt { font-size: 14px; color: var(--slate); line-height: 1.65; }
+
+    /* BOTTOM CTA */
+    .bottom-cta { background: var(--ink); overflow: hidden; position: relative; padding: 80px 0; }
+    .bottom-cta::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 90% at 75% 50%, rgba(61,220,132,0.09), transparent 65%); }
+    .bottom-cta-inner { position: relative; display: grid; grid-template-columns: 1fr auto; gap: 64px; align-items: center; }
+    .bottom-cta-title { font-size: clamp(26px, 3.8vw, 48px); font-weight: 500; line-height: 1.0; letter-spacing: -0.03em; color: var(--bg); margin-bottom: 14px; }
+    .bottom-cta-title em { font-family: 'Instrument Serif', serif; font-style: italic; color: var(--accent); font-weight: 400; }
+    .bottom-cta p { font-size: 16px; color: rgba(240,237,230,0.65); max-width: 500px; line-height: 1.68; }
+    .cta-actions { display: flex; flex-direction: column; gap: 12px; min-width: 230px; }
+
+    /* FOOTER */
+    .footer { background: var(--footer-bg); color: var(--footer-text); padding: 80px 0 32px; }
+    .footer-top { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 60px; padding-bottom: 56px; border-bottom: 1px solid rgba(255,255,255,0.07); }
+    .footer-logo { text-decoration: none; display: block; margin-bottom: 20px; }
+    .footer-logo img { height: 96px; width: auto; display: block; filter: brightness(0) invert(1); }
+    .footer-tagline { font-size: 14.5px; line-height: 1.65; color: var(--footer-text); max-width: 340px; margin-bottom: 28px; }
+    .footer-icons { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+    .footer-aws-link { display: inline-block; transition: opacity 0.2s; }
+    .footer-aws-link img { height: 52px; width: auto; display: block; }
+    .footer-aws-link:hover { opacity: 0.6; }
+    .footer-linkedin-icon { display: inline-block; text-decoration: none; }
+    .footer-linkedin-icon img { height: 28px; width: auto; display: block; }
+    .footer-linkedin-icon .li-default { display: block; }
+    .footer-linkedin-icon .li-hover { display: none; }
+    .footer-linkedin-icon:hover .li-default { display: none; }
+    .footer-linkedin-icon:hover .li-hover { display: block; }
+    .footer-col h4 { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: white; font-weight: 700; margin-bottom: 18px; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 11px; }
+    .footer-col a { color: var(--footer-text); text-decoration: none; font-size: 14px; transition: color 0.2s; }
+    .footer-col a:hover { color: white; }
+    .footer-bottom { padding-top: 28px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--slate-light); flex-wrap: wrap; gap: 14px; }
+    .footer-legal { display: flex; gap: 22px; }
+    .footer-legal a { color: var(--slate-light); text-decoration: none; transition: color 0.2s; }
+    .footer-legal a:hover { color: white; }
+
+    @media (max-width: 1024px) {
+      .article-wrap { grid-template-columns: 1fr; gap: 48px; }
+      .article-sidebar { position: static; }
+      .bottom-cta-inner { grid-template-columns: 1fr; gap: 32px; }
+      .related-grid { grid-template-columns: 1fr; }
+      .metrics-strip { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 36px; }
+    }
+    @media (max-width: 700px) {
+      .nav-links { display: none; }
+      .nav-email { display: none; }
+      .footer-top { grid-template-columns: 1fr; }
+      .container { padding: 0 20px; }
+      .article-hero-inner, .breadcrumb, .article-wrap, .related-inner, .bottom-cta-inner, .deadline-banner-inner { padding-left: 20px; padding-right: 20px; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a class="logo" href="/"><img src="/grnmrk-banner-2026-transparent-background.png" alt="Grnmrk Group"></a>
+      <ul class="nav-links">
+        <li class="nav-item has-dropdown">
+          <a href="/services">Services</a>
+          <div class="nav-dropdown"><div class="nav-dropdown-inner">
+            <a href="/services">Services Overview</a>
+            <a href="/services/aws-marketplace">AWS Marketplace</a>
+            <a href="/services/managed-operations">Managed Operations</a>
+            <a href="/services/strategy-consulting">Strategy Consulting</a>
+            <a href="/services/fractional-alliances-leader">Fractional Alliances Leader</a>
+            <a href="/services/partner-revenue-generation">Revenue Generation</a>
+            <a href="/services/foundational-technical-review">FTR Preparation</a>
+            <a href="/services/fractional-pdm">Fractional PDM</a>
+          </div></div>
+        </li>
+        <li><a href="/pricing">Pricing</a></li>
+        <li class="nav-item has-dropdown">
+          <a href="/company/about">Company</a>
+          <div class="nav-dropdown"><div class="nav-dropdown-inner">
+            <a href="/company/about">About</a>
+            <a href="/company/case-studies">Case Studies</a>
+            <a href="/company/contact">Contact</a>
+            <a href="/company/partners">Partners</a>
+            <a href="/company/careers">Careers</a>
+            <a href="/blogs">Blog</a>
+          </div></div>
+        </li>
+        <li class="nav-item has-dropdown">
+          <a href="/resources">Resources</a>
+          <div class="nav-dropdown"><div class="nav-dropdown-inner">
+            <a href="/resources/aws-map-funding-checklist">MAP Funding Checklist</a>
+            <a href="/resources/aws-mdf-funding-checklist">MDF Funding Checklist</a>
+            <a href="/resources/aws-ftr-checklist">FTR Checklist</a>
+            <a href="/resources/aws-marketplace-gtm-readiness-guide">Marketplace GTM Guide</a>
+            <a href="/resources/aws-co-sell-playbook">Co-Sell Playbook</a>
+            <a href="/resources/crm-apn-integration-guide">CRM to APN Integration Guide</a>
+          </div></div>
+        </li>
+        <li><a href="/company/contact">Contact</a></li>
+      </ul>
+      <div class="nav-cta-group">
+        <a class="nav-email" href="mailto:hello@grnmrk.com">hello@grnmrk.com</a>
+        <a class="btn btn-primary" href="https://calendly.com/grnmrk/30-min-consultation" target="_blank" rel="noopener noreferrer">Book a Call <span class="btn-arrow">&#8594;</span></a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- DEADLINE BANNER -->
+  <div class="deadline-banner">
+    <div class="deadline-banner-inner">
+      <div class="deadline-icon">&#9888;&#65039;</div>
+      <p class="deadline-text"><strong>July 31, 2026 deadline:</strong> Partners who have not implemented Partner Revenue Measurement by this date will lose access to new AWS Partner Funding Portal (APFP) fund requests. Starting January 1, 2027, PRM will be required for all partner funding benefits.</p>
+    </div>
+  </div>
+
+  <!-- ARTICLE HERO -->
+  <div class="article-hero">
+    <div class="article-hero-inner">
+      <div class="article-meta">
+        <span class="article-tag">Partner Ops</span>
+        <span class="article-tag-new">New</span>
+        <span class="article-dot">&middot;</span>
+        <span class="article-read-time">9 min read</span>
+      </div>
+      <h1 class="article-title">AWS Attributed Revenue Dashboard: What It Is and Why It <em>Changes How AWS Measures You</em></h1>
+      <p class="article-deck">Published April 2026. AWS launched the Attributed Revenue Dashboard inside Partner Central, giving partners self-service visibility into the AWS consumption their products drive. This is not a cosmetic update. It is a shift in how AWS measures partner value, and it has a funding deadline attached.</p>
+    </div>
+  </div>
+
+  <!-- BREADCRUMB -->
+  <div class="breadcrumb-wrap">
+    <div class="breadcrumb">
+      <a href="/">Home</a>
+      <span class="breadcrumb-sep">&#8594;</span>
+      <a href="/blogs">Blog</a>
+      <span class="breadcrumb-sep">&#8594;</span>
+      <span class="breadcrumb-current">AWS Attributed Revenue Dashboard</span>
+    </div>
+  </div>
+
+  <!-- ARTICLE -->
+  <div class="article-wrap">
+    <article class="article-body">
+
+      <h2 id="what-it-is">What the Attributed Revenue Dashboard Is</h2>
+
+      <p>AWS launched the <a href="https://aws.amazon.com/blogs/apn/unlock-revenue-insights-in-the-new-attributed-revenue-dashboard/" target="_blank" rel="noopener noreferrer">Attributed Revenue Dashboard</a> inside Partner Central in April 2026 as the visible layer on top of a broader initiative called Partner Revenue Measurement (PRM). The short version: AWS now has a way to automatically track the AWS consumption that your product drives across customer accounts, and partners can see that data themselves through a new dashboard in Partner Analytics.</p>
+
+      <p>Before this, partner impact was largely self-reported or estimated. A partner would tell their PDM that their product drives significant AWS ARR, and the PDM would factor that in. Now AWS measures it directly. The dashboard shows monthly attributed revenue by product, AWS service, and billing period, pulling together data from all three PRM implementation methods in a single view.</p>
+
+      <div class="callout">
+        <p>Partner Revenue Measurement is now how AWS measures partnership success across partner programs and benefits, creating a direct line between partner impact and AWS investment. What the dashboard shows is increasingly what drives funding decisions, co-sell prioritization, and tier assessments, not what you tell your PDM.</p>
+      </div>
+
+      <h2 id="the-dashboard">What the Dashboard Shows</h2>
+
+      <p>Once you have implemented Partner Revenue Measurement and migrated to the new Partner Central console experience (PC 3.0), the Attributed Revenue Dashboard is accessible through Partner Analytics. It provides three headline metrics at the top of the page:</p>
+
+      <div class="metrics-strip">
+        <div class="metric-card">
+          <div class="metric-num">01</div>
+          <div class="metric-label">Products Measured</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-num">02</div>
+          <div class="metric-label">AWS Services Measured</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-num">03</div>
+          <div class="metric-label">Total Attributed Revenue</div>
+        </div>
+      </div>
+
+      <p>Below those metrics, the dashboard provides three views: month-over-month attributed revenue by product, revenue broken down by AWS service (so you can see which services your product is driving), and a detailed table showing revenue by product, AWS service, and billing month.</p>
+
+      <p>A few important constraints worth knowing: revenue data is refreshed monthly and reflects the prior billing month's consumption. Revenue is only shown when a product reaches a minimum threshold of unique customer accounts in a given month. If volume drops below that threshold in any month, no data is displayed for that period. And critically, AWS only shows aggregated data: no individual customer names, account IDs, or per-customer revenue figures are ever surfaced.</p>
+
+      <p>Partners with multiple AWS Marketplace seller accounts can connect subsidiary accounts to see aggregated revenue across their full product portfolio in a single view.</p>
+
+      <h2 id="three-methods">The Three Implementation Methods</h2>
+
+      <p>Partner Revenue Measurement is implemented through one of three methods, or a combination of them depending on your product architecture. The right method depends on how your product is built and how it interacts with AWS services.</p>
+
+      <div class="method-grid">
+
+        <div class="method-card">
+          <div class="method-num">01</div>
+          <div class="method-tag">Any Product Type</div>
+          <div class="method-title">Resource Tagging</div>
+          <p>You apply standardized tags to AWS resources using the product code from your AWS Marketplace listing. When tagged resources generate AWS consumption, that consumption is attributed to your product. Revenue attribution continues until the tag is removed or the resource is terminated.</p>
+          <p class="method-detail">Good for: Partners whose product provisions or manages AWS resources in customer or partner accounts. Works across most AWS services.</p>
+        </div>
+
+        <div class="method-card">
+          <div class="method-num">02</div>
+          <div class="method-tag">API and SDK Calls</div>
+          <div class="method-title">User Agent String</div>
+          <p>You embed a unique product code in your application's AWS SDK configuration as a user agent string, using the format <code>APN_1.1/pc_&lt;YOUR-PRODUCT-CODE&gt;$</code>. When your application makes AWS API calls, the user agent identifies them as driven by your product.</p>
+          <p class="method-detail">Good for: SaaS products that make AWS API calls on behalf of customers. Can be implemented by updating application code directly or setting an environment variable, with no changes to individual API calls.</p>
+        </div>
+
+        <div class="method-card">
+          <div class="method-num">03</div>
+          <div class="method-tag">AMI and ML Products</div>
+          <div class="method-title">AWS Marketplace Metering</div>
+          <p>For partners with AMI or ML products listed on AWS Marketplace, EC2 and SageMaker consumption is automatically measured when customers purchase through Marketplace. No additional implementation is required beyond the standard Marketplace listing setup.</p>
+          <p class="method-detail">Good for: Partners with AMI or SageMaker products already listed on AWS Marketplace. This is the lowest-effort option if it applies to your product type. You can also combine this method with Resource Tagging or User Agent String for broader attribution coverage.</p>
+        </div>
+
+      </div>
+
+      <div class="insight-box">
+        <div class="insight-box-label">Implementation Note</div>
+        <p>You can implement multiple methods simultaneously. For example, an AMI product can use AWS Marketplace Metering for EC2 attribution and User Agent String for attribution on additional AWS services the product uses beyond EC2. AWS recommends instrumenting PRM on all AWS services and resources your solution consumes, not just the primary ones.</p>
+      </div>
+
+      <h2 id="prerequisites">What You Need Before You Can Access the Dashboard</h2>
+
+      <p>The dashboard is not available to every partner by default. Three things need to be in place before you can see any data:</p>
+
+      <ul>
+        <li><strong>Partner Central console migration (PC 3.0):</strong> You must be on the new AWS Partner Central experience, not the legacy console. If you have not migrated, this is the first step.</li>
+        <li><strong>A public AWS Marketplace listing:</strong> Your product code, which drives the revenue attribution, comes from your Marketplace listing. Without a listing, there is no product code to track.</li>
+        <li><strong>AWS account linked to Partner Central:</strong> Your AWS account must be linked to your Partner Central account. This is the same account linking requirement that gates ACE eligibility and APN fee billing.</li>
+      </ul>
+
+      <p>Once those three elements are in place, implement at least one of the three PRM methods for your product. Revenue data will begin appearing in the dashboard the following month, reflecting the previous billing period's consumption.</p>
+
+      <h2 id="the-deadline">The Deadline That Changes the Urgency</h2>
+
+      <div class="callout-warning">
+        <p><strong>July 31, 2026:</strong> Access to new fund requests inside the AWS Partner Funding Portal (APFP) is contingent on PRM implementation by this date. Starting January 1, 2027, Partner Revenue Measurement will be the foundation for all partner funding benefits, including co-sell incentives. Partners who have not implemented PRM before these dates will be blocked from new funding requests and will lose access to funding benefits that depend on accurate revenue attribution.</p>
+      </div>
+
+      <p>This is not a soft recommendation. It is a hard cutoff tied directly to APFP access and MDF eligibility. If you have been deferring PRM implementation because it felt optional, that calculation changes on July 31, 2026.</p>
+
+      <p>The practical timeline: PRM takes time to implement and validate, and revenue data only shows monthly. If you implement in late July, you will have data from August onward, but your July 31 compliance status is what gates APFP access. Getting started now gives you time to implement, verify the tracking is working, and have data in the dashboard before the deadline arrives.</p>
+
+      <h2 id="why-it-matters">Why This Changes How AWS Measures Partner Value</h2>
+
+      <p>The deeper shift here is not the dashboard itself. It is the underlying philosophy it represents.</p>
+
+      <p>Previously, a lot of partner impact was self-reported or inferred. PDMs had a general sense of which partners were driving AWS ARR, but the data was indirect, often based on ACE pipeline and anecdotal customer conversations. Partners who were doing meaningful work but had not built strong PDM relationships were underrepresented in AWS's internal view of their value.</p>
+
+      <p>Partner Revenue Measurement changes that. It creates a direct, automated measurement of the AWS consumption your product is driving across customer accounts. Your PDM can see it. The funding team can see it. The field reps evaluating whether to bring you into a co-sell deal can see it. The data speaks for your program without requiring you to narrate it in every conversation.</p>
+
+      <p>The partners who are most at risk are those with real Marketplace traction who have not implemented PRM. Their impact is real, but it is invisible to AWS's measurement system. When funding decisions get made or tier advancement is reviewed, the dashboard shows nothing, and that gap will increasingly be interpreted as low partner impact rather than a measurement gap.</p>
+
+      <div class="insight-box">
+        <div class="insight-box-label">What This Means for Your PDM Relationship</div>
+        <p>Your PDM can now see the Attributed Revenue Dashboard too. Partners who have implemented PRM come into PDM conversations with data already visible: the dashboard shows which products are driving AWS consumption, which services are being used, and how that has trended over time. Partners who have not implemented PRM show up to those same conversations with nothing to point to. The disparity will compound as AWS leans harder on PRM data for program decisions in 2027 and beyond.</p>
+      </div>
+
+      <h2 id="what-to-do">What to Do Right Now</h2>
+
+      <p>If you have a Marketplace listing and have not implemented PRM, the sequencing is straightforward:</p>
+
+      <ol>
+        <li><strong>Confirm your Partner Central console migration.</strong> If you are still on the legacy console, migrating to PC 3.0 is the first prerequisite. This also unlocks ACE API access and the new account linking requirements.</li>
+        <li><strong>Link your AWS account to Partner Central</strong> if you have not already done this. This is the same account linking step required for ACE eligibility and the Marketplace-to-Partner-Central connection.</li>
+        <li><strong>Get your product code from AWS Marketplace Management Portal.</strong> This is the identifier that drives all three PRM implementation methods.</li>
+        <li><strong>Choose your implementation method</strong> based on how your product is architected. AMI/SageMaker products on Marketplace get AWS Marketplace Metering for free. SaaS products typically use User Agent String or Resource Tagging depending on whether your product makes direct API calls or provisions AWS resources.</li>
+        <li><strong>Implement and verify.</strong> Revenue data appears the month after implementation. Confirm the tracking is active in the dashboard before the July 31 deadline.</li>
+      </ol>
+
+      <p>If you are a Grnmrk managed operations client with a Marketplace listing, this is on our radar. Reach out if you want to walk through implementation status and confirm what needs to be done before the deadline.</p>
+
+      <h2 id="bottom-line">The Bottom Line</h2>
+
+      <p>The Attributed Revenue Dashboard is one part of a larger shift in how AWS defines and measures partner value. The manual, self-reported world of partner impact is being replaced by automated measurement tied directly to AWS consumption. Partners who get ahead of this come into every PDM conversation, every funding application, and every tier review with data that speaks for them.</p>
+
+      <p>Partners who do not implement PRM by July 31, 2026 lose APFP funding access. Partners who do not implement it by January 1, 2027 lose access to co-sell incentives and funding benefits that depend on revenue attribution. The window to do this before it becomes urgent is closing.</p>
+
+      <p>If you want help working through PRM implementation or understanding how it connects to your broader AWS partner program, <a href="/company/contact">reach out to Grnmrk Group</a>. This is exactly the kind of operational work we manage for clients who want their AWS relationship to reflect what they are doing.</p>
+
+    </article>
+
+    <aside class="article-sidebar">
+      <div class="toc">
+        <div class="toc-label">In This Article</div>
+        <ul class="toc-list">
+          <li><a href="#what-it-is">What the Dashboard Is</a></li>
+          <li><a href="#the-dashboard">What It Shows</a></li>
+          <li><a href="#three-methods">The Three Implementation Methods</a></li>
+          <li><a href="#prerequisites">Prerequisites</a></li>
+          <li><a href="#the-deadline">The Deadline</a></li>
+          <li><a href="#why-it-matters">Why This Matters</a></li>
+          <li><a href="#what-to-do">What to Do Now</a></li>
+          <li><a href="#bottom-line">The Bottom Line</a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-deadline">
+        <div class="sidebar-deadline-label">Funding Deadline</div>
+        <div class="sidebar-deadline-date">Jul 31, 2026</div>
+        <p>PRM must be implemented by this date to retain access to new APFP fund requests. January 1, 2027 is the broader benefits deadline.</p>
+      </div>
+
+      <div class="sidebar-cta">
+        <div class="sidebar-cta-inner">
+          <div class="sidebar-cta-label">Need Help?</div>
+          <div class="sidebar-cta-title">We Handle PRM Implementation</div>
+          <p>We work through PRM setup, Marketplace account linking, and Partner Central migration for managed operations clients. Talk to us before the deadline.</p>
+          <a class="sidebar-btn" href="https://calendly.com/grnmrk/30-min-consultation" target="_blank" rel="noopener noreferrer">Book a Free Call</a>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <!-- RELATED -->
+  <div class="related">
+    <div class="related-inner">
+      <div class="section-eyebrow">Keep Reading</div>
+      <div class="related-grid">
+        <a class="related-card" href="/blogs/aws-isv-accelerate-new-benefits">
+          <div class="related-tag">SaaS Co-sell Benefit</div>
+          <div class="related-title">AWS SaaS Co-sell Benefit Got Better</div>
+          <p class="related-excerpt">The $25K MDF benefit for newly enrolled partners requires Partner Revenue Measurement as a prerequisite. Here is what changed.</p>
+        </a>
+        <a class="related-card" href="/blogs/aws-ace-pipeline-management-guide">
+          <div class="related-tag">ACE Pipeline</div>
+          <div class="related-title">The Complete Guide to AWS ACE Pipeline Management</div>
+          <p class="related-excerpt">ACE pipeline and PRM are both part of how AWS evaluates your co-sell program. Here is how to manage ACE so the picture is complete.</p>
+        </a>
+        <a class="related-card" href="/blogs/aws-mdf-funding-how-to-apply">
+          <div class="related-tag">Funding</div>
+          <div class="related-title">AWS MDF Funding: How to Apply and Get Approved</div>
+          <p class="related-excerpt">PRM is increasingly a factor in MDF eligibility. Here is how to build an application that gets approved.</p>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- BOTTOM CTA -->
+  <div class="bottom-cta">
+    <div class="container">
+      <div class="bottom-cta-inner">
+        <div>
+          <h2 class="bottom-cta-title">Need to implement PRM <em>before the deadline?</em></h2>
+          <p>We help AWS partners work through Partner Revenue Measurement setup, Partner Central migration, Marketplace account linking, and the operational work that keeps your program visible to AWS. July 31 is closer than it looks.</p>
+        </div>
+        <div class="cta-actions">
+          <a class="btn btn-accent" href="https://calendly.com/grnmrk/30-min-consultation" target="_blank" rel="noopener noreferrer">Book a Free Strategy Call <span class="btn-arrow">&#8594;</span></a>
+          <a class="btn btn-ghost-light" href="/services">View All Services</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <a class="footer-logo" href="/"><img src="/grnmrk-banner-2026-transparent-background.png" alt="Grnmrk Group"></a>
+          <p class="footer-tagline">Grnmrk Group runs AWS partner programs for ISVs, MSPs, and channel partners, delivering pipeline, funding, and Marketplace revenue.</p>
+          <div class="footer-icons">
+            <a class="footer-aws-link" href="https://aws.amazon.com/marketplace/" target="_blank" rel="noopener noreferrer" aria-label="AWS Partner Network"><img src="/aws-logo_copy.png" alt="AWS Partner"></a>
+            <a class="footer-linkedin-icon" href="https://www.linkedin.com/company/grnmrk-group/" target="_blank" rel="noopener noreferrer" aria-label="Grnmrk Group on LinkedIn">
+              <img class="li-default" src="/LinkedIn_Symbol_1.png" alt="LinkedIn">
+              <img class="li-hover" src="/LinkedIn_Symbol_1 copy.png" alt="LinkedIn">
+            </a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="/services">Services Overview</a></li>
+            <li><a href="/services/managed-operations">Managed Operations</a></li>
+            <li><a href="/services/strategy-consulting">Strategy Consulting</a></li>
+            <li><a href="/services/aws-marketplace">AWS Marketplace</a></li>
+            <li><a href="/services/fractional-alliances-leader">Fractional Alliances Leader</a></li>
+            <li><a href="/services/partner-revenue-generation">Revenue Generation</a></li>
+            <li><a href="/services/foundational-technical-review">FTR Preparation</a></li>
+            <li><a href="/services/fractional-pdm">Fractional PDM</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="/pricing">Pricing</a></li>
+            <li><a href="/company/case-studies">Case Studies</a></li>
+            <li><a href="/company/about">About</a></li>
+            <li><a href="/company/contact">Contact</a></li>
+            <li><a href="/company/partners">Partners</a></li>
+            <li><a href="/company/careers">Careers</a></li>
+            <li><a href="/blogs">Blog</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="/resources/aws-map-funding-checklist">MAP Funding Checklist</a></li>
+            <li><a href="/resources/aws-mdf-funding-checklist">MDF Funding Checklist</a></li>
+            <li><a href="/resources/aws-ftr-checklist">FTR Checklist</a></li>
+            <li><a href="/resources/aws-marketplace-gtm-readiness-guide">Marketplace GTM Guide</a></li>
+            <li><a href="/resources/aws-co-sell-playbook">Co-Sell Playbook</a></li>
+            <li><a href="/resources/crm-apn-integration-guide">CRM to APN Integration Guide</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2025 Grnmrk Group LLC. All rights reserved.</span>
+        <div class="footer-legal">
+          <a href="/terms">Terms of Service</a>
+          <a href="/privacy">Privacy Policy</a>
+          <a href="https://www.linkedin.com/company/grnmrk-group/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

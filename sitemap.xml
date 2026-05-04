@@ -150,8 +150,16 @@
     <priority>0.8</priority>
   </url>
 
-<url>
-    <loc>https://www.grnmrk.com/blog/crm-apn-integration-guide/</loc>
+  <url>
+      <loc>https://www.grnmrk.com/blog/crm-apn-integration-guide/</loc>
+      <lastmod>2025-04-15</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+    </url>
+
+
+  <url>
+    <loc>https://www.grnmrk.com/blog/aws-partner-attributed-revenue-dashboard/</loc>
     <lastmod>2025-04-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

@@ -232,6 +232,13 @@
     <priority>0.5</priority>
   </url>
 
+  <url>
+    <loc>https://www.grnmrk.com/resources/alliances-business-playbook</loc>
+    <lastmod>2025-04-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
   <!-- ── LEGAL ─────────────────────────────────────────────────────── -->
 
   <url>

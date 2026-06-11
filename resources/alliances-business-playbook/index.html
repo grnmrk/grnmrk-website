@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- ============================================================
+       META & SEO
+  ============================================================ -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AWS Alliances Program Business Playbook — Free Resource | Grnmrk Group</title>
+  <meta name="description" content="Free playbook: the complete operational guide to running a high-performing AWS alliances program. ACE pipeline, MAP/MDF funding, co-sell motions, tier advancement, and Marketplace GTM — all in one resource.">
+  <meta name="keywords" content="AWS alliances playbook, AWS partner program guide, AWS co-sell playbook, AWS partner operations, AWS ISV alliances, AWS channel partner playbook, AWS MAP MDF funding guide, AWS ACE pipeline management">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Grnmrk Group">
+  <link rel="canonical" href="https://www.grnmrk.com/resources/aws-alliances-playbook">
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+
+  <meta property="og:title" content="AWS Alliances Program Business Playbook — Grnmrk Group">
+  <meta property="og:description" content="The complete operational guide to running a high-performing AWS alliances program. Free resource from Grnmrk Group.">
+  <meta property="og:url" content="https://www.grnmrk.com/resources/aws-alliances-playbook">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Grnmrk Group">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AWS Alliances Program Business Playbook — Grnmrk Group">
+  <meta name="twitter:description" content="The complete operational guide to running a high-performing AWS alliances program. Free from Grnmrk Group.">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "AWS Alliances Program Business Playbook",
+    "description": "The complete operational guide to running a high-performing AWS alliances program — covering ACE pipeline management, MAP and MDF funding, co-sell motions, tier advancement, and Marketplace GTM.",
+    "url": "https://www.grnmrk.com/resources/aws-alliances-playbook",
+    "provider": { "@type": "Organization", "name": "Grnmrk Group", "url": "https://www.grnmrk.com" }
+  }
+  </script>
+
+  <!-- ============================================================
+       ASSETS
+  ============================================================ -->
+  <link rel="icon" type="image/png" href="/favicon-transparent.png">
+  <link rel="apple-touch-icon" href="/favicon-transparent.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+
+  <!-- Crisp Chat -->
+  <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="f635b745-e538-474c-a47f-3e1f4466424c";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
+
+  <!-- ============================================================
+       STYLES
+  ============================================================ -->
+  <style>
+
+    :root {
+      --bg:           #F0EDE6;
+      --bg-soft:      #E8E4DC;
+      --ink:          #111111;
+      --ink-soft:     #2A2A2A;
+      --slate:        #7A7369;
+      --slate-light:  #A09890;
+      --line:         #D8D4CC;
+      --accent:       #3DDC84;
+      --accent-hover: #28B06A;
+      --accent-dim:   #D4F5E5;
+      --footer-bg:    #0D0D0D;
+      --footer-text:  #9A9490;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Onest', -apple-system, sans-serif;
+      background: var(--bg); color: var(--ink);
+      font-weight: 400; line-height: 1.55;
+      -webkit-font-smoothing: antialiased; overflow-x: hidden;
+    }
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 32px; }
+
+    /* NAV */
+    .nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(240,237,230,0.88);
+      backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      height: 72px; padding: 0 32px;
+      max-width: 1280px; margin: 0 auto;
+    }
+    .logo { text-decoration: none; display: flex; align-items: center; }
+    .logo img { height: 96px; width: auto; display: block; }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a { color: var(--ink); text-decoration: none; font-size: 14.5px; font-weight: 500; display: flex; align-items: center; gap: 4px; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--accent-hover); }
+    .nav-item { position: relative; }
+    .nav-dropdown { display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); padding-top: 8px; background: transparent; z-index: 200; }
+    .nav-dropdown-inner { background: white; border: 1px solid var(--line); border-radius: 12px; box-shadow: 0 12px 40px rgba(17,17,17,0.12); min-width: 220px; padding: 8px 0; }
+    .nav-dropdown a { display: block; padding: 9px 20px; font-size: 13.5px; font-weight: 500; color: var(--slate); transition: color 0.15s, background 0.15s; white-space: nowrap; text-decoration: none; }
+    .nav-dropdown a:hover { color: var(--ink); background: var(--bg); }
+    .has-dropdown:hover .nav-dropdown { display: block; }
+    .has-dropdown > a::after { content: ' ↓'; font-size: 10px; opacity: 0.45; }
+    .nav-cta-group { display: flex; align-items: center; gap: 20px; }
+    .nav-email { color: var(--slate); text-decoration: none; font-size: 13.5px; font-weight: 500; transition: color 0.2s; }
+    .nav-email:hover { color: var(--ink); }
+
+    /* BUTTONS */
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 11px 22px; border-radius: 999px; font-size: 14px; font-weight: 600; font-family: inherit; text-decoration: none; border: none; cursor: pointer; transition: all 0.2s ease; letter-spacing: -0.01em; }
+    .btn-primary { background: var(--ink); color: var(--bg); }
+    .btn-primary:hover { background: var(--accent-hover); color: white; transform: translateY(-1px); }
+    .btn-accent { background: var(--accent); color: var(--ink); }
+    .btn-accent:hover { background: var(--accent-hover); color: white; transform: translateY(-1px); }
+    .btn-ghost-light { background: transparent; color: var(--bg); border: 1.5px solid rgba(240,237,230,0.35); }
+    .btn-ghost-light:hover { border-color: var(--accent); color: var(--accent); }
+    .btn-arrow { display: inline-block; transition: transform 0.2s; }
+    .btn:hover .btn-arrow { transform: translateX(3px); }
+
+    /* COVER */
+    .cover { background: var(--ink); padding: 64px 0 56px; position: relative; overflow: hidden; }
+    .cover::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 80% at 80% 20%, rgba(61,220,132,0.12), transparent 65%); }
+    .cover-inner { position: relative; }
+    .cover-badge { display: inline-flex; align-items: center; padding: 5px 14px; background: rgba(61,220,132,0.15); border-radius: 999px; font-size: 12px; font-weight: 700; color: var(--accent); margin-bottom: 24px; }
+    .cover-title { font-size: clamp(32px, 5vw, 60px); font-weight: 600; line-height: 1.0; letter-spacing: -0.035em; color: var(--bg); margin-bottom: 18px; }
+    .cover-title em { font-family: 'Instrument Serif', serif; font-weight: 400; font-style: italic; color: var(--accent); }
+    .cover-sub { font-size: 16.5px; color: rgba(240,237,230,0.6); max-width: 620px; line-height: 1.68; }
+
+    /* META BAND */
+    .meta-band { background: var(--accent-hover); padding: 14px 0; }
+    .meta-band-inner { display: flex; gap: 32px; flex-wrap: wrap; align-items: center; }
+    .meta-item { font-size: 12.5px; font-weight: 600; color: var(--ink); letter-spacing: 0.04em; }
+    .meta-sep { width: 1px; height: 14px; background: rgba(17,17,17,0.2); flex-shrink: 0; }
+
+    /* GATE */
+    .gate-wrap { max-width: 880px; margin: 0 auto; padding: 52px 32px 64px; }
+    .gate-intro { margin-bottom: 28px; }
+    .gate-intro p { font-size: 16px; color: var(--slate); line-height: 1.72; margin-bottom: 14px; }
+    .gate-intro strong { color: var(--ink); font-weight: 600; }
+    .preview-label { font-size: 11.5px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--slate); margin-bottom: 10px; }
+    .preview-fade { position: relative; }
+    .preview-fade::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 80px; background: linear-gradient(transparent, var(--bg)); }
+    .preview-list { list-style: none; display: flex; flex-direction: column; gap: 2px; pointer-events: none; }
+    .preview-item { background: var(--bg-soft); border: 1px solid var(--line); padding: 12px 16px; display: flex; align-items: center; gap: 12px; }
+    .preview-check { width: 16px; height: 16px; border: 1.5px solid var(--line); border-radius: 3px; flex-shrink: 0; }
+    .preview-text { font-size: 14px; color: var(--slate); }
+
+    /* FORM PANEL */
+    .form-panel { background: var(--ink); border-radius: 16px; padding: 40px; position: relative; overflow: hidden; margin-top: 32px; }
+    .form-panel::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 80% at 90% 10%, rgba(61,220,132,0.1), transparent 60%); pointer-events: none; }
+    .form-inner { position: relative; }
+    .form-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 6px; }
+    .form-title { font-size: 26px; font-weight: 600; letter-spacing: -0.025em; color: var(--bg); margin-bottom: 6px; }
+    .form-sub { font-size: 14px; color: rgba(240,237,230,0.6); line-height: 1.62; margin-bottom: 28px; max-width: 480px; }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .form-field { display: flex; flex-direction: column; gap: 5px; }
+    .form-field.full { grid-column: span 2; }
+    .form-label { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(240,237,230,0.45); }
+    .form-input { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); color: var(--bg); font-family: 'Onest', sans-serif; font-weight: 400; font-size: 14.5px; padding: 11px 14px; border-radius: 8px; outline: none; transition: border-color 0.2s; width: 100%; }
+    .form-input::placeholder { color: rgba(240,237,230,0.2); }
+    .form-input:focus { border-color: var(--accent); }
+    .form-select { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); color: rgba(240,237,230,0.7); font-family: 'Onest', sans-serif; font-weight: 400; font-size: 14.5px; padding: 11px 14px; border-radius: 8px; outline: none; transition: border-color 0.2s; width: 100%; cursor: pointer; appearance: none; }
+    .form-select:focus { border-color: var(--accent); }
+    .form-select option { background: var(--ink); color: var(--bg); }
+    .form-actions { display: flex; align-items: center; gap: 16px; margin-top: 20px; flex-wrap: wrap; }
+    .btn-submit { font-family: 'Onest', sans-serif; font-weight: 700; font-size: 14px; letter-spacing: -0.01em; color: var(--ink); background: var(--accent); padding: 12px 28px; border: none; cursor: pointer; border-radius: 999px; transition: background 0.2s, transform 0.2s; }
+    .btn-submit:hover:not(:disabled) { background: var(--accent-hover); color: white; transform: translateY(-1px); }
+    .btn-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+    .form-or { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(240,237,230,0.3); font-weight: 600; }
+    .btn-calendly { font-family: 'Onest', sans-serif; font-weight: 600; font-size: 13.5px; color: rgba(240,237,230,0.65); border: 1.5px solid rgba(240,237,230,0.2); padding: 11px 20px; text-decoration: none; border-radius: 999px; transition: border-color 0.2s, color 0.2s; }
+    .btn-calendly:hover { border-color: var(--accent); color: var(--accent); }
+    .form-privacy { font-size: 12px; color: rgba(240,237,230,0.28); margin-top: 14px; line-height: 1.5; }
+    .form-error { font-size: 12px; color: #ff6b6b; margin-top: 10px; display: none; font-weight: 500; }
+    .form-success { display: none; text-align: center; padding: 20px 0; }
+    .form-success-icon { font-size: 2.5rem; line-height: 1; margin-bottom: 10px; }
+    .form-success-title { font-size: 26px; font-weight: 600; color: var(--accent); letter-spacing: -0.025em; margin-bottom: 8px; }
+    .form-success-text { font-size: 14px; color: rgba(240,237,230,0.65); line-height: 1.65; }
+
+    /* PLAYBOOK CONTENT */
+    .playbook-content { display: none; }
+    .playbook-content.unlocked { display: block; }
+
+    .body-wrap { max-width: 880px; margin: 0 auto; padding: 48px 32px 32px; }
+
+    /* Progress */
+    .progress-wrap { background: var(--bg-soft); border: 1px solid var(--line); border-radius: 12px; padding: 16px 24px; margin-bottom: 40px; display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+    .progress-label { font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--slate); flex-shrink: 0; }
+    .progress-bar-wrap { flex: 1; min-width: 120px; height: 5px; background: var(--line); border-radius: 999px; overflow: hidden; }
+    .progress-bar { height: 100%; background: var(--accent-hover); width: 0%; transition: width 0.3s; border-radius: 999px; }
+    .progress-count { font-size: 20px; font-weight: 600; color: var(--accent-hover); letter-spacing: -0.03em; line-height: 1; flex-shrink: 0; }
+
+    /* Sections */
+    .playbook-section { margin-bottom: 40px; }
+    .section-header { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; padding-bottom: 12px; border-bottom: 2px solid var(--ink); }
+    .section-num { font-family: 'Instrument Serif', serif; font-size: 13px; color: var(--accent-hover); font-style: italic; flex-shrink: 0; }
+    .section-title { font-size: 20px; font-weight: 600; letter-spacing: -0.02em; color: var(--ink); line-height: 1; }
+    .section-note { font-size: 11.5px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--slate); margin-left: auto; flex-shrink: 0; }
+    .section-intro { font-size: 14.5px; color: var(--slate); line-height: 1.72; margin-bottom: 16px; }
+
+    /* Checklist items */
+    .checklist { list-style: none; display: flex; flex-direction: column; gap: 2px; }
+    .checklist-item { background: var(--bg-soft); border: 1px solid var(--line); border-radius: 8px; transition: background 0.2s, border-color 0.2s; }
+    .checklist-item:hover { background: white; }
+    .checklist-label { display: flex; align-items: flex-start; gap: 12px; padding: 13px 16px; cursor: pointer; }
+    .checklist-label input[type="checkbox"] { flex-shrink: 0; width: 16px; height: 16px; accent-color: var(--accent-hover); margin-top: 2px; cursor: pointer; }
+    .item-text { font-size: 14.5px; font-weight: 500; color: var(--ink); line-height: 1.5; }
+    .item-note { font-size: 13px; color: var(--slate); line-height: 1.55; margin-top: 4px; font-weight: 400; }
+    .checklist-item.checked { background: var(--accent-dim); border-color: rgba(40,176,106,0.3); }
+    .checklist-item.checked .item-text { color: var(--accent-hover); text-decoration: line-through; text-decoration-color: rgba(40,176,106,0.4); }
+
+    .tag-req { font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); background: var(--accent); padding: 2px 5px; border-radius: 3px; display: inline; margin-left: 6px; vertical-align: middle; }
+    .tag-opt { font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(240,237,230,0.7); background: var(--slate); padding: 2px 5px; border-radius: 3px; display: inline; margin-left: 6px; vertical-align: middle; }
+    .tag-quarterly { font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); background: #f0c040; padding: 2px 5px; border-radius: 3px; display: inline; margin-left: 6px; vertical-align: middle; }
+
+    /* Info / callout boxes */
+    .info-box { background: var(--ink); border-radius: 14px; padding: 32px; margin: 24px 0; }
+    .info-label { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; }
+    .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .info-card { background: rgba(255,255,255,0.04); border-radius: 8px; padding: 16px; }
+    .info-card-title { font-size: 13.5px; font-weight: 600; color: rgba(240,237,230,0.88); margin-bottom: 6px; letter-spacing: -0.01em; }
+    .info-card-text { font-size: 13px; color: rgba(240,237,230,0.5); line-height: 1.6; }
+
+    .callout-box { background: var(--accent-dim); border: 1px solid rgba(40,176,106,0.3); border-radius: 10px; padding: 20px 24px; margin: 20px 0; }
+    .callout-box p { font-size: 14px; font-weight: 500; color: var(--ink); line-height: 1.65; }
+    .callout-box strong { color: var(--accent-hover); }
+
+    /* Metrics table */
+    .metrics-table { width: 100%; border-collapse: collapse; margin: 16px 0 24px; font-size: 13.5px; }
+    .metrics-table th { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); text-align: left; padding: 10px 14px; background: var(--bg-soft); border-bottom: 2px solid var(--ink); }
+    .metrics-table td { padding: 10px 14px; font-weight: 400; color: var(--slate); border-bottom: 1px solid var(--line); vertical-align: top; line-height: 1.55; }
+    .metrics-table td:first-child { font-weight: 600; color: var(--ink); }
+    .metrics-table tr:last-child td { border-bottom: none; }
+
+    /* BOTTOM CTA */
+    .bottom-cta { background: var(--ink); position: relative; overflow: hidden; padding: 80px 0; }
+    .bottom-cta::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 90% at 75% 50%, rgba(61,220,132,0.09), transparent 65%); }
+    .bottom-cta-inner { position: relative; display: grid; grid-template-columns: 1fr auto; gap: 64px; align-items: center; }
+    .bottom-cta-title { font-size: clamp(26px, 3.6vw, 46px); font-weight: 500; line-height: 1.0; letter-spacing: -0.03em; color: var(--bg); margin-bottom: 14px; }
+    .bottom-cta-title em { font-family: 'Instrument Serif', serif; font-style: italic; color: var(--accent); font-weight: 400; }
+    .bottom-cta-text { font-size: 16px; color: rgba(240,237,230,0.65); max-width: 480px; line-height: 1.68; }
+    .bottom-cta-actions { display: flex; flex-direction: column; gap: 12px; min-width: 230px; }
+
+    /* FOOTER */
+    .footer { background: var(--footer-bg); color: var(--footer-text); padding: 80px 0 32px; }
+    .footer-top { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 60px; padding-bottom: 56px; border-bottom: 1px solid rgba(255,255,255,0.07); }
+    .footer-logo { text-decoration: none; display: block; margin-bottom: 20px; }
+    .footer-logo img { height: 96px; width: auto; display: block; filter: brightness(0) invert(1); }
+    .footer-tagline { font-size: 14.5px; line-height: 1.65; color: var(--footer-text); max-width: 340px; margin-bottom: 28px; }
+    .footer-icons { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+    .footer-aws-link { display: inline-block; transition: opacity 0.2s; }
+    .footer-aws-link img { height: 52px; width: auto; display: block; }
+    .footer-aws-link:hover { opacity: 0.6; }
+    .footer-linkedin-icon { display: inline-block; text-decoration: none; }
+    .footer-linkedin-icon img { height: 28px; width: auto; display: block; }
+    .footer-linkedin-icon .li-default { display: block; }
+    .footer-linkedin-icon .li-hover { display: none; }
+    .footer-linkedin-icon:hover .li-default { display: none; }
+    .footer-linkedin-icon:hover .li-hover { display: block; }
+    .footer-col h4 { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: white; font-weight: 700; margin-bottom: 18px; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 11px; }
+    .footer-col a { color: var(--footer-text); text-decoration: none; font-size: 14px; transition: color 0.2s; }
+    .footer-col a:hover { color: white; }
+    .footer-bottom { padding-top: 28px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--slate-light); flex-wrap: wrap; gap: 14px; }
+    .footer-legal { display: flex; gap: 22px; }
+    .footer-legal a { color: var(--slate-light); text-decoration: none; transition: color 0.2s; }
+    .footer-legal a:hover { color: white; }
+
+    @media (max-width: 1024px) {
+      .bottom-cta-inner { grid-template-columns: 1fr; gap: 32px; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 36px; }
+    }
+    @media (max-width: 700px) {
+      .nav-links { display: none; }
+      .nav-email { display: none; }
+      .form-grid { grid-template-columns: 1fr; }
+      .form-field.full { grid-column: span 1; }
+      .info-grid { grid-template-columns: 1fr; }
+      .form-actions { flex-direction: column; align-items: flex-start; }
+      .footer-top { grid-template-columns: 1fr; }
+      .container { padding: 0 20px; }
+      .gate-wrap { padding: 40px 20px 52px; }
+      .body-wrap { padding: 40px 20px 24px; }
+    }
+    @media print {
+      .gate-wrap { display: none; }
+      .playbook-content { display: block !important; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a class="logo" href="/">
+        <img src="/grnmrk-banner-2026-transparent-background.png" alt="Grnmrk Group">
+      </a>
+      <ul class="nav-links">
+        <li class="nav-item has-dropdown">
+          <a href="/services">Services</a>
+          <div class="nav-dropdown"><div class="nav-dropdown-inner">
+            <a href="/services">Services Overview</a>
+            <a href="/services/aws-marketplace">AWS Marketplace</a>
+            <a href="/services/managed-operations">Managed Operations</a>
+            <a href="/services/strategy-consulting">Strategy Consulting</a>
+            <a href="/services/fractional-alliances-leader">Fractional Alliances Leader</a>
+            <a href="/services/partner-revenue-generation">Revenue Generation</a>
+            <a href="/services/foundational-technical-review">FTR Preparation</a>
+            <a href="/services/fractional-pdm">Fractional PDM</a>
+          </div></div>
+        </li>
+        <li><a href="/pricing">Pricing</a></li>
+        <li class="nav-item has-dropdown">
+          <a href="/company/about">Company</a>
+          <div class="nav-dropdown"><div class="nav-dropdown-inner">
+            <a href="/company/about">About</a>
+            <a href="/company/case-studies">Case Studies</a>
+            <a href="/company/contact">Contact</a>
+            <a href="/company/partners">Partners</a>
+            <a href="/company/careers">Careers</a>
+            <a href="/blogs">Blog</a>
+          </div></div>
+        </li>
+        <li class="nav-item has-dropdown">
+          <a href="/resources">Resources</a>
+          <div class="nav-dropdown"><div class="nav-dropdown-inner">
+            <a href="/resources/aws-map-funding-checklist">MAP Funding Checklist</a>
+            <a href="/resources/aws-mdf-funding-checklist">MDF Funding Checklist</a>
+            <a href="/resources/aws-ftr-checklist">FTR Checklist</a>
+            <a href="/resources/alliances-business-playbook">Alliances Business Playbook</a>
+            <a href="/resources/aws-marketplace-gtm-readiness-guide">Marketplace GTM Guide</a>
+            <a href="/resources/aws-co-sell-playbook">Co-Sell Playbook</a>
+            <a href="/resources/crm-apn-integration-guide">CRM to APN Integration Guide</a>
+          </div></div>
+        </li>
+        <li><a href="/company/contact">Contact</a></li>
+      </ul>
+      <div class="nav-cta-group">
+        <a class="nav-email" href="mailto:hello@grnmrk.com">hello@grnmrk.com</a>
+        <a class="btn btn-primary" href="https://calendly.com/grnmrk/30-min-consultation" target="_blank" rel="noopener noreferrer">
+          Book a Call <span class="btn-arrow">&#8594;</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- COVER -->
+  <div class="cover">
+    <div class="container">
+      <div class="cover-inner">
+        <div class="cover-badge">AWS Partner Program Operations</div>
+        <h1 class="cover-title">Full Alliances Program<br><em>Business Playbook</em></h1>
+        <p class="cover-sub">The complete operational guide to running a high-performing AWS alliances program — covering ACE pipeline, MAP and MDF funding, co-sell motions, tier advancement, Marketplace GTM, and the metrics that actually matter. Built from working inside 40+ partner programs.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- META BAND -->
+  <div class="meta-band">
+    <div class="container">
+      <div class="meta-band-inner">
+        <span class="meta-item"><strong>For:</strong> ISVs, MSPs &amp; Channel Partners</span>
+        <div class="meta-sep"></div>
+        <span class="meta-item"><strong>Covers:</strong> ACE · MAP · MDF · Co-Sell · FTR · Marketplace · Tier Advancement</span>
+        <div class="meta-sep"></div>
+        <span class="meta-item"><strong>Based on:</strong> 40+ AWS partner engagements</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- GATE -->
+  <div class="gate-wrap">
+    <div class="gate-intro">
+      <p>Most AWS partners run their alliances program reactively — responding to PDM requests, submitting ACE opportunities inconsistently, applying for funding too late, and building co-sell motions from scratch every time. The result is a program that never compounds.</p>
+      <p>This playbook is the operational framework we use with our managed services clients. It covers every dimension of a high-performing AWS alliances program — from the foundational setup steps to the quarterly rhythms that separate top-tier partners from everyone else. <strong>Use it to build a program that runs as a system, not a set of one-off activities.</strong></p>
+    </div>
+
+    <div class="preview-label">What's Inside</div>
+    <div class="preview-fade">
+      <ul class="preview-list">
+        <li class="preview-item"><div class="preview-check"></div><div class="preview-text">Program foundation: Partner Central setup, paths, and profile requirements</div></li>
+        <li class="preview-item"><div class="preview-check"></div><div class="preview-text">ACE pipeline operating model: submission standards, stage discipline, co-sell triggers</div></li>
+        <li class="preview-item"><div class="preview-check"></div><div class="preview-text">Funding program calendar: MAP, MDF, and other programs — when and how to apply</div></li>
+        <li class="preview-item"><div class="preview-check"></div><div class="preview-text">Co-sell motion framework: PDM engagement, co-sell request standards, field alignment</div></li>
+        <li class="preview-item"><div class="preview-check"></div><div class="preview-text">Tier advancement operating plan: requirements tracking and 90-day acceleration framework</div></li>
+      </ul>
+    </div>
+
+    <!-- FORM PANEL -->
+    <div class="form-panel" id="formWrap">
+      <div class="form-inner">
+        <div id="gateForm">
+          <div class="form-eyebrow">Free Resource</div>
+          <h2 class="form-title">Access the Full Alliances Playbook</h2>
+          <p class="form-sub">Enter your details and the full interactive playbook unlocks immediately — no email required after this.</p>
+          <form id="leadForm">
+            <div class="form-grid">
+              <div class="form-field">
+                <label class="form-label" for="fname">First Name</label>
+                <input class="form-input" type="text" id="fname" name="name" placeholder="Alex" required>
+              </div>
+              <div class="form-field">
+                <label class="form-label" for="company">Company</label>
+                <input class="form-input" type="text" id="company" name="company" placeholder="Acme Corp" required>
+              </div>
+              <div class="form-field full">
+                <label class="form-label" for="email">Work Email</label>
+                <input class="form-input" type="email" id="email" name="email" placeholder="alex@company.com" required>
+              </div>
+              <div class="form-field full">
+                <label class="form-label" for="role">Your Role</label>
+                <select class="form-select" id="role" name="role">
+                  <option value="" disabled selected>Select your role</option>
+                  <option value="VP of Alliances / Partnerships">VP of Alliances / Partnerships</option>
+                  <option value="Director of Alliances">Director of Alliances</option>
+                  <option value="Alliance Manager">Alliance Manager</option>
+                  <option value="CEO / Founder">CEO / Founder</option>
+                  <option value="CRO / Sales Leader">CRO / Sales Leader</option>
+                  <option value="Partner Operations">Partner Operations</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-actions">
+              <button class="btn-submit" type="submit" id="submitBtn">Get the Playbook</button>
+              <span class="form-or">or</span>
+              <a class="btn-calendly" href="https://calendly.com/grnmrk/30-min-consultation" target="_blank" rel="noopener noreferrer">Book a Strategy Call Instead</a>
+            </div>
+            <div class="form-error" id="formError">Something went wrong. Please try again or email hello@grnmrk.com</div>
+            <p class="form-privacy">Your information is never shared or sold. Unsubscribe from any follow-up at any time.</p>
+          </form>
+        </div>
+        <div class="form-success" id="formSuccess">
+          <div class="form-success-icon">&#10003;</div>
+          <div class="form-success-title">You're in.</div>
+          <p class="form-success-text">Unlocking the playbook now.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       PLAYBOOK CONTENT
+  ============================================================ -->
+  <div class="playbook-content" id="playbookContent">
+    <div class="body-wrap">
+
+      <div class="progress-wrap">
+        <span class="progress-label">Playbook Progress</span>
+        <div class="progress-bar-wrap"><div class="progress-bar" id="progressBar"></div></div>
+        <span class="progress-count" id="progressCount">0 / 48</span>
+      </div>
+
+      <!-- ======================================================
+           SECTION 01 — PROGRAM FOUNDATION
+      ====================================================== -->
+      <div class="playbook-section">
+        <div class="section-header">
+          <div class="section-num">01</div>
+          <div class="section-title">Program Foundation</div>
+          <div class="section-note">Do This First</div>
+        </div>
+        <p class="section-intro">Everything downstream — tier advancement, funding, co-sell — depends on your partner profile and program setup being correct. Most partners skip this and pay for it later.</p>
+        <ul class="checklist">
+          <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">Confirm you are on the correct Partner Path <span class="tag-req">Foundation</span></div><div class="item-note">Software Partner Path for ISVs. Services Partner Path for MSPs and channel partners. Wrong path = wrong requirements tracked and wrong funding programs visible.</div></div></label></li>
+          <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">Partner Central company profile fully completed</div><div class="item-note">Company description, solutions listed, customer references uploaded, certifications tied to employees (not contractors), and all contact information current. Incomplete profiles are deprioritized in co-sell reviews.</div></div></label></li>
+          <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">All AWS certifications mapped to current employees</div><div class="item-note">Certifications must be tied to named individuals who are currently employed. Expired certs and departed employees are a tier advancement blocker that goes unnoticed until it matters.</div></div></label></li>
+          <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">ACE Terms and Conditions accepted in Partner Central <span class="tag-req">Foundation</span></div><div class="item-note">Required before you can submit any opportunities, request co-sell support, or apply for MAP. If this hasn't been done, do it now.</div></div></label></li>
+          <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">PDM (Partner Development Manager) identified and introduced</div><div class="item-note">If you don't have an assigned PDM, contact AWS Partner Support to request one. Every program benefit — funding approvals, tier advancement, co-sell priority — is easier with a warm PDM relationship.</div></div></label></li>
+          <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">Partner Central admin access limited to appropriate personnel</div><div class="item-note">Broad admin access creates compliance risk. Limit admin rights to the alliances team and document who has access.</div></div></label></li>
+        </ul>
+      </div>
+
+      <!-- ======================================================
+           SECTION 02 — ACE PIPELINE OPERATING MODEL
+      ====================================================== -->
+      <div class="playbook-section">
+        <div class="section-header">
+          <div class="section-num">02</div>
+          <div class="section-title">ACE Pipeline Operating Model</div>
+          <div class="section-note">Weekly Discipline</div>
+        </div>
+        <p class="section-intro">ACE is not a CRM — it is how AWS decides which partners get co-sell attention, funding priority, and tier credit. A thin or stale ACE pipeline signals an inactive partner. An active, well-managed pipeline signals a co-sell partner worth investing in.</p>
+        <ul class="checklist">
+          <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">Minimum ACE submission cadence established: at least 2 per month <span class="tag-req">Operating Standard</span></div><div class="item-note">Consistent submissions matter more than volume. A partner submitting 2 strong opportunities per month gets more co-sell attention than one submitting 20 sloppy ones per quarter.</div></div></label></li>
+          <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">ACE submission standards documented for your sales team</div><div class="item-note">Minimum fields: customer name, AWS account ID, estimated ARR, close date, opportunity stage, and a description of the AWS use case. Submissions missing these fields are ignored.</div></div></label></li>
+          <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">Stale opportunity audit done — opportunities older than 90 days reviewed</div><div class="item-note">Close out dead opportunities and update stages on active ones. AWS reviews pipeline health as a leading indicator of partner co-sell maturity. A graveyard of open opps is worse than a small active pipeline.</div></div></label></li>
+          <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">Co-sell request process defined: when to request, what to include</div><div class="item-note">A co-sell request without context — no use case, no ask, no customer context — gets deprioritized. Define internally what a co-sell-ready opportunity looks like before requesting AWS involvement.</div></div></label></li>
+          <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">ACE pipeline reviewed weekly with the alliances team</div><div class="item-note">Weekly ACE review keeps the pipeline honest. Review: what was submitted, what needs updating, what co-sell requests are pending, and what's stalled.</div></div></label></li>
+          <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">ACE pipeline metrics included in monthly executive reporting</div><div class="item-note">Track: total opportunities, active co-sell, average deal size, AWS-influenced pipeline, and acceptance rate on co-sell requests.</div></div></label></li>
+        </ul>
+        <div class="callout-box">
+          <p><strong>The most common ACE mistake:</strong> submitting opportunities as a compliance exercise rather than as a co-sell motion. Every submission should have a defined ask — introduction to an AWS account team, co-sell support on a call, or field alignment on a specific account. Submissions with no ask get no action.</p>
+        </div>
+      </div>
+
+      <!-- ======================================================
+           SECTION 03 — FUNDING PROGRAM CALENDAR
+      ====================================================== -->
+      <div class="playbook-section">
+        <div class="section-header">
+          <div class="section-num">03</div>
+          <div class="section-title">Funding Program Calendar</div>
+          <div class="section-note">Quarterly Planning</div>
+        </div>
+        <p class="section-intro">MAP and MDF funds are not unlimited — they deplete throughout the AWS fiscal year. Partners who plan their funding applications quarterly capture significantly more than those who apply opportunistically.</p>
+        <ul class="checklist">
+          <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">MAP eligibility confirmed for active migration engagements <span class="tag-quarterly">Every Quarter</span></div><div class="item-note">MAP cannot be applied retroactively. Review your pipeline each quarter and confirm ACE opportunities exist for eligible migration engagements before the migration begins.</div></div></label></li>
+          <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">MDF applications planned 6–8 weeks before activity start date</div><div class="item-note">Early applications have more budget available and more time for back-and-forth if revisions are needed. Planning your go-to-market calendar quarterly makes this automatic.</div></div></label></li>
+          <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">PDM briefed before every MAP or MDF application is submitted</div><div class="item-note">Every funding approval requires internal AWS sponsorship. Your PDM is that sponsor. Applications submitted cold — without PDM awareness — have dramatically lower approval rates.</div></div></label></li>
+          <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">MDF activity plans include specific pipeline outcomes, not awareness goals</div><div class="item-note">"Increase brand awareness" is not an MDF-eligible outcome. "Generate 15 qualified ACE submissions from a targeted executive event" is. Every application must answer: how does this activity result in AWS ARR?</div></div></label></li>
+          <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">Proof of execution documentation assigned before the activity runs</div><div class="item-note">Assign someone to collect photos, attendee lists, receipts, and outcome documentation during the activity. Retroactive documentation is the most common reason approved MDF funding is lost.</div></div></label></li>
+          <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">Funding tracker maintained: activity, amount, status, POE due date</div><div class="item-note">A simple spreadsheet tracking every in-flight and completed funding application prevents things from falling through the cracks. Review it monthly.</div></div></label></li>
+          <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">Other program funding reviewed: POC credits, ISV Accelerate MDF, CEI, SCA</div><div class="item-note">MAP and MDF are the most visible programs but not the only ones. Ask your PDM quarterly what other funding programs your profile qualifies for. Many partners miss ISV Accelerate MDF ($25K) and POC credits entirely.</div></div></label></li>
+        </ul>
+      </div>
+
+      <!-- ======================================================
+           SECTION 04 — CO-SELL MOTION FRAMEWORK
+      ====================================================== -->
+      <div class="playbook-section">
+        <div class="section-header">
+          <div class="section-num">04</div>
+          <div class="section-title">Co-Sell Motion Framework</div>
+          <div class="section-note">Revenue Driver</div>
+        </div>
+        <p class="section-intro">Co-selling with AWS should be a repeatable motion, not a relationship-dependent one-off. The partners closing deals faster and larger through co-sell have built a system — not just a good PDM relationship.</p>
+        <ul class="checklist">
+          <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">Ideal Co-Sell Profile (ICP) defined for AWS field alignment</div><div class="item-note">Document: the customer profile AWS field teams should be looking for on your behalf — industry, company size, AWS spend level, and the specific pain points your solution addresses. PDMs and PSMs cannot refer you to accounts without this clarity.</div></div></label></li>
+          <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">AWS one-pager built: solution brief designed for AWS field team consumption</div><div class="item-note">One page, no jargon. Cover: what problem you solve, which AWS services are involved, customer profile, and a concrete example of a win. This is what your PDM shares with AWS account teams.</div></div></label></li>
+          <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">Monthly PDM touchpoint scheduled and maintained</div><div class="item-note">PDMs manage 100+ partners. The ones they advocate for are the ones who stay visible. A monthly 20-minute call — sharing pipeline updates, wins, and upcoming activities — is the minimum to stay on their radar.</div></div></label></li>
+          <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">AWS field team introduction process established</div><div class="item-note">Define the motion for getting introduced to AWS account executives and field reps for target accounts. This should not require starting from scratch every time — use your PDM systematically.</div></div></label></li>
+          <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">Co-sell win documented and shared with AWS within 30 days of close</div><div class="item-note">Every co-sell win submitted to AWS as a customer success story builds your co-sell track record. Partners with documented wins get higher co-sell priority in future reviews.</div></div></label></li>
+          <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">Co-sell pipeline metrics tracked separately from overall sales pipeline</div><div class="item-note">Track: AWS-sourced pipeline, AWS-influenced pipeline, co-sell acceptance rate, co-sell win rate, and average deal size for co-sell vs. non-co-sell. Without this data, you can't optimize the motion.</div></div></label></li>
+        </ul>
+      </div>
+
+      <!-- ======================================================
+           SECTION 05 — TIER ADVANCEMENT OPERATING PLAN
+      ====================================================== -->
+      <div class="playbook-section">
+        <div class="section-header">
+          <div class="section-num">05</div>
+          <div class="section-title">Tier Advancement Operating Plan</div>
+          <div class="section-note">90-Day Cycles</div>
+        </div>
+        <p class="section-intro">Tier advancement is not a sprint — it is a program that runs continuously. The partners who advance fastest treat it as a standing operational priority with a defined owner, a written roadmap, and a quarterly review cycle.</p>
+        <ul class="checklist">
+          <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">Written gap analysis against next tier completed and owned <span class="tag-req">Starting Point</span></div><div class="item-note">Document every open requirement — certifications, customer references, revenue thresholds, ACE activity — with a status and an owner. This is your advancement roadmap. Review it every 30 days.</div></div></label></li>
+          <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">Certification roadmap built and assigned by role</div><div class="item-note">Map which certifications each team member should hold based on their role and the tier requirements you're targeting. Assign owners and deadlines. Drift happens when no one is tracking.</div></div></label></li>
+          <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">Customer references pipeline built and maintained</div><div class="item-note">Most partners are short on customer references because they wait until advancement time to ask. Build the habit of requesting references at project close. Have 2–3 references in progress at all times.</div></div></label></li>
+          <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">PDM advancement endorsement requested and confirmed</div><div class="item-note">PDMs have internal influence on tier advancement reviews. Ask your PDM directly: "What do you need to see to support our advancement to [tier]?" Then deliver exactly that.</div></div></label></li>
+          <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-note">Revenue threshold tracking set up in your CRM against AWS ARR goals</div><div class="item-text">Track AWS-influenced ARR monthly. Know exactly where you are relative to the revenue threshold for the next tier. Do not discover a gap at advancement review time.</div></div></label></li>
+          <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">90-day advancement sprint planned with specific deliverables per milestone</div><div class="item-note">Break the advancement roadmap into 90-day cycles. Each cycle should have 3–5 specific deliverables that close open requirements. Review at the end of each cycle and reset for the next.</div></div></label></li>
+        </ul>
+      </div>
+
+      <!-- ======================================================
+           SECTION 06 — FTR & ISV PROGRAM TRACK (ISVs)
+      ====================================================== -->
+      <div class="playbook-section">
+        <div class="section-header">
+          <div class="section-num">06</div>
+          <div class="section-title">FTR &amp; ISV Program Track</div>
+          <div class="section-note">ISVs Only</div>
+        </div>
+        <p class="section-intro">ISVs have a distinct program path that runs parallel to the standard tier advancement track. The FTR and ISV Accelerate are the two most important milestones — and most ISVs take 12+ months longer to complete them than necessary.</p>
+        <ul class="checklist">
+          <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">FTR checklist type confirmed: partner-hosted (SaaS) or customer-deployed <span class="tag-req">ISV</span></div><div class="item-note">Using the wrong checklist is the single most common reason FTR submissions are returned immediately. Confirm your delivery model before downloading the checklist.</div></div></label></li>
+          <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">FTR gap audit completed across all three domains: security, reliability, operational excellence</div><div class="item-note">Run the gap audit before starting remediation. Security (IAM, encryption) is where most ISVs have the most work. Don't start the submission process without knowing every open item first.</div></div></label></li>
+          <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">10 ACE opportunities shared as FTR prerequisite</div><div class="item-note">Accepting ACE T&Cs and sharing 10 qualified opportunities is required before requesting the FTR. Set this up correctly — real opportunities with accurate detail — not placeholder submissions.</div></div></label></li>
+          <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">ISV Accelerate enrollment initiated after FTR approval</div><div class="item-note">FTR is the gate to ISV Accelerate. Once approved, enroll immediately — the program gives you access to co-sell with AWS account executives and unlocks the ISV Accelerate MDF benefit.</div></div></label></li>
+          <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">Partner Revenue Measurement implemented</div><div class="item-note">Required for ISV Accelerate MDF access ($25K). Set this up as early as possible — it is a foundational tracking mechanism that benefits all downstream program activity.</div></div></label></li>
+          <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">AWS Marketplace listing reviewed and optimized</div><div class="item-note">Review: title, description, pricing model, categories, and search tags. A listing that exists but isn't optimized is nearly invisible in the Partner Solutions Finder and Marketplace search.</div></div></label></li>
+        </ul>
+      </div>
+
+      <!-- ======================================================
+           SECTION 07 — QUARTERLY BUSINESS REVIEW (QBR) FRAMEWORK
+      ====================================================== -->
+      <div class="playbook-section">
+        <div class="section-header">
+          <div class="section-num">07</div>
+          <div class="section-title">Quarterly Business Review Framework</div>
+          <div class="section-note">Every Quarter</div>
+        </div>
+        <p class="section-intro">A QBR with your PDM is not a status update — it is a strategic negotiation. Come prepared with data, come with specific asks, and leave with commitments on both sides. This is one of the highest-leverage hours in your alliances calendar.</p>
+        <ul class="checklist">
+          <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">QBR metrics package prepared before the meeting <span class="tag-quarterly">Every Quarter</span></div><div class="item-note">Include: ACE pipeline summary, co-sell wins this quarter, AWS-influenced ARR, funding captured and in-flight, certification status, and tier advancement progress. One page or slide per section.</div></div></label></li>
+          <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">Specific asks prepared for the PDM before the QBR</div><div class="item-note">Come with 2–3 concrete asks: target account introductions, co-sell support on specific deals, funding program guidance, or field event invitations. PDMs respond to specificity. Open-ended check-ins produce nothing.</div></div></label></li>
+          <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">Next quarter go-to-market plan shared with PDM at QBR</div><div class="item-note">Share your planned events, campaigns, and co-sell activities for the next quarter. This allows the PDM to flag relevant AWS resources, event invitations, or funding windows you might not know about.</div></div></label></li>
+          <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">QBR follow-up sent within 48 hours with action items and commitments</div><div class="item-note">Verbal commitments in meetings evaporate. A follow-up email with specific action items, owners, and deadlines holds both sides accountable.</div></div></label></li>
+        </ul>
+
+        <div class="info-box">
+          <div class="info-label">Key Alliances Program Metrics — Track These Monthly</div>
+          <div class="info-grid">
+            <div class="info-card">
+              <div class="info-card-title">ACE Pipeline Metrics</div>
+              <div class="info-card-text">Total opportunities submitted, active co-sell requests, acceptance rate, average deal size, AWS-influenced pipeline value</div>
+            </div>
+            <div class="info-card">
+              <div class="info-card-title">Funding Metrics</div>
+              <div class="info-card-text">Applications submitted, approval rate, total funding approved, funding utilized vs. approved, POE compliance rate</div>
+            </div>
+            <div class="info-card">
+              <div class="info-card-title">Tier Advancement Metrics</div>
+              <div class="info-card-text">Open requirements count, certification completion %, customer references in progress, AWS ARR vs. threshold, PDM endorsement status</div>
+            </div>
+            <div class="info-card">
+              <div class="info-card-title">Co-Sell Performance Metrics</div>
+              <div class="info-card-text">AWS-sourced pipeline, AWS-influenced close rate, average co-sell deal size vs. non-co-sell, PDM introduction rate, co-sell win documentation rate</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ======================================================
+           SECTION 08 — PROGRAM HEALTH AUDIT
+      ====================================================== -->
+      <div class="playbook-section">
+        <div class="section-header">
+          <div class="section-num">08</div>
+          <div class="section-title">Annual Program Health Audit</div>
+          <div class="section-note">Once a Year</div>
+        </div>
+        <p class="section-intro">Run this audit annually — or any time you bring in a new alliances leader, make significant product changes, or prepare for a major tier advancement push. It resets the foundation and surfaces issues that accumulate quietly over time.</p>
+        <ul class="checklist">
+          <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">Full Partner Central profile audit: accuracy, completeness, solution listings</div><div class="item-note">Review every field. Solutions that are outdated, certifications that have lapsed, and contact information that is wrong all affect how AWS reviews your profile.</div></div></label></li>
+          <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">Certification audit: active vs. expired, tied to current employees</div><div class="item-note">Run the certification report in Partner Central. Expired certifications and certs tied to departed employees silently erode your tier standing.</div></div></label></li>
+          <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">ACE pipeline full audit: close stale opportunities, update active ones</div><div class="item-note">Go back 12 months. Close anything that has not moved in 90+ days. Update stages and expected close dates on everything active. A clean pipeline is a credible pipeline.</div></div></label></li>
+          <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">Funding history reviewed: what was captured, what was missed, and why</div><div class="item-note">Build a year-over-year funding capture view. Identify opportunities that were missed — expired windows, applications that were submitted too late, programs you didn't know existed. Use it to plan next year's calendar.</div></div></label></li>
+          <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">PDM relationship assessed: engagement frequency, response quality, mutual value</div><div class="item-note">Evaluate honestly: is your PDM actively advocating for you? Are they responsive and bringing value? If not, you may be eligible for a reassignment request — this is more common than most partners realize.</div></div></label></li>
+          <li class="checklist-item"><label class="checklist-label"><input type="checkbox"><div><div class="item-text">Tier advancement requirements fully audited against current standing</div><div class="item-note">Run the official tier requirements checklist in Partner Central against your current status. Document every open item with a realistic close date. This becomes your 12-month advancement roadmap.</div></div></label></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- BOTTOM CTA -->
+    <div class="bottom-cta">
+      <div class="container">
+        <div class="bottom-cta-inner">
+          <div>
+            <h2 class="bottom-cta-title">Want us to run this<br><em>program for you?</em></h2>
+            <p class="bottom-cta-text">Grnmrk Group manages AWS alliances programs end-to-end for ISVs, MSPs, and channel partners. We handle ACE, funding, co-sell, tier advancement, and Marketplace GTM — so your program runs as a system, not a set of one-off activities.</p>
+          </div>
+          <div class="bottom-cta-actions">
+            <a class="btn btn-accent" href="https://calendly.com/grnmrk/30-min-consultation" target="_blank" rel="noopener noreferrer">
+              Book a Free Strategy Call <span class="btn-arrow">&#8594;</span>
+            </a>
+            <a class="btn btn-ghost-light" href="/services">View Our Services</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <a class="footer-logo" href="/">
+            <img src="/grnmrk-banner-2026-transparent-background.png" alt="Grnmrk Group">
+          </a>
+          <p class="footer-tagline">Grnmrk Group runs AWS partner programs for ISVs, MSPs, and channel partners, delivering pipeline, funding, and Marketplace revenue.</p>
+          <div class="footer-icons">
+            <a class="footer-aws-link" href="https://aws.amazon.com/marketplace/seller-profile?id=seller-6mau6z4y6twno" target="_blank" rel="noopener noreferrer" aria-label="AWS Partner Network">
+              <img src="/aws-logo_copy.png" alt="AWS Partner">
+            </a>
+            <a class="footer-linkedin-icon" href="https://www.linkedin.com/company/grnmrk-group/" target="_blank" rel="noopener noreferrer" aria-label="Grnmrk Group on LinkedIn">
+              <img class="li-default" src="/LinkedIn_Symbol_1.png" alt="LinkedIn">
+              <img class="li-hover" src="/LinkedIn_Symbol_1 copy.png" alt="LinkedIn">
+            </a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="/services">Services Overview</a></li>
+            <li><a href="/services/managed-operations">Managed Operations</a></li>
+            <li><a href="/services/strategy-consulting">Strategy Consulting</a></li>
+            <li><a href="/services/aws-marketplace">AWS Marketplace</a></li>
+            <li><a href="/services/fractional-alliances-leader">Fractional Alliances Leader</a></li>
+            <li><a href="/services/partner-revenue-generation">Revenue Generation</a></li>
+            <li><a href="/services/foundational-technical-review">FTR Preparation</a></li>
+            <li><a href="/services/fractional-pdm">Fractional PDM</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="/pricing">Pricing</a></li>
+            <li><a href="/company/case-studies">Case Studies</a></li>
+            <li><a href="/company/about">About</a></li>
+            <li><a href="/company/contact">Contact</a></li>
+            <li><a href="/company/partners">Partners</a></li>
+            <li><a href="/company/careers">Careers</a></li>
+            <li><a href="/blogs">Blog</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="/resources/aws-map-funding-checklist">MAP Funding Checklist</a></li>
+            <li><a href="/resources/aws-mdf-funding-checklist">MDF Funding Checklist</a></li>
+            <li><a href="/resources/aws-ftr-checklist">FTR Checklist</a></li>
+            <li><a href="/resources/alliances-business-playbook">Alliances Business Playbook</a></li>
+            <li><a href="/resources/aws-marketplace-gtm-readiness-guide">Marketplace GTM Guide</a></li>
+            <li><a href="/resources/aws-co-sell-playbook">Co-Sell Playbook</a></li>
+            <li><a href="/resources/crm-apn-integration-guide">CRM to APN Integration Guide</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2025 Grnmrk Group LLC. All rights reserved.</span>
+        <div class="footer-legal">
+          <a href="/terms">Terms of Service</a>
+          <a href="/privacy">Privacy Policy</a>
+          <a href="https://www.linkedin.com/company/grnmrk-group/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT -->
+  <script>
+    const FORMSPREE   = 'https://formspree.io/f/mvznbera';
+    const STORAGE_KEY = 'grnmrk-alliances-playbook';
+
+    (function() {
+      try {
+        if (localStorage.getItem(STORAGE_KEY + '-v') === '1') { unlock(); return; }
+      } catch(e) {}
+
+      document.getElementById('leadForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const btn = document.getElementById('submitBtn');
+        const err = document.getElementById('formError');
+        btn.textContent = 'Sending...'; btn.disabled = true; err.style.display = 'none';
+        try {
+          const r = await fetch(FORMSPREE, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify({
+              name: this.name.value,
+              email: this.email.value,
+              company: this.company.value,
+              role: document.getElementById('role').value,
+              source: 'Alliances Program Business Playbook',
+              page: window.location.href
+            })
+          });
+          if (r.ok) {
+            document.getElementById('gateForm').style.display = 'none';
+            document.getElementById('formSuccess').style.display = 'block';
+            try { localStorage.setItem(STORAGE_KEY + '-v', '1'); } catch(e) {}
+            setTimeout(() => {
+              const fw = document.getElementById('formWrap');
+              fw.style.transition = 'opacity 0.5s'; fw.style.opacity = '0';
+              setTimeout(() => { fw.style.display = 'none'; unlock(); }, 500);
+            }, 1800);
+          } else { throw new Error(); }
+        } catch(e) {
+          err.style.display = 'block'; btn.textContent = 'Get the Playbook'; btn.disabled = false;
+        }
+      });
+    })();
+
+    function unlock() {
+      const c = document.getElementById('playbookContent');
+      c.classList.add('unlocked');
+      c.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      const cbs   = document.querySelectorAll('.checklist input[type="checkbox"]');
+      const bar   = document.getElementById('progressBar');
+      const cnt   = document.getElementById('progressCount');
+      const total = cbs.length;
+      cnt.textContent = '0 / ' + total;
+      function upd() {
+        const ch = [...cbs].filter(x => x.checked).length;
+        bar.style.width = (ch / total * 100) + '%';
+        cnt.textContent = ch + ' / ' + total;
+        cbs.forEach(cb => cb.closest('.checklist-item').classList.toggle('checked', cb.checked));
+      }
+      upd();
+      cbs.forEach(cb => cb.addEventListener('change', upd));
+    }
+  </script>
+
+</body>
+</html>

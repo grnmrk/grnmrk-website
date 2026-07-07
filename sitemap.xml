@@ -8,249 +8,255 @@
 
   <url>
     <loc>https://www.grnmrk.com/</loc>
-    <lastmod>2025-04-15</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <url>
     <loc>https://www.grnmrk.com/services</loc>
-    <lastmod>2025-04-15</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://www.grnmrk.com/company/about</loc>
-    <lastmod>2025-04-15</lastmod>
+    <loc>https://www.grnmrk.com/pricing</loc>
+    <lastmod>2026-07-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- ── SERVICE PAGES ────────────────────────────────────────────── -->
+
+  <url>
+    <loc>https://www.grnmrk.com/services/aws-marketplace</loc>
+    <lastmod>2026-07-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://www.grnmrk.com/pricing</loc>
-    <lastmod>2025-04-15</lastmod>
+    <loc>https://www.grnmrk.com/services/managed-operations</loc>
+    <lastmod>2026-07-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.grnmrk.com/services/strategy-consulting</loc>
+    <lastmod>2026-07-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.grnmrk.com/services/fractional-alliances-leader</loc>
+    <lastmod>2026-07-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.grnmrk.com/services/partner-revenue-generation</loc>
+    <lastmod>2026-07-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.grnmrk.com/services/foundational-technical-review</loc>
+    <lastmod>2026-07-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.grnmrk.com/services/fractional-pdm</loc>
+    <lastmod>2026-07-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- ── COMPANY PAGES ────────────────────────────────────────────── -->
+
+  <url>
+    <loc>https://www.grnmrk.com/company/about</loc>
+    <lastmod>2026-07-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://www.grnmrk.com/company/case-studies</loc>
-    <lastmod>2025-04-15</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://www.grnmrk.com/company/contact</loc>
-    <lastmod>2025-04-15</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
-
-   <url>
-    <loc>https://www.grnmrk.com/home</loc>
-    <lastmod>2025-04-15</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <!-- ── SPECIALTY SERVICE PAGES ──────────────────────────────────── -->
-
-  <url>
-    <loc>https://www.grnmrk.com/services/foudational-trechnical-review/</loc>
-    <lastmod>2025-04-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://www.grnmrk.com/services/fractional-pdm/</loc>
-    <lastmod>2025-04-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://www.grnmrk.com/services/managed-operations/</loc>
-    <lastmod>2025-04-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://www.grnmrk.com/services/strategy-consulting/</loc>
-    <lastmod>2025-04-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://www.grnmrk.com/services/aws-marketplace/</loc>
-    <lastmod>2025-04-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://www.grnmrk.com/services/fractional-alliances-leader/</loc>
-    <lastmod>2025-04-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://www.grnmrk.com/services/partner-revenue-generation/</loc>
-    <lastmod>2025-04-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- ── SPECIALTY BLOG PAGES ──────────────────────────────────── -->
-
-  <url>
-    <loc>https://www.grnmrk.com/blog/aws-ace-pipeline-management/</loc>
-    <lastmod>2025-04-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://www.grnmrk.com/blog/aws-ftr-guide/</loc>
-    <lastmod>2025-04-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://www.grnmrk.com/blog/aws-isv-accelerate-new-benefits/</loc>
-    <lastmod>2025-04-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://www.grnmrk.com/blog/aws-map-funding-guide/</loc>
-    <lastmod>2025-04-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://www.grnmrk.com/blog/aws-mdf-funding-how-to-apply/</loc>
-    <lastmod>2025-04-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://www.grnmrk.com/blog/aws-select-to-advanced-partner-tier/</loc>
-    <lastmod>2025-04-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-      <loc>https://www.grnmrk.com/blog/crm-apn-integration-guide/</loc>
-      <lastmod>2025-04-15</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.8</priority>
-    </url>
-
-
-  <url>
-    <loc>https://www.grnmrk.com/blog/aws-partner-attributed-revenue-dashboard/</loc>
-    <lastmod>2025-04-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- ── COMPANY PAGES ─────────────────────────────────────────────── -->
 
   <url>
     <loc>https://www.grnmrk.com/company/partners</loc>
-    <lastmod>2025-04-15</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://www.grnmrk.com/company/blogs</loc>
-    <lastmod>2025-04-15</lastmod>
+    <loc>https://www.grnmrk.com/company/careers</loc>
+    <lastmod>2026-07-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://www.grnmrk.com/company/careers/contract-marketing-partner</loc>
+    <lastmod>2026-07-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- ── BLOG ─────────────────────────────────────────────────────── -->
+
+  <url>
+    <loc>https://www.grnmrk.com/blogs</loc>
+    <lastmod>2026-07-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://www.grnmrk.com/company/careers</loc>
-    <lastmod>2025-04-15</lastmod>
+    <loc>https://www.grnmrk.com/blogs/aws-ace-pipeline-management-guide</loc>
+    <lastmod>2026-07-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.grnmrk.com/blogs/aws-ftr-guide</loc>
+    <lastmod>2026-07-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.grnmrk.com/blogs/aws-isv-accelerate-new-benefits</loc>
+    <lastmod>2026-07-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.grnmrk.com/blogs/aws-map-funding-guide</loc>
+    <lastmod>2026-07-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.grnmrk.com/blogs/aws-mdf-funding-how-to-apply</loc>
+    <lastmod>2026-07-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.grnmrk.com/blogs/aws-select-to-advanced-partner-tier</loc>
+    <lastmod>2026-07-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.grnmrk.com/blogs/crm-apn-integration-guide</loc>
+    <lastmod>2026-07-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.grnmrk.com/blogs/aws-co-sell-playbook</loc>
+    <lastmod>2026-07-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.grnmrk.com/blogs/aws-partner-attributed-revenue-dashboard</loc>
+    <lastmod>2026-07-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- ── RESOURCES PAGES ──────────────────────────────────────────── -->
+
+  <url>
+    <loc>https://www.grnmrk.com/resources/aws-map-funding-checklist</loc>
+    <lastmod>2026-07-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
 
-    <!-- ── RESOURCES PAGES ─────────────────────────────────────────────── -->
-
   <url>
-    <loc>https://www.grnmrk.com/resources/aws-map-funding-checklist</loc>
-    <lastmod>2025-04-15</lastmod>
+    <loc>https://www.grnmrk.com/resources/aws-mdf-funding-checklist</loc>
+    <lastmod>2026-07-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
 
   <url>
     <loc>https://www.grnmrk.com/resources/aws-ftr-checklist</loc>
-    <lastmod>2025-04-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-
-  <url>
-    <loc>https://www.grnmrk.com/resources/aws-marketplace-gtm-readiness-guide</loc>
-    <lastmod>2025-04-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-
-   <url>
-    <loc>https://www.grnmrk.com/resources/aws-mdf-funding-checklist</loc>
-    <lastmod>2025-04-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-
-   <url>
-    <loc>https://www.grnmrk.com/resources/aws-co-sell-playbook</loc>
-    <lastmod>2025-04-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-
-<url>
-    <loc>https://www.grnmrk.com/resources/crm-apn-integration-guide</loc>
-    <lastmod>2025-04-15</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
 
   <url>
     <loc>https://www.grnmrk.com/resources/alliances-business-playbook</loc>
-    <lastmod>2025-04-15</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
 
-  <!-- ── LEGAL ─────────────────────────────────────────────────────── -->
+  <url>
+    <loc>https://www.grnmrk.com/resources/aws-marketplace-gtm-readiness-guide</loc>
+    <lastmod>2026-07-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://www.grnmrk.com/resources/aws-co-sell-playbook</loc>
+    <lastmod>2026-07-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://www.grnmrk.com/resources/crm-apn-integration-guide</loc>
+    <lastmod>2026-07-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <!-- ── LEGAL ────────────────────────────────────────────────────── -->
 
   <url>
     <loc>https://www.grnmrk.com/terms</loc>
-    <lastmod>2025-04-15</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
 
   <url>
     <loc>https://www.grnmrk.com/privacy</loc>
-    <lastmod>2025-04-15</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>

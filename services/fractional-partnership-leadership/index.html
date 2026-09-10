@@ -8,32 +8,32 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
-  <link rel="canonical" href="https://www.grnmrk.com/services/partner-revenue-generation">
-  <title>Partner Revenue Programs | Specialist Module | Grnmrk Group</title>
-  <meta name="description" content="Specialist partner revenue programs under partnership leadership: enablement, campaigns, field alignment, and offer motions tied to clear outcomes.">
-  <meta name="keywords" content="partner revenue specialist, partnership leadership revenue programs, partner enablement, co-sell campaigns, Immersion Days, Marketplace private offers, field alignment">
+  <link rel="canonical" href="https://www.grnmrk.com/services/fractional-partnership-leadership">
+  <title>Fractional Partnership Leadership | Launch &amp; Lead | Grnmrk Group</title>
+  <meta name="description" content="Grnmrk designs and runs your partnerships function with fractional leadership: clear ownership, next steps, and measurable outcomes. Launch for early-stage teams. Lead for VP-level ownership.">
+  <meta name="keywords" content="fractional partnership leadership, partnerships function, fractional leadership, partner ops, operating model, program strategy, partnership ownership">
   <meta name="robots" content="index, follow">
   <meta name="author" content="Grnmrk Group">
 
-  <meta property="og:title" content="Partner Revenue Programs | Specialist Module | Grnmrk Group">
-  <meta property="og:description" content="Specialist partner revenue programs under Fractional Partnership Leadership: enablement, campaigns, field alignment, and offer motions tied to clear outcomes.">
-  <meta property="og:url" content="https://www.grnmrk.com/services/partner-revenue-generation">
+  <meta property="og:title" content="Fractional Partnership Leadership | Grnmrk Group">
+  <meta property="og:description" content="Embedded fractional leadership for your partnerships function. Launch the foundation or lead at VP level. Clear ownership, next steps, and outcomes.">
+  <meta property="og:url" content="https://www.grnmrk.com/services/fractional-partnership-leadership">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Grnmrk Group">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Partner Revenue Programs | Specialist Module | Grnmrk Group">
-  <meta name="twitter:description" content="Specialist partner revenue programs under partnership leadership. Outcome-tied campaigns, enablement, and offer motions.">
+  <meta name="twitter:title" content="Fractional Partnership Leadership | Grnmrk Group">
+  <meta name="twitter:description" content="Design and run your partnerships function with fractional leadership. Launch and Lead stages.">
 
   <!-- Structured Data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": "Partner Revenue Programs (Specialist Module)",
-    "description": "Specialist partner revenue module under Fractional Partnership Leadership. Design and execution of enablement, campaigns, field alignment, and offer motions tied to pipeline outcomes. Deep cloud-program experience when clients need it.",
+    "name": "Fractional Partnership Leadership",
+    "description": "Grnmrk designs and runs your partnerships function so partner opportunities become clear ownership, next steps, and measurable business outcomes.",
     "provider": { "@type": "Organization", "name": "Grnmrk Group", "url": "https://www.grnmrk.com" },
-    "url": "https://www.grnmrk.com/services/partner-revenue-generation",
-    "serviceType": "Partnership Specialist Module",
+    "url": "https://www.grnmrk.com/services/fractional-partnership-leadership",
+    "serviceType": "Fractional Partnership Leadership",
     "areaServed": { "@type": "Country", "name": "US" }
   }
   </script>
@@ -178,62 +178,68 @@
     .breadcrumb-sep { opacity: 0.4; }
 
     /* ==========================================================
-       PAGE HERO
+       PAGE HERO - dark
     ========================================================== */
     .page-hero {
-      padding: 80px 0 72px;
+      background: var(--ink); padding: 80px 0 72px;
       position: relative; overflow: hidden;
     }
     .page-hero::before {
-      content: ''; position: absolute; top: 0; right: -8%;
-      width: 560px; height: 560px;
-      background: radial-gradient(circle, rgba(61,220,132,0.07) 0%, transparent 65%);
-      border-radius: 50%; pointer-events: none;
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse 60% 70% at 80% 40%, rgba(61,220,132,0.1), transparent 65%);
     }
     .page-hero-grid {
       display: grid; grid-template-columns: 1.1fr 1fr;
-      gap: 80px; align-items: end;
+      gap: 80px; align-items: end; position: relative;
     }
     .section-eyebrow {
       font-size: 12.5px; color: var(--slate);
       letter-spacing: 0.09em; text-transform: uppercase; font-weight: 600;
-      position: relative; padding-left: 22px; margin-bottom: 20px; display: inline-block;
+      position: relative; padding-left: 22px; margin-bottom: 20px;
+      display: inline-block;
     }
     .section-eyebrow::before {
       content: ''; position: absolute;
       left: 0; top: 50%; transform: translateY(-50%);
       width: 14px; height: 1px; background: var(--accent-hover);
     }
+    .section-eyebrow.light { color: var(--accent); }
+    .section-eyebrow.light::before { background: var(--accent); }
+
     .page-hero h1 {
       font-size: clamp(40px, 5.5vw, 74px);
       font-weight: 600; line-height: 1.0; letter-spacing: -0.035em;
+      color: var(--bg);
     }
     .page-hero h1 em {
       font-family: 'Instrument Serif', serif;
-      font-weight: 400; font-style: italic; color: var(--accent-hover);
+      font-weight: 400; font-style: italic; color: var(--accent);
     }
-    .hero-intro p { font-size: 16.5px; color: var(--slate); line-height: 1.68; margin-bottom: 16px; }
+    .hero-intro p {
+      font-size: 16.5px; color: rgba(240,237,230,0.65);
+      line-height: 1.68; margin-bottom: 16px;
+    }
     .hero-intro p:last-of-type { margin-bottom: 24px; }
-    .hero-intro strong { color: var(--ink); font-weight: 600; }
+    .hero-intro strong { color: var(--bg); font-weight: 600; }
     .hero-note {
       display: inline-flex; align-items: center; gap: 10px;
       padding: 10px 16px;
-      background: var(--bg-soft); border: 1px solid var(--line);
+      background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);
       border-radius: 999px;
-      font-size: 13px; font-weight: 500; color: var(--slate);
+      font-size: 13px; font-weight: 500; color: rgba(240,237,230,0.55);
     }
     .hero-note::before { content: '◆'; color: var(--accent); font-size: 8px; }
 
     /* Cap band */
-    .cap-band { background: var(--ink); padding: 18px 0; }
+    .cap-band { background: var(--accent-hover); padding: 16px 0; }
     .cap-band-inner { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
-    .cap-band-label { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); white-space: nowrap; flex-shrink: 0; }
-    .cap-band-divider { width: 1px; height: 16px; background: rgba(255,255,255,0.15); flex-shrink: 0; }
+    .cap-band-label { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink); white-space: nowrap; flex-shrink: 0; }
+    .cap-band-divider { width: 1px; height: 16px; background: rgba(17,17,17,0.2); flex-shrink: 0; }
     .cap-band-items { display: flex; gap: 28px; flex-wrap: wrap; }
-    .cap-band-items span { font-size: 12.5px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(240,237,230,0.5); }
+    .cap-band-items span { font-size: 12.5px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(17,17,17,0.6); }
 
     /* ==========================================================
-       SHARED
+       SHARED SECTION
     ========================================================== */
     .section-title {
       font-size: clamp(26px, 3.4vw, 44px);
@@ -246,108 +252,80 @@
     .section-body { font-size: 16px; color: var(--slate); line-height: 1.68; }
 
     /* ==========================================================
-       PROGRAMS
+       WHAT THEY OWN
     ========================================================== */
-    .programs {
+    .owns { padding: 96px 0; border-top: 1px solid var(--line); }
+    .owns-layout {
+      display: grid; grid-template-columns: 280px 1fr;
+      gap: 80px; align-items: start; margin-top: 48px;
+    }
+    .owns-left { position: sticky; top: 88px; }
+    .owns-left .section-body { margin-bottom: 24px; }
+
+    .scope-block {
+      background: var(--ink); border-radius: 14px;
+      padding: 28px; margin-top: 24px;
+    }
+    .scope-label { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 6px; }
+    .scope-val { font-size: 32px; font-weight: 600; letter-spacing: -0.03em; color: var(--accent); line-height: 1.1; }
+    .scope-note { font-size: 13.5px; color: rgba(240,237,230,0.5); line-height: 1.6; margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.08); }
+
+    .owns-list { list-style: none; }
+    .owns-item { border-bottom: 1px solid var(--line); padding: 32px 0; }
+    .owns-item:first-child { padding-top: 0; border-top: 1px solid var(--line); }
+    .owns-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .owns-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; margin-bottom: 10px; }
+    .owns-name { font-size: 20px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.2; }
+    .owns-type {
+      display: inline-flex; align-items: center;
+      padding: 4px 10px;
+      background: var(--accent-dim); border-radius: 999px;
+      font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--accent-hover);
+      white-space: nowrap; flex-shrink: 0; margin-top: 2px;
+    }
+    .owns-desc { font-size: 14.5px; color: var(--slate); line-height: 1.65; }
+
+    /* ==========================================================
+       FRACTIONAL VS FULL-TIME
+    ========================================================== */
+    .vs {
       padding: 96px 0;
       background: var(--bg-soft);
       border-top: 1px solid var(--line);
       border-bottom: 1px solid var(--line);
     }
-    .programs-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 48px; }
-
-    .program-card {
+    .vs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 48px; }
+    .vs-card {
       background: var(--bg); border: 1px solid var(--line);
-      border-radius: 16px; padding: 32px 28px;
-      transition: all 0.3s ease; position: relative; overflow: hidden;
+      border-radius: 16px; padding: 36px 32px;
+      position: relative; overflow: hidden;
     }
-    .program-card::before {
+    .vs-card::before {
       content: ''; position: absolute; top: 0; left: 0; right: 0;
       height: 3px; background: var(--accent);
-      transform: scaleX(0); transform-origin: left; transition: transform 0.35s ease;
     }
-    .program-card:hover { border-color: var(--ink); transform: translateY(-3px); box-shadow: 0 12px 36px rgba(17,17,17,0.08); }
-    .program-card:hover::before { transform: scaleX(1); }
+    .vs-card.dim::before { background: var(--line); }
+    .vs-card-label { font-size: 11.5px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-hover); margin-bottom: 8px; }
+    .vs-card.dim .vs-card-label { color: var(--slate); }
+    .vs-card-name { font-size: 26px; font-weight: 600; letter-spacing: -0.025em; margin-bottom: 24px; }
+    .vs-list { list-style: none; display: flex; flex-direction: column; gap: 2px; }
+    .vs-list li {
+      font-size: 14.5px; color: var(--slate); padding: 12px 0;
+      display: flex; gap: 12px; align-items: flex-start;
+      border-bottom: 1px solid var(--line); line-height: 1.55;
+    }
+    .vs-list li:last-child { border-bottom: none; }
+    .vs-list li::before { font-size: 13px; flex-shrink: 0; margin-top: 1px; font-weight: 700; }
+    .vs-list li.pro::before { content: '✓'; color: var(--accent-hover); }
+    .vs-list li.con::before { content: '✕'; color: var(--slate-light); }
 
-    .program-card.wide {
-      grid-column: span 2;
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 48px; align-items: start;
+    .when-to-hire {
+      background: var(--ink); border-radius: 14px;
+      padding: 32px; margin-top: 16px;
     }
-    .program-card.wide:hover { transform: translateY(-3px); }
-
-    .program-num { font-family: 'Instrument Serif', serif; font-size: 13px; color: var(--accent-hover); font-style: italic; margin-bottom: 8px; }
-    .program-tag { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-hover); margin-bottom: 8px; }
-    .program-name { font-size: 20px; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 12px; line-height: 1.2; }
-    .program-desc { font-size: 14.5px; color: var(--slate); line-height: 1.65; margin-bottom: 16px; }
-    .program-includes { list-style: none; display: flex; flex-direction: column; gap: 2px; }
-    .program-includes li {
-      font-size: 13px; color: var(--slate);
-      padding: 8px 0; border-bottom: 1px solid var(--line);
-      display: flex; gap: 10px; line-height: 1.5;
-    }
-    .program-includes li:last-child { border-bottom: none; }
-    .program-includes li::before { content: '✓'; color: var(--accent-hover); font-size: 11px; flex-shrink: 0; margin-top: 2px; font-weight: 700; }
-
-    /* ==========================================================
-       RESULTS STRIP
-    ========================================================== */
-    .results-strip { background: var(--ink); padding: 56px 0; }
-    .results-grid {
-      display: grid; grid-template-columns: repeat(4, 1fr);
-      border-top: 1px solid rgba(255,255,255,0.07);
-      border-bottom: 1px solid rgba(255,255,255,0.07);
-    }
-    .result-stat {
-      padding: 36px 24px; text-align: center;
-      border-right: 1px solid rgba(255,255,255,0.07);
-    }
-    .result-stat:last-child { border-right: none; }
-    .result-num {
-      font-size: clamp(36px, 4vw, 56px); font-weight: 600;
-      letter-spacing: -0.04em; color: var(--accent); line-height: 1; margin-bottom: 10px;
-    }
-    .result-label { font-size: 12.5px; color: rgba(240,237,230,0.45); letter-spacing: 0.04em; line-height: 1.5; font-weight: 500; text-transform: uppercase; }
-
-    /* ==========================================================
-       HOW WE START
-    ========================================================== */
-    .start { padding: 96px 0; border-top: 1px solid var(--line); }
-    .start-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; margin-top: 48px; }
-
-    .steps-list { list-style: none; display: flex; flex-direction: column; }
-    .step-item {
-      border-bottom: 1px solid var(--line);
-      padding: 28px 0;
-      display: grid; grid-template-columns: 48px 1fr;
-      gap: 20px; align-items: start;
-    }
-    .step-item:first-child { border-top: 1px solid var(--line); }
-    .step-item:last-child { border-bottom: none; padding-bottom: 0; }
-    .step-num {
-      font-family: 'Instrument Serif', serif;
-      font-size: 13px; color: var(--accent-hover); font-style: italic; margin-top: 2px;
-    }
-    .step-name { font-size: 18px; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 8px; line-height: 1.2; }
-    .step-desc { font-size: 14.5px; color: var(--slate); line-height: 1.65; }
-
-    .quote-block { background: var(--ink); border-radius: 14px; padding: 32px; }
-    .quote-text { font-size: 15.5px; font-style: italic; color: rgba(240,237,230,0.85); line-height: 1.68; margin-bottom: 14px; }
-    .quote-attr { font-size: 12.5px; font-weight: 600; color: rgba(240,237,230,0.4); letter-spacing: 0.06em; text-transform: uppercase; }
-
-    .fit-block {
-      background: var(--bg-soft); border: 1px solid var(--line);
-      border-radius: 14px; padding: 28px; margin-top: 12px;
-    }
-    .fit-label { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-hover); margin-bottom: 14px; }
-    .fit-list { list-style: none; display: flex; flex-direction: column; gap: 2px; }
-    .fit-list li {
-      font-size: 14px; color: var(--slate);
-      padding: 11px 0; border-bottom: 1px solid var(--line);
-      display: flex; gap: 10px; align-items: flex-start; line-height: 1.55;
-    }
-    .fit-list li:last-child { border-bottom: none; }
-    .fit-list li::before { content: '→'; color: var(--accent-hover); font-size: 12px; flex-shrink: 0; margin-top: 1px; font-weight: 700; }
+    .when-to-hire-label { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
+    .when-to-hire p { font-size: 15px; color: rgba(240,237,230,0.65); line-height: 1.68; }
 
     /* ==========================================================
        CTA
@@ -395,20 +373,15 @@
     ========================================================== */
     @media (max-width: 1024px) {
       .page-hero-grid { grid-template-columns: 1fr; gap: 40px; }
-      .programs-grid { grid-template-columns: 1fr; }
-      .program-card.wide { grid-column: span 1; grid-template-columns: 1fr; gap: 32px; }
-      .results-grid { grid-template-columns: repeat(2, 1fr); }
-      .result-stat { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.07); }
-      .result-stat:nth-child(odd) { border-right: 1px solid rgba(255,255,255,0.07); }
-      .start-layout { grid-template-columns: 1fr; gap: 40px; }
+      .owns-layout { grid-template-columns: 1fr; gap: 40px; }
+      .owns-left { position: static; }
+      .vs-grid { grid-template-columns: 1fr; }
       .cta-inner { grid-template-columns: 1fr; gap: 32px; }
       .footer-top { grid-template-columns: 1fr 1fr; gap: 36px; }
     }
     @media (max-width: 700px) {
       .nav-links { display: none; }
       .nav-email { display: none; }
-      .results-grid { grid-template-columns: 1fr; }
-      .result-stat:nth-child(odd) { border-right: none; }
       .footer-top { grid-template-columns: 1fr; }
       .container { padding: 0 20px; }
     }
@@ -458,8 +431,7 @@
             <a href="/resources/aws-marketplace-gtm-readiness-guide">Marketplace GTM Guide</a>
             <a href="/resources/aws-co-sell-playbook">Co-Sell Playbook</a>
             <a href="/resources/crm-apn-integration-guide">CRM to APN Integration Guide</a>
-          </div>
-        </div>
+          </div></div>
         </li>
         <li><a href="/company/contact">Contact</a></li>
       </ul>
@@ -483,7 +455,7 @@
         <span class="breadcrumb-sep">/</span>
         <a href="/services">Services</a>
         <span class="breadcrumb-sep">/</span>
-        <span>Partner Revenue Generation</span>
+        <span>Fractional Partnership Leadership</span>
       </div>
     </div>
   </div>
@@ -494,231 +466,141 @@
   <section class="page-hero">
     <div class="container">
       <div class="page-hero-grid">
-
         <div>
-          <div class="section-eyebrow">Specialist Module</div>
-          <h1>Partner revenue programs under <em>partnership leadership.</em></h1>
+          <div class="section-eyebrow light">Fractional Partnership Leadership</div>
+          <h1>Your partnerships function. <em>Owned and running.</em></h1>
         </div>
-
         <div class="hero-intro">
-          <p>Specialist depth for partner revenue motions when your partnerships function needs campaign, enablement, or offer execution tied to a clear outcome. This sits under Fractional Partnership Leadership. It is not the primary category.</p>
-          <p>Every program starts with a pipeline goal. Not a deliverable count.</p>
-          <span class="hero-note">Project-based or add-on to managed services &middot; Starts with a free scoping call</span>
+          <p>Grnmrk designs and runs your partnerships function so partner opportunities become clear ownership, next steps, and measurable business outcomes.</p>
+          <p><strong>We make partnerships easier to work with across the company:</strong> less manual coordination, clearer priorities, and a repeatable path from partner opportunity to outcome.</p>
+          <span class="hero-note">Two stages: Launch and Lead &middot; Custom scope &middot; Starts with a free scoping call</span>
         </div>
-
       </div>
     </div>
   </section>
 
-  <!-- Cap band -->
   <div class="cap-band">
     <div class="container">
       <div class="cap-band-inner">
-        <span class="cap-band-label">Example programs</span>
+        <span class="cap-band-label">What We Cover</span>
         <div class="cap-band-divider"></div>
         <div class="cap-band-items">
-          <span>AWS Immersion Days</span>
-          <span>Co-Branded Campaigns</span>
-          <span>Field Alignment</span>
-          <span>re:Invent Strategy</span>
-          <span>Private Offer Campaigns</span>
-          <span>Joint Success Stories</span>
+          <span>Program Strategy</span>
+          <span>Operating Model</span>
+          <span>Ownership</span>
+          <span>Coordination</span>
+          <span>Partner Ops</span>
+          <span>Outcomes</span>
         </div>
       </div>
     </div>
   </div>
 
   <!-- ============================================================
-       PROGRAMS
+       TWO STAGES
   ============================================================ -->
-  <section class="programs" id="programs">
+  <section class="owns" id="stages">
     <div class="container">
-      <div class="section-eyebrow">What We Execute</div>
-      <h2 class="section-title">Six revenue <em>programs.</em></h2>
-      <p class="section-body">Each program is designed around a specific pipeline outcome. We run programs that produce results, not activity metrics.</p>
+      <div class="section-eyebrow">Engagement Stages</div>
+      <h2 class="section-title">Launch the foundation. <em>Lead the function.</em></h2>
 
-      <div class="programs-grid">
-
-        <div class="program-card">
-          <div class="program-num">01</div>
-          <div class="program-tag">Enablement</div>
-          <div class="program-name">AWS Immersion Days</div>
-          <p class="program-desc">We design and facilitate AWS Immersion Days that create pipeline, deepen customer relationships, and earn co-sell credits with your field team. From agenda to execution: we handle the logistics, the AWS coordination, and the follow-up playbook.</p>
-          <ul class="program-includes">
-            <li>Event design &amp; agenda development</li>
-            <li>AWS co-sponsorship coordination</li>
-            <li>Customer and prospect invitation strategy</li>
-            <li>Post-event follow-up and ACE submission</li>
-          </ul>
-        </div>
-
-        <div class="program-card">
-          <div class="program-num">02</div>
-          <div class="program-tag">Campaigns</div>
-          <div class="program-name">Co-Branded Campaign Development</div>
-          <p class="program-desc">We build co-branded demand generation campaigns with AWS alignment: outbound sequences, event plays, and digital campaigns that carry the AWS halo and convert. Designed for joint promotion with your AWS field team and built for repeatability.</p>
-          <ul class="program-includes">
-            <li>Campaign design &amp; messaging</li>
-            <li>Outbound sequence development</li>
-            <li>AWS co-promotion coordination</li>
-            <li>Performance tracking &amp; optimization</li>
-          </ul>
-        </div>
-
-        <div class="program-card">
-          <div class="program-num">03</div>
-          <div class="program-tag">Field</div>
-          <div class="program-name">Field Alignment &amp; Rep Introduction</div>
-          <p class="program-desc">We facilitate introductions to relevant AWS field reps, PSMs, and PDMs, and build the alignment that keeps you top of mind when co-sell opportunities arise. Proactive, structured, and tracked.</p>
-          <ul class="program-includes">
-            <li>AWS rep introduction facilitation</li>
-            <li>Territory alignment mapping</li>
-            <li>Co-sell opportunity staging</li>
-            <li>Ongoing field cadence management</li>
-          </ul>
-        </div>
-
-        <div class="program-card">
-          <div class="program-num">04</div>
-          <div class="program-tag">Events</div>
-          <div class="program-name">re:Invent &amp; AWS Summit Strategy</div>
-          <p class="program-desc">We build your event strategy for re:Invent, AWS Summits, and regional field events: meeting plans, sponsorship optimization, booth strategy, and follow-up playbooks that convert attendance into pipeline.</p>
-          <ul class="program-includes">
-            <li>Pre-event meeting scheduling strategy</li>
-            <li>Sponsorship &amp; presence optimization</li>
-            <li>AWS session &amp; networking prioritization</li>
-            <li>Post-event follow-up playbook</li>
-          </ul>
-        </div>
-
-        <div class="program-card wide">
-          <div>
-            <div class="program-num">05</div>
-            <div class="program-tag">Marketplace</div>
-            <div class="program-name">Marketplace Private Offer Campaigns</div>
-            <p class="program-desc">We design and execute Marketplace private offer campaigns: identifying co-sell opportunities where Marketplace transacting reduces procurement friction, structuring the offers, and aligning with AWS field teams to drive transactions.</p>
-            <ul class="program-includes">
-              <li>Deal identification &amp; qualification for Marketplace</li>
-              <li>Private offer structure and pricing strategy</li>
-              <li>AWS deal room management</li>
-              <li>CPPO channel partner onboarding</li>
-            </ul>
+      <div class="owns-layout">
+        <div class="owns-left">
+          <p class="section-body">One service, two stages. Start where your partnerships function is today. Move up when ownership and complexity require it.</p>
+          <div class="scope-block">
+            <div class="scope-label">Engagement Model</div>
+            <div class="scope-val">Custom Scope</div>
+            <p class="scope-note">Priced by hours per week and program complexity. Embedded ownership. Practical, commercially aware, and concise. Focus on what changed, why it matters, and what should happen next.</p>
           </div>
-          <div>
-            <div class="program-num">06</div>
-            <div class="program-tag">Storytelling</div>
-            <div class="program-name">Joint Customer Success Stories</div>
-            <p class="program-desc">We develop joint customer success stories with AWS that get used in co-sell conversations, partner portals, and field enablement. A strong joint success story is one of the highest-leverage assets in a co-sell motion.</p>
-            <ul class="program-includes">
-              <li>Customer interview &amp; story development</li>
-              <li>AWS co-attribution and review process</li>
-              <li>Field-ready format (PDF, slide, web)</li>
-              <li>Partner portal submission support</li>
-            </ul>
-          </div>
+          <a class="btn btn-accent" href="https://calendly.com/grnmrk/30-min-consultation" target="_blank" rel="noopener noreferrer" style="margin-top:20px; display:inline-flex;">
+            Discuss Your Situation <span class="btn-arrow">&#8594;</span>
+          </a>
         </div>
 
+        <ul class="owns-list">
+          <li class="owns-item">
+            <div class="owns-header">
+              <div class="owns-name">Launch</div>
+              <span class="owns-type">Early-stage foundation</span>
+            </div>
+            <p class="owns-desc">For teams building a partnerships function for the first time, or restarting one that never settled. We set priorities, ownership, basic workflows, and a cadence so partner work stops living in inboxes and hallway conversations.</p>
+          </li>
+          <li class="owns-item">
+            <div class="owns-header">
+              <div class="owns-name">Lead</div>
+              <span class="owns-type">VP-level ownership</span>
+            </div>
+            <p class="owns-desc">For companies where partnerships need senior ownership without a full-time hire. We own strategy, cross-functional coordination, partner relationships, decision support, and progress reporting the way a VP of Partnerships would.</p>
+          </li>
+        </ul>
       </div>
     </div>
   </section>
 
   <!-- ============================================================
-       RESULTS STRIP
+       WHAT WE DO
   ============================================================ -->
-  <div class="results-strip">
+  <section class="vs" id="what-we-do">
     <div class="container">
-      <div class="results-grid">
-        <div class="result-stat">
-          <div class="result-num">$1.4M</div>
-          <div class="result-label">Co-sell pipeline created for one client in 90 days</div>
+      <div class="section-eyebrow">Scope</div>
+      <h2 class="section-title">What fractional leadership <em>covers.</em></h2>
+      <p class="section-body" style="margin-bottom:32px;">Consulting work that makes the partnerships function usable across the company. Specialist cloud modules sit under this work when needed.</p>
+
+      <div class="vs-grid">
+        <div class="vs-card">
+          <div class="vs-card-label">Core Work</div>
+          <div class="vs-card-name">Day to day</div>
+          <ul class="vs-list">
+            <li class="pro">Program strategy and design: operating model, priorities, ownership, workflows, metrics</li>
+            <li class="pro">Relationship and opportunity context for partner work</li>
+            <li class="pro">Execution support: briefs, agendas, account plans, QBRs, follow-ups, enablement, updates</li>
+            <li class="pro">Workflow guidance: intake, qualification, onboarding, deal registration, co-sell, escalations, renewals</li>
+          </ul>
         </div>
-        <div class="result-stat">
-          <div class="result-num">$210K</div>
-          <div class="result-label">First Marketplace private offer closed in 6 weeks</div>
-        </div>
-        <div class="result-stat">
-          <div class="result-num">11</div>
-          <div class="result-label">AWS-sourced opportunities in 90 days for one client</div>
-        </div>
-        <div class="result-stat">
-          <div class="result-num">3</div>
-          <div class="result-label">CPPO channel partners onboarded and transacting</div>
+        <div class="vs-card">
+          <div class="vs-card-label">Leadership Layer</div>
+          <div class="vs-card-name">How it runs</div>
+          <ul class="vs-list">
+            <li class="pro">Coordination: objectives to workstreams to owners to dependencies to decisions</li>
+            <li class="pro">Decision support when tradeoffs block progress</li>
+            <li class="pro">Progress and accountability across the function</li>
+            <li class="pro">Shared knowledge quality so the company stays aligned</li>
+          </ul>
         </div>
       </div>
+
+      <div class="when-to-hire">
+        <div class="when-to-hire-label">Specialist modules</div>
+        <p>Cloud and hyperscaler work (marketplace, funding programs, technical validation) is available as specialist depth under partnership leadership. It is not the category. See Partner Revenue Programs, Cloud Marketplace, and Technical Validation on the services overview.</p>
+      </div>
     </div>
-  </div>
+  </section>
 
   <!-- ============================================================
-       HOW WE START
+       HOW WE WORK
   ============================================================ -->
-  <section class="start" id="how-we-start">
+  <section class="owns" id="how-we-work" style="border-top:1px solid var(--line);">
     <div class="container">
-      <div class="section-eyebrow">How It Works</div>
-      <h2 class="section-title">Every program starts <em>with a pipeline goal.</em></h2>
-
-      <div class="start-layout">
-
-        <div>
-          <p class="section-body" style="margin-bottom:32px;">We work backward from a specific outcome and build the program that gets there.</p>
-
-          <ul class="steps-list">
-
-            <li class="step-item">
-              <div class="step-num">01</div>
-              <div>
-                <div class="step-name">Free Scoping Call</div>
-                <p class="step-desc">We assess your current AWS relationship, understand where pipeline is stalling, and identify which revenue program fits your situation.</p>
-              </div>
-            </li>
-
-            <li class="step-item">
-              <div class="step-num">02</div>
-              <div>
-                <div class="step-name">Program Design</div>
-                <p class="step-desc">We define the program, the pipeline target, the AWS coordination required, and the timeline. Every program has a measurable goal before we start building it.</p>
-              </div>
-            </li>
-
-            <li class="step-item">
-              <div class="step-num">03</div>
-              <div>
-                <div class="step-name">Execution</div>
-                <p class="step-desc">We run the program: AWS coordination, logistics, outreach, field alignment, or Marketplace mechanics depending on the program type. You show up where it matters; we handle the operational layer.</p>
-              </div>
-            </li>
-
-            <li class="step-item">
-              <div class="step-num">04</div>
-              <div>
-                <div class="step-name">Pipeline Review &amp; Next Steps</div>
-                <p class="step-desc">At program close we review pipeline generated, ACE submissions made, and co-sell credits earned. Most clients run a second program or layer revenue generation onto a managed services retainer.</p>
-              </div>
-            </li>
-
-          </ul>
-
-          <a class="btn btn-primary" href="https://calendly.com/grnmrk/30-min-consultation" target="_blank" rel="noopener noreferrer" style="margin-top:32px; display:inline-flex;">
-            Discuss Your Pipeline Goals <span class="btn-arrow">&#8594;</span>
-          </a>
+      <div class="section-eyebrow">How We Work</div>
+      <h2 class="section-title">Embedded. Practical. <em>Commercially aware.</em></h2>
+      <div class="owns-layout">
+        <div class="owns-left">
+          <p class="section-body">We join as owners of the partnerships function, not as a side project. Communication stays short: what changed, why it matters, what should happen next.</p>
         </div>
-
-        <div>
-          <div class="quote-block">
-            <p class="quote-text">"We had SaaS Co-sell Benefit and nothing to show for it. Grnmrk built the motion that made it real, and did it in a way our AEs could own after they left."</p>
-            <div class="quote-attr">CRO &mdash; Compliance Automation ISV</div>
-          </div>
-
-          <div class="fit-block">
-            <div class="fit-label">Right for you if</div>
-            <ul class="fit-list">
-              <li>You have SaaS Co-sell Benefit eligibility and want to build a pipeline motion around it</li>
-              <li>Your Marketplace listing exists and you are ready to drive transactions through it</li>
-              <li>You are attending re:Invent or an AWS Summit and want a strategy, not just a booth</li>
-              <li>You want your AWS field team to know who you are before your next QBR</li>
-            </ul>
-          </div>
-        </div>
-
+        <ul class="owns-list">
+          <li class="owns-item">
+            <div class="owns-header"><div class="owns-name">Clear ownership</div><span class="owns-type">Accountability</span></div>
+            <p class="owns-desc">Every partner opportunity and workstream has an owner, a next step, and a definition of done.</p>
+          </li>
+          <li class="owns-item">
+            <div class="owns-header"><div class="owns-name">Less manual coordination</div><span class="owns-type">Operating model</span></div>
+            <p class="owns-desc">Priorities, intake, and handoffs stop depending on heroic effort from one person.</p>
+          </li>
+          <li class="owns-item">
+            <div class="owns-header"><div class="owns-name">Measurable outcomes</div><span class="owns-type">Results</span></div>
+            <p class="owns-desc">Progress is tracked against business outcomes, not activity for its own sake.</p>
+          </li>
+        </ul>
       </div>
     </div>
   </section>
@@ -730,20 +612,21 @@
     <div class="container">
       <div class="cta-inner">
         <div>
-          <h2 class="cta-headline">Need a revenue motion under <em>partnership leadership?</em></h2>
-          <p class="cta-sub">30 minutes. We will review where partner revenue work sits today, identify the highest-leverage program for your situation, and tell you what we would prioritize first.</p>
+          <h2 class="cta-headline">Your partnerships function needs <em>an owner.</em></h2>
+          <p class="cta-sub">30 minutes. We assess where partnership work sits today, what ownership would change, and whether Launch or Lead is the right stage.</p>
         </div>
         <div class="cta-actions">
           <a class="btn btn-accent" href="https://calendly.com/grnmrk/30-min-consultation" target="_blank" rel="noopener noreferrer">
             Book a Free Scoping Call <span class="btn-arrow">&#8594;</span>
           </a>
-          <a class="btn btn-ghost-light" href="/company/case-studies">See Client Results</a>
+          <a class="btn btn-ghost-light" href="/services">See All Services</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============================================================
+
+<!-- ============================================================
        FOOTER
   ============================================================ -->
   <footer class="footer">

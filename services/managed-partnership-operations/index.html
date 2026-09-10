@@ -8,33 +8,37 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
-  <link rel="canonical" href="https://www.grnmrk.com/services/partner-revenue-generation">
-  <title>Partner Revenue Programs | Specialist Module | Grnmrk Group</title>
-  <meta name="description" content="Specialist partner revenue programs under partnership leadership: enablement, campaigns, field alignment, and offer motions tied to clear outcomes.">
-  <meta name="keywords" content="partner revenue specialist, partnership leadership revenue programs, partner enablement, co-sell campaigns, Immersion Days, Marketplace private offers, field alignment">
+  <link rel="canonical" href="https://www.grnmrk.com/services/managed-partnership-operations">
+  <title>Managed Partnership Operations | Partner Ops Run for You | Grnmrk Group</title>
+  <meta name="description" content="Grnmrk runs partner ops end-to-end: intake, coordination, execution support, progress tracking, and shared knowledge. Less manual coordination. Clearer next steps. Starting at $2,500/mo.">
+  <meta name="keywords" content="managed partnership operations, partner ops, partnership coordination, partnership ownership, partnership workflows, fractional partner ops">
   <meta name="robots" content="index, follow">
   <meta name="author" content="Grnmrk Group">
 
-  <meta property="og:title" content="Partner Revenue Programs | Specialist Module | Grnmrk Group">
-  <meta property="og:description" content="Specialist partner revenue programs under Fractional Partnership Leadership: enablement, campaigns, field alignment, and offer motions tied to clear outcomes.">
-  <meta property="og:url" content="https://www.grnmrk.com/services/partner-revenue-generation">
+  <meta property="og:title" content="Managed Partnership Operations | Grnmrk Group">
+  <meta property="og:description" content="We run partner ops so your team spends less time on coordination and more time on outcomes. Starting at $2,500/mo.">
+  <meta property="og:url" content="https://www.grnmrk.com/services/managed-partnership-operations">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Grnmrk Group">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Partner Revenue Programs | Specialist Module | Grnmrk Group">
-  <meta name="twitter:description" content="Specialist partner revenue programs under partnership leadership. Outcome-tied campaigns, enablement, and offer motions.">
+  <meta name="twitter:title" content="Managed Partnership Operations | Grnmrk Group">
+  <meta name="twitter:description" content="Partner ops run for you: coordination, execution support, progress, and accountability.">
 
   <!-- Structured Data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": "Partner Revenue Programs (Specialist Module)",
-    "description": "Specialist partner revenue module under Fractional Partnership Leadership. Design and execution of enablement, campaigns, field alignment, and offer motions tied to pipeline outcomes. Deep cloud-program experience when clients need it.",
+    "name": "Managed Partnership Operations",
+    "description": "End-to-end management of partnership operations including intake, coordination, execution support, progress tracking, and shared knowledge quality.",
     "provider": { "@type": "Organization", "name": "Grnmrk Group", "url": "https://www.grnmrk.com" },
-    "url": "https://www.grnmrk.com/services/partner-revenue-generation",
-    "serviceType": "Partnership Specialist Module",
-    "areaServed": { "@type": "Country", "name": "US" }
+    "url": "https://www.grnmrk.com/services/managed-partnership-operations",
+    "serviceType": "Managed Partnership Operations",
+    "areaServed": { "@type": "Country", "name": "US" },
+    "offers": {
+      "@type": "Offer",
+      "priceSpecification": { "@type": "UnitPriceSpecification", "price": "2500", "priceCurrency": "USD", "unitText": "month" }
+    }
   }
   </script>
 
@@ -246,108 +250,127 @@
     .section-body { font-size: 16px; color: var(--slate); line-height: 1.68; }
 
     /* ==========================================================
-       PROGRAMS
+       PRICING TIERS
     ========================================================== */
-    .programs {
+    .tiers { padding: 96px 0; border-top: 1px solid var(--line); }
+    .tier-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 48px; }
+
+    .tier-card {
+      background: var(--bg-soft); border: 1px solid var(--line);
+      border-radius: 16px; padding: 36px 32px;
+      position: relative; overflow: hidden;
+      display: flex; flex-direction: column;
+      transition: all 0.3s ease;
+    }
+    .tier-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0;
+      height: 3px; background: var(--line);
+    }
+    .tier-card:hover { border-color: var(--ink); transform: translateY(-3px); box-shadow: 0 12px 36px rgba(17,17,17,0.08); }
+    .tier-card.featured { background: var(--ink); border-color: var(--ink); }
+    .tier-card.featured::before { background: var(--accent); }
+    .tier-card.featured:hover { background: #1a1a1a; }
+
+    .tier-badge {
+      display: inline-flex; align-items: center;
+      padding: 4px 12px; background: var(--accent-dim);
+      border-radius: 999px;
+      font-size: 11px; font-weight: 700; color: var(--accent-hover);
+      margin-bottom: 18px; align-self: flex-start;
+    }
+    .tier-card.featured .tier-badge { background: rgba(61,220,132,0.15); color: var(--accent); }
+
+    .tier-name { font-size: 22px; font-weight: 600; letter-spacing: -0.02em; }
+    .tier-card.featured .tier-name { color: var(--bg); }
+    .tier-starting { font-size: 11.5px; color: var(--slate); font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; margin-top: 14px; }
+    .tier-card.featured .tier-starting { color: rgba(240,237,230,0.35); }
+    .tier-price {
+      font-size: 48px; font-weight: 600; letter-spacing: -0.04em;
+      color: var(--accent-hover); line-height: 1; margin: 4px 0 2px;
+    }
+    .tier-card.featured .tier-price { color: var(--accent); }
+    .tier-unit { font-size: 16px; font-weight: 400; color: var(--slate); }
+    .tier-card.featured .tier-unit { color: rgba(240,237,230,0.35); }
+    .tier-desc {
+      font-size: 14px; color: var(--slate); line-height: 1.65;
+      margin: 16px 0 20px; padding-top: 16px; border-top: 1px solid var(--line);
+    }
+    .tier-card.featured .tier-desc { color: rgba(240,237,230,0.6); border-color: rgba(255,255,255,0.08); }
+    .tier-features { list-style: none; flex: 1; display: flex; flex-direction: column; gap: 2px; margin-bottom: 24px; }
+    .tier-features li {
+      font-size: 13.5px; color: var(--slate);
+      padding: 10px 0; border-bottom: 1px solid var(--line);
+      display: flex; gap: 10px; align-items: flex-start; line-height: 1.5;
+    }
+    .tier-card.featured .tier-features li { color: rgba(240,237,230,0.7); border-color: rgba(255,255,255,0.06); }
+    .tier-features li:last-child { border-bottom: none; }
+    .tier-features li::before { content: '✓'; color: var(--accent-hover); font-size: 12px; flex-shrink: 0; margin-top: 1px; font-weight: 700; }
+    .tier-card.featured .tier-features li::before { color: var(--accent); }
+
+    /* ==========================================================
+       WHAT'S INCLUDED
+    ========================================================== */
+    .included {
       padding: 96px 0;
       background: var(--bg-soft);
       border-top: 1px solid var(--line);
       border-bottom: 1px solid var(--line);
     }
-    .programs-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 48px; }
-
-    .program-card {
+    .included-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 48px; }
+    .included-card {
       background: var(--bg); border: 1px solid var(--line);
-      border-radius: 16px; padding: 32px 28px;
+      border-radius: 16px; padding: 28px 24px;
       transition: all 0.3s ease; position: relative; overflow: hidden;
     }
-    .program-card::before {
+    .included-card::before {
       content: ''; position: absolute; top: 0; left: 0; right: 0;
       height: 3px; background: var(--accent);
       transform: scaleX(0); transform-origin: left; transition: transform 0.35s ease;
     }
-    .program-card:hover { border-color: var(--ink); transform: translateY(-3px); box-shadow: 0 12px 36px rgba(17,17,17,0.08); }
-    .program-card:hover::before { transform: scaleX(1); }
-
-    .program-card.wide {
-      grid-column: span 2;
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 48px; align-items: start;
+    .included-card:hover { border-color: var(--ink); transform: translateY(-3px); box-shadow: 0 10px 28px rgba(17,17,17,0.07); }
+    .included-card:hover::before { transform: scaleX(1); }
+    .included-label {
+      display: inline-flex; align-items: center;
+      padding: 3px 10px; background: var(--accent-dim);
+      border-radius: 999px;
+      font-size: 11px; font-weight: 700; color: var(--accent-hover);
+      margin-bottom: 12px;
     }
-    .program-card.wide:hover { transform: translateY(-3px); }
-
-    .program-num { font-family: 'Instrument Serif', serif; font-size: 13px; color: var(--accent-hover); font-style: italic; margin-bottom: 8px; }
-    .program-tag { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-hover); margin-bottom: 8px; }
-    .program-name { font-size: 20px; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 12px; line-height: 1.2; }
-    .program-desc { font-size: 14.5px; color: var(--slate); line-height: 1.65; margin-bottom: 16px; }
-    .program-includes { list-style: none; display: flex; flex-direction: column; gap: 2px; }
-    .program-includes li {
-      font-size: 13px; color: var(--slate);
-      padding: 8px 0; border-bottom: 1px solid var(--line);
-      display: flex; gap: 10px; line-height: 1.5;
-    }
-    .program-includes li:last-child { border-bottom: none; }
-    .program-includes li::before { content: '✓'; color: var(--accent-hover); font-size: 11px; flex-shrink: 0; margin-top: 2px; font-weight: 700; }
+    .included-title { font-size: 17px; font-weight: 600; letter-spacing: -0.01em; margin-bottom: 10px; line-height: 1.2; }
+    .included-tag { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--slate); margin-bottom: 10px; }
+    .included-desc { font-size: 14px; color: var(--slate); line-height: 1.65; }
 
     /* ==========================================================
-       RESULTS STRIP
+       WHO IT'S FOR
     ========================================================== */
-    .results-strip { background: var(--ink); padding: 56px 0; }
-    .results-grid {
-      display: grid; grid-template-columns: repeat(4, 1fr);
-      border-top: 1px solid rgba(255,255,255,0.07);
-      border-bottom: 1px solid rgba(255,255,255,0.07);
-    }
-    .result-stat {
-      padding: 36px 24px; text-align: center;
-      border-right: 1px solid rgba(255,255,255,0.07);
-    }
-    .result-stat:last-child { border-right: none; }
-    .result-num {
-      font-size: clamp(36px, 4vw, 56px); font-weight: 600;
-      letter-spacing: -0.04em; color: var(--accent); line-height: 1; margin-bottom: 10px;
-    }
-    .result-label { font-size: 12.5px; color: rgba(240,237,230,0.45); letter-spacing: 0.04em; line-height: 1.5; font-weight: 500; text-transform: uppercase; }
+    .for-section { padding: 96px 0; border-top: 1px solid var(--line); }
+    .for-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; margin-top: 48px; }
 
-    /* ==========================================================
-       HOW WE START
-    ========================================================== */
-    .start { padding: 96px 0; border-top: 1px solid var(--line); }
-    .start-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; margin-top: 48px; }
-
-    .steps-list { list-style: none; display: flex; flex-direction: column; }
-    .step-item {
-      border-bottom: 1px solid var(--line);
-      padding: 28px 0;
-      display: grid; grid-template-columns: 48px 1fr;
-      gap: 20px; align-items: start;
+    .for-list { list-style: none; display: flex; flex-direction: column; gap: 2px; margin-top: 8px; }
+    .for-list li {
+      font-size: 14.5px; color: var(--slate);
+      padding: 13px 0; border-bottom: 1px solid var(--line);
+      display: flex; gap: 12px; align-items: flex-start; line-height: 1.55;
     }
-    .step-item:first-child { border-top: 1px solid var(--line); }
-    .step-item:last-child { border-bottom: none; padding-bottom: 0; }
-    .step-num {
-      font-family: 'Instrument Serif', serif;
-      font-size: 13px; color: var(--accent-hover); font-style: italic; margin-top: 2px;
+    .for-list li:last-child { border-bottom: none; }
+    .for-list li::before { content: '→'; color: var(--accent-hover); font-size: 13px; flex-shrink: 0; margin-top: 1px; font-weight: 700; }
+
+    .proof-block { background: var(--ink); border-radius: 16px; padding: 32px; }
+    .proof-label { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; }
+    .proof-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+    .proof-stat { background: rgba(255,255,255,0.04); border-radius: 8px; padding: 20px; }
+    .proof-num {
+      font-size: 36px; font-weight: 600; letter-spacing: -0.04em;
+      color: var(--accent); line-height: 1; margin-bottom: 6px;
     }
-    .step-name { font-size: 18px; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 8px; line-height: 1.2; }
-    .step-desc { font-size: 14.5px; color: var(--slate); line-height: 1.65; }
+    .proof-text { font-size: 12px; color: rgba(240,237,230,0.45); letter-spacing: 0.04em; line-height: 1.5; font-weight: 500; text-transform: uppercase; }
 
-    .quote-block { background: var(--ink); border-radius: 14px; padding: 32px; }
-    .quote-text { font-size: 15.5px; font-style: italic; color: rgba(240,237,230,0.85); line-height: 1.68; margin-bottom: 14px; }
-    .quote-attr { font-size: 12.5px; font-weight: 600; color: rgba(240,237,230,0.4); letter-spacing: 0.06em; text-transform: uppercase; }
-
-    .fit-block {
+    .testimonial-block {
       background: var(--bg-soft); border: 1px solid var(--line);
       border-radius: 14px; padding: 28px; margin-top: 12px;
     }
-    .fit-label { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-hover); margin-bottom: 14px; }
-    .fit-list { list-style: none; display: flex; flex-direction: column; gap: 2px; }
-    .fit-list li {
-      font-size: 14px; color: var(--slate);
-      padding: 11px 0; border-bottom: 1px solid var(--line);
-      display: flex; gap: 10px; align-items: flex-start; line-height: 1.55;
-    }
-    .fit-list li:last-child { border-bottom: none; }
-    .fit-list li::before { content: '→'; color: var(--accent-hover); font-size: 12px; flex-shrink: 0; margin-top: 1px; font-weight: 700; }
+    .testimonial-quote { font-size: 15px; font-style: italic; color: var(--ink-soft); line-height: 1.68; margin-bottom: 14px; }
+    .testimonial-attr { font-size: 12.5px; font-weight: 600; color: var(--slate); letter-spacing: 0.04em; text-transform: uppercase; }
 
     /* ==========================================================
        CTA
@@ -395,20 +418,16 @@
     ========================================================== */
     @media (max-width: 1024px) {
       .page-hero-grid { grid-template-columns: 1fr; gap: 40px; }
-      .programs-grid { grid-template-columns: 1fr; }
-      .program-card.wide { grid-column: span 1; grid-template-columns: 1fr; gap: 32px; }
-      .results-grid { grid-template-columns: repeat(2, 1fr); }
-      .result-stat { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.07); }
-      .result-stat:nth-child(odd) { border-right: 1px solid rgba(255,255,255,0.07); }
-      .start-layout { grid-template-columns: 1fr; gap: 40px; }
+      .tier-grid { grid-template-columns: 1fr; }
+      .included-grid { grid-template-columns: repeat(2, 1fr); }
+      .for-layout { grid-template-columns: 1fr; gap: 40px; }
       .cta-inner { grid-template-columns: 1fr; gap: 32px; }
       .footer-top { grid-template-columns: 1fr 1fr; gap: 36px; }
     }
     @media (max-width: 700px) {
       .nav-links { display: none; }
       .nav-email { display: none; }
-      .results-grid { grid-template-columns: 1fr; }
-      .result-stat:nth-child(odd) { border-right: none; }
+      .included-grid { grid-template-columns: 1fr; }
       .footer-top { grid-template-columns: 1fr; }
       .container { padding: 0 20px; }
     }
@@ -458,8 +477,7 @@
             <a href="/resources/aws-marketplace-gtm-readiness-guide">Marketplace GTM Guide</a>
             <a href="/resources/aws-co-sell-playbook">Co-Sell Playbook</a>
             <a href="/resources/crm-apn-integration-guide">CRM to APN Integration Guide</a>
-          </div>
-        </div>
+          </div></div>
         </li>
         <li><a href="/company/contact">Contact</a></li>
       </ul>
@@ -473,9 +491,6 @@
     </div>
   </nav>
 
-  <!-- ============================================================
-       BREADCRUMB
-  ============================================================ -->
   <div class="breadcrumb">
     <div class="container">
       <div class="breadcrumb-inner">
@@ -483,267 +498,165 @@
         <span class="breadcrumb-sep">/</span>
         <a href="/services">Services</a>
         <span class="breadcrumb-sep">/</span>
-        <span>Partner Revenue Generation</span>
+        <span>Managed Partnership Operations</span>
       </div>
     </div>
   </div>
 
-  <!-- ============================================================
-       PAGE HERO
-  ============================================================ -->
   <section class="page-hero">
     <div class="container">
       <div class="page-hero-grid">
-
         <div>
-          <div class="section-eyebrow">Specialist Module</div>
-          <h1>Partner revenue programs under <em>partnership leadership.</em></h1>
+          <div class="section-eyebrow">Managed Partnership Operations</div>
+          <h1>Partner ops, <em>run for you.</em></h1>
         </div>
-
         <div class="hero-intro">
-          <p>Specialist depth for partner revenue motions when your partnerships function needs campaign, enablement, or offer execution tied to a clear outcome. This sits under Fractional Partnership Leadership. It is not the primary category.</p>
-          <p>Every program starts with a pipeline goal. Not a deliverable count.</p>
-          <span class="hero-note">Project-based or add-on to managed services &middot; Starts with a free scoping call</span>
+          <p>We run the operational layer of your partnerships function: intake, coordination, execution support, progress tracking, and shared knowledge quality.</p>
+          <p><strong>Less manual coordination. Clearer priorities. A repeatable path from partner opportunity to outcome.</strong></p>
+          <span class="hero-note">Starting at $2,500/mo &middot; Month-to-month &middot; Scope matched to program complexity</span>
         </div>
-
       </div>
     </div>
   </section>
 
-  <!-- Cap band -->
   <div class="cap-band">
     <div class="container">
       <div class="cap-band-inner">
-        <span class="cap-band-label">Example programs</span>
+        <span class="cap-band-label">What We Run</span>
         <div class="cap-band-divider"></div>
         <div class="cap-band-items">
-          <span>AWS Immersion Days</span>
-          <span>Co-Branded Campaigns</span>
-          <span>Field Alignment</span>
-          <span>re:Invent Strategy</span>
-          <span>Private Offer Campaigns</span>
-          <span>Joint Success Stories</span>
+          <span>Intake &amp; Qualification</span>
+          <span>Coordination</span>
+          <span>Execution Support</span>
+          <span>Progress Tracking</span>
+          <span>Knowledge Quality</span>
+          <span>Reporting</span>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- ============================================================
-       PROGRAMS
-  ============================================================ -->
-  <section class="programs" id="programs">
+  <section class="tiers" id="pricing">
     <div class="container">
-      <div class="section-eyebrow">What We Execute</div>
-      <h2 class="section-title">Six revenue <em>programs.</em></h2>
-      <p class="section-body">Each program is designed around a specific pipeline outcome. We run programs that produce results, not activity metrics.</p>
+      <div class="section-eyebrow">Pricing</div>
+      <h2 class="section-title">Three tiers. <em>Clear ownership.</em></h2>
+      <p class="section-body">Every tier is month-to-month. Start where you are and scale as the partnerships function grows.</p>
 
-      <div class="programs-grid">
-
-        <div class="program-card">
-          <div class="program-num">01</div>
-          <div class="program-tag">Enablement</div>
-          <div class="program-name">AWS Immersion Days</div>
-          <p class="program-desc">We design and facilitate AWS Immersion Days that create pipeline, deepen customer relationships, and earn co-sell credits with your field team. From agenda to execution: we handle the logistics, the AWS coordination, and the follow-up playbook.</p>
-          <ul class="program-includes">
-            <li>Event design &amp; agenda development</li>
-            <li>AWS co-sponsorship coordination</li>
-            <li>Customer and prospect invitation strategy</li>
-            <li>Post-event follow-up and ACE submission</li>
+      <div class="tier-grid">
+        <div class="tier-card">
+          <div class="tier-badge">Foundation</div>
+          <div class="tier-name">Keep It Moving</div>
+          <div class="tier-starting">Starting at</div>
+          <div class="tier-price">$2,500<span class="tier-unit">/mo</span></div>
+          <p class="tier-desc">For early or lean teams. Get partner work current and keep next steps visible.</p>
+          <ul class="tier-features">
+            <li>Intake hygiene and opportunity tracking</li>
+            <li>Owner and next-step discipline</li>
+            <li>Basic coordination and follow-ups</li>
+            <li>Monthly progress summary</li>
           </ul>
-        </div>
-
-        <div class="program-card">
-          <div class="program-num">02</div>
-          <div class="program-tag">Campaigns</div>
-          <div class="program-name">Co-Branded Campaign Development</div>
-          <p class="program-desc">We build co-branded demand generation campaigns with AWS alignment: outbound sequences, event plays, and digital campaigns that carry the AWS halo and convert. Designed for joint promotion with your AWS field team and built for repeatability.</p>
-          <ul class="program-includes">
-            <li>Campaign design &amp; messaging</li>
-            <li>Outbound sequence development</li>
-            <li>AWS co-promotion coordination</li>
-            <li>Performance tracking &amp; optimization</li>
-          </ul>
-        </div>
-
-        <div class="program-card">
-          <div class="program-num">03</div>
-          <div class="program-tag">Field</div>
-          <div class="program-name">Field Alignment &amp; Rep Introduction</div>
-          <p class="program-desc">We facilitate introductions to relevant AWS field reps, PSMs, and PDMs, and build the alignment that keeps you top of mind when co-sell opportunities arise. Proactive, structured, and tracked.</p>
-          <ul class="program-includes">
-            <li>AWS rep introduction facilitation</li>
-            <li>Territory alignment mapping</li>
-            <li>Co-sell opportunity staging</li>
-            <li>Ongoing field cadence management</li>
-          </ul>
-        </div>
-
-        <div class="program-card">
-          <div class="program-num">04</div>
-          <div class="program-tag">Events</div>
-          <div class="program-name">re:Invent &amp; AWS Summit Strategy</div>
-          <p class="program-desc">We build your event strategy for re:Invent, AWS Summits, and regional field events: meeting plans, sponsorship optimization, booth strategy, and follow-up playbooks that convert attendance into pipeline.</p>
-          <ul class="program-includes">
-            <li>Pre-event meeting scheduling strategy</li>
-            <li>Sponsorship &amp; presence optimization</li>
-            <li>AWS session &amp; networking prioritization</li>
-            <li>Post-event follow-up playbook</li>
-          </ul>
-        </div>
-
-        <div class="program-card wide">
-          <div>
-            <div class="program-num">05</div>
-            <div class="program-tag">Marketplace</div>
-            <div class="program-name">Marketplace Private Offer Campaigns</div>
-            <p class="program-desc">We design and execute Marketplace private offer campaigns: identifying co-sell opportunities where Marketplace transacting reduces procurement friction, structuring the offers, and aligning with AWS field teams to drive transactions.</p>
-            <ul class="program-includes">
-              <li>Deal identification &amp; qualification for Marketplace</li>
-              <li>Private offer structure and pricing strategy</li>
-              <li>AWS deal room management</li>
-              <li>CPPO channel partner onboarding</li>
-            </ul>
-          </div>
-          <div>
-            <div class="program-num">06</div>
-            <div class="program-tag">Storytelling</div>
-            <div class="program-name">Joint Customer Success Stories</div>
-            <p class="program-desc">We develop joint customer success stories with AWS that get used in co-sell conversations, partner portals, and field enablement. A strong joint success story is one of the highest-leverage assets in a co-sell motion.</p>
-            <ul class="program-includes">
-              <li>Customer interview &amp; story development</li>
-              <li>AWS co-attribution and review process</li>
-              <li>Field-ready format (PDF, slide, web)</li>
-              <li>Partner portal submission support</li>
-            </ul>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       RESULTS STRIP
-  ============================================================ -->
-  <div class="results-strip">
-    <div class="container">
-      <div class="results-grid">
-        <div class="result-stat">
-          <div class="result-num">$1.4M</div>
-          <div class="result-label">Co-sell pipeline created for one client in 90 days</div>
-        </div>
-        <div class="result-stat">
-          <div class="result-num">$210K</div>
-          <div class="result-label">First Marketplace private offer closed in 6 weeks</div>
-        </div>
-        <div class="result-stat">
-          <div class="result-num">11</div>
-          <div class="result-label">AWS-sourced opportunities in 90 days for one client</div>
-        </div>
-        <div class="result-stat">
-          <div class="result-num">3</div>
-          <div class="result-label">CPPO channel partners onboarded and transacting</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ============================================================
-       HOW WE START
-  ============================================================ -->
-  <section class="start" id="how-we-start">
-    <div class="container">
-      <div class="section-eyebrow">How It Works</div>
-      <h2 class="section-title">Every program starts <em>with a pipeline goal.</em></h2>
-
-      <div class="start-layout">
-
-        <div>
-          <p class="section-body" style="margin-bottom:32px;">We work backward from a specific outcome and build the program that gets there.</p>
-
-          <ul class="steps-list">
-
-            <li class="step-item">
-              <div class="step-num">01</div>
-              <div>
-                <div class="step-name">Free Scoping Call</div>
-                <p class="step-desc">We assess your current AWS relationship, understand where pipeline is stalling, and identify which revenue program fits your situation.</p>
-              </div>
-            </li>
-
-            <li class="step-item">
-              <div class="step-num">02</div>
-              <div>
-                <div class="step-name">Program Design</div>
-                <p class="step-desc">We define the program, the pipeline target, the AWS coordination required, and the timeline. Every program has a measurable goal before we start building it.</p>
-              </div>
-            </li>
-
-            <li class="step-item">
-              <div class="step-num">03</div>
-              <div>
-                <div class="step-name">Execution</div>
-                <p class="step-desc">We run the program: AWS coordination, logistics, outreach, field alignment, or Marketplace mechanics depending on the program type. You show up where it matters; we handle the operational layer.</p>
-              </div>
-            </li>
-
-            <li class="step-item">
-              <div class="step-num">04</div>
-              <div>
-                <div class="step-name">Pipeline Review &amp; Next Steps</div>
-                <p class="step-desc">At program close we review pipeline generated, ACE submissions made, and co-sell credits earned. Most clients run a second program or layer revenue generation onto a managed services retainer.</p>
-              </div>
-            </li>
-
-          </ul>
-
-          <a class="btn btn-primary" href="https://calendly.com/grnmrk/30-min-consultation" target="_blank" rel="noopener noreferrer" style="margin-top:32px; display:inline-flex;">
-            Discuss Your Pipeline Goals <span class="btn-arrow">&#8594;</span>
+          <a class="btn btn-ghost" href="https://calendly.com/grnmrk/30-min-consultation" target="_blank" rel="noopener noreferrer" style="margin-top:auto;">
+            Get Started <span class="btn-arrow">&#8594;</span>
           </a>
         </div>
 
-        <div>
-          <div class="quote-block">
-            <p class="quote-text">"We had SaaS Co-sell Benefit and nothing to show for it. Grnmrk built the motion that made it real, and did it in a way our AEs could own after they left."</p>
-            <div class="quote-attr">CRO &mdash; Compliance Automation ISV</div>
-          </div>
-
-          <div class="fit-block">
-            <div class="fit-label">Right for you if</div>
-            <ul class="fit-list">
-              <li>You have SaaS Co-sell Benefit eligibility and want to build a pipeline motion around it</li>
-              <li>Your Marketplace listing exists and you are ready to drive transactions through it</li>
-              <li>You are attending re:Invent or an AWS Summit and want a strategy, not just a booth</li>
-              <li>You want your AWS field team to know who you are before your next QBR</li>
-            </ul>
-          </div>
+        <div class="tier-card featured">
+          <div class="tier-badge">Most Popular</div>
+          <div class="tier-name">Run the Function</div>
+          <div class="tier-starting">Starting at</div>
+          <div class="tier-price">$4,500<span class="tier-unit">/mo</span></div>
+          <p class="tier-desc">For teams that need active partner ops plus stronger coordination across sales, product, and leadership.</p>
+          <ul class="tier-features">
+            <li>Everything in Foundation</li>
+            <li>Workflow support across the partner lifecycle</li>
+            <li>Briefs, agendas, and follow-up packs</li>
+            <li>Cross-functional coordination</li>
+            <li>Priority support</li>
+          </ul>
+          <a class="btn btn-accent" href="https://calendly.com/grnmrk/30-min-consultation" target="_blank" rel="noopener noreferrer" style="margin-top:auto;">
+            Get Started <span class="btn-arrow">&#8594;</span>
+          </a>
         </div>
 
+        <div class="tier-card">
+          <div class="tier-badge">Full Ops</div>
+          <div class="tier-name">Embedded Partner Ops</div>
+          <div class="tier-starting">Starting at</div>
+          <div class="tier-price">$8,500<span class="tier-unit">/mo</span></div>
+          <p class="tier-desc">For programs that need deep operational coverage and tight coupling with fractional leadership.</p>
+          <ul class="tier-features">
+            <li>Everything in Run the Function</li>
+            <li>Account plans, QBR prep, enablement updates</li>
+            <li>Escalation and renewal workflow support</li>
+            <li>Shared knowledge maintenance</li>
+            <li>Weekly touchpoint and on-call access</li>
+          </ul>
+          <a class="btn btn-ghost" href="https://calendly.com/grnmrk/30-min-consultation" target="_blank" rel="noopener noreferrer" style="margin-top:auto;">
+            Get Started <span class="btn-arrow">&#8594;</span>
+          </a>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ============================================================
-       CTA
-  ============================================================ -->
+  <section class="included" id="what-we-run">
+    <div class="container">
+      <div class="section-eyebrow">Operations Coverage</div>
+      <h2 class="section-title">What managed partner ops <em>handles.</em></h2>
+      <div class="included-grid">
+        <div class="included-card">
+          <div class="included-label">Ongoing</div>
+          <div class="included-title">Intake &amp; Qualification</div>
+          <p class="included-desc">Keep partner opportunities entering a clear process with owners and next steps, not scattered threads.</p>
+        </div>
+        <div class="included-card">
+          <div class="included-label">Weekly</div>
+          <div class="included-title">Coordination</div>
+          <p class="included-desc">Connect objectives, workstreams, owners, dependencies, and decisions so work does not stall.</p>
+        </div>
+        <div class="included-card">
+          <div class="included-label">As Needed</div>
+          <div class="included-title">Execution Support</div>
+          <p class="included-desc">Briefs, agendas, account plans, QBR prep, follow-ups, enablement, and status updates.</p>
+        </div>
+        <div class="included-card">
+          <div class="included-label">Lifecycle</div>
+          <div class="included-title">Workflow Guidance</div>
+          <p class="included-desc">Support for onboarding, deal registration, co-sell, escalations, and renewals as your motion requires.</p>
+        </div>
+        <div class="included-card">
+          <div class="included-label">Monthly</div>
+          <div class="included-title">Progress &amp; Accountability</div>
+          <p class="included-desc">Reporting that shows what changed, what is blocked, and what should happen next.</p>
+        </div>
+        <div class="included-card">
+          <div class="included-label">Ongoing</div>
+          <div class="included-title">Shared Knowledge Quality</div>
+          <p class="included-desc">Keep partner context current so the company can act without rediscovering the same facts.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="cta-section">
     <div class="container">
       <div class="cta-inner">
         <div>
-          <h2 class="cta-headline">Need a revenue motion under <em>partnership leadership?</em></h2>
-          <p class="cta-sub">30 minutes. We will review where partner revenue work sits today, identify the highest-leverage program for your situation, and tell you what we would prioritize first.</p>
+          <h2 class="cta-headline">Stop carrying partner ops <em>alone.</em></h2>
+          <p class="cta-sub">30 minutes. We review how partnership work moves today and recommend the right ops tier.</p>
         </div>
         <div class="cta-actions">
           <a class="btn btn-accent" href="https://calendly.com/grnmrk/30-min-consultation" target="_blank" rel="noopener noreferrer">
-            Book a Free Scoping Call <span class="btn-arrow">&#8594;</span>
+            Book a Free Call <span class="btn-arrow">&#8594;</span>
           </a>
-          <a class="btn btn-ghost-light" href="/company/case-studies">See Client Results</a>
+          <a class="btn btn-ghost-light" href="/pricing">See Pricing</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============================================================
+
+<!-- ============================================================
        FOOTER
   ============================================================ -->
   <footer class="footer">

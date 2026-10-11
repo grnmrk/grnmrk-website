@@ -311,6 +311,18 @@
       font-size: 16.5px; color: var(--slate);
       line-height: 1.65; margin-bottom: 20px;
     }
+    .approach-media { min-width: 0; }
+    .approach-video {
+      display: block;
+      width: 100%;
+      max-width: 420px;
+      aspect-ratio: 1080 / 1350;
+      height: auto;
+      border-radius: 16px;
+      background: #111;
+      border: 1px solid var(--line);
+      object-fit: cover;
+    }
 
     /* ==========================================================
        SERVICES
@@ -803,7 +815,12 @@
   <section class="mission">
     <div class="container">
       <div class="mission-grid">
-        <div class="section-eyebrow">Our Approach</div>
+        <div class="approach-media">
+          <div class="section-eyebrow">Our Approach</div>
+          <video class="approach-video" controls playsinline preload="metadata" poster="/video/grnmrk-linkedin-poster.jpg" aria-label="Grnmrk partnership video: from the plan to the daily work">
+            <source src="/video/grnmrk-linkedin.mp4" type="video/mp4">
+          </video>
+        </div>
         <div>
           <h2>Design the AI partnership strategy. <em>Then run it.</em></h2>
           <p>An AI go-to-market depends on partners: platforms, model and data partners, integrators, ISVs, and hyperscalers. The strategy is which of those matter, how joint selling works, and who owns the motion.</p>
